@@ -1,0 +1,2763 @@
+{
+  "job_title": "Graduate Software Engineer",
+  "question_set": {
+    "model": "supplied",
+    "job_title": "Graduate Software Engineer",
+    "questions": [
+      {
+        "index": 1,
+        "question": "Can you describe a project or assignment where you designed and built a data pipeline using Python and SQL? Please include details about the data sources, transformations, and how you ensured data quality.",
+        "competency": ""
+      },
+      {
+        "index": 2,
+        "question": "Can you give me an example of a project where you applied your problem-solving skills to design and build a data pipeline?",
+        "competency": ""
+      },
+      {
+        "index": 3,
+        "question": "Tell me about a time when you had to explain a technical concept to a non-technical audience. How did you ensure your explanation was clear and easy to understand?",
+        "competency": ""
+      },
+      {
+        "index": 4,
+        "question": "Can you give me an example of a technical concept you had to explain to a non-technical audience, and how you made sure your explanation was clear and easy to understand?",
+        "competency": ""
+      }
+    ],
+    "schema_valid": true,
+    "repair_attempts": 0
+  },
+  "answers": [
+    {
+      "index": 1,
+      "question": "Can you describe a project or assignment where you designed and built a data pipeline using Python and SQL? Please include details about the data sources, transformations, and how you ensured data quality.",
+      "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_01.wav",
+      "video_file": "",
+      "speech": {
+        "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_01.wav",
+        "audio_duration_seconds": 9.398,
+        "transcription": {
+          "text": "So um I think that uh my biggest strength is you know my ability to learn. Basically I am um really good at uh solving problems you know under pressure.",
+          "language": "en",
+          "segments": [
+            {
+              "id": 0,
+              "start": 0.0,
+              "end": 4.28,
+              "text": "So um I think that uh my biggest strength is you know my ability to learn."
+            },
+            {
+              "id": 1,
+              "start": 4.78,
+              "end": 8.58,
+              "text": "Basically I am um really good at uh solving problems you know under pressure."
+            }
+          ],
+          "word_timestamps": [
+            {
+              "word": "So",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.7808050513267517
+            },
+            {
+              "word": "um",
+              "start": 0.4,
+              "end": 0.52,
+              "probability": 0.499118447303772
+            },
+            {
+              "word": "I",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.8706580400466919
+            },
+            {
+              "word": "think",
+              "start": 0.7,
+              "end": 0.92,
+              "probability": 0.9978911280632019
+            },
+            {
+              "word": "that",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.9915948510169983
+            },
+            {
+              "word": "uh",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.31917914748191833
+            },
+            {
+              "word": "my",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.9788827300071716
+            },
+            {
+              "word": "biggest",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.9955729246139526
+            },
+            {
+              "word": "strength",
+              "start": 1.78,
+              "end": 2.2,
+              "probability": 0.9917842149734497
+            },
+            {
+              "word": "is",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.9959312081336975
+            },
+            {
+              "word": "you",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.9625129103660583
+            },
+            {
+              "word": "know",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.9982072114944458
+            },
+            {
+              "word": "my",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.9809804558753967
+            },
+            {
+              "word": "ability",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.9966028928756714
+            },
+            {
+              "word": "to",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.9991693496704102
+            },
+            {
+              "word": "learn.",
+              "start": 3.62,
+              "end": 4.28,
+              "probability": 0.9975138902664185
+            },
+            {
+              "word": "Basically",
+              "start": 4.78,
+              "end": 5.26,
+              "probability": 0.9051952958106995
+            },
+            {
+              "word": "I",
+              "start": 5.26,
+              "end": 5.56,
+              "probability": 0.9437628984451294
+            },
+            {
+              "word": "am",
+              "start": 5.56,
+              "end": 5.7,
+              "probability": 0.9752920866012573
+            },
+            {
+              "word": "um",
+              "start": 5.7,
+              "end": 5.86,
+              "probability": 0.8803017735481262
+            },
+            {
+              "word": "really",
+              "start": 5.86,
+              "end": 6.18,
+              "probability": 0.9783451557159424
+            },
+            {
+              "word": "good",
+              "start": 6.18,
+              "end": 6.38,
+              "probability": 0.9981556534767151
+            },
+            {
+              "word": "at",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.9978911280632019
+            },
+            {
+              "word": "uh",
+              "start": 6.56,
+              "end": 6.72,
+              "probability": 0.6778782606124878
+            },
+            {
+              "word": "solving",
+              "start": 6.72,
+              "end": 7.06,
+              "probability": 0.983749508857727
+            },
+            {
+              "word": "problems",
+              "start": 7.06,
+              "end": 7.56,
+              "probability": 0.9928902387619019
+            },
+            {
+              "word": "you",
+              "start": 7.56,
+              "end": 7.78,
+              "probability": 0.9866694211959839
+            },
+            {
+              "word": "know",
+              "start": 7.78,
+              "end": 7.92,
+              "probability": 0.9980713725090027
+            },
+            {
+              "word": "under",
+              "start": 7.92,
+              "end": 8.24,
+              "probability": 0.9945762157440186
+            },
+            {
+              "word": "pressure.",
+              "start": 8.24,
+              "end": 8.58,
+              "probability": 0.996069073677063
+            }
+          ]
+        },
+        "prosody": {
+          "speaking_rate_syll_per_sec": 6.490872210953347,
+          "pitch_mean_hz": 91.33007623624928,
+          "pitch_std_hz": 11.102211905503282,
+          "voiced_fraction": 0.6326530612244898,
+          "energy_rms_mean": 0.09024688601493835,
+          "energy_rms_std": 0.05399373173713684,
+          "zero_crossing_rate_mean": 0.13951225021258504,
+          "duration_seconds": 9.3978125
+        },
+        "speaker_embedding": {
+          "model": "speechbrain/spkrec-ecapa-voxceleb",
+          "dimension": 192,
+          "vector": [
+            14.61281967163086,
+            -6.464512825012207,
+            -26.575613021850586,
+            -6.969986438751221,
+            -0.9420485496520996,
+            -16.42953872680664,
+            -21.319894790649414,
+            8.594511032104492,
+            15.291681289672852,
+            -11.466257095336914,
+            36.91914749145508,
+            -48.464534759521484,
+            91.5134048461914,
+            21.83946418762207,
+            56.35856628417969,
+            -16.36907386779785,
+            -14.274505615234375,
+            -39.206302642822266,
+            2.707831621170044,
+            24.61656951904297,
+            -42.1556282043457,
+            -15.356019020080566,
+            3.93023419380188,
+            28.12772560119629,
+            34.23525619506836,
+            39.21672821044922,
+            34.54200744628906,
+            41.57111358642578,
+            10.281302452087402,
+            28.667903900146484,
+            8.853300094604492,
+            4.833247184753418,
+            -0.9373905062675476,
+            28.96891212463379,
+            2.2841432094573975,
+            -28.054492950439453,
+            15.003357887268066,
+            -20.93907928466797,
+            7.717037677764893,
+            -48.25892639160156,
+            16.879331588745117,
+            -16.335987091064453,
+            -13.74339771270752,
+            -28.70919418334961,
+            5.068962574005127,
+            -46.909873962402344,
+            -19.84960174560547,
+            -6.338841438293457,
+            16.192758560180664,
+            35.974205017089844,
+            -21.27565574645996,
+            -3.6981770992279053,
+            26.85353660583496,
+            9.356922149658203,
+            -21.670000076293945,
+            27.083322525024414,
+            9.886446952819824,
+            0.36763614416122437,
+            9.795248985290527,
+            -6.650687217712402,
+            -39.67253875732422,
+            -22.92534828186035,
+            0.08608774095773697,
+            17.444272994995117,
+            -27.444168090820312,
+            -51.07513427734375,
+            -15.998311996459961,
+            -13.471556663513184,
+            18.13832664489746,
+            -15.863656044006348,
+            6.966549873352051,
+            -17.021284103393555,
+            6.067178249359131,
+            30.003171920776367,
+            -40.84642791748047,
+            -25.921995162963867,
+            14.60181999206543,
+            -12.095513343811035,
+            39.72726821899414,
+            -8.460416793823242,
+            28.951801300048828,
+            -7.334031581878662,
+            29.180179595947266,
+            10.59343147277832,
+            -4.4322428703308105,
+            5.47472620010376,
+            -1.6210708618164062,
+            2.712836742401123,
+            30.430225372314453,
+            9.225703239440918,
+            1.61724853515625,
+            -6.048804759979248,
+            66.68962860107422,
+            -36.39021301269531,
+            9.699270248413086,
+            -1.4004144668579102,
+            5.167743682861328,
+            14.346077919006348,
+            -42.783504486083984,
+            11.215618133544922,
+            12.454777717590332,
+            9.479887962341309,
+            -9.80299186706543,
+            -35.585269927978516,
+            48.08698272705078,
+            -1.7860822677612305,
+            -6.358553409576416,
+            2.8719890117645264,
+            10.219392776489258,
+            9.988542556762695,
+            -2.6262893676757812,
+            -13.3560209274292,
+            29.558862686157227,
+            -26.770421981811523,
+            -34.90376663208008,
+            19.15181541442871,
+            29.604318618774414,
+            14.478004455566406,
+            2.111738681793213,
+            8.97799301147461,
+            16.08576774597168,
+            -6.230309963226318,
+            21.042226791381836,
+            1.9250903129577637,
+            34.447654724121094,
+            -17.097440719604492,
+            -9.744994163513184,
+            -11.363667488098145,
+            -36.15363311767578,
+            -2.27675724029541,
+            6.118132591247559,
+            -13.121540069580078,
+            -6.940728187561035,
+            4.125620365142822,
+            7.882518768310547,
+            -45.42329788208008,
+            4.598928928375244,
+            -29.814598083496094,
+            -59.78767013549805,
+            -15.041694641113281,
+            -13.215744018554688,
+            -23.60134506225586,
+            -52.645599365234375,
+            5.037235736846924,
+            0.4358411431312561,
+            29.57735824584961,
+            5.234188079833984,
+            18.04716682434082,
+            -30.104351043701172,
+            30.632200241088867,
+            -4.0284318923950195,
+            -14.308042526245117,
+            17.219104766845703,
+            8.649068832397461,
+            -35.26896667480469,
+            6.0941548347473145,
+            -15.529167175292969,
+            -10.380620002746582,
+            16.83907127380371,
+            -31.780731201171875,
+            -22.3027400970459,
+            -17.349220275878906,
+            37.929012298583984,
+            -2.5870182514190674,
+            -4.472945213317871,
+            -2.882727861404419,
+            -26.319997787475586,
+            11.990154266357422,
+            -42.67622375488281,
+            20.920719146728516,
+            29.573453903198242,
+            -57.705963134765625,
+            8.345254898071289,
+            20.420455932617188,
+            10.004388809204102,
+            -24.472631454467773,
+            -26.16940689086914,
+            -33.12222671508789,
+            26.24968719482422,
+            -5.824070453643799,
+            -49.743019104003906,
+            -18.374656677246094,
+            19.77999496459961,
+            20.768146514892578,
+            -12.51560115814209,
+            10.978219032287598,
+            -4.76408576965332,
+            3.2548599243164062,
+            10.870365142822266,
+            9.990966796875,
+            1.1514338254928589,
+            7.270472526550293
+          ]
+        },
+        "fillers": {
+          "total_count": 8,
+          "per_minute": 51.076,
+          "counts_by_filler": {
+            "so": 1,
+            "um": 2,
+            "uh": 2,
+            "you know": 2,
+            "basically": 1
+          },
+          "instances": [
+            {
+              "filler": "so",
+              "start": 0.0,
+              "end": 0.4,
+              "source": "asr"
+            },
+            {
+              "filler": "um",
+              "start": 0.4,
+              "end": 0.52,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 1.14,
+              "end": 1.3,
+              "source": "asr"
+            },
+            {
+              "filler": "you know",
+              "start": 2.42,
+              "end": 2.72,
+              "source": "asr"
+            },
+            {
+              "filler": "basically",
+              "start": 4.78,
+              "end": 5.26,
+              "source": "asr"
+            },
+            {
+              "filler": "um",
+              "start": 5.7,
+              "end": 5.86,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 6.56,
+              "end": 6.72,
+              "source": "asr"
+            },
+            {
+              "filler": "you know",
+              "start": 7.56,
+              "end": 7.92,
+              "source": "asr"
+            }
+          ]
+        },
+        "pauses": {
+          "total_count": 1,
+          "per_minute": 6.384,
+          "longest_seconds": 0.83,
+          "mean_seconds": 0.83,
+          "total_silent_seconds": 0.83,
+          "silent_fraction_0to1": 0.0883,
+          "time_to_first_word_seconds": 0.0,
+          "counts_by_kind": {
+            "natural": 1
+          },
+          "instances": [
+            {
+              "start": 3.95,
+              "end": 4.78,
+              "duration": 0.83,
+              "kind": "natural"
+            }
+          ]
+        },
+        "processing": {
+          "device": "cuda",
+          "latency_seconds": {
+            "audio_load": 3.389,
+            "transcription": 21.202,
+            "prosody": 0.718,
+            "speaker_embedding": 2.35,
+            "filler_detection": 0.0,
+            "pause_detection": 0.01,
+            "total": 27.67
+          },
+          "warnings": []
+        }
+      },
+      "content": {
+        "model": "mistral:latest",
+        "scores": {
+          "relevance_1to5": 2,
+          "depth_1to5": 1,
+          "clarity_1to5": 3,
+          "structure_1to5": 1
+        },
+        "overall_content_0to100": 18.8,
+        "strengths": [
+          "Mention of ability to learn",
+          "Mention of problem-solving under pressure"
+        ],
+        "improvements": [
+          "Provide a specific project or assignment",
+          "Detail the data sources, transformations, and data quality measures taken"
+        ],
+        "evidence_quotes": [
+          "So um I think that uh my biggest strength is you know my ability to learn.",
+          "Basically I am um really good at uh solving problems you know under pressure."
+        ],
+        "disputed_claims": [],
+        "schema_valid": true,
+        "repair_attempts": 0,
+        "latency_seconds": 31.216
+      },
+      "facial": {
+        "model": "live-haar-frontalface",
+        "frames_sampled": 60,
+        "frames_with_face": 58,
+        "face_detection_rate_0to1": 0.9667,
+        "dominant_expression": "unavailable",
+        "expression_mean_probabilities": {},
+        "gaze_centre_stability_0to1": 0.82,
+        "sample_rate_fps": 0.0,
+        "reliable": true,
+        "latency_seconds": 0.0
+      },
+      "fused": {
+        "dimension_scores": [
+          {
+            "name": "speaking_rate",
+            "raw_value": 6.491,
+            "normalised_0to100": 60.4,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "filler_rate",
+            "raw_value": 51.076,
+            "normalised_0to100": 0.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "pitch_variation",
+            "raw_value": 11.102,
+            "normalised_0to100": 30.5,
+            "weight_applied": 0.2,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "delivery",
+            "raw_value": 30.25,
+            "normalised_0to100": 30.2,
+            "weight_applied": 0.45,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "content",
+            "raw_value": 18.8,
+            "normalised_0to100": 18.8,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "facial",
+            "raw_value": 89.34,
+            "normalised_0to100": 89.3,
+            "weight_applied": 0.15,
+            "included": true,
+            "exclusion_reason": ""
+          }
+        ],
+        "overall_score_0to100": 34.5,
+        "uncapped_score_0to100": 34.5,
+        "ceiling_applied": null,
+        "weights_applied": {
+          "delivery": 0.45,
+          "content": 0.4,
+          "facial": 0.15
+        },
+        "weights_renormalised": false,
+        "cross_modal_flags": [],
+        "feedback_text": "There is a good deal to work on in that answer. Overall score 35 out of 100. The weakest part of your delivery was filler rate. On content: Provide a specific project or assignment"
+      },
+      "observations": [
+        {
+          "kind": "answer_short",
+          "severity": "notable",
+          "headline": "The answer was too short",
+          "detail": "There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready.",
+          "measurement": "9 seconds",
+          "domain": "audio"
+        },
+        {
+          "kind": "fillers_high",
+          "severity": "notable",
+          "headline": "Filler words were getting in the way",
+          "detail": "They came often enough to be distracting, and \"um\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead.",
+          "measurement": "8 filler words, 51.1 per minute",
+          "domain": "audio"
+        },
+        {
+          "kind": "pace_fast",
+          "severity": "minor",
+          "headline": "You were speaking a little quickly",
+          "detail": "Slightly faster than a comfortable conversational pace. Not a problem in itself, but it is the first thing that slips further when nerves rise.",
+          "measurement": "6.5 syllables per second",
+          "domain": "audio"
+        },
+        {
+          "kind": "no_thinking_pause",
+          "severity": "minor",
+          "headline": "You started answering instantly",
+          "detail": "You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence.",
+          "measurement": "0.00s before the first word",
+          "domain": "audio"
+        },
+        {
+          "kind": "in_frame",
+          "severity": "strength",
+          "headline": "You held the frame well",
+          "detail": "You stayed centred and present on camera throughout, which is exactly what a remote interviewer wants to see.",
+          "measurement": "in frame 97% of sampled frames",
+          "domain": "image"
+        }
+      ],
+      "debrief": {
+        "looking_for": "A strong answer should describe a specific project where you designed and built a data pipeline using Python and SQL, including details about the data sources, transformations, and how you ensured data quality. This response should demonstrate your ability to work under pressure, your problem-solving skills, and your familiarity with Python and SQL.",
+        "what_you_gave": "You provided a general statement about your ability to learn and solve problems under pressure, but did not describe a specific project or assignment where you designed and built a data pipeline using Python and SQL.",
+        "worked": [],
+        "change": [
+          {
+            "quote": "",
+            "problem": "The question went unanswered.",
+            "try_instead": "We built a data pipeline to collect and process data from multiple sources, using Python for scripting and SQL for transformations. The data sources included a database and a CSV file, and we ensured data quality by validating the data against a set of predefined rules.",
+            "why": "This response addresses the question directly, demonstrating your ability to work under pressure, your problem-solving skills, and your familiarity with Python and SQL."
+          }
+        ],
+        "delivery": "The answer was too short. There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready. Filler words were getting in the way. They came often enough to be distracting, and \"um\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead. You were speaking a little quickly. Slightly faster than a comfortable conversational pace. Not a problem in itself, but it is the first thing that slips further when nerves rise. Worth keeping, though: you stayed centred and present on camera throughout, which is exactly what a remote interviewer wants to see.",
+        "one_thing": "To improve your answer, focus on providing a specific example of a data pipeline project you have worked on, and include details about the data sources, transformations, and how you ensured data quality.",
+        "source": "model",
+        "quotes_dropped": 0,
+        "latency_seconds": 39.139
+      },
+      "warnings": [
+        "The answer did not do what the question asked for, so its relevance score was reduced from 3 to 2."
+      ],
+      "latency_seconds": {
+        "content_evaluation": 31.216,
+        "facial_analysis": 0.0,
+        "fusion": 0.0,
+        "coach_narrative": 39.139
+      }
+    },
+    {
+      "index": 2,
+      "question": "Can you give me an example of a project where you applied your problem-solving skills to design and build a data pipeline?",
+      "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_02.wav",
+      "video_file": "",
+      "speech": {
+        "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_02.wav",
+        "audio_duration_seconds": 18.453,
+        "transcription": {
+          "text": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student.",
+          "language": "en",
+          "segments": [
+            {
+              "id": 0,
+              "start": 0.0,
+              "end": 13.18,
+              "text": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I"
+            },
+            {
+              "id": 1,
+              "start": 13.18,
+              "end": 17.56,
+              "text": "am a computer science student."
+            }
+          ],
+          "word_timestamps": [
+            {
+              "word": "Hi,",
+              "start": 0.0,
+              "end": 1.38,
+              "probability": 0.8465999960899353
+            },
+            {
+              "word": "uh,",
+              "start": 1.64,
+              "end": 2.16,
+              "probability": 0.028491895645856857
+            },
+            {
+              "word": "my",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.9710431694984436
+            },
+            {
+              "word": "name",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.9986146688461304
+            },
+            {
+              "word": "is",
+              "start": 3.18,
+              "end": 4.3,
+              "probability": 0.9983119964599609
+            },
+            {
+              "word": "Joseph",
+              "start": 4.3,
+              "end": 4.76,
+              "probability": 0.9828523993492126
+            },
+            {
+              "word": "and,",
+              "start": 4.76,
+              "end": 5.44,
+              "probability": 0.8706563115119934
+            },
+            {
+              "word": "uh,",
+              "start": 5.48,
+              "end": 6.1,
+              "probability": 0.9665992259979248
+            },
+            {
+              "word": "I",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.9901525378227234
+            },
+            {
+              "word": "study",
+              "start": 6.6,
+              "end": 6.82,
+              "probability": 0.8680932521820068
+            },
+            {
+              "word": "at,",
+              "start": 6.82,
+              "end": 7.56,
+              "probability": 0.981609046459198
+            },
+            {
+              "word": "uh,",
+              "start": 7.56,
+              "end": 8.8,
+              "probability": 0.8483292460441589
+            },
+            {
+              "word": "um,",
+              "start": 10.04,
+              "end": 10.04,
+              "probability": 0.8023563027381897
+            },
+            {
+              "word": "University",
+              "start": 10.48,
+              "end": 10.9,
+              "probability": 0.9159979820251465
+            },
+            {
+              "word": "of",
+              "start": 10.9,
+              "end": 11.6,
+              "probability": 0.997583270072937
+            },
+            {
+              "word": "Singapore",
+              "start": 11.6,
+              "end": 12.16,
+              "probability": 0.9952045679092407
+            },
+            {
+              "word": "and",
+              "start": 12.16,
+              "end": 12.78,
+              "probability": 0.7689303755760193
+            },
+            {
+              "word": "I",
+              "start": 12.78,
+              "end": 13.18,
+              "probability": 0.9889653921127319
+            },
+            {
+              "word": "am",
+              "start": 13.18,
+              "end": 13.9,
+              "probability": 0.9808654189109802
+            },
+            {
+              "word": "a",
+              "start": 13.9,
+              "end": 15.44,
+              "probability": 0.6115781664848328
+            },
+            {
+              "word": "computer",
+              "start": 15.44,
+              "end": 16.0,
+              "probability": 0.6083906888961792
+            },
+            {
+              "word": "science",
+              "start": 16.0,
+              "end": 16.76,
+              "probability": 0.9887945652008057
+            },
+            {
+              "word": "student.",
+              "start": 16.76,
+              "end": 17.56,
+              "probability": 0.6175066232681274
+            }
+          ]
+        },
+        "prosody": {
+          "speaking_rate_syll_per_sec": 4.8771566176918855,
+          "pitch_mean_hz": 140.24387098283182,
+          "pitch_std_hz": 23.688061382037386,
+          "voiced_fraction": 0.6811091854419411,
+          "energy_rms_mean": 0.0560884065926075,
+          "energy_rms_std": 0.046794649213552475,
+          "zero_crossing_rate_mean": 0.09278613112001734,
+          "duration_seconds": 18.453375
+        },
+        "speaker_embedding": {
+          "model": "speechbrain/spkrec-ecapa-voxceleb",
+          "dimension": 192,
+          "vector": [
+            14.847966194152832,
+            43.18314743041992,
+            18.569787979125977,
+            1.9288935661315918,
+            21.379106521606445,
+            1.5046831369400024,
+            -4.483738899230957,
+            12.414793968200684,
+            -1.4444680213928223,
+            7.313223361968994,
+            -23.87258529663086,
+            27.11753273010254,
+            48.71422576904297,
+            29.818153381347656,
+            -35.71852493286133,
+            2.4918901920318604,
+            3.542759656906128,
+            -25.390119552612305,
+            -24.108407974243164,
+            -14.87398624420166,
+            20.387264251708984,
+            -8.922999382019043,
+            -32.71957015991211,
+            18.842714309692383,
+            -9.90105152130127,
+            -27.77794647216797,
+            -12.427274703979492,
+            16.278533935546875,
+            -18.901973724365234,
+            24.063323974609375,
+            -12.935073852539062,
+            38.64305114746094,
+            -13.300984382629395,
+            22.366687774658203,
+            -18.76943016052246,
+            -34.22494125366211,
+            10.368038177490234,
+            -24.099346160888672,
+            13.556618690490723,
+            -4.330183506011963,
+            -5.339776515960693,
+            25.730167388916016,
+            -26.72365379333496,
+            -20.51093292236328,
+            9.245559692382812,
+            -30.505451202392578,
+            13.712071418762207,
+            8.598299980163574,
+            18.270219802856445,
+            6.006068229675293,
+            -9.678306579589844,
+            -0.856574535369873,
+            19.317819595336914,
+            9.090779304504395,
+            9.136188507080078,
+            4.4080634117126465,
+            -0.7141676545143127,
+            -19.323888778686523,
+            36.64504623413086,
+            -16.845529556274414,
+            -28.380216598510742,
+            -10.976646423339844,
+            -22.734920501708984,
+            -21.804264068603516,
+            -7.715627193450928,
+            -0.4696633815765381,
+            38.14512634277344,
+            -9.786635398864746,
+            -12.050117492675781,
+            3.108320951461792,
+            -22.963054656982422,
+            34.968624114990234,
+            34.777488708496094,
+            -17.40544319152832,
+            34.169105529785156,
+            -3.9312472343444824,
+            7.5048441886901855,
+            -3.4960312843322754,
+            1.424172282218933,
+            -17.722475051879883,
+            12.884478569030762,
+            -16.768985748291016,
+            19.92177963256836,
+            -11.596570014953613,
+            33.75554275512695,
+            6.030448913574219,
+            -20.684518814086914,
+            -6.142158031463623,
+            -41.61435317993164,
+            15.290613174438477,
+            -23.913990020751953,
+            -17.513620376586914,
+            -1.792392373085022,
+            7.67755651473999,
+            12.91785717010498,
+            -7.8918962478637695,
+            19.737728118896484,
+            -34.15852737426758,
+            19.161190032958984,
+            -8.29504108428955,
+            39.851402282714844,
+            19.686899185180664,
+            17.467735290527344,
+            -10.029459953308105,
+            -14.58724308013916,
+            -12.541703224182129,
+            9.446008682250977,
+            -23.86761474609375,
+            -3.764051675796509,
+            -9.831924438476562,
+            12.633723258972168,
+            -1.0594841241836548,
+            17.35579490661621,
+            -10.027278900146484,
+            23.300710678100586,
+            19.64024543762207,
+            -10.634032249450684,
+            -15.43819522857666,
+            17.556917190551758,
+            42.93918228149414,
+            -43.699363708496094,
+            -28.816789627075195,
+            7.5937089920043945,
+            16.849939346313477,
+            -16.836315155029297,
+            2.874739408493042,
+            -12.406478881835938,
+            11.265910148620605,
+            -13.523568153381348,
+            -10.421531677246094,
+            -16.484058380126953,
+            -6.555812358856201,
+            -29.00483512878418,
+            -14.665031433105469,
+            -7.707351207733154,
+            -23.1357479095459,
+            -25.549985885620117,
+            -14.57630729675293,
+            -17.341630935668945,
+            -7.013195514678955,
+            -4.390381813049316,
+            2.424099922180176,
+            7.216858863830566,
+            -0.6467636227607727,
+            36.19328689575195,
+            1.0738550424575806,
+            4.268971920013428,
+            -24.122594833374023,
+            19.556121826171875,
+            13.00894832611084,
+            15.747989654541016,
+            14.5475435256958,
+            19.77305793762207,
+            24.80385398864746,
+            12.613626480102539,
+            -46.838165283203125,
+            3.1124045848846436,
+            -9.053229331970215,
+            -7.790548324584961,
+            -2.7107818126678467,
+            0.19754740595817566,
+            37.70846939086914,
+            -27.267539978027344,
+            -11.907862663269043,
+            24.19388198852539,
+            -41.24969482421875,
+            -5.693889617919922,
+            -32.39938735961914,
+            10.24116039276123,
+            5.6799774169921875,
+            12.346931457519531,
+            -40.80086898803711,
+            12.93034553527832,
+            6.896352767944336,
+            0.5567410588264465,
+            17.586406707763672,
+            3.4374372959136963,
+            -57.145751953125,
+            32.827117919921875,
+            -5.597879886627197,
+            11.006492614746094,
+            -19.27422332763672,
+            18.841278076171875,
+            -3.7889158725738525,
+            4.948208332061768,
+            8.711639404296875,
+            -15.9321870803833,
+            -17.49315643310547,
+            13.835844993591309,
+            -0.7892857789993286,
+            -17.192171096801758,
+            1.6778563261032104
+          ]
+        },
+        "fillers": {
+          "total_count": 5,
+          "per_minute": 16.257,
+          "counts_by_filler": {
+            "uh": 3,
+            "[uh]": 1,
+            "um": 1
+          },
+          "instances": [
+            {
+              "filler": "uh",
+              "start": 1.64,
+              "end": 2.16,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 5.48,
+              "end": 6.1,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 7.56,
+              "end": 8.8,
+              "source": "asr"
+            },
+            {
+              "filler": "[uh]",
+              "start": 8.8,
+              "end": 10.04,
+              "source": "gap"
+            },
+            {
+              "filler": "um",
+              "start": 10.04,
+              "end": 10.04,
+              "source": "asr"
+            }
+          ]
+        },
+        "pauses": {
+          "total_count": 4,
+          "per_minute": 13.006,
+          "longest_seconds": 0.82,
+          "mean_seconds": 0.657,
+          "total_silent_seconds": 2.63,
+          "silent_fraction_0to1": 0.1425,
+          "time_to_first_word_seconds": 0.0,
+          "counts_by_kind": {
+            "natural": 4
+          },
+          "instances": [
+            {
+              "start": 2.03,
+              "end": 2.53,
+              "duration": 0.5,
+              "kind": "natural"
+            },
+            {
+              "start": 7.18,
+              "end": 7.68,
+              "duration": 0.5,
+              "kind": "natural"
+            },
+            {
+              "start": 9.22,
+              "end": 10.04,
+              "duration": 0.82,
+              "kind": "natural"
+            },
+            {
+              "start": 14.67,
+              "end": 15.48,
+              "duration": 0.81,
+              "kind": "natural"
+            }
+          ]
+        },
+        "processing": {
+          "device": "cuda",
+          "latency_seconds": {
+            "audio_load": 0.013,
+            "transcription": 6.277,
+            "prosody": 0.816,
+            "speaker_embedding": 0.346,
+            "filler_detection": 0.0,
+            "pause_detection": 0.015,
+            "total": 7.467
+          },
+          "warnings": []
+        }
+      },
+      "content": {
+        "model": "mistral:latest",
+        "scores": {
+          "relevance_1to5": 2,
+          "depth_1to5": 3,
+          "clarity_1to5": 4,
+          "structure_1to5": 4
+        },
+        "overall_content_0to100": 56.2,
+        "strengths": [
+          "The candidate provided a specific example",
+          "The answer is relevant to the question",
+          "The candidate mentioned a university and field of study, demonstrating some qualifications"
+        ],
+        "improvements": [
+          "Provide a more detailed example with specifics such as the tools used, the data source, the transformation process, and the outcome",
+          "Mention any relevant skills or techniques used in the project",
+          "Avoid self-introduction in the answer"
+        ],
+        "evidence_quotes": [
+          "My name is Joseph and I study at, uh, um, University of Singapore and I am a computer science student."
+        ],
+        "disputed_claims": [],
+        "schema_valid": true,
+        "repair_attempts": 0,
+        "latency_seconds": 21.306
+      },
+      "facial": {
+        "model": "live-haar-frontalface",
+        "frames_sampled": 60,
+        "frames_with_face": 58,
+        "face_detection_rate_0to1": 0.9667,
+        "dominant_expression": "unavailable",
+        "expression_mean_probabilities": {},
+        "gaze_centre_stability_0to1": 0.82,
+        "sample_rate_fps": 0.0,
+        "reliable": true,
+        "latency_seconds": 0.0
+      },
+      "fused": {
+        "dimension_scores": [
+          {
+            "name": "speaking_rate",
+            "raw_value": 4.877,
+            "normalised_0to100": 100.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "filler_rate",
+            "raw_value": 16.257,
+            "normalised_0to100": 0.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "pitch_variation",
+            "raw_value": 23.688,
+            "normalised_0to100": 93.4,
+            "weight_applied": 0.2,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "delivery",
+            "raw_value": 58.69,
+            "normalised_0to100": 58.7,
+            "weight_applied": 0.45,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "content",
+            "raw_value": 56.2,
+            "normalised_0to100": 56.2,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "facial",
+            "raw_value": 89.34,
+            "normalised_0to100": 89.3,
+            "weight_applied": 0.15,
+            "included": true,
+            "exclusion_reason": ""
+          }
+        ],
+        "overall_score_0to100": 40.0,
+        "uncapped_score_0to100": 62.3,
+        "ceiling_applied": 40.0,
+        "weights_applied": {
+          "delivery": 0.45,
+          "content": 0.4,
+          "facial": 0.15
+        },
+        "weights_renormalised": false,
+        "cross_modal_flags": [
+          {
+            "kind": "question_not_answered",
+            "detail": "This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there.",
+            "severity": "warn",
+            "domains": [
+              "text"
+            ]
+          },
+          {
+            "kind": "clear_ideas_obscured_by_disfluency",
+            "detail": "Your ideas are clearly organised, but the filler words are obscuring them. The thinking is better than it sounds, which is a frustrating way to be judged.",
+            "severity": "warn",
+            "domains": [
+              "text",
+              "audio"
+            ]
+          }
+        ],
+        "feedback_text": "There is a good deal to work on in that answer. Overall score 40 out of 100. The weakest part of your delivery was filler rate. On content: Provide a more detailed example with specifics such as the tools used, the data source, the transformation process, and the outcome This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there."
+      },
+      "observations": [
+        {
+          "kind": "answer_short",
+          "severity": "notable",
+          "headline": "The answer was too short",
+          "detail": "There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready.",
+          "measurement": "18 seconds",
+          "domain": "audio"
+        },
+        {
+          "kind": "fillers_high",
+          "severity": "notable",
+          "headline": "Filler words were getting in the way",
+          "detail": "They came often enough to be distracting, and \"uh\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead.",
+          "measurement": "5 filler words, 16.3 per minute",
+          "domain": "audio"
+        },
+        {
+          "kind": "no_thinking_pause",
+          "severity": "minor",
+          "headline": "You started answering instantly",
+          "detail": "You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence.",
+          "measurement": "0.00s before the first word",
+          "domain": "audio"
+        },
+        {
+          "kind": "pace_good",
+          "severity": "strength",
+          "headline": "Your pace was comfortable throughout",
+          "detail": "You held a steady conversational speed, which is harder than it sounds under interview pressure and makes you easy to listen to.",
+          "measurement": "4.9 syllables per second",
+          "domain": "audio"
+        },
+        {
+          "kind": "in_frame",
+          "severity": "strength",
+          "headline": "You held the frame well",
+          "detail": "You stayed centred and present on camera throughout, which is exactly what a remote interviewer wants to see.",
+          "measurement": "in frame 97% of sampled frames",
+          "domain": "image"
+        }
+      ],
+      "debrief": {
+        "looking_for": "A strong answer should demonstrate your ability to design and build a data pipeline, showcasing your problem-solving skills and technical knowledge. It should also highlight your experience with Python, SQL, and cloud infrastructure.",
+        "what_you_gave": "You introduced yourself and shared your educational background, but did not provide an example of a project where you applied your problem-solving skills to design and build a data pipeline.",
+        "worked": [],
+        "change": [
+          {
+            "quote": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student.",
+            "problem": "This answer did not address the question about a project where you applied your problem-solving skills to design and build a data pipeline.",
+            "try_instead": "In my final year project at the University of Singapore, I designed and built a data pipeline to ingest, transform, and load data from multiple sources into a cloud-based analytics warehouse. This project showcased my problem-solving skills and technical knowledge, as I used Python and SQL to create scalable data pipelines and worked with cloud infrastructure to store and serve data reliably.",
+            "why": "This response addresses the question by providing a specific example of a project where you applied your problem-solving skills to design and build a data pipeline, demonstrating your technical knowledge and experience."
+          }
+        ],
+        "delivery": "The answer was too short. There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready. Filler words were getting in the way. They came often enough to be distracting, and \"uh\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead. You started answering instantly. You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence. Worth keeping, though: you held a steady conversational speed, which is harder than it sounds under interview pressure and makes you easy to listen to.",
+        "one_thing": "To make your answer stronger, focus on providing a specific example of a project where you applied your problem-solving skills to design and build a data pipeline. This will demonstrate your technical knowledge and experience, which are important for the role of a Graduate Data Engineer.",
+        "source": "model",
+        "quotes_dropped": 0,
+        "latency_seconds": 91.012
+      },
+      "warnings": [
+        "The answer did not do what the question asked for, so its relevance score was reduced from 5 to 2."
+      ],
+      "latency_seconds": {
+        "content_evaluation": 21.306,
+        "facial_analysis": 0.0,
+        "fusion": 0.0,
+        "coach_narrative": 91.012
+      }
+    },
+    {
+      "index": 3,
+      "question": "Tell me about a time when you had to explain a technical concept to a non-technical audience. How did you ensure your explanation was clear and easy to understand?",
+      "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_03.wav",
+      "video_file": "",
+      "speech": {
+        "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_03.wav",
+        "audio_duration_seconds": 18.453,
+        "transcription": {
+          "text": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student.",
+          "language": "en",
+          "segments": [
+            {
+              "id": 0,
+              "start": 0.0,
+              "end": 17.56,
+              "text": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student."
+            }
+          ],
+          "word_timestamps": [
+            {
+              "word": "Hi,",
+              "start": 0.0,
+              "end": 1.38,
+              "probability": 0.8465999960899353
+            },
+            {
+              "word": "uh,",
+              "start": 1.64,
+              "end": 2.16,
+              "probability": 0.028491895645856857
+            },
+            {
+              "word": "my",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.9710431694984436
+            },
+            {
+              "word": "name",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.9986146688461304
+            },
+            {
+              "word": "is",
+              "start": 3.18,
+              "end": 4.3,
+              "probability": 0.9983119964599609
+            },
+            {
+              "word": "Joseph",
+              "start": 4.3,
+              "end": 4.76,
+              "probability": 0.9828523993492126
+            },
+            {
+              "word": "and,",
+              "start": 4.76,
+              "end": 5.44,
+              "probability": 0.8706563115119934
+            },
+            {
+              "word": "uh,",
+              "start": 5.48,
+              "end": 6.1,
+              "probability": 0.9665992259979248
+            },
+            {
+              "word": "I",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.9901525378227234
+            },
+            {
+              "word": "study",
+              "start": 6.6,
+              "end": 6.82,
+              "probability": 0.8680932521820068
+            },
+            {
+              "word": "at,",
+              "start": 6.82,
+              "end": 7.56,
+              "probability": 0.981609046459198
+            },
+            {
+              "word": "uh,",
+              "start": 7.56,
+              "end": 8.8,
+              "probability": 0.8483292460441589
+            },
+            {
+              "word": "um,",
+              "start": 10.04,
+              "end": 10.04,
+              "probability": 0.8023563027381897
+            },
+            {
+              "word": "University",
+              "start": 10.48,
+              "end": 10.9,
+              "probability": 0.9159979820251465
+            },
+            {
+              "word": "of",
+              "start": 10.9,
+              "end": 11.6,
+              "probability": 0.997583270072937
+            },
+            {
+              "word": "Singapore",
+              "start": 11.6,
+              "end": 12.16,
+              "probability": 0.9952045679092407
+            },
+            {
+              "word": "and",
+              "start": 12.16,
+              "end": 12.78,
+              "probability": 0.7689303755760193
+            },
+            {
+              "word": "I",
+              "start": 12.78,
+              "end": 13.18,
+              "probability": 0.9889653921127319
+            },
+            {
+              "word": "am",
+              "start": 13.18,
+              "end": 13.9,
+              "probability": 0.9808654189109802
+            },
+            {
+              "word": "a",
+              "start": 13.9,
+              "end": 15.44,
+              "probability": 0.6115781664848328
+            },
+            {
+              "word": "computer",
+              "start": 15.44,
+              "end": 16.0,
+              "probability": 0.6083906888961792
+            },
+            {
+              "word": "science",
+              "start": 16.0,
+              "end": 16.76,
+              "probability": 0.9887945652008057
+            },
+            {
+              "word": "student.",
+              "start": 16.76,
+              "end": 17.56,
+              "probability": 0.6175066232681274
+            }
+          ]
+        },
+        "prosody": {
+          "speaking_rate_syll_per_sec": 4.8771566176918855,
+          "pitch_mean_hz": 140.24387098283182,
+          "pitch_std_hz": 23.688061382037386,
+          "voiced_fraction": 0.6811091854419411,
+          "energy_rms_mean": 0.0560884065926075,
+          "energy_rms_std": 0.046794649213552475,
+          "zero_crossing_rate_mean": 0.09278613112001734,
+          "duration_seconds": 18.453375
+        },
+        "speaker_embedding": {
+          "model": "speechbrain/spkrec-ecapa-voxceleb",
+          "dimension": 192,
+          "vector": [
+            14.847966194152832,
+            43.18314743041992,
+            18.569787979125977,
+            1.9288935661315918,
+            21.379106521606445,
+            1.5046831369400024,
+            -4.483738899230957,
+            12.414793968200684,
+            -1.4444680213928223,
+            7.313223361968994,
+            -23.87258529663086,
+            27.11753273010254,
+            48.71422576904297,
+            29.818153381347656,
+            -35.71852493286133,
+            2.4918901920318604,
+            3.542759656906128,
+            -25.390119552612305,
+            -24.108407974243164,
+            -14.87398624420166,
+            20.387264251708984,
+            -8.922999382019043,
+            -32.71957015991211,
+            18.842714309692383,
+            -9.90105152130127,
+            -27.77794647216797,
+            -12.427274703979492,
+            16.278533935546875,
+            -18.901973724365234,
+            24.063323974609375,
+            -12.935073852539062,
+            38.64305114746094,
+            -13.300984382629395,
+            22.366687774658203,
+            -18.76943016052246,
+            -34.22494125366211,
+            10.368038177490234,
+            -24.099346160888672,
+            13.556618690490723,
+            -4.330183506011963,
+            -5.339776515960693,
+            25.730167388916016,
+            -26.72365379333496,
+            -20.51093292236328,
+            9.245559692382812,
+            -30.505451202392578,
+            13.712071418762207,
+            8.598299980163574,
+            18.270219802856445,
+            6.006068229675293,
+            -9.678306579589844,
+            -0.856574535369873,
+            19.317819595336914,
+            9.090779304504395,
+            9.136188507080078,
+            4.4080634117126465,
+            -0.7141676545143127,
+            -19.323888778686523,
+            36.64504623413086,
+            -16.845529556274414,
+            -28.380216598510742,
+            -10.976646423339844,
+            -22.734920501708984,
+            -21.804264068603516,
+            -7.715627193450928,
+            -0.4696633815765381,
+            38.14512634277344,
+            -9.786635398864746,
+            -12.050117492675781,
+            3.108320951461792,
+            -22.963054656982422,
+            34.968624114990234,
+            34.777488708496094,
+            -17.40544319152832,
+            34.169105529785156,
+            -3.9312472343444824,
+            7.5048441886901855,
+            -3.4960312843322754,
+            1.424172282218933,
+            -17.722475051879883,
+            12.884478569030762,
+            -16.768985748291016,
+            19.92177963256836,
+            -11.596570014953613,
+            33.75554275512695,
+            6.030448913574219,
+            -20.684518814086914,
+            -6.142158031463623,
+            -41.61435317993164,
+            15.290613174438477,
+            -23.913990020751953,
+            -17.513620376586914,
+            -1.792392373085022,
+            7.67755651473999,
+            12.91785717010498,
+            -7.8918962478637695,
+            19.737728118896484,
+            -34.15852737426758,
+            19.161190032958984,
+            -8.29504108428955,
+            39.851402282714844,
+            19.686899185180664,
+            17.467735290527344,
+            -10.029459953308105,
+            -14.58724308013916,
+            -12.541703224182129,
+            9.446008682250977,
+            -23.86761474609375,
+            -3.764051675796509,
+            -9.831924438476562,
+            12.633723258972168,
+            -1.0594841241836548,
+            17.35579490661621,
+            -10.027278900146484,
+            23.300710678100586,
+            19.64024543762207,
+            -10.634032249450684,
+            -15.43819522857666,
+            17.556917190551758,
+            42.93918228149414,
+            -43.699363708496094,
+            -28.816789627075195,
+            7.5937089920043945,
+            16.849939346313477,
+            -16.836315155029297,
+            2.874739408493042,
+            -12.406478881835938,
+            11.265910148620605,
+            -13.523568153381348,
+            -10.421531677246094,
+            -16.484058380126953,
+            -6.555812358856201,
+            -29.00483512878418,
+            -14.665031433105469,
+            -7.707351207733154,
+            -23.1357479095459,
+            -25.549985885620117,
+            -14.57630729675293,
+            -17.341630935668945,
+            -7.013195514678955,
+            -4.390381813049316,
+            2.424099922180176,
+            7.216858863830566,
+            -0.6467636227607727,
+            36.19328689575195,
+            1.0738550424575806,
+            4.268971920013428,
+            -24.122594833374023,
+            19.556121826171875,
+            13.00894832611084,
+            15.747989654541016,
+            14.5475435256958,
+            19.77305793762207,
+            24.80385398864746,
+            12.613626480102539,
+            -46.838165283203125,
+            3.1124045848846436,
+            -9.053229331970215,
+            -7.790548324584961,
+            -2.7107818126678467,
+            0.19754740595817566,
+            37.70846939086914,
+            -27.267539978027344,
+            -11.907862663269043,
+            24.19388198852539,
+            -41.24969482421875,
+            -5.693889617919922,
+            -32.39938735961914,
+            10.24116039276123,
+            5.6799774169921875,
+            12.346931457519531,
+            -40.80086898803711,
+            12.93034553527832,
+            6.896352767944336,
+            0.5567410588264465,
+            17.586406707763672,
+            3.4374372959136963,
+            -57.145751953125,
+            32.827117919921875,
+            -5.597879886627197,
+            11.006492614746094,
+            -19.27422332763672,
+            18.841278076171875,
+            -3.7889158725738525,
+            4.948208332061768,
+            8.711639404296875,
+            -15.9321870803833,
+            -17.49315643310547,
+            13.835844993591309,
+            -0.7892857789993286,
+            -17.192171096801758,
+            1.6778563261032104
+          ]
+        },
+        "fillers": {
+          "total_count": 5,
+          "per_minute": 16.257,
+          "counts_by_filler": {
+            "uh": 3,
+            "[uh]": 1,
+            "um": 1
+          },
+          "instances": [
+            {
+              "filler": "uh",
+              "start": 1.64,
+              "end": 2.16,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 5.48,
+              "end": 6.1,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 7.56,
+              "end": 8.8,
+              "source": "asr"
+            },
+            {
+              "filler": "[uh]",
+              "start": 8.8,
+              "end": 10.04,
+              "source": "gap"
+            },
+            {
+              "filler": "um",
+              "start": 10.04,
+              "end": 10.04,
+              "source": "asr"
+            }
+          ]
+        },
+        "pauses": {
+          "total_count": 4,
+          "per_minute": 13.006,
+          "longest_seconds": 0.82,
+          "mean_seconds": 0.657,
+          "total_silent_seconds": 2.63,
+          "silent_fraction_0to1": 0.1425,
+          "time_to_first_word_seconds": 0.0,
+          "counts_by_kind": {
+            "natural": 4
+          },
+          "instances": [
+            {
+              "start": 2.03,
+              "end": 2.53,
+              "duration": 0.5,
+              "kind": "natural"
+            },
+            {
+              "start": 7.18,
+              "end": 7.68,
+              "duration": 0.5,
+              "kind": "natural"
+            },
+            {
+              "start": 9.22,
+              "end": 10.04,
+              "duration": 0.82,
+              "kind": "natural"
+            },
+            {
+              "start": 14.67,
+              "end": 15.48,
+              "duration": 0.81,
+              "kind": "natural"
+            }
+          ]
+        },
+        "processing": {
+          "device": "cuda",
+          "latency_seconds": {
+            "audio_load": 0.01,
+            "transcription": 5.83,
+            "prosody": 0.795,
+            "speaker_embedding": 0.347,
+            "filler_detection": 0.001,
+            "pause_detection": 0.016,
+            "total": 6.999
+          },
+          "warnings": []
+        }
+      },
+      "content": {
+        "model": "mistral:latest",
+        "scores": {
+          "relevance_1to5": 2,
+          "depth_1to5": 3,
+          "clarity_1to5": 4,
+          "structure_1to5": 4
+        },
+        "overall_content_0to100": 56.2,
+        "strengths": [
+          "The candidate provided a specific example of explaining a technical concept to a non-technical audience",
+          "The candidate mentioned their academic background and field of study"
+        ],
+        "improvements": [
+          "Provide a more concrete example with specific details and outcomes",
+          "Include a clear structure: situation, action, result"
+        ],
+        "evidence_quotes": [
+          "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student."
+        ],
+        "disputed_claims": [],
+        "schema_valid": true,
+        "repair_attempts": 0,
+        "latency_seconds": 20.636
+      },
+      "facial": {
+        "model": "live-haar-frontalface",
+        "frames_sampled": 60,
+        "frames_with_face": 58,
+        "face_detection_rate_0to1": 0.9667,
+        "dominant_expression": "unavailable",
+        "expression_mean_probabilities": {},
+        "gaze_centre_stability_0to1": 0.82,
+        "sample_rate_fps": 0.0,
+        "reliable": true,
+        "latency_seconds": 0.0
+      },
+      "fused": {
+        "dimension_scores": [
+          {
+            "name": "speaking_rate",
+            "raw_value": 4.877,
+            "normalised_0to100": 100.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "filler_rate",
+            "raw_value": 16.257,
+            "normalised_0to100": 0.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "pitch_variation",
+            "raw_value": 23.688,
+            "normalised_0to100": 93.4,
+            "weight_applied": 0.2,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "delivery",
+            "raw_value": 58.69,
+            "normalised_0to100": 58.7,
+            "weight_applied": 0.45,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "content",
+            "raw_value": 56.2,
+            "normalised_0to100": 56.2,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "facial",
+            "raw_value": 89.34,
+            "normalised_0to100": 89.3,
+            "weight_applied": 0.15,
+            "included": true,
+            "exclusion_reason": ""
+          }
+        ],
+        "overall_score_0to100": 40.0,
+        "uncapped_score_0to100": 62.3,
+        "ceiling_applied": 40.0,
+        "weights_applied": {
+          "delivery": 0.45,
+          "content": 0.4,
+          "facial": 0.15
+        },
+        "weights_renormalised": false,
+        "cross_modal_flags": [
+          {
+            "kind": "question_not_answered",
+            "detail": "This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there.",
+            "severity": "warn",
+            "domains": [
+              "text"
+            ]
+          },
+          {
+            "kind": "clear_ideas_obscured_by_disfluency",
+            "detail": "Your ideas are clearly organised, but the filler words are obscuring them. The thinking is better than it sounds, which is a frustrating way to be judged.",
+            "severity": "warn",
+            "domains": [
+              "text",
+              "audio"
+            ]
+          }
+        ],
+        "feedback_text": "There is a good deal to work on in that answer. Overall score 40 out of 100. The weakest part of your delivery was filler rate. On content: Provide a more concrete example with specific details and outcomes This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there."
+      },
+      "observations": [
+        {
+          "kind": "answer_short",
+          "severity": "notable",
+          "headline": "The answer was too short",
+          "detail": "There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready.",
+          "measurement": "18 seconds",
+          "domain": "audio"
+        },
+        {
+          "kind": "fillers_high",
+          "severity": "notable",
+          "headline": "Filler words were getting in the way",
+          "detail": "They came often enough to be distracting, and \"uh\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead.",
+          "measurement": "5 filler words, 16.3 per minute",
+          "domain": "audio"
+        },
+        {
+          "kind": "no_thinking_pause",
+          "severity": "minor",
+          "headline": "You started answering instantly",
+          "detail": "You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence.",
+          "measurement": "0.00s before the first word",
+          "domain": "audio"
+        },
+        {
+          "kind": "pace_good",
+          "severity": "strength",
+          "headline": "Your pace was comfortable throughout",
+          "detail": "You held a steady conversational speed, which is harder than it sounds under interview pressure and makes you easy to listen to.",
+          "measurement": "4.9 syllables per second",
+          "domain": "audio"
+        },
+        {
+          "kind": "in_frame",
+          "severity": "strength",
+          "headline": "You held the frame well",
+          "detail": "You stayed centred and present on camera throughout, which is exactly what a remote interviewer wants to see.",
+          "measurement": "in frame 97% of sampled frames",
+          "domain": "image"
+        }
+      ],
+      "debrief": {
+        "looking_for": "A strong answer demonstrates the ability to explain technical concepts clearly and effectively to non-technical audiences, showcasing good communication skills and the ability to translate technical jargon into understandable terms.",
+        "what_you_gave": "You introduced yourself and shared your educational background, but did not address the question about explaining a technical concept to a non-technical audience.",
+        "worked": [],
+        "change": [
+          {
+            "quote": "",
+            "problem": "The question went unanswered.",
+            "try_instead": "I once had to explain the concept of data pipelines to a team of product managers. To make it clear and easy to understand, I compared it to a factory assembly line, where data is the product and each step in the pipeline is a station in the assembly line.",
+            "why": ""
+          }
+        ],
+        "delivery": "The answer was too short. There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready. Filler words were getting in the way. They came often enough to be distracting, and \"uh\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead. You started answering instantly. You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence. Worth keeping, though: you held a steady conversational speed, which is harder than it sounds under interview pressure and makes you easy to listen to.",
+        "one_thing": "To improve this answer, try leading with a specific example of a technical concept you've explained to a non-technical audience, and explain how you made it clear and easy to understand.",
+        "source": "model",
+        "quotes_dropped": 0,
+        "latency_seconds": 25.727
+      },
+      "warnings": [
+        "The answer did not do what the question asked for, so its relevance score was reduced from 5 to 2."
+      ],
+      "latency_seconds": {
+        "content_evaluation": 20.636,
+        "facial_analysis": 0.0,
+        "fusion": 0.0,
+        "coach_narrative": 25.727
+      }
+    },
+    {
+      "index": 4,
+      "question": "Can you give me an example of a technical concept you had to explain to a non-technical audience, and how you made sure your explanation was clear and easy to understand?",
+      "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_04.wav",
+      "video_file": "",
+      "speech": {
+        "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2048_graduate-software-engineer\\take_04.wav",
+        "audio_duration_seconds": 18.453,
+        "transcription": {
+          "text": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student.",
+          "language": "en",
+          "segments": [
+            {
+              "id": 0,
+              "start": 0.0,
+              "end": 13.18,
+              "text": "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I"
+            },
+            {
+              "id": 1,
+              "start": 13.18,
+              "end": 17.56,
+              "text": "am a computer science student."
+            }
+          ],
+          "word_timestamps": [
+            {
+              "word": "Hi,",
+              "start": 0.0,
+              "end": 1.38,
+              "probability": 0.8465999960899353
+            },
+            {
+              "word": "uh,",
+              "start": 1.64,
+              "end": 2.16,
+              "probability": 0.028491895645856857
+            },
+            {
+              "word": "my",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.9710431694984436
+            },
+            {
+              "word": "name",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.9986146688461304
+            },
+            {
+              "word": "is",
+              "start": 3.18,
+              "end": 4.3,
+              "probability": 0.9983119964599609
+            },
+            {
+              "word": "Joseph",
+              "start": 4.3,
+              "end": 4.76,
+              "probability": 0.9828523993492126
+            },
+            {
+              "word": "and,",
+              "start": 4.76,
+              "end": 5.44,
+              "probability": 0.8706563115119934
+            },
+            {
+              "word": "uh,",
+              "start": 5.48,
+              "end": 6.1,
+              "probability": 0.9665992259979248
+            },
+            {
+              "word": "I",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.9901525378227234
+            },
+            {
+              "word": "study",
+              "start": 6.6,
+              "end": 6.82,
+              "probability": 0.8680932521820068
+            },
+            {
+              "word": "at,",
+              "start": 6.82,
+              "end": 7.56,
+              "probability": 0.981609046459198
+            },
+            {
+              "word": "uh,",
+              "start": 7.56,
+              "end": 8.8,
+              "probability": 0.8483292460441589
+            },
+            {
+              "word": "um,",
+              "start": 10.04,
+              "end": 10.04,
+              "probability": 0.8023563027381897
+            },
+            {
+              "word": "University",
+              "start": 10.48,
+              "end": 10.9,
+              "probability": 0.9159979820251465
+            },
+            {
+              "word": "of",
+              "start": 10.9,
+              "end": 11.6,
+              "probability": 0.997583270072937
+            },
+            {
+              "word": "Singapore",
+              "start": 11.6,
+              "end": 12.16,
+              "probability": 0.9952045679092407
+            },
+            {
+              "word": "and",
+              "start": 12.16,
+              "end": 12.78,
+              "probability": 0.7689303755760193
+            },
+            {
+              "word": "I",
+              "start": 12.78,
+              "end": 13.18,
+              "probability": 0.9889653921127319
+            },
+            {
+              "word": "am",
+              "start": 13.18,
+              "end": 13.9,
+              "probability": 0.9808654189109802
+            },
+            {
+              "word": "a",
+              "start": 13.9,
+              "end": 15.44,
+              "probability": 0.6115781664848328
+            },
+            {
+              "word": "computer",
+              "start": 15.44,
+              "end": 16.0,
+              "probability": 0.6083906888961792
+            },
+            {
+              "word": "science",
+              "start": 16.0,
+              "end": 16.76,
+              "probability": 0.9887945652008057
+            },
+            {
+              "word": "student.",
+              "start": 16.76,
+              "end": 17.56,
+              "probability": 0.6175066232681274
+            }
+          ]
+        },
+        "prosody": {
+          "speaking_rate_syll_per_sec": 4.8771566176918855,
+          "pitch_mean_hz": 140.24387098283182,
+          "pitch_std_hz": 23.688061382037386,
+          "voiced_fraction": 0.6811091854419411,
+          "energy_rms_mean": 0.0560884065926075,
+          "energy_rms_std": 0.046794649213552475,
+          "zero_crossing_rate_mean": 0.09278613112001734,
+          "duration_seconds": 18.453375
+        },
+        "speaker_embedding": {
+          "model": "speechbrain/spkrec-ecapa-voxceleb",
+          "dimension": 192,
+          "vector": [
+            14.847966194152832,
+            43.18314743041992,
+            18.569787979125977,
+            1.9288935661315918,
+            21.379106521606445,
+            1.5046831369400024,
+            -4.483738899230957,
+            12.414793968200684,
+            -1.4444680213928223,
+            7.313223361968994,
+            -23.87258529663086,
+            27.11753273010254,
+            48.71422576904297,
+            29.818153381347656,
+            -35.71852493286133,
+            2.4918901920318604,
+            3.542759656906128,
+            -25.390119552612305,
+            -24.108407974243164,
+            -14.87398624420166,
+            20.387264251708984,
+            -8.922999382019043,
+            -32.71957015991211,
+            18.842714309692383,
+            -9.90105152130127,
+            -27.77794647216797,
+            -12.427274703979492,
+            16.278533935546875,
+            -18.901973724365234,
+            24.063323974609375,
+            -12.935073852539062,
+            38.64305114746094,
+            -13.300984382629395,
+            22.366687774658203,
+            -18.76943016052246,
+            -34.22494125366211,
+            10.368038177490234,
+            -24.099346160888672,
+            13.556618690490723,
+            -4.330183506011963,
+            -5.339776515960693,
+            25.730167388916016,
+            -26.72365379333496,
+            -20.51093292236328,
+            9.245559692382812,
+            -30.505451202392578,
+            13.712071418762207,
+            8.598299980163574,
+            18.270219802856445,
+            6.006068229675293,
+            -9.678306579589844,
+            -0.856574535369873,
+            19.317819595336914,
+            9.090779304504395,
+            9.136188507080078,
+            4.4080634117126465,
+            -0.7141676545143127,
+            -19.323888778686523,
+            36.64504623413086,
+            -16.845529556274414,
+            -28.380216598510742,
+            -10.976646423339844,
+            -22.734920501708984,
+            -21.804264068603516,
+            -7.715627193450928,
+            -0.4696633815765381,
+            38.14512634277344,
+            -9.786635398864746,
+            -12.050117492675781,
+            3.108320951461792,
+            -22.963054656982422,
+            34.968624114990234,
+            34.777488708496094,
+            -17.40544319152832,
+            34.169105529785156,
+            -3.9312472343444824,
+            7.5048441886901855,
+            -3.4960312843322754,
+            1.424172282218933,
+            -17.722475051879883,
+            12.884478569030762,
+            -16.768985748291016,
+            19.92177963256836,
+            -11.596570014953613,
+            33.75554275512695,
+            6.030448913574219,
+            -20.684518814086914,
+            -6.142158031463623,
+            -41.61435317993164,
+            15.290613174438477,
+            -23.913990020751953,
+            -17.513620376586914,
+            -1.792392373085022,
+            7.67755651473999,
+            12.91785717010498,
+            -7.8918962478637695,
+            19.737728118896484,
+            -34.15852737426758,
+            19.161190032958984,
+            -8.29504108428955,
+            39.851402282714844,
+            19.686899185180664,
+            17.467735290527344,
+            -10.029459953308105,
+            -14.58724308013916,
+            -12.541703224182129,
+            9.446008682250977,
+            -23.86761474609375,
+            -3.764051675796509,
+            -9.831924438476562,
+            12.633723258972168,
+            -1.0594841241836548,
+            17.35579490661621,
+            -10.027278900146484,
+            23.300710678100586,
+            19.64024543762207,
+            -10.634032249450684,
+            -15.43819522857666,
+            17.556917190551758,
+            42.93918228149414,
+            -43.699363708496094,
+            -28.816789627075195,
+            7.5937089920043945,
+            16.849939346313477,
+            -16.836315155029297,
+            2.874739408493042,
+            -12.406478881835938,
+            11.265910148620605,
+            -13.523568153381348,
+            -10.421531677246094,
+            -16.484058380126953,
+            -6.555812358856201,
+            -29.00483512878418,
+            -14.665031433105469,
+            -7.707351207733154,
+            -23.1357479095459,
+            -25.549985885620117,
+            -14.57630729675293,
+            -17.341630935668945,
+            -7.013195514678955,
+            -4.390381813049316,
+            2.424099922180176,
+            7.216858863830566,
+            -0.6467636227607727,
+            36.19328689575195,
+            1.0738550424575806,
+            4.268971920013428,
+            -24.122594833374023,
+            19.556121826171875,
+            13.00894832611084,
+            15.747989654541016,
+            14.5475435256958,
+            19.77305793762207,
+            24.80385398864746,
+            12.613626480102539,
+            -46.838165283203125,
+            3.1124045848846436,
+            -9.053229331970215,
+            -7.790548324584961,
+            -2.7107818126678467,
+            0.19754740595817566,
+            37.70846939086914,
+            -27.267539978027344,
+            -11.907862663269043,
+            24.19388198852539,
+            -41.24969482421875,
+            -5.693889617919922,
+            -32.39938735961914,
+            10.24116039276123,
+            5.6799774169921875,
+            12.346931457519531,
+            -40.80086898803711,
+            12.93034553527832,
+            6.896352767944336,
+            0.5567410588264465,
+            17.586406707763672,
+            3.4374372959136963,
+            -57.145751953125,
+            32.827117919921875,
+            -5.597879886627197,
+            11.006492614746094,
+            -19.27422332763672,
+            18.841278076171875,
+            -3.7889158725738525,
+            4.948208332061768,
+            8.711639404296875,
+            -15.9321870803833,
+            -17.49315643310547,
+            13.835844993591309,
+            -0.7892857789993286,
+            -17.192171096801758,
+            1.6778563261032104
+          ]
+        },
+        "fillers": {
+          "total_count": 5,
+          "per_minute": 16.257,
+          "counts_by_filler": {
+            "uh": 3,
+            "[uh]": 1,
+            "um": 1
+          },
+          "instances": [
+            {
+              "filler": "uh",
+              "start": 1.64,
+              "end": 2.16,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 5.48,
+              "end": 6.1,
+              "source": "asr"
+            },
+            {
+              "filler": "uh",
+              "start": 7.56,
+              "end": 8.8,
+              "source": "asr"
+            },
+            {
+              "filler": "[uh]",
+              "start": 8.8,
+              "end": 10.04,
+              "source": "gap"
+            },
+            {
+              "filler": "um",
+              "start": 10.04,
+              "end": 10.04,
+              "source": "asr"
+            }
+          ]
+        },
+        "pauses": {
+          "total_count": 4,
+          "per_minute": 13.006,
+          "longest_seconds": 0.82,
+          "mean_seconds": 0.657,
+          "total_silent_seconds": 2.63,
+          "silent_fraction_0to1": 0.1425,
+          "time_to_first_word_seconds": 0.0,
+          "counts_by_kind": {
+            "natural": 4
+          },
+          "instances": [
+            {
+              "start": 2.03,
+              "end": 2.53,
+              "duration": 0.5,
+              "kind": "natural"
+            },
+            {
+              "start": 7.18,
+              "end": 7.68,
+              "duration": 0.5,
+              "kind": "natural"
+            },
+            {
+              "start": 9.22,
+              "end": 10.04,
+              "duration": 0.82,
+              "kind": "natural"
+            },
+            {
+              "start": 14.67,
+              "end": 15.48,
+              "duration": 0.81,
+              "kind": "natural"
+            }
+          ]
+        },
+        "processing": {
+          "device": "cuda",
+          "latency_seconds": {
+            "audio_load": 0.009,
+            "transcription": 6.097,
+            "prosody": 0.79,
+            "speaker_embedding": 0.337,
+            "filler_detection": 0.0,
+            "pause_detection": 0.016,
+            "total": 7.25
+          },
+          "warnings": []
+        }
+      },
+      "content": {
+        "model": "mistral:latest",
+        "scores": {
+          "relevance_1to5": 2,
+          "depth_1to5": 3,
+          "clarity_1to5": 4,
+          "structure_1to5": 4
+        },
+        "overall_content_0to100": 56.2,
+        "strengths": [
+          "The candidate provided a specific example of explaining a technical concept to a non-technical audience",
+          "The candidate mentioned their academic background and field of study"
+        ],
+        "improvements": [
+          "Provide a concrete example of the technical concept explanation",
+          "Include specific details about the audience and the context of the explanation"
+        ],
+        "evidence_quotes": [
+          "Hi, uh, my name is Joseph and, uh, I study at, uh, um, University of Singapore and I am a computer science student."
+        ],
+        "disputed_claims": [],
+        "schema_valid": true,
+        "repair_attempts": 0,
+        "latency_seconds": 19.393
+      },
+      "facial": {
+        "model": "live-haar-frontalface",
+        "frames_sampled": 60,
+        "frames_with_face": 58,
+        "face_detection_rate_0to1": 0.9667,
+        "dominant_expression": "unavailable",
+        "expression_mean_probabilities": {},
+        "gaze_centre_stability_0to1": 0.82,
+        "sample_rate_fps": 0.0,
+        "reliable": true,
+        "latency_seconds": 0.0
+      },
+      "fused": {
+        "dimension_scores": [
+          {
+            "name": "speaking_rate",
+            "raw_value": 4.877,
+            "normalised_0to100": 100.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "filler_rate",
+            "raw_value": 16.257,
+            "normalised_0to100": 0.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "pitch_variation",
+            "raw_value": 23.688,
+            "normalised_0to100": 93.4,
+            "weight_applied": 0.2,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "delivery",
+            "raw_value": 58.69,
+            "normalised_0to100": 58.7,
+            "weight_applied": 0.45,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "content",
+            "raw_value": 56.2,
+            "normalised_0to100": 56.2,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "facial",
+            "raw_value": 89.34,
+            "normalised_0to100": 89.3,
+            "weight_applied": 0.15,
+            "included": true,
+            "exclusion_reason": ""
+          }
+        ],
+        "overall_score_0to100": 40.0,
+        "uncapped_score_0to100": 62.3,
+        "ceiling_applied": 40.0,
+        "weights_applied": {
+          "delivery": 0.45,
+          "content": 0.4,
+          "facial": 0.15
+        },
+        "weights_renormalised": false,
+        "cross_modal_flags": [
+          {
+            "kind": "question_not_answered",
+            "detail": "This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there.",
+            "severity": "warn",
+            "domains": [
+              "text"
+            ]
+          },
+          {
+            "kind": "clear_ideas_obscured_by_disfluency",
+            "detail": "Your ideas are clearly organised, but the filler words are obscuring them. The thinking is better than it sounds, which is a frustrating way to be judged.",
+            "severity": "warn",
+            "domains": [
+              "text",
+              "audio"
+            ]
+          }
+        ],
+        "feedback_text": "There is a good deal to work on in that answer. Overall score 40 out of 100. The weakest part of your delivery was filler rate. On content: Provide a concrete example of the technical concept explanation This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there."
+      },
+      "observations": [
+        {
+          "kind": "answer_short",
+          "severity": "notable",
+          "headline": "The answer was too short",
+          "detail": "There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready.",
+          "measurement": "18 seconds",
+          "domain": "audio"
+        },
+        {
+          "kind": "fillers_high",
+          "severity": "notable",
+          "headline": "Filler words were getting in the way",
+          "detail": "They came often enough to be distracting, and \"uh\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead.",
+          "measurement": "5 filler words, 16.3 per minute",
+          "domain": "audio"
+        },
+        {
+          "kind": "no_thinking_pause",
+          "severity": "minor",
+          "headline": "You started answering instantly",
+          "detail": "You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence.",
+          "measurement": "0.00s before the first word",
+          "domain": "audio"
+        },
+        {
+          "kind": "pace_good",
+          "severity": "strength",
+          "headline": "Your pace was comfortable throughout",
+          "detail": "You held a steady conversational speed, which is harder than it sounds under interview pressure and makes you easy to listen to.",
+          "measurement": "4.9 syllables per second",
+          "domain": "audio"
+        },
+        {
+          "kind": "in_frame",
+          "severity": "strength",
+          "headline": "You held the frame well",
+          "detail": "You stayed centred and present on camera throughout, which is exactly what a remote interviewer wants to see.",
+          "measurement": "in frame 97% of sampled frames",
+          "domain": "image"
+        }
+      ],
+      "debrief": {
+        "looking_for": "A strong answer demonstrates the ability to explain complex technical concepts to non-technical audiences, using clear and concise language. It should show that you understand the importance of effective communication and have experience in doing so.",
+        "what_you_gave": "You introduced yourself and your educational background, but did not address the question about explaining a technical concept to a non-technical audience.",
+        "worked": [],
+        "change": [
+          {
+            "quote": "",
+            "problem": "The question was about explaining a technical concept to a non-technical audience, but your answer did not provide an example or demonstrate your ability to do so.",
+            "try_instead": "I once had to explain the concept of data normalization to a marketing team. I broke it down into simple terms, saying that it's like organizing a messy drawer by sorting similar items together. This way, data is easier to find and understand, just like finding a specific marketing report quickly.",
+            "why": "This response provides a clear and concise example of explaining a technical concept to a non-technical audience, demonstrating your ability to communicate effectively."
+          }
+        ],
+        "delivery": "The answer was too short. There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready. Filler words were getting in the way. They came often enough to be distracting, and \"uh\" was the one you reached for most. The fix is not to speak more carefully, it is to let yourself be silent for a beat instead. You started answering instantly. You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence. Worth keeping, though: you held a steady conversational speed, which is harder than it sounds under interview pressure and makes you easy to listen to.",
+        "one_thing": "To improve your answer, try starting with a specific example of a technical concept you've had to explain to a non-technical audience, and explain how you made it clear and easy to understand.",
+        "source": "model",
+        "quotes_dropped": 0,
+        "latency_seconds": 36.096
+      },
+      "warnings": [
+        "The answer did not do what the question asked for, so its relevance score was reduced from 5 to 2."
+      ],
+      "latency_seconds": {
+        "content_evaluation": 19.393,
+        "facial_analysis": 0.0,
+        "fusion": 0.0,
+        "coach_narrative": 36.096
+      }
+    }
+  ],
+  "debrief": {
+    "opening": "Thank you for taking the time to practise for the Graduate Data Engineer role. Let's debrief your answers.",
+    "verdict": "Unfortunately, the answers provided would not yet get through a screening for this role. The responses did not demonstrate a clear understanding or application of the required skills and responsibilities.",
+    "coverage": [
+      {
+        "requirement": "Design and build scalable data pipelines to ingest, transform and load data using Python and SQL",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "Work with PostgreSQL and cloud infrastructure (AWS or Azure) to store and serve data reliably",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "Write automated tests and validation checks to catch data quality issues before they reach production",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "Monitor pipeline performance and troubleshoot failures, including under time pressure when a production job breaks",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "Communicate technical trade-offs and data issues clearly to non-technical stakeholders, including product and business teams",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "Collaborate with data scientists and analysts to understand their data needs and translate them into pipeline requirements",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "Solid computer science fundamentals: data structures, algorithms, time/space complexity",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      },
+      {
+        "requirement": "A testing discipline: you write tests as part of building software, not as an afterthought",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": ""
+      }
+    ],
+    "strongest_moment": "The answers did not provide any evidence of the required skills or experience.",
+    "patterns": [
+      "filler words got in the way in 4 of your 4 answers",
+      "4 of your 4 answers were too short to carry a full example",
+      "you started answering instantly in 4 of your 4 answers",
+      "your pace stayed comfortable across the whole session",
+      "you held the camera frame well throughout"
+    ],
+    "priorities": [
+      "Spend time reviewing and understanding the job description, focusing on the specific technical requirements and responsibilities. Practice answering questions that directly address these requirements, providing specific examples of projects or assignments where you have applied these skills.",
+      "Research and learn more about data pipelines, databases, and cloud infrastructure, focusing on practical applications and best practices. Try to find opportunities to work on projects or complete coursework that involve these topics.",
+      "Work on improving your communication skills, particularly your ability to explain technical concepts to non-technical audiences. Practice speaking and writing clearly and concisely, focusing on making your explanations easy to understand."
+    ],
+    "closing": "Remember, this is an entry-level role and structured mentorship is provided. Keep learning, practicing, and improving, and you will be well on your way to success.",
+    "source": "model",
+    "latency_seconds": 183.226
+  },
+  "warnings": [],
+  "latency_seconds": {
+    "phase1_speech": 49.387,
+    "gpu_handoff": 0.37,
+    "phase2_content": 92.552,
+    "session_debrief": 183.226,
+    "phase3_narrative": 375.2,
+    "total": 517.509
+  }
+}

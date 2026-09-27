@@ -1,0 +1,29 @@
+// pyrightconfig.json
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.11",
+  "exclude": [".venv", "vision_env", "pretrained_models", "**/__pycache__"],
+  "executionEnvironments": [
+    {
+      "root": "backend/vision",
+      "extraPaths": [
+        "backend/vision",
+        "vision_env/Lib/site-packages",
+        "vision_env/lib/python3.11/site-packages"
+      ]
+    },
+    {
+      "root": "backend",
+      "extraPaths": ["backend", "backend/vision"]
+    },
+    {
+      "root": "tests",
+      "extraPaths": ["backend", "backend/vision"]
+    },
+    {
+      "root": ".",
+      "extraPaths": ["backend", "backend/vision"]
+    }
+  ]
+}

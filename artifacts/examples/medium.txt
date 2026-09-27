@@ -1,0 +1,574 @@
+# Medium: graduate and junior professional roles. Fuller adverts; CVs with
+# degrees, projects and some tools. Every name, company and CV is invented.
+
+=== junior-data-analyst
+title: Junior Data Analyst
+--- advert
+Junior Data Analyst, Meridian Retail Group
+
+Meridian runs forty stores across the Midlands. Our small insights team turns sales and customer data into decisions for buyers and store managers, and we are hiring a junior analyst to help.
+
+What you will do:
+- Write SQL queries to pull sales, stock and loyalty data
+- Clean and prepare data in Excel and Python
+- Build and maintain weekly dashboards in Power BI
+- Investigate why sales moved and explain it in plain English
+- Present findings to buyers and store managers
+- Check data quality and flag problems early
+
+What we are looking for:
+- A degree in a numerate subject, or equivalent experience
+- Working knowledge of SQL and Excel, including pivot tables and lookups
+- Some experience of Python or R is a plus
+- Curiosity about why numbers change, and the confidence to say what they mean
+
+Hybrid working, two days a week in our Leicester office.
+--- cv strong
+Aisha Rahman
+BSc Economics, University of Nottingham (2:1, 2025)
+
+Profile
+Economics graduate who enjoys turning messy data into clear answers for people who are not analysts.
+
+Experience
+Data Analyst Intern, Hollins Foods (summer 2024). Wrote SQL queries to pull weekly sales and stock data, cleaned it in Excel with pivot tables and lookups, and built a Power BI dashboard used by six store managers. Found that a pricing error explained a 9% sales drop in one region and presented it to the buying team.
+Dissertation. Used Python (pandas) to analyse loyalty card data and explained which offers changed customer behaviour.
+
+Skills
+SQL, Excel (pivot tables, XLOOKUP), Power BI dashboards, Python (pandas), presenting findings, data quality checks.
+--- cv partial
+James Okafor
+BA History, University of Leeds (2:1, 2025)
+
+Profile
+History graduate with strong research and writing skills, keen to move into an analytical role.
+
+Experience
+Research Assistant, Leeds Archive Project (2024). Catalogued documents and wrote summaries for an online collection.
+Sales Assistant, Page Turner Books (2021 to 2024). Served customers and helped with stock counts.
+
+Skills
+Research, report writing, Excel basics, attention to detail, public speaking.
+
+=== marketing-executive
+title: Marketing Executive
+--- advert
+Marketing Executive, Bloom and Barrow Garden Centres
+
+We are a family-owned group of garden centres with a growing online shop. We want a marketing executive to plan and run our campaigns across email, social media and in store.
+
+Your role:
+- Plan a monthly campaign calendar with the store and online teams
+- Write and schedule social media posts and email newsletters
+- Run paid social campaigns on Meta and track the results
+- Report on campaign performance using Google Analytics
+- Brief designers and photographers and check their work
+- Organise seasonal events in our stores
+- Keep our brand voice consistent everywhere
+
+About you:
+- A degree in marketing, communications or similar, or relevant experience
+- Excellent writing with a good eye for detail
+- Some experience of email tools such as Mailchimp
+- Comfortable reading campaign numbers and explaining what they mean
+
+Salary £26,000 to £29,000.
+--- cv strong
+Megan Taylor
+BA Marketing, Oxford Brookes University (First, 2024)
+
+Profile
+Marketing graduate with a year of campaign experience in retail.
+
+Experience
+Marketing Assistant, Hartwell Home (2024 to now). Plan the monthly campaign calendar, write and schedule social media posts and email newsletters in Mailchimp, and run paid social campaigns on Meta. Report campaign performance from Google Analytics each week and brief our photographer for seasonal shoots.
+Events Volunteer, Brookes Students Union (2022 to 2024). Organised three charity events for 300 guests.
+
+Skills
+Campaign planning, copywriting, social media, Mailchimp, Meta ads, Google Analytics, brand voice.
+--- cv partial
+Daniel Hughes
+BA English Literature, University of Exeter (2:1, 2024)
+
+Profile
+Confident writer looking for a first role in communications.
+
+Experience
+Editor, student newspaper (2022 to 2024). Edited articles and managed a team of eight writers.
+Barista, Harbour Coffee (2021 to 2024).
+
+Skills
+Writing and editing, teamwork, deadlines, Microsoft Office.
+
+=== graduate-accountant
+title: Graduate Accountant
+--- advert
+Graduate Accountant, Pennington and Shaw LLP
+
+We are a regional accountancy practice looking for a graduate to join our audit and accounts team. We will fund your ACA or ACCA qualification and give you study leave.
+
+What you will do:
+- Prepare year-end accounts for small and medium-sized businesses
+- Help with audits: testing transactions, checking bank reconciliations and stock counts
+- Prepare VAT returns and bookkeeping for clients
+- Use Xero, Sage and Excel every day
+- Meet clients with a senior accountant and explain what you need from them
+- Keep accurate working papers
+
+We are looking for:
+- A 2:1 degree in any subject
+- Strong numeracy and attention to detail
+- Good Excel skills
+- A clear, professional way of explaining numbers to clients
+- Commitment to studying for a professional qualification
+--- cv strong
+Oliver Chen
+BSc Accounting and Finance, University of Birmingham (2:1, 2025)
+
+Profile
+Accounting graduate with practice experience, committed to qualifying as a chartered accountant.
+
+Experience
+Summer Intern, Carter Audit Partners (2024). Tested transactions and checked bank reconciliations on two audits, attended a stock count, and prepared draft year-end accounts for a small business. Kept working papers in the firm's format.
+Bookkeeper (part time), family restaurant (2022 to 2025). Recorded sales and bills in Xero and prepared quarterly VAT returns.
+
+Skills
+Year-end accounts, audit testing, bank reconciliations, VAT returns, Xero, Sage, Excel.
+--- cv partial
+Rebecca Stone
+BSc Mathematics, University of Sheffield (2:1, 2025)
+
+Profile
+Mathematics graduate who enjoys problem solving.
+
+Experience
+Maths Tutor (2022 to 2025). Tutored GCSE and A level students.
+Cashier, Sheffield Building Society (summer 2023). Served customers and balanced the till.
+
+Skills
+Numeracy, Excel, patience, explaining ideas clearly.
+
+=== hr-coordinator
+title: HR Coordinator
+--- advert
+HR Coordinator, Lumen Healthcare
+
+Lumen runs twelve private clinics. Our people team is growing and we need an HR coordinator to support hiring, onboarding and day-to-day employee questions.
+
+Responsibilities:
+- Coordinate recruitment: post adverts, book interviews and send offer letters
+- Run onboarding for new starters, including right to work checks
+- Keep employee records accurate in our HR system (BambooHR)
+- Answer employee questions about policies, leave and pay
+- Prepare monthly reports on absence and staff turnover
+- Help managers with simple employee relations cases
+- Keep all records compliant with GDPR
+
+You will have:
+- Some experience in an HR or administrative role
+- CIPD Level 3 or a willingness to study for it
+- Discretion with confidential information
+- Strong organisation and Excel skills
+--- cv strong
+Natalie Brooks
+BA Business and HR Management, University of Portsmouth (2024)
+CIPD Level 3 Certificate (2025)
+
+Profile
+HR graduate with a year of recruitment and onboarding experience.
+
+Experience
+HR Assistant, Seaview Care Group (2024 to now). Post job adverts, book interviews and send offer letters; run onboarding and right to work checks; keep employee records up to date in BambooHR. Produce the monthly absence and turnover report in Excel and answer staff questions about leave and pay. Trained in GDPR and handle confidential records every day.
+
+Skills
+Recruitment coordination, onboarding, HR systems, absence reporting, GDPR, discretion.
+--- cv partial
+Tom Wallace
+BA Psychology, University of Kent (2:2, 2024)
+
+Profile
+Psychology graduate interested in people and workplaces.
+
+Experience
+Customer Service Advisor, Kent Energy (2024 to now). Handle customer calls and complaints.
+Student Ambassador (2022 to 2024). Led campus tours.
+
+Skills
+Communication, empathy, customer service, Microsoft Office.
+
+=== junior-web-developer
+title: Junior Web Developer
+--- advert
+Junior Web Developer, Pixel Harbour
+
+Pixel Harbour is a small agency building websites for charities and local businesses. We are looking for a junior developer to join our team of five.
+
+What you will do:
+- Build responsive pages in HTML, CSS and JavaScript
+- Work on WordPress themes and plugins
+- Fix bugs reported by clients
+- Use Git for version control and review code with the team
+- Test sites on different browsers and phones
+- Help improve page speed and accessibility
+
+What we need:
+- A portfolio or GitHub with projects you have built
+- Solid HTML, CSS and JavaScript
+- Some PHP or React is a bonus
+- Willingness to learn and ask questions
+
+Hybrid, Bristol office.
+--- cv strong
+Kofi Mensah
+BSc Computer Science, UWE Bristol (2:1, 2025)
+GitHub: github.com/kofi-builds (example)
+
+Profile
+Web developer who builds fast, accessible sites.
+
+Experience
+Freelance Web Developer (2023 to now). Built responsive sites in HTML, CSS and JavaScript for four local businesses, including two custom WordPress themes. Improved one client's page speed score from 54 to 91 and fixed accessibility issues found in an audit.
+Final year project. A React app for booking community rooms, version controlled in Git with code reviews from my supervisor.
+
+Skills
+HTML, CSS, JavaScript, WordPress, PHP basics, React, Git, cross-browser testing, accessibility.
+--- cv partial
+Amelia Ward
+BA Graphic Design, Falmouth University (2024)
+
+Profile
+Designer who wants to learn to code.
+
+Experience
+Junior Designer, Ward Print (2024 to now). Design leaflets and posters.
+Online course: Introduction to HTML (2025).
+
+Skills
+Adobe Illustrator, Photoshop, layout, basic HTML.
+
+=== it-support
+title: IT Support Technician
+--- advert
+IT Support Technician, Ashford College
+
+Keep 900 staff and students working. You will be part of a team of four supporting laptops, classroom technology and accounts across our campus.
+
+Responsibilities:
+- Answer support tickets by phone, email and in person
+- Set up and repair Windows laptops and desktops
+- Manage user accounts and passwords in Active Directory and Microsoft 365
+- Set up printers, projectors and classroom screens
+- Keep the asset register up to date
+- Write simple how-to guides for staff
+- Escalate network problems to the infrastructure team
+
+About you:
+- Experience of IT support, even from a placement or volunteering
+- Good knowledge of Windows 10 and 11
+- Patience and a clear way of explaining technical things
+- CompTIA A+ is desirable
+--- cv strong
+Harry Patel
+CompTIA A+ (2024)
+HNC Computing, Ashford Technical College (2024)
+
+Profile
+IT support technician who enjoys fixing problems and explaining them simply.
+
+Experience
+IT Support Apprentice, Kentwell Schools Trust (2024 to now). Answer support tickets by phone, email and in person; set up and repair Windows 10 and 11 laptops; manage user accounts and passwords in Active Directory and Microsoft 365; set up classroom projectors and printers. Keep the asset register accurate and wrote how-to guides for staff.
+
+Skills
+Windows 10 and 11, Active Directory, Microsoft 365, hardware repair, ticketing, clear explanations.
+--- cv partial
+Lily Foster
+BA Media Studies, Canterbury Christ Church (2024)
+
+Profile
+Media graduate who is good with technology.
+
+Experience
+Video Editor (freelance, 2024). Edited videos for small businesses.
+Retail Assistant, PhoneWorld (2022 to 2024). Helped customers set up new phones.
+
+Skills
+Video editing, social media, setting up phones, customer service.
+
+=== customer-success
+title: Customer Success Associate
+--- advert
+Customer Success Associate, Tallyo
+
+Tallyo makes booking software for salons and clinics. We are hiring a customer success associate to help new customers get set up and get the most from our product.
+
+In this role you will:
+- Onboard new customers through video calls and training sessions
+- Answer product questions by email and chat
+- Spot customers who are not using Tallyo well and help them
+- Record every conversation in our CRM (HubSpot)
+- Pass bugs and feature requests to the product team with clear details
+- Track customer health scores and renewals
+
+You will bring:
+- One year in a customer-facing role
+- Confidence explaining software to non-technical people
+- Organisation and good written English
+- Experience of a CRM is helpful
+--- cv strong
+Chloe Martin
+BA Business Management, University of Reading (2024)
+
+Profile
+Customer-facing professional who loves helping people get value from software.
+
+Experience
+Customer Support Advisor, BookWell Software (2024 to now). Onboard new clinic customers through video calls and training sessions, answer product questions by email and chat, and record every conversation in HubSpot. Pass bugs to the product team with clear steps to reproduce. Look after a group of 60 accounts and track their health scores ahead of renewals.
+
+Skills
+Customer onboarding, product training, HubSpot CRM, clear written English, renewals.
+--- cv partial
+Adam Lewis
+BSc Sport Science, University of Bath (2024)
+
+Profile
+Energetic graduate with coaching experience.
+
+Experience
+Swimming Coach, Bath Swim Club (2022 to 2024). Coached groups of children.
+Gym Instructor, FitZone (2024 to now). Run inductions for new members.
+
+Skills
+Coaching, motivating people, first aid, teamwork.
+
+=== recruitment-consultant
+title: Graduate Recruitment Consultant
+--- advert
+Graduate Recruitment Consultant, Summit Talent
+
+Summit places engineers and technicians with manufacturers across the North West. We are looking for graduates who want to build a career in recruitment.
+
+What you will do:
+- Find candidates through LinkedIn, job boards and our database
+- Screen candidates by phone and write up their skills
+- Build relationships with hiring managers
+- Arrange interviews and prepare candidates for them
+- Negotiate offers and follow up after placements
+- Hit weekly targets for calls and interviews
+
+You will need:
+- A degree in any subject
+- Confidence on the phone and resilience when you hear no
+- Organisation, because you will run several roles at once
+- Ambition: our commission scheme has no cap
+--- cv strong
+Jordan Hayes
+BA Business, Manchester Metropolitan University (2:1, 2025)
+
+Profile
+Confident, target-driven graduate with sales and recruitment experience.
+
+Experience
+Recruitment Intern, NorthStar Staffing (summer 2024). Found candidates through LinkedIn and job boards, screened them by phone and wrote up their skills for consultants. Arranged 40 interviews in eight weeks and helped prepare candidates for them.
+Telesales, Manchester Theatre (2022 to 2024). Called past customers to sell tickets and hit weekly targets.
+
+Skills
+Sourcing on LinkedIn, phone screening, arranging interviews, working to targets, resilience.
+--- cv partial
+Sarah Nolan
+BSc Biology, Lancaster University (2:1, 2025)
+
+Profile
+Science graduate looking for a people-focused career.
+
+Experience
+Lab Assistant, Lancaster University (2024). Prepared samples for experiments.
+Waitress, Riverside Bistro (2021 to 2025).
+
+Skills
+Organisation, teamwork, attention to detail.
+
+=== project-coordinator
+title: Project Coordinator
+--- advert
+Project Coordinator, Brightline Construction
+
+Brightline builds schools and health centres. We need a project coordinator to support our project managers on two live building projects.
+
+Your responsibilities:
+- Keep project schedules up to date in Microsoft Project
+- Organise site meetings and write up actions
+- Track orders, deliveries and subcontractor paperwork
+- Keep the risk and issues log current
+- Prepare weekly progress reports for clients
+- Manage document control for drawings and changes
+
+What we are looking for:
+- A degree or relevant experience in project support
+- Excellent organisation and follow-through
+- Confident with Excel and Microsoft Project
+- A calm approach when plans change
+--- cv strong
+Emily Walker
+BSc Construction Management, Nottingham Trent University (2024)
+
+Profile
+Project coordinator with a year on live construction projects.
+
+Experience
+Assistant Project Coordinator, Kingsway Builders (2024 to now). Keep schedules current in Microsoft Project, organise site meetings and write up actions, track orders and subcontractor paperwork, and keep the risk and issues log up to date. Produce the weekly progress report for the client and run document control for drawing changes.
+
+Skills
+Scheduling, Microsoft Project, Excel, risk and issues logs, document control, reporting.
+--- cv partial
+Liam O'Connor
+BA Geography, University of Liverpool (2024)
+
+Profile
+Organised graduate with event planning experience.
+
+Experience
+Events Assistant, Liverpool Festival (2023 to 2024). Helped plan stalls and volunteers.
+Sales Assistant, OutdoorGear (2021 to 2024).
+
+Skills
+Organisation, teamwork, Excel basics, customer service.
+
+=== lab-technician
+title: Laboratory Technician
+--- advert
+Laboratory Technician, ClearWater Testing
+
+We test drinking water and wastewater for water companies and councils. We need a laboratory technician to prepare and test samples in our accredited lab.
+
+What you will do:
+- Receive and log samples in our LIMS
+- Prepare samples and reagents following our methods
+- Run tests for pH, conductivity, nitrates and metals
+- Calibrate and look after lab equipment
+- Record results accurately and check them against limits
+- Follow health and safety and quality rules (ISO 17025)
+
+What you will need:
+- A degree or HNC in chemistry, biology or environmental science
+- Good practical lab skills
+- Accuracy and attention to detail
+- Happy to work some Saturday shifts
+--- cv strong
+Zara Ahmed
+BSc Chemistry, University of Hull (2:1, 2024)
+
+Profile
+Chemistry graduate with a year in an accredited testing laboratory.
+
+Experience
+Laboratory Assistant, NorthLab Environmental (2024 to now). Log incoming water samples in the LIMS, prepare samples and reagents to method, and run pH, conductivity and nitrate tests. Calibrate balances and pH meters each morning, record results and check them against limits, and follow ISO 17025 quality rules.
+Final year project. Measured heavy metals in river water using ICP.
+
+Skills
+Sample preparation, water testing, LIMS, equipment calibration, ISO 17025, accurate records.
+--- cv partial
+Ben Fraser
+BSc Sports Science, University of Stirling (2024)
+
+Profile
+Science graduate who enjoys practical work.
+
+Experience
+Fitness Instructor, Stirling Leisure (2024 to now).
+Research Volunteer (2023). Helped measure athletes' heart rates in a study.
+
+Skills
+Practical work, data recording, teamwork.
+
+=== ux-designer
+title: Junior UX Designer
+--- advert
+Junior UX Designer, Fernhill Bank
+
+Our digital team designs the app and website used by 400,000 customers. We are looking for a junior UX designer to help make everyday banking simpler.
+
+What you will do:
+- Run user research: interviews, surveys and usability tests
+- Turn research into user journeys and wireframes
+- Design screens and prototypes in Figma
+- Work with developers and content designers in agile sprints
+- Check designs meet accessibility standards (WCAG 2.2)
+- Present your work and the reasons behind it to the team
+
+You will have:
+- A portfolio showing your design process, not just final screens
+- Skills in Figma
+- An understanding of accessibility
+- Curiosity about how people really use products
+--- cv strong
+Maya Singh
+BA Interaction Design, Ravensbourne University (First, 2025)
+Portfolio: mayasingh.design (example)
+
+Profile
+UX designer who starts with users and shows her reasoning.
+
+Experience
+UX Design Intern, Pocket Savings (2024). Ran user interviews and usability tests, turned findings into user journeys and wireframes, and designed prototypes in Figma. Worked in agile sprints with two developers and checked designs against WCAG 2.2.
+Degree project. Redesigned a council parking app; usability tests showed task time fell by 35%.
+
+Skills
+User research, usability testing, wireframes, Figma prototypes, accessibility (WCAG), presenting design decisions.
+--- cv partial
+Owen Price
+BA Fine Art, University of Brighton (2024)
+
+Profile
+Artist and illustrator interested in digital products.
+
+Experience
+Freelance Illustrator (2024 to now). Illustrations for books and posters.
+
+Skills
+Illustration, Photoshop, colour and composition.
+
+=== operations-analyst
+title: Operations Analyst
+--- advert
+Operations Analyst, Swiftline Freight
+
+Swiftline moves 20,000 pallets a week between depots. We want an operations analyst to find ways to make our network faster and cheaper.
+
+What you will do:
+- Analyse delivery times, costs and depot capacity using Excel and SQL
+- Build weekly performance reports for depot managers
+- Spot bottlenecks and suggest improvements to routes and shifts
+- Model the cost of changes before they happen
+- Work with depot teams to test and measure improvements
+- Keep KPIs up to date on our dashboard
+
+What you will bring:
+- A degree in business, maths, engineering or similar
+- Strong Excel skills; some SQL is a plus
+- A practical, problem-solving mindset
+- Confidence talking to managers and drivers alike
+--- cv strong
+Ravi Kumar
+BSc Business Analytics, Aston University (2:1, 2025)
+
+Profile
+Analyst who likes finding the slow part of a process and fixing it.
+
+Experience
+Operations Intern, Midland Parcels (2024). Analysed delivery times and depot capacity in Excel and SQL, built the weekly KPI report for depot managers, and found a shift pattern that caused a daily bottleneck at loading. Modelled the cost of changing it and helped the depot test the new shifts; late deliveries fell by 12%.
+
+Skills
+Excel (modelling, pivot tables), SQL, KPI reporting, process improvement, working with depot teams.
+--- cv partial
+Grace Turner
+BA Politics, University of Warwick (2024)
+
+Profile
+Politics graduate with strong writing and debating skills.
+
+Experience
+Parliamentary Intern (2024). Researched briefing notes for an MP.
+Debating Society President (2023 to 2024).
+
+Skills
+Research, writing, debating, public speaking.

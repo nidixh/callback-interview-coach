@@ -1,0 +1,283 @@
+/* app-studio.css */
+/* The app, dressed for the studio.
+   Laid over the app's own sheet: the same layout, classes and states, with the room (app-studio.js) showing through.
+   Panels are smoked glass on the dark; one action colour, ember; the coach's pens keep their colours. */
+
+
+:root{
+  --bg:#0B0706; --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --glass:rgba(14,9,7,.74); --glass-2:rgba(22,15,11,.8); --hair:rgba(255,232,214,.075); --hair-2:rgba(255,232,214,.13);
+  --spring:cubic-bezier(.32,.72,0,1);
+}
+
+/* The room behind, and its film grain */
+#studio{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;opacity:0;transition:opacity 1.4s var(--ease);pointer-events:none}
+#studio.lit{opacity:1}
+body.no3d{background:radial-gradient(60% 50% at 60% 30%,rgba(255,122,61,.12),transparent 70%),var(--bg)}
+body:after{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain .5s steps(4) infinite}
+@keyframes grain{0%{background-position:0 0}25%{background-position:-61px 37px}50%{background-position:43px -71px}75%{background-position:-29px -17px}100%{background-position:0 0}}
+
+/* The rail */
+.side{background:linear-gradient(180deg,rgba(15,10,8,.86),rgba(9,6,5,.92));backdrop-filter:none;border-right:1px solid var(--hair);box-shadow:inset -1px 0 0 rgba(255,240,228,.025)}
+.brand .reel{filter:drop-shadow(0 0 8px rgba(255,122,61,.55))}
+.brand .name{font-size:20px;letter-spacing:-.025em}
+.brand .tally{box-shadow:0 0 8px var(--rose)}
+.new{height:44px;border-radius:999px;padding:0 8px 0 16px;background:linear-gradient(180deg,#FF9057,#FF6D2C);
+  box-shadow:inset 0 1px 0 rgba(255,230,210,.5),inset 0 -2px 6px rgba(120,30,0,.25),0 0 0 1px rgba(255,160,110,.35),0 16px 34px -18px rgba(255,100,40,.8);transition:transform .45s var(--spring),box-shadow .3s}
+.new:hover{transform:translateY(-1px);filter:none;box-shadow:inset 0 1px 0 rgba(255,230,210,.55),inset 0 -2px 6px rgba(120,30,0,.25),0 0 0 1px rgba(255,180,130,.55),0 20px 40px -16px rgba(255,100,40,.95)}
+.new:active{transform:scale(.97)}
+.new kbd{border-radius:999px;background:rgba(40,12,0,.16)}
+.nav button{height:40px;border-radius:12px;position:relative;transition:background .25s,color .25s,box-shadow .25s}
+.nav button:hover{background:rgba(255,236,220,.045)}
+.nav button.on{background:linear-gradient(90deg,rgba(255,122,61,.16),rgba(255,122,61,.03) 70%);box-shadow:inset 0 0 0 1px rgba(255,122,61,.14)}
+.nav button.on:before{content:"";position:absolute;left:-14px;top:9px;bottom:9px;width:3px;border-radius:0 3px 3px 0;background:var(--ember);box-shadow:0 0 12px var(--ember)}
+.nav button.on svg{filter:drop-shadow(0 0 6px rgba(255,122,61,.6))}
+.group{font:500 10.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.sess{border-radius:12px;transition:background .25s,transform .4s var(--spring)}
+.sess:hover{background:rgba(255,236,220,.045);transform:translateX(3px)}
+.sess .sc{border-radius:999px;background:rgba(255,236,220,.05);box-shadow:inset 0 0 0 1px var(--hair)}
+
+/* The slate across the top */
+.main{background:transparent}
+.bar{background:rgba(10,7,5,.55);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--hair)}
+.crumb{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.crumb b{font:600 13px var(--ui);letter-spacing:0;text-transform:none}
+.step{border-radius:999px;height:30px}
+.step.now{background:rgba(255,122,61,.12);box-shadow:inset 0 0 0 1px rgba(255,122,61,.3)}
+.btn{border-radius:999px;border:0;background:rgba(255,236,220,.045);box-shadow:inset 0 0 0 1px var(--hair-2);transition:color .2s,box-shadow .25s,background .25s,transform .35s var(--spring)}
+.btn:hover:not(:disabled){box-shadow:inset 0 0 0 1px rgba(255,122,61,.55);background:rgba(255,122,61,.06)}
+.btn:active:not(:disabled){transform:scale(.97)}
+.lvl,.seg{border-radius:999px;border:0;background:rgba(255,236,220,.04);box-shadow:inset 0 0 0 1px var(--hair)}
+.lvl .thumb,.seg button.on{border-radius:999px;background:linear-gradient(180deg,rgba(255,122,61,.22),rgba(255,122,61,.1));box-shadow:inset 0 0 0 1px rgba(255,122,61,.4),0 0 18px -6px rgba(255,122,61,.6)}
+.lvl button,.seg button{border-radius:999px}
+
+/* Screens arrive like a cut */
+/* A new screen slips into the gate like the next frame of film: a jump, an overexposed flash, then it settles. */
+.view.on{animation:gate .72s var(--ease)}
+@keyframes gate{0%{opacity:0;transform:translate3d(0,-26px,0);filter:brightness(2.4) blur(5px)}28%{opacity:1;transform:translate3d(0,3px,0);filter:brightness(1.4) blur(0)}100%{opacity:1;transform:none;filter:none}}
+.pane{padding:34px 44px 34px}
+.insp{background:linear-gradient(180deg,rgba(13,9,7,.8),rgba(9,6,5,.88));backdrop-filter:none;border-left:1px solid var(--hair);gap:18px}
+.h1{font:800 clamp(30px,2.6vw,42px)/1.04 var(--display);letter-spacing:-.04em;max-width:24ch}
+.lede{font-size:15.5px;line-height:1.62}
+.ph{font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.ph span{font:500 11px var(--ui);letter-spacing:0;text-transform:none}
+.primary{border-radius:999px;height:46px;padding:0 20px;background:linear-gradient(180deg,#FF9057,#FF6D2C);
+  box-shadow:inset 0 1px 0 rgba(255,230,210,.5),inset 0 -2px 6px rgba(120,30,0,.25),0 0 0 1px rgba(255,160,110,.35),0 18px 38px -18px rgba(255,100,40,.85);transition:transform .45s var(--spring),box-shadow .3s}
+.primary:hover:not(:disabled){transform:translateY(-1px);filter:none;box-shadow:inset 0 1px 0 rgba(255,230,210,.55),inset 0 -2px 6px rgba(120,30,0,.25),0 0 0 1px rgba(255,180,130,.55),0 22px 44px -16px rgba(255,100,40,1)}
+.primary:active:not(:disabled){transform:scale(.97)}
+.primary kbd{border-radius:999px}
+.card,.advice,.camcheck{border-radius:16px;background:rgba(255,236,220,.035);box-shadow:inset 0 0 0 1px var(--hair)}
+.input{border-radius:12px;border:0;background:rgba(255,236,220,.04);box-shadow:inset 0 0 0 1px var(--hair-2);transition:box-shadow .25s}
+.input:focus{box-shadow:inset 0 0 0 1px var(--ember),0 0 0 4px rgba(255,122,61,.12)}
+.toggle input:checked + i{background:var(--mint);box-shadow:0 0 16px -4px var(--mint)}
+
+/* Set up: the advert as a page of script */
+.editor{border:0;border-radius:22px;background:rgba(9,6,5,.72);box-shadow:inset 0 0 0 1px var(--hair),inset 0 1px 0 rgba(255,240,228,.04),0 40px 80px -50px rgba(0,0,0,.9);transition:box-shadow .3s}
+.editor:focus-within{box-shadow:inset 0 0 0 1px rgba(255,122,61,.55),0 0 0 5px rgba(255,122,61,.08),0 40px 80px -50px rgba(0,0,0,.9)}
+.editor .tb{border-bottom:1px solid var(--hair);padding:10px 12px}
+.editor .tb button{border-radius:999px}
+.editor textarea{padding:18px 22px 18px 64px;line-height:28px;font-size:16px;background-image:linear-gradient(90deg,transparent 46px,rgba(255,122,61,.28) 46px,rgba(255,122,61,.28) 47px,transparent 47px),repeating-linear-gradient(transparent 0 27px,rgba(255,232,214,.05) 27px 28px);background-attachment:local;background-position:0 18px}
+.cvline{border-radius:14px}
+.board{border-radius:20px;background:linear-gradient(180deg,rgba(20,13,10,.9),rgba(10,7,5,.95));box-shadow:inset 0 0 0 1px var(--hair),inset 0 1px 0 rgba(255,240,228,.05)}
+.notready{border-radius:16px}
+
+/* The interview: the stage */
+#live .pane{background:transparent}
+#stagecard{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:18px}
+#stagecard > .veil{order:0}
+.faceport{order:1;position:relative;width:min(560px,100%);height:clamp(190px,34vh,380px);flex:0 0 auto;margin-bottom:6px;pointer-events:none;opacity:0;transition:opacity .9s var(--ease)}
+.faceport.on{opacity:1}
+.faceport .ring{position:absolute;left:50%;top:50%;width:min(340px,70%);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,200,170,.07);pointer-events:none}
+.faceport .ring.b{width:min(420px,86%);box-shadow:inset 0 0 0 1px rgba(255,200,170,.04);border:1px dashed rgba(255,200,170,.06)}
+#stagecard[data-state="recording"] .faceport .ring{box-shadow:inset 0 0 0 1px rgba(169,184,255,.25),0 0 40px -10px rgba(169,184,255,.4);animation:listen 2.2s ease-in-out infinite}
+@keyframes listen{50%{transform:translate(-50%,-50%) scale(1.04)}}
+.faceport .tc{position:absolute;right:6px;bottom:4px;font:500 10.5px var(--mono);letter-spacing:.14em;color:rgba(246,235,226,.35)}
+#stagecard .who.int{order:2;justify-content:center;margin-bottom:12px;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+#stagecard .who.int .av{display:none}
+.question{order:3;font:400 clamp(28px,2.7vw,42px)/1.18 var(--serif);font-style:italic;letter-spacing:-.005em;max-width:30ch;margin-inline:auto;color:#FFF1E4;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.livestatus{order:4;justify-content:center;margin-inline:auto;text-align:center}
+.livehint{order:5;justify-content:center}
+.heard{order:6;margin:26px auto 0;max-width:68ch;text-align:left;padding:16px 20px;border-radius:18px;background:rgba(9,6,5,.55);box-shadow:inset 0 0 0 1px var(--hair)}
+.heard p{font-size:17px}
+.past-q{order:7;margin:36px auto 0;width:min(760px,100%);text-align:left;opacity:.72}
+.pq{border-radius:14px;background:rgba(9,6,5,.5);box-shadow:inset 0 0 0 1px var(--hair)}
+.veil{background:radial-gradient(70% 60% at 50% 45%,rgba(20,13,10,.94),rgba(9,6,5,.98))}
+.cam{border:0;border-radius:18px;box-shadow:inset 0 0 0 1px var(--hair-2),0 30px 60px -40px rgba(0,0,0,.9)}
+.cam:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(90deg,transparent calc(33.3% - .5px),rgba(255,255,255,.07) calc(33.3% - .5px),rgba(255,255,255,.07) calc(33.3% + .5px),transparent calc(33.3% + .5px),transparent calc(66.6% - .5px),rgba(255,255,255,.07) calc(66.6% - .5px),rgba(255,255,255,.07) calc(66.6% + .5px),transparent calc(66.6% + .5px)),
+             linear-gradient(transparent calc(33.3% - .5px),rgba(255,255,255,.07) calc(33.3% - .5px),rgba(255,255,255,.07) calc(33.3% + .5px),transparent calc(33.3% + .5px),transparent calc(66.6% - .5px),rgba(255,255,255,.07) calc(66.6% - .5px),rgba(255,255,255,.07) calc(66.6% + .5px),transparent calc(66.6% + .5px))}
+.face,.eyelight{border-radius:999px;background:rgba(5,3,2,.6);backdrop-filter:blur(6px)}
+
+/* The tape: a console */
+.tape{background:linear-gradient(180deg,rgba(12,8,6,.9),rgba(7,5,4,.96));backdrop-filter:none;border-top:1px solid var(--hair)}
+.tape:before{height:1px;opacity:.9;background:linear-gradient(90deg,transparent,var(--ember) 30%,var(--gold) 50%,var(--rose) 70%,transparent)}
+.rec{background:radial-gradient(circle at 50% 35%,#2d201a,#140d0a);border:0;box-shadow:inset 0 0 0 1px var(--hair-2),inset 0 1px 0 rgba(255,240,228,.06),0 10px 24px -12px rgba(0,0,0,.9)}
+.rec .dot{box-shadow:0 0 14px var(--rose)}
+.rec.on{background:radial-gradient(circle at 50% 35%,#3a1a17,#1c0c0b)}
+.rec.play{background:linear-gradient(180deg,#FF9057,#FF6D2C);box-shadow:0 0 0 1px rgba(255,160,110,.4),0 12px 26px -12px rgba(255,100,40,.9)}
+.tc{text-shadow:0 0 22px rgba(255,236,220,.18)}
+.target .rail{background:rgba(255,236,220,.06);box-shadow:inset 0 0 0 1px var(--hair)}
+.target .zone{background:rgba(126,232,199,.18);box-shadow:0 0 16px -4px rgba(126,232,199,.5)}
+.target .pos{box-shadow:0 0 10px var(--ember)}
+.level.on b{box-shadow:0 0 8px rgba(126,232,199,.55)}
+.tlwords span{border-radius:999px;border:0;background:rgba(255,236,220,.04);box-shadow:inset 0 0 0 1px var(--hair)}
+.tlwords span:hover,.tlwords span.on{box-shadow:inset 0 0 0 1px var(--ember)}
+
+/* The debrief: a marked-up page */
+.working{padding-top:56px}
+.loadpct{text-shadow:0 0 30px rgba(255,200,87,.25)}
+.verdict{font:400 clamp(26px,2.3vw,36px)/1.22 var(--serif);font-style:italic;letter-spacing:0;color:#FFF1E4;max-width:34ch}
+.verdict.long{font-family:var(--ui);font-style:normal}
+.answerhead .q{font:700 21px/1.3 var(--display);letter-spacing:-.02em}
+.answerhead .sc{text-shadow:0 0 24px currentColor}
+.doc{padding:28px 30px;border-radius:24px;background:rgba(9,6,5,.62);box-shadow:inset 0 0 0 1px var(--hair),inset 0 1px 0 rgba(255,240,228,.04),0 50px 90px -60px rgba(0,0,0,.95)}
+.said{font-size:17.5px}
+.note{border:0;border-radius:14px;background:rgba(20,13,10,.94);box-shadow:inset 0 0 0 1px var(--hair-2),0 14px 30px -20px rgba(0,0,0,.9)}
+.note:hover,.note.focus{border:0;box-shadow:inset 0 0 0 1px var(--ember),0 0 26px -10px rgba(255,122,61,.6)}
+.note.gaze:hover,.note.gaze.focus{box-shadow:inset 0 0 0 1px var(--iris),0 0 26px -10px rgba(169,184,255,.6)}
+.coach .card{padding:16px 18px}
+.overall{border-radius:20px;background:radial-gradient(120% 120% at 0% 0%,rgba(255,122,61,.12),rgba(255,236,220,.03) 60%);box-shadow:inset 0 0 0 1px var(--hair-2)}
+.overall .n{text-shadow:0 0 30px rgba(255,236,220,.25)}
+.sky .b{box-shadow:0 0 12px -2px currentColor;color:var(--ember)}
+.sky .b.cap{color:var(--gold)} .sky .b.best{color:var(--mint)} .sky .b.na{color:var(--rose)}
+.dim .t{background:rgba(255,236,220,.06)}
+.dim .t i{background:linear-gradient(90deg,var(--ember),var(--gold));box-shadow:0 0 10px rgba(255,122,61,.5)}
+.focusbox{border-radius:18px;box-shadow:inset 0 0 0 1px rgba(255,122,61,.25)}
+
+/* Sessions, progress, CV, calendar */
+.lib{gap:10px}
+.lib li{position:relative;border-radius:18px;background:rgba(12,8,6,.72);box-shadow:inset 0 0 0 1px var(--hair);overflow:hidden;transition:transform .5s var(--spring),box-shadow .3s,background .3s}
+.lib li:hover{transform:translateX(4px);background:rgba(20,13,10,.82);box-shadow:inset 0 0 0 1px rgba(255,122,61,.3),0 20px 40px -26px rgba(0,0,0,.9)}
+.trend,.cal,.calform{border:0;border-radius:24px;background:rgba(12,8,6,.72);box-shadow:inset 0 0 0 1px var(--hair),inset 0 1px 0 rgba(255,240,228,.04)}
+.trend .line{filter:drop-shadow(0 0 6px rgba(255,122,61,.65))}
+.trend .line.eyes{filter:drop-shadow(0 0 6px rgba(169,184,255,.6))}
+.changes li{border-radius:14px;background:rgba(12,8,6,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px var(--hair)}
+.day{border-radius:12px;border:0;background:rgba(255,236,220,.035);box-shadow:inset 0 0 0 1px var(--hair);transition:box-shadow .25s,transform .35s var(--spring)}
+.day:hover{box-shadow:inset 0 0 0 1px var(--hair-2);transform:translateY(-1px)}
+.day.today{box-shadow:inset 0 0 0 1px rgba(255,122,61,.5),0 0 24px -10px rgba(255,122,61,.8)}
+.day.pick{box-shadow:inset 0 0 0 1px var(--ember)}
+.cvbox textarea{border:0;border-radius:22px;background:rgba(9,6,5,.72);box-shadow:inset 0 0 0 1px var(--hair);padding:18px 22px;line-height:1.75}
+.cvbox textarea:focus{box-shadow:inset 0 0 0 1px rgba(255,122,61,.55),0 0 0 5px rgba(255,122,61,.08)}
+.center h1{font:400 clamp(34px,3.6vw,56px)/1.1 var(--serif);font-style:italic;letter-spacing:0}
+dialog.cvdlg{border:0;border-radius:24px;background:rgba(16,11,8,.97);box-shadow:inset 0 0 0 1px var(--hair-2),0 60px 120px -40px #000}
+
+/* Every screen gets its piece of the studio */
+
+/* A leak of warm light across the frame when the screen changes. */
+.leak{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;
+  background:linear-gradient(100deg,transparent 20%,rgba(255,140,70,.16) 38%,rgba(255,214,170,.22) 46%,rgba(255,120,60,.12) 56%,transparent 74%);background-size:260% 100%;background-position:120% 0}
+.leak.go{animation:leak 1s var(--ease)}
+@keyframes leak{0%{opacity:0;background-position:120% 0}25%{opacity:1}100%{opacity:0;background-position:-40% 0}}
+/* The frame line: the dark bar between two frames, rolling down the gate. */
+.leak:after{content:"";position:absolute;left:0;right:0;top:0;height:7vh;background:linear-gradient(transparent,rgba(5,3,2,.85) 30%,rgba(5,3,2,.85) 70%,transparent);transform:translateY(-10vh);opacity:0}
+.leak.go:after{animation:frameline .5s cubic-bezier(.5,0,.2,1)}
+@keyframes frameline{0%{transform:translateY(-10vh);opacity:1}100%{transform:translateY(105vh);opacity:1}}
+
+/* The steps across the top, as frames on a strip of film. */
+.steps{gap:0;padding:0 6px;border-radius:10px;background:rgba(8,5,4,.55);box-shadow:inset 0 0 0 1px var(--hair);position:relative}
+.steps:empty{display:none}
+.steps:before,.steps:after{content:"";position:absolute;left:8px;right:8px;height:3px;background:repeating-linear-gradient(90deg,rgba(255,232,214,.14) 0 6px,transparent 6px 12px);pointer-events:none}
+.steps:before{top:3px}.steps:after{bottom:3px}
+.step{border-radius:4px;height:34px;margin:0 1px;box-shadow:none}
+.step.now{background:rgba(255,122,61,.14);box-shadow:inset 0 0 0 1px rgba(255,122,61,.35)}
+
+/* Score rings: the number sits inside an arc drawn to its value. */
+.ringed{position:relative;isolation:isolate}
+.ringed:before{content:"";position:absolute;z-index:-1;border-radius:50%;
+  background:conic-gradient(from -90deg,var(--ember),var(--gold) calc(var(--v,0) * 1%),rgba(255,236,220,.08) 0);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+  filter:drop-shadow(0 0 6px rgba(255,122,61,.45));animation:ringin 1.2s var(--ease)}
+@keyframes ringin{from{opacity:0;transform:rotate(-40deg) scale(.8)}to{opacity:1;transform:none}}
+.sess .sc.ringed{width:34px;height:34px;padding:0;display:grid;place-items:center;border-radius:50%;background:none;box-shadow:none;font-size:11.5px}
+.sess .sc.ringed:before{inset:0}
+.sess .sc.hi.ringed:before{background:conic-gradient(from -90deg,var(--mint) calc(var(--v) * 1%),rgba(255,236,220,.08) 0)}
+.sess .sc.lo.ringed:before{background:conic-gradient(from -90deg,var(--rose) calc(var(--v) * 1%),rgba(255,236,220,.08) 0)}
+.answerhead .sc.ringed{min-width:86px;height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:28px}
+.answerhead .sc.ringed:before{inset:0}
+.answerhead .sc.ringed small{text-align:center;margin-top:2px}
+.overall .n.ringed{width:92px;height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:36px}
+.overall .n.ringed:before{inset:0;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 5px));mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 5px))}
+.overall .n.ringed small{position:absolute;top:100%;margin-top:8px;left:50%;transform:translateX(-50%)}
+.overall{padding-bottom:34px}
+
+/* Set up: the interviewer waits in the corner and reads along. */
+#setup .pane{position:relative}
+.faceport.mini{position:absolute;top:4px;right:34px;width:190px;height:122px;margin:0;z-index:2}
+.faceport.mini .ring{width:112px}
+#setup .editor{margin-top:18px}
+.faceport.mini .cap{position:absolute;left:0;right:0;bottom:-34px;display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center}
+.faceport.mini .cap b{font:500 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.faceport.mini .cap em{font:400 italic 15px var(--serif);color:#FFE7D2}
+#setup .pane > .h1,#setup .pane > .lede{margin-right:230px}
+@media (max-width:1180px){ #setup .pane > .h1,#setup .pane > .lede{margin-right:0} .faceport.mini{display:none}
+  /* One column: each box grows to fit what is in it, so the advert board never runs under the settings. */
+  .view.work>.pane,.view.work>.insp{min-height:auto} }
+
+/* The interview: a ring of sound around the interviewer, and a tally light while recording. */
+.faceport .voice{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.faceport .tally{position:absolute;left:8px;top:6px;display:inline-flex;align-items:center;gap:6px;font:700 10.5px var(--mono);letter-spacing:.2em;color:var(--rose);opacity:0;transition:opacity .3s}
+.faceport .tally i{width:8px;height:8px;border-radius:50%;background:var(--rose);box-shadow:0 0 12px var(--rose);animation:tally 1.2s steps(2) infinite}
+@keyframes tally{50%{opacity:.25}}
+#stagecard[data-state="recording"] .faceport .tally{opacity:1}
+/* Autofocus on the interviewer: hunting while it thinks, locked while it speaks or listens. */
+.faceport .af{position:absolute;left:50%;top:50%;width:min(210px,42%);aspect-ratio:.84;transform:translate(-50%,-52%)}
+.faceport .af i{position:absolute;width:14px;height:14px;border:0 solid rgba(246,235,226,.5);transition:border-color .35s,filter .35s}
+.faceport .af i:nth-child(1){left:0;top:0;border-width:1.5px 0 0 1.5px}.faceport .af i:nth-child(2){right:0;top:0;border-width:1.5px 1.5px 0 0}
+.faceport .af i:nth-child(3){left:0;bottom:0;border-width:0 0 1.5px 1.5px}.faceport .af i:nth-child(4){right:0;bottom:0;border-width:0 1.5px 1.5px 0}
+.faceport .af em{position:absolute;left:0;bottom:calc(100% + 6px);font:500 9.5px var(--mono);font-style:normal;letter-spacing:.18em;color:rgba(246,235,226,.5);white-space:nowrap}
+.faceport .af em:after{content:"AF-C  FACE"}
+#stagecard[data-state="waiting"] .faceport .af i{border-color:var(--ember);filter:drop-shadow(0 0 5px rgba(255,122,61,.7))}
+#stagecard[data-state="waiting"] .faceport .af em{color:var(--ember)}
+#stagecard[data-state="waiting"] .faceport .af em:after{content:"AF-C  ON AIR"}
+#stagecard[data-state="recording"] .faceport .af i{border-color:var(--iris);filter:drop-shadow(0 0 5px rgba(169,184,255,.7))}
+#stagecard[data-state="recording"] .faceport .af em{color:var(--iris)}
+#stagecard[data-state="recording"] .faceport .af em:after{content:"AF-C  LISTENING"}
+#stagecard[data-state="thinking"] .faceport .af{animation:hunt .9s ease-in-out infinite}
+#stagecard[data-state="thinking"] .faceport .af em:after{content:"AF  HUNTING"}
+@keyframes hunt{0%,100%{transform:translate(-50%,-52%) scale(1)}50%{transform:translate(-50%,-52%) scale(1.1)}}
+#stagecard[data-state="thinking"] .faceport .ring.b{animation:turnring 3s linear infinite;border-color:rgba(169,184,255,.25)}
+@keyframes turnring{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.heard.live{background:rgba(4,2,2,.72);text-align:center;border-radius:14px}
+.heard.live p{font:500 19px/1.55 var(--ui);color:#FFF1DA}
+.cam:before{content:"LIVE";position:absolute;right:10px;bottom:8px;z-index:3;font:700 10px var(--mono);letter-spacing:.2em;color:rgba(126,232,199,.8);text-shadow:0 0 8px rgba(126,232,199,.6)}
+.cam:has(.waiting:not([hidden])):before{content:"OFF";color:var(--faint);text-shadow:none}
+
+/* The debrief: meters for the dimensions, as on a mixing desk. */
+.dim .t{height:8px;border-radius:2px}
+.dim .t i{border-radius:0;-webkit-mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px);mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px);background:linear-gradient(90deg,var(--mint),var(--gold) 60%,var(--ember))}
+.checks li.y svg{filter:drop-shadow(0 0 5px rgba(126,232,199,.7))}
+.doc{position:relative}
+.doc:before{content:"";position:absolute;left:14px;top:22px;bottom:22px;width:1px;background:linear-gradient(transparent,rgba(255,122,61,.35),transparent)}
+
+
+/* Progress: the line glows over a fill of light. */
+.trend .area{animation:fadein 1.4s ease .4s both}
+.trend .dot.last{filter:drop-shadow(0 0 8px var(--ember))}
+.trend .grid{stroke:rgba(255,232,214,.06);stroke-dasharray:2 5}
+
+/* Your CV: a scanner beam passes down the page while you edit it. */
+.cvbox textarea{background-image:linear-gradient(180deg,transparent 0,rgba(255,200,87,.07) 46%,rgba(255,220,150,.16) 50%,rgba(255,200,87,.07) 54%,transparent 100%),repeating-linear-gradient(transparent 0 26px,rgba(255,232,214,.045) 26px 27px);
+  background-size:100% 220px,100% 100%;background-repeat:no-repeat,repeat;background-position:0 -240px,0 18px;background-attachment:local,local}
+.cvbox textarea:focus{animation:scan 3.2s ease-in-out infinite}
+@keyframes scan{0%{background-position:0 -240px,0 18px}100%{background-position:0 calc(100% + 240px),0 18px}}
+
+/* Calendar: a call sheet. */
+.calhead b{font:400 italic 30px var(--serif);letter-spacing:0}
+.calgrid .dow{font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.day i{padding:2px 6px;border-radius:999px;background:rgba(255,200,87,.12);box-shadow:inset 0 0 0 1px rgba(255,200,87,.3)}
+.day.today b{text-shadow:0 0 12px var(--ember)}
+.day.today{animation:today 3s ease-in-out infinite}
+@keyframes today{50%{box-shadow:inset 0 0 0 1px rgba(255,122,61,.7),0 0 30px -8px rgba(255,122,61,1)}}
+
+/* Stopped: a clapperboard, marked CUT. */
+.clap{width:190px;margin-bottom:6px}
+.clap .arm{height:26px;border-radius:5px 5px 0 0;display:flex;overflow:hidden;background:#1b1210;box-shadow:inset 0 0 0 1px var(--hair-2);transform-origin:8px 100%;animation:clap 1.4s var(--ease) .3s both}
+.clap .arm i{flex:1;background:repeating-linear-gradient(135deg,#F3E7DA 0 14px,#1b1210 14px 28px)}
+.clap .slate{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:0 0 8px 8px;background:#140d0a;box-shadow:inset 0 0 0 1px var(--hair-2)}
+.clap .slate span{font:500 10px var(--mono);letter-spacing:.2em;color:var(--faint)}
+.clap .slate b{font:400 italic 40px/1 var(--serif);color:var(--rose);text-shadow:0 0 20px rgba(255,107,133,.5)}
+@keyframes clap{0%{transform:rotate(-24deg)}55%{transform:rotate(-24deg)}70%{transform:rotate(0)}80%{transform:rotate(-4deg)}100%{transform:rotate(0)}}
+
+.center > .tag{align-self:flex-start}

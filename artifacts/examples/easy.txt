@@ -1,0 +1,461 @@
+# Easy: entry-level jobs. Short, plain adverts; simple CVs.
+# Every name, company and CV here is invented for practice.
+
+=== barista
+title: Barista
+--- advert
+Barista at The Copper Kettle
+
+We are a small, busy café on the high street. We are looking for a barista to join our friendly team. You will make coffee, serve food and keep the café clean. No experience is needed. We will train you.
+
+What we are looking for:
+- A smile and a friendly manner
+- Happy to work early mornings and weekends
+- Able to stay calm when it gets busy
+- Happy to clean and tidy
+
+Part time, 20 hours a week.
+--- cv strong
+Amira Hassan
+
+About me
+Friendly and hard-working. I love coffee and I like meeting new people.
+
+Work
+Barista, Bean Corner Café (2024 to now). I make coffee, serve customers at the till and clean the café at closing time. I often work early mornings and weekends.
+Volunteer, school fair café (2023). Served tea and cakes on busy days.
+
+Skills
+Making coffee, serving customers, using a till, keeping calm when it is busy.
+--- cv partial
+Tom Riley
+
+About me
+Reliable student looking for part-time work.
+
+Work
+Paper round (2022 to 2024). Delivered papers before school every day.
+Helper at my uncle's garage (2023). Tidied the workshop and answered the phone.
+
+Skills
+Good timekeeping, happy to learn, can drive.
+
+=== retail-assistant
+title: Retail Sales Assistant
+--- advert
+Retail Sales Assistant at Northgate Home Store
+
+Join our shop team. You will help customers find what they need, work on the till and keep the shelves full and tidy. Full training is given.
+
+You will need to:
+- Talk to customers in a friendly way
+- Handle cash and card payments
+- Work some weekends and bank holidays
+- Lift boxes of stock
+
+Full time or part time. Staff discount.
+--- cv strong
+Jessica Owusu
+
+About me
+Chatty and helpful. I enjoy helping customers find the right thing.
+
+Work
+Sales Assistant, Brightside Gifts (2023 to now). I help customers, work on the till with cash and card payments, and fill the shelves with new stock. I work most weekends.
+Christmas temp, Toy Barn (2022). Tidied shelves and helped at the tills.
+
+Skills
+Customer service, till work, stock filling, working weekends.
+--- cv partial
+Ben Carter
+
+About me
+Quiet and careful worker.
+
+Work
+Kitchen helper, Riverside School (2023). Washed dishes and helped prepare lunches.
+Gardening for neighbours (2022 to 2024). Mowed lawns and cut hedges.
+
+Skills
+Hard-working, good with my hands, on time.
+
+=== warehouse-picker
+title: Warehouse Picker
+--- advert
+Warehouse Picker at FastBox Logistics
+
+We need pickers for our warehouse. You will pick items from shelves using a handheld scanner, pack them into boxes and get orders ready to ship. Training is given on your first day.
+
+What you need:
+- Able to stand and walk for a full shift
+- Able to lift up to 15 kg
+- Good at following instructions
+- Happy to work nights or days
+
+Weekly pay. Overtime available.
+--- cv strong
+Daniel Kowalski
+
+About me
+Fit, reliable and used to physical work.
+
+Work
+Warehouse Operative, ParcelPoint (2023 to now). I pick items from shelves with a handheld scanner, pack boxes and get orders ready to ship. I work night shifts.
+Stock Assistant, Value Foods (2022). Lifted and moved stock in the back room.
+
+Skills
+Picking and packing, using a scanner, lifting, following instructions.
+--- cv partial
+Sophie Grant
+
+About me
+Creative and kind.
+
+Work
+Art club helper, Hillside Primary (2023). Helped children with painting and craft.
+Babysitting (2021 to 2024). Looked after two children after school.
+
+Skills
+Patient, creative, good with children.
+
+=== kitchen-porter
+title: Kitchen Porter
+--- advert
+Kitchen Porter at Olive and Thyme
+
+Our restaurant kitchen needs a kitchen porter. You will wash pots and dishes, keep the kitchen clean and help the chefs with simple jobs like peeling vegetables.
+
+We need someone who:
+- Works fast and keeps things clean
+- Is happy to work evenings and weekends
+- Can follow simple food safety rules
+
+Free staff meals on every shift.
+--- cv strong
+Luca Romano
+
+About me
+Fast worker who likes a clean kitchen.
+
+Work
+Kitchen Porter, The Red Lion pub (2023 to now). I wash pots and dishes, clean the kitchen and help the chefs peel and chop vegetables. I work evenings and weekends.
+
+Skills
+Washing up fast, keeping the kitchen clean, basic food safety.
+--- cv partial
+Grace Adeyemi
+
+About me
+Friendly and organised.
+
+Work
+Library helper, Town Library (2023). Put books back on shelves and helped visitors.
+Dog walker (2022 to 2024). Walked dogs for neighbours.
+
+Skills
+Organised, friendly, reliable.
+
+=== receptionist-gym
+title: Gym Receptionist
+--- advert
+Front Desk Receptionist at PulseFit Gym
+
+Be the first face our members see. You will welcome members, answer the phone, book classes and keep the front desk tidy. We will teach you our booking system.
+
+About you:
+- Friendly and confident with people
+- Good at answering the phone
+- Happy to work early or late shifts
+- Tidy and organised
+
+Free gym membership.
+--- cv strong
+Chloe Bennett
+
+About me
+Friendly and confident. I enjoy helping people.
+
+Work
+Receptionist, Sunnyfield Leisure Centre (2023 to now). I welcome members at the front desk, answer the phone and book classes on the computer. I work early and late shifts.
+Shop Assistant, Corner News (2022). Served customers at the counter.
+
+Skills
+Welcoming people, answering the phone, booking classes, keeping the desk tidy.
+--- cv partial
+Ryan Fletcher
+
+About me
+Hard-working and practical.
+
+Work
+Labourer, Fletcher Builders (2023). Carried materials and cleaned the site.
+Car washing (2022). Washed cars at a hand car wash.
+
+Skills
+Strong, practical, works well outdoors.
+
+=== delivery-driver
+title: Delivery Driver
+--- advert
+Delivery Driver at QuickDrop
+
+Drive one of our vans and deliver parcels to homes and shops in your local area. You will load the van in the morning and follow a route on the app.
+
+You must have:
+- A full UK driving licence
+- A good sense of direction
+- A polite manner at the door
+- The ability to lift parcels
+
+Van and fuel provided.
+--- cv strong
+Marcus Bell
+
+About me
+Safe driver who knows the local area well.
+
+Work
+Delivery Driver, Parcel Plus (2023 to now). I load my van each morning and deliver parcels to homes and shops using the route app. I have a full UK driving licence with no points.
+Pizza delivery, Mario's (2022). Delivered food by car in the evenings.
+
+Skills
+Driving, finding addresses, lifting parcels, being polite at the door.
+--- cv partial
+Hannah Price
+
+About me
+Organised and calm.
+
+Work
+Office Helper, Price and Sons (2023). Filed papers and made tea for visitors.
+Volunteer, charity shop (2022). Sorted clothes and priced items.
+
+Skills
+Filing, sorting, friendly with visitors.
+
+=== office-cleaner
+title: Office Cleaner
+--- advert
+Office Cleaner at Sparkle Clean Services
+
+We clean offices in the town centre in the evenings. You will vacuum, empty bins, clean kitchens and toilets, and make sure everything looks great for the morning.
+
+We are looking for someone who:
+- Takes pride in a clean job
+- Can work evenings from 6pm to 9pm
+- Is honest and reliable
+
+All cleaning products are provided.
+--- cv strong
+Elena Popescu
+
+About me
+Honest and careful. I take pride in a clean job.
+
+Work
+Cleaner, Brightway Cleaning (2022 to now). I clean offices in the evenings: vacuuming, emptying bins and cleaning kitchens and toilets.
+Hotel Cleaner, Parkside Hotel (2021). Cleaned rooms and bathrooms.
+
+Skills
+Office cleaning, evening work, reliable.
+--- cv partial
+Jake Morris
+
+About me
+Outgoing and sporty.
+
+Work
+Football coach helper, Town Juniors (2023). Set up training and helped the coach.
+Leaflet delivery (2022). Posted leaflets through doors.
+
+Skills
+Team player, fit, good with young people.
+
+=== cashier
+title: Supermarket Cashier
+--- advert
+Checkout Assistant at Fresh Basket Supermarket
+
+Work on our tills and help customers pay for their shopping. You will scan items, take payments, help at the self-checkouts and keep your area clean.
+
+You will need to be:
+- Friendly and patient with customers
+- Good with money
+- Able to work weekends
+- Happy to stand for your shift
+
+Staff discount on all shopping.
+--- cv strong
+Priya Shah
+
+About me
+Patient and friendly, good with money.
+
+Work
+Checkout Assistant, Valley Foods (2023 to now). I scan shopping, take cash and card payments and help customers at the self-checkouts. I work every weekend.
+Tuck shop helper, school (2022). Handled money and gave change.
+
+Skills
+Till work, handling money, patient with customers.
+--- cv partial
+Oliver Brown
+
+About me
+Keen gamer and fast learner.
+
+Work
+Helped at a family fish farm (2022 to 2024). Fed fish and cleaned tanks.
+
+Skills
+Fast learner, good with computers, calm.
+
+=== housekeeper
+title: Hotel Housekeeper
+--- advert
+Room Attendant at The Harbour View Hotel
+
+Help our guests feel at home. You will clean bedrooms and bathrooms, change beds and restock towels and tea trays. You will work as part of a small team.
+
+We need someone who:
+- Works to a high standard
+- Can work quickly and carefully
+- Is happy to work weekends
+
+Uniform and meals provided.
+--- cv strong
+Maria Santos
+
+About me
+Careful and quick, with a high standard of cleaning.
+
+Work
+Room Attendant, Seaside Inn (2022 to now). I clean bedrooms and bathrooms, change beds and restock towels and tea trays. I work weekends as part of a small team.
+
+Skills
+Room cleaning, making beds, working quickly and carefully.
+--- cv partial
+Ethan Clarke
+
+About me
+Friendly and chatty.
+
+Work
+Market stall helper (2023). Sold fruit and vegetables on Saturdays.
+Newspaper delivery (2021 to 2022).
+
+Skills
+Talking to customers, handling cash.
+
+=== waiter
+title: Restaurant Server
+--- advert
+Waiting Staff at Bella Cucina
+
+We are a family Italian restaurant. We need waiting staff to greet guests, take orders, serve food and drinks and clear tables. Tips are shared by the whole team.
+
+You should be:
+- Warm and welcoming
+- Able to remember orders
+- Quick on your feet
+- Free on Friday and Saturday evenings
+
+No experience needed.
+--- cv strong
+Sofia Marino
+
+About me
+Warm and welcoming, with a good memory for orders.
+
+Work
+Waitress, The Old Mill Restaurant (2023 to now). I greet guests, take orders, serve food and drinks and clear tables. I work Friday and Saturday evenings.
+Café helper, Garden Café (2022). Served drinks and cakes.
+
+Skills
+Serving food and drinks, remembering orders, being quick on my feet.
+--- cv partial
+Noah Evans
+
+About me
+Careful and quiet.
+
+Work
+Data entry temp, Evans Insurance (2023). Typed forms into a computer.
+
+Skills
+Typing, working alone, careful with details.
+
+=== library-assistant
+title: Library Assistant
+--- advert
+Library Assistant at Brookfield Library
+
+Help people find books and use our library. You will check books in and out, put books back on the shelves and help visitors use the computers.
+
+What you need:
+- Friendly and helpful
+- Organised and tidy
+- Basic computer skills
+- Happy to work Saturdays
+
+Part time, 16 hours a week.
+--- cv strong
+Isabel Moore
+
+About me
+Loves books, friendly and organised.
+
+Work
+Volunteer, Hillview Library (2023 to now). I check books in and out, put books back on the shelves and help visitors use the computers. I work Saturdays.
+School library helper (2022). Tidied shelves and helped younger pupils.
+
+Skills
+Organised, friendly, basic computer skills.
+--- cv partial
+Callum Reid
+
+About me
+Energetic and sporty.
+
+Work
+Lifeguard helper, Town Pool (2023). Watched swimmers and cleaned poolside.
+
+Skills
+Swimming, first aid, fitness.
+
+=== office-admin
+title: Office Administrator
+--- advert
+Office Administrator at Greenway Estate Agents
+
+Keep our small office running. You will answer the phone, reply to emails, book viewings in the diary, file paperwork and order office supplies.
+
+You will need:
+- Good phone manner
+- Basic computer skills, including email and Word
+- Tidy and organised
+- Good spelling
+
+Monday to Friday, 9am to 5pm.
+--- cv strong
+Laura Jenkins
+
+About me
+Organised, polite on the phone and good at spelling.
+
+Work
+Office Assistant, Hartley Solicitors (2023 to now). I answer the phone, reply to emails, keep the diary, file paperwork and order office supplies.
+Receptionist, Hartley Dental (2022). Booked appointments and answered calls.
+
+Skills
+Phone manner, email and Word, filing, organising a diary.
+--- cv partial
+Kieran Walsh
+
+About me
+Practical and reliable.
+
+Work
+Farm hand, Walsh Farm (2021 to 2024). Fed animals, fixed fences and drove the tractor.
+
+Skills
+Driving, fixing things, early mornings.

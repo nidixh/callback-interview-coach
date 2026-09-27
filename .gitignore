@@ -1,0 +1,20 @@
+# .gitignore
+# Python environments, created by setup.ps1
+.venv/
+vision_env/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Downloaded on first run
+pretrained_models/
+
+# Logs and editor files
+*.log
+~$*
+.vscode/
+.idea/
+
+# Test runs
+.pytest_cache/

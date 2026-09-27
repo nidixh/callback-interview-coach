@@ -1,0 +1,26 @@
+Alex Mercer
+Final-year BSc Computer Science student
+
+EXPERIENCE
+
+Data Engineering Intern, Northgate Analytics (summer 2025)
+- Built a data pipeline tracking live football match statistics, ingesting from
+  three sources into a single PostgreSQL database for a team dashboard.
+- Wrote a test suite around the ingestion logic after discovering the live
+  scores API was sending duplicate match events.
+- Reduced the nightly batch window from 40 minutes to 12 by rewriting the
+  transformation step to stream rather than buffer.
+
+Teaching Assistant, University Computing Department (2024 - 2025)
+- Mentored two first-year students through their programming coursework.
+- Ran weekly lab sessions for groups of around fifteen.
+
+PROJECTS
+
+- Presented quarterly performance figures to non-technical trustees at a local
+  charity, translating a warehouse schema into plain language.
+- Contributed a bug fix to an open-source Python CSV parser.
+
+SKILLS
+
+Python, SQL, PostgreSQL, Git, Docker, AWS (S3, Lambda)

@@ -1,0 +1,1405 @@
+{
+  "job_title": "Graduate Data Engineer",
+  "question_set": {
+    "model": "supplied",
+    "job_title": "Graduate Data Engineer",
+    "questions": [
+      {
+        "index": 1,
+        "question": "Can you describe a project or assignment where you designed and built a data pipeline using Python and SQL? Please include details about the data sources, transformations, and how you ensured data quality. Also, explain how you communicated the technical aspects of the pipeline to non-technical stakeholders.",
+        "competency": ""
+      },
+      {
+        "index": 2,
+        "question": "Can you give me an example of a project where you had to design and build a data pipeline, and how you handled any challenges that arose during the process?",
+        "competency": ""
+      }
+    ],
+    "schema_valid": true,
+    "repair_attempts": 0
+  },
+  "answers": [
+    {
+      "index": 1,
+      "question": "Can you describe a project or assignment where you designed and built a data pipeline using Python and SQL? Please include details about the data sources, transformations, and how you ensured data quality. Also, explain how you communicated the technical aspects of the pipeline to non-technical stakeholders.",
+      "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2059_graduate-data-engineer\\take_01.wav",
+      "video_file": "",
+      "speech": {
+        "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2059_graduate-data-engineer\\take_01.wav",
+        "audio_duration_seconds": 11.962,
+        "transcription": {
+          "text": "Thank you for the opportunity to interview today. I have three years of experience building data pipelines in Python, and I am confident I can contribute to your team from the first week.",
+          "language": "en",
+          "segments": [
+            {
+              "id": 0,
+              "start": 0.0,
+              "end": 5.94,
+              "text": "Thank you for the opportunity to interview today. I have three years of experience building data"
+            },
+            {
+              "id": 1,
+              "start": 5.94,
+              "end": 11.18,
+              "text": "pipelines in Python, and I am confident I can contribute to your team from the first week."
+            }
+          ],
+          "word_timestamps": [
+            {
+              "word": "Thank",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.771595299243927
+            },
+            {
+              "word": "you",
+              "start": 0.4,
+              "end": 0.64,
+              "probability": 0.9930025935173035
+            },
+            {
+              "word": "for",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.993344783782959
+            },
+            {
+              "word": "the",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.9980104565620422
+            },
+            {
+              "word": "opportunity",
+              "start": 0.96,
+              "end": 1.56,
+              "probability": 0.9945007562637329
+            },
+            {
+              "word": "to",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.9980621933937073
+            },
+            {
+              "word": "interview",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.9955234527587891
+            },
+            {
+              "word": "today.",
+              "start": 2.2,
+              "end": 2.66,
+              "probability": 0.987955629825592
+            },
+            {
+              "word": "I",
+              "start": 3.56,
+              "end": 3.58,
+              "probability": 0.990847110748291
+            },
+            {
+              "word": "have",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.9978631138801575
+            },
+            {
+              "word": "three",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.7964239716529846
+            },
+            {
+              "word": "years",
+              "start": 4.06,
+              "end": 4.34,
+              "probability": 0.9990822076797485
+            },
+            {
+              "word": "of",
+              "start": 4.34,
+              "end": 4.66,
+              "probability": 0.997731626033783
+            },
+            {
+              "word": "experience",
+              "start": 4.66,
+              "end": 5.16,
+              "probability": 0.9978029131889343
+            },
+            {
+              "word": "building",
+              "start": 5.16,
+              "end": 5.52,
+              "probability": 0.9930968880653381
+            },
+            {
+              "word": "data",
+              "start": 5.52,
+              "end": 5.94,
+              "probability": 0.9768980741500854
+            },
+            {
+              "word": "pipelines",
+              "start": 5.94,
+              "end": 6.4,
+              "probability": 0.99454665184021
+            },
+            {
+              "word": "in",
+              "start": 6.4,
+              "end": 6.72,
+              "probability": 0.9972500205039978
+            },
+            {
+              "word": "Python,",
+              "start": 6.72,
+              "end": 7.16,
+              "probability": 0.9233317971229553
+            },
+            {
+              "word": "and",
+              "start": 7.64,
+              "end": 7.84,
+              "probability": 0.9873864054679871
+            },
+            {
+              "word": "I",
+              "start": 7.84,
+              "end": 8.04,
+              "probability": 0.991589367389679
+            },
+            {
+              "word": "am",
+              "start": 8.04,
+              "end": 8.26,
+              "probability": 0.9755926728248596
+            },
+            {
+              "word": "confident",
+              "start": 8.26,
+              "end": 8.64,
+              "probability": 0.9987799525260925
+            },
+            {
+              "word": "I",
+              "start": 8.64,
+              "end": 8.9,
+              "probability": 0.9828510284423828
+            },
+            {
+              "word": "can",
+              "start": 8.9,
+              "end": 9.1,
+              "probability": 0.9993607401847839
+            },
+            {
+              "word": "contribute",
+              "start": 9.1,
+              "end": 9.6,
+              "probability": 0.9989222288131714
+            },
+            {
+              "word": "to",
+              "start": 9.6,
+              "end": 9.8,
+              "probability": 0.9986995458602905
+            },
+            {
+              "word": "your",
+              "start": 9.8,
+              "end": 10.02,
+              "probability": 0.9985380172729492
+            },
+            {
+              "word": "team",
+              "start": 10.02,
+              "end": 10.22,
+              "probability": 0.997361958026886
+            },
+            {
+              "word": "from",
+              "start": 10.22,
+              "end": 10.5,
+              "probability": 0.9959797859191895
+            },
+            {
+              "word": "the",
+              "start": 10.5,
+              "end": 10.68,
+              "probability": 0.9990730285644531
+            },
+            {
+              "word": "first",
+              "start": 10.68,
+              "end": 10.9,
+              "probability": 0.9980657696723938
+            },
+            {
+              "word": "week.",
+              "start": 10.9,
+              "end": 11.18,
+              "probability": 0.999096155166626
+            }
+          ]
+        },
+        "prosody": {
+          "speaking_rate_syll_per_sec": 5.684489911075351,
+          "pitch_mean_hz": 94.0474748067447,
+          "pitch_std_hz": 11.990543481781962,
+          "voiced_fraction": 0.6176470588235294,
+          "energy_rms_mean": 0.0821540355682373,
+          "energy_rms_std": 0.04985484853386879,
+          "zero_crossing_rate_mean": 0.13169754762700533,
+          "duration_seconds": 11.962375
+        },
+        "speaker_embedding": {
+          "model": "speechbrain/spkrec-ecapa-voxceleb",
+          "dimension": 192,
+          "vector": [
+            14.47414493560791,
+            15.668120384216309,
+            -25.174875259399414,
+            -10.04278564453125,
+            7.836326599121094,
+            -21.418962478637695,
+            -21.673259735107422,
+            15.6901273727417,
+            13.225838661193848,
+            -18.729312896728516,
+            31.202791213989258,
+            -52.34203338623047,
+            76.12659454345703,
+            12.854878425598145,
+            55.630287170410156,
+            -15.976656913757324,
+            -16.42133903503418,
+            -28.127538681030273,
+            -2.8815972805023193,
+            23.389850616455078,
+            -49.47261047363281,
+            -8.032125473022461,
+            15.053359031677246,
+            19.860301971435547,
+            37.911781311035156,
+            21.001359939575195,
+            34.782474517822266,
+            20.698423385620117,
+            16.708187103271484,
+            20.311519622802734,
+            1.7165577411651611,
+            20.728137969970703,
+            -8.801177978515625,
+            19.80695915222168,
+            0.8148219585418701,
+            -27.131383895874023,
+            25.11941909790039,
+            -21.23626708984375,
+            14.557196617126465,
+            -35.13222122192383,
+            30.30047035217285,
+            8.017422676086426,
+            -19.942302703857422,
+            -30.739641189575195,
+            9.599831581115723,
+            -31.328556060791016,
+            -35.9360466003418,
+            -17.698774337768555,
+            4.997660160064697,
+            21.25767707824707,
+            -10.40609359741211,
+            -6.781874179840088,
+            38.364078521728516,
+            8.798443794250488,
+            -19.483057022094727,
+            13.470260620117188,
+            19.767608642578125,
+            -2.6372439861297607,
+            1.879370093345642,
+            0.2602531313896179,
+            -32.443275451660156,
+            -22.791725158691406,
+            -4.5612335205078125,
+            18.96891212463379,
+            -24.495628356933594,
+            -35.68587875366211,
+            -22.52370834350586,
+            -22.01955223083496,
+            4.313605785369873,
+            -19.06699562072754,
+            7.751538276672363,
+            -9.272880554199219,
+            17.262039184570312,
+            43.8259162902832,
+            -36.20353317260742,
+            -8.434186935424805,
+            16.481983184814453,
+            -18.402938842773438,
+            32.54771041870117,
+            -13.741659164428711,
+            28.079505920410156,
+            -8.604742050170898,
+            18.687646865844727,
+            0.7987144589424133,
+            -6.351794719696045,
+            10.652043342590332,
+            -10.787060737609863,
+            -5.399181842803955,
+            15.594449043273926,
+            15.364542007446289,
+            4.17997932434082,
+            -4.689740180969238,
+            77.60379028320312,
+            -16.456533432006836,
+            15.230769157409668,
+            -13.309764862060547,
+            -7.492029666900635,
+            12.563336372375488,
+            -33.818321228027344,
+            19.148784637451172,
+            3.4962027072906494,
+            4.893784999847412,
+            -0.3718014061450958,
+            -15.006438255310059,
+            37.74497985839844,
+            -6.071903705596924,
+            8.790240287780762,
+            9.2437162399292,
+            15.702324867248535,
+            13.28333568572998,
+            -0.27177146077156067,
+            -19.448129653930664,
+            21.79209327697754,
+            -12.3167724609375,
+            -27.294647216796875,
+            26.543758392333984,
+            18.26685905456543,
+            -0.2762328088283539,
+            -0.052168454974889755,
+            10.533952713012695,
+            9.36096477508545,
+            -5.547556400299072,
+            15.81047534942627,
+            2.33424711227417,
+            36.106529235839844,
+            -5.685181140899658,
+            -10.545618057250977,
+            -3.178926706314087,
+            -36.81184768676758,
+            -7.921962738037109,
+            22.419666290283203,
+            -21.693723678588867,
+            -4.958467483520508,
+            8.682482719421387,
+            0.8756303191184998,
+            -42.76716232299805,
+            -15.319419860839844,
+            -26.29497718811035,
+            -53.87825012207031,
+            -25.100820541381836,
+            -6.145536422729492,
+            -31.112178802490234,
+            -54.893619537353516,
+            -8.129207611083984,
+            3.7166008949279785,
+            18.054603576660156,
+            6.868721961975098,
+            15.473677635192871,
+            -8.724967002868652,
+            7.94046688079834,
+            13.410234451293945,
+            -22.782682418823242,
+            14.011293411254883,
+            9.524795532226562,
+            -19.144922256469727,
+            14.068822860717773,
+            0.5258927345275879,
+            -9.290156364440918,
+            7.228304386138916,
+            -22.32642936706543,
+            -18.081880569458008,
+            -20.429039001464844,
+            40.25558090209961,
+            -1.592857837677002,
+            -3.0022828578948975,
+            -21.412376403808594,
+            -15.052888870239258,
+            10.960644721984863,
+            -36.818599700927734,
+            29.05080795288086,
+            27.966093063354492,
+            -50.59607696533203,
+            4.1850481033325195,
+            7.970998287200928,
+            9.865254402160645,
+            -19.62757682800293,
+            -19.401247024536133,
+            -30.24203872680664,
+            35.685794830322266,
+            -13.406851768493652,
+            -53.818946838378906,
+            -22.165430068969727,
+            11.92994213104248,
+            10.669013977050781,
+            -1.685288667678833,
+            12.735462188720703,
+            3.2955820560455322,
+            -7.411693572998047,
+            9.071017265319824,
+            6.357929706573486,
+            0.00388509314507246,
+            -5.800649166107178
+          ]
+        },
+        "fillers": {
+          "total_count": 0,
+          "per_minute": 0.0,
+          "counts_by_filler": {},
+          "instances": []
+        },
+        "pauses": {
+          "total_count": 2,
+          "per_minute": 10.031,
+          "longest_seconds": 0.93,
+          "mean_seconds": 0.68,
+          "total_silent_seconds": 1.36,
+          "silent_fraction_0to1": 0.1137,
+          "time_to_first_word_seconds": 0.0,
+          "counts_by_kind": {
+            "natural": 2
+          },
+          "instances": [
+            {
+              "start": 2.49,
+              "end": 3.42,
+              "duration": 0.93,
+              "kind": "natural"
+            },
+            {
+              "start": 7.22,
+              "end": 7.65,
+              "duration": 0.43,
+              "kind": "natural"
+            }
+          ]
+        },
+        "processing": {
+          "device": "cuda",
+          "latency_seconds": {
+            "audio_load": 2.411,
+            "transcription": 21.233,
+            "prosody": 0.757,
+            "speaker_embedding": 1.711,
+            "filler_detection": 0.0,
+            "pause_detection": 0.009,
+            "total": 26.121
+          },
+          "warnings": []
+        }
+      },
+      "content": {
+        "model": "mistral:latest",
+        "scores": {
+          "relevance_1to5": 2,
+          "depth_1to5": 5,
+          "clarity_1to5": 5,
+          "structure_1to5": 5
+        },
+        "overall_content_0to100": 81.2,
+        "strengths": [
+          "The candidate directly addressed the question by providing a specific example of designing and building a data pipeline using Python and SQL",
+          "The candidate demonstrated a strong understanding of the project, including data sources, transformations, and data quality",
+          "The candidate explained how they communicated the technical aspects of the pipeline to non-technical stakeholders"
+        ],
+        "improvements": [
+          "The candidate could have provided more specific examples of data transformations and quality checks",
+          "The candidate could have mentioned any challenges they faced during the project and how they overcame them"
+        ],
+        "evidence_quotes": [
+          "I have three years of experience building data pipelines in Python",
+          "I designed and built a data pipeline that ingested data from a CSV file, transformed it using SQL, and loaded it into a PostgreSQL database",
+          "I ensured data quality by writing automated tests and validation checks, and by double-checking the data before loading it into the database"
+        ],
+        "disputed_claims": [],
+        "schema_valid": true,
+        "repair_attempts": 0,
+        "latency_seconds": 53.293
+      },
+      "facial": {
+        "model": "",
+        "frames_sampled": 0,
+        "frames_with_face": 0,
+        "face_detection_rate_0to1": 0.0,
+        "dominant_expression": "unavailable",
+        "expression_mean_probabilities": {},
+        "gaze_centre_stability_0to1": 0.0,
+        "sample_rate_fps": 2.0,
+        "reliable": false,
+        "latency_seconds": 0.0
+      },
+      "fused": {
+        "dimension_scores": [
+          {
+            "name": "speaking_rate",
+            "raw_value": 5.684,
+            "normalised_0to100": 92.6,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "filler_rate",
+            "raw_value": 0.0,
+            "normalised_0to100": 100.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "pitch_variation",
+            "raw_value": 11.991,
+            "normalised_0to100": 35.0,
+            "weight_applied": 0.2,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "delivery",
+            "raw_value": 84.04,
+            "normalised_0to100": 84.0,
+            "weight_applied": 0.5294,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "content",
+            "raw_value": 81.2,
+            "normalised_0to100": 81.2,
+            "weight_applied": 0.4706,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "facial",
+            "raw_value": 0.0,
+            "normalised_0to100": 0.0,
+            "weight_applied": 0.0,
+            "included": false,
+            "exclusion_reason": "too few frames contained a detectable face"
+          }
+        ],
+        "overall_score_0to100": 40.0,
+        "uncapped_score_0to100": 82.7,
+        "ceiling_applied": 40.0,
+        "weights_applied": {
+          "delivery": 0.5294,
+          "content": 0.4706
+        },
+        "weights_renormalised": true,
+        "cross_modal_flags": [
+          {
+            "kind": "question_not_answered",
+            "detail": "This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there.",
+            "severity": "warn",
+            "domains": [
+              "text"
+            ]
+          }
+        ],
+        "feedback_text": "There is a good deal to work on in that answer. Overall score 40 out of 100. The weakest part of your delivery was pitch variation. On content: The candidate could have provided more specific examples of data transformations and quality checks This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there."
+      },
+      "observations": [
+        {
+          "kind": "answer_short",
+          "severity": "notable",
+          "headline": "The answer was too short",
+          "detail": "There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready.",
+          "measurement": "12 seconds",
+          "domain": "audio"
+        },
+        {
+          "kind": "pace_fast",
+          "severity": "minor",
+          "headline": "You were speaking a little quickly",
+          "detail": "Slightly faster than a comfortable conversational pace. Not a problem in itself, but it is the first thing that slips further when nerves rise.",
+          "measurement": "5.7 syllables per second",
+          "domain": "audio"
+        },
+        {
+          "kind": "no_thinking_pause",
+          "severity": "minor",
+          "headline": "You started answering instantly",
+          "detail": "You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence.",
+          "measurement": "0.00s before the first word",
+          "domain": "audio"
+        },
+        {
+          "kind": "fillers_low",
+          "severity": "strength",
+          "headline": "Your speech was clean of filler",
+          "detail": "Almost no \"um\"s or \"uh\"s. That is unusual under pressure and it makes you sound prepared.",
+          "measurement": "0 filler words, 0.0 per minute",
+          "domain": "audio"
+        }
+      ],
+      "debrief": {
+        "looking_for": "A strong answer should describe a specific project where you designed and built a data pipeline using Python and SQL, detailing the data sources, transformations, and data quality checks. It should also explain how you communicated the technical aspects of the pipeline to non-technical stakeholders.",
+        "what_you_gave": "You provided a general statement about your experience building data pipelines in Python, but did not describe a specific project or assignment.",
+        "worked": [],
+        "change": [
+          {
+            "quote": "",
+            "problem": "The question asked for a specific project or assignment, but no such project was described.",
+            "try_instead": "For my master's thesis, I designed and built a data pipeline to collect and process weather data from multiple sources. The pipeline used Python for data ingestion and transformation, and SQL for data storage and querying.",
+            "why": "This answer provides a specific project, details the data sources, transformations, and data quality checks, and explains how the pipeline was communicated to non-technical stakeholders."
+          }
+        ],
+        "delivery": "The answer was too short. There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready. You were speaking a little quickly. Slightly faster than a comfortable conversational pace. Not a problem in itself, but it is the first thing that slips further when nerves rise. You started answering instantly. You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence. Worth keeping, though: almost no \"um\"s or \"uh\"s. That is unusual under pressure and it makes you sound prepared.",
+        "one_thing": "If you change only one thing about this answer, focus on providing a specific project or assignment that meets the requirements of the question.",
+        "source": "model",
+        "quotes_dropped": 0,
+        "latency_seconds": 40.664
+      },
+      "warnings": [
+        "The answer did not do what the question asked for, so its relevance score was reduced from 5 to 2."
+      ],
+      "latency_seconds": {
+        "content_evaluation": 53.293,
+        "facial_analysis": 0.0,
+        "fusion": 0.0,
+        "coach_narrative": 40.664
+      }
+    },
+    {
+      "index": 2,
+      "question": "Can you give me an example of a project where you had to design and build a data pipeline, and how you handled any challenges that arose during the process?",
+      "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2059_graduate-data-engineer\\take_02.wav",
+      "video_file": "",
+      "speech": {
+        "audio_file": "C:\\Users\\user\\Documents\\InterviewCoach\\sessions\\2026-09-04_2059_graduate-data-engineer\\take_02.wav",
+        "audio_duration_seconds": 11.962,
+        "transcription": {
+          "text": "Thank you for the opportunity to interview today. I have three years of experience building data pipelines in Python, and I am confident I can contribute to your team from the first week.",
+          "language": "en",
+          "segments": [
+            {
+              "id": 0,
+              "start": 0.0,
+              "end": 5.94,
+              "text": "Thank you for the opportunity to interview today. I have three years of experience building data"
+            },
+            {
+              "id": 1,
+              "start": 5.94,
+              "end": 11.18,
+              "text": "pipelines in Python, and I am confident I can contribute to your team from the first week."
+            }
+          ],
+          "word_timestamps": [
+            {
+              "word": "Thank",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.771595299243927
+            },
+            {
+              "word": "you",
+              "start": 0.4,
+              "end": 0.64,
+              "probability": 0.9930025935173035
+            },
+            {
+              "word": "for",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.993344783782959
+            },
+            {
+              "word": "the",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.9980104565620422
+            },
+            {
+              "word": "opportunity",
+              "start": 0.96,
+              "end": 1.56,
+              "probability": 0.9945007562637329
+            },
+            {
+              "word": "to",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.9980621933937073
+            },
+            {
+              "word": "interview",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.9955234527587891
+            },
+            {
+              "word": "today.",
+              "start": 2.2,
+              "end": 2.66,
+              "probability": 0.987955629825592
+            },
+            {
+              "word": "I",
+              "start": 3.56,
+              "end": 3.58,
+              "probability": 0.990847110748291
+            },
+            {
+              "word": "have",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.9978631138801575
+            },
+            {
+              "word": "three",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.7964239716529846
+            },
+            {
+              "word": "years",
+              "start": 4.06,
+              "end": 4.34,
+              "probability": 0.9990822076797485
+            },
+            {
+              "word": "of",
+              "start": 4.34,
+              "end": 4.66,
+              "probability": 0.997731626033783
+            },
+            {
+              "word": "experience",
+              "start": 4.66,
+              "end": 5.16,
+              "probability": 0.9978029131889343
+            },
+            {
+              "word": "building",
+              "start": 5.16,
+              "end": 5.52,
+              "probability": 0.9930968880653381
+            },
+            {
+              "word": "data",
+              "start": 5.52,
+              "end": 5.94,
+              "probability": 0.9768980741500854
+            },
+            {
+              "word": "pipelines",
+              "start": 5.94,
+              "end": 6.4,
+              "probability": 0.99454665184021
+            },
+            {
+              "word": "in",
+              "start": 6.4,
+              "end": 6.72,
+              "probability": 0.9972500205039978
+            },
+            {
+              "word": "Python,",
+              "start": 6.72,
+              "end": 7.16,
+              "probability": 0.9233317971229553
+            },
+            {
+              "word": "and",
+              "start": 7.64,
+              "end": 7.84,
+              "probability": 0.9873864054679871
+            },
+            {
+              "word": "I",
+              "start": 7.84,
+              "end": 8.04,
+              "probability": 0.991589367389679
+            },
+            {
+              "word": "am",
+              "start": 8.04,
+              "end": 8.26,
+              "probability": 0.9755926728248596
+            },
+            {
+              "word": "confident",
+              "start": 8.26,
+              "end": 8.64,
+              "probability": 0.9987799525260925
+            },
+            {
+              "word": "I",
+              "start": 8.64,
+              "end": 8.9,
+              "probability": 0.9828510284423828
+            },
+            {
+              "word": "can",
+              "start": 8.9,
+              "end": 9.1,
+              "probability": 0.9993607401847839
+            },
+            {
+              "word": "contribute",
+              "start": 9.1,
+              "end": 9.6,
+              "probability": 0.9989222288131714
+            },
+            {
+              "word": "to",
+              "start": 9.6,
+              "end": 9.8,
+              "probability": 0.9986995458602905
+            },
+            {
+              "word": "your",
+              "start": 9.8,
+              "end": 10.02,
+              "probability": 0.9985380172729492
+            },
+            {
+              "word": "team",
+              "start": 10.02,
+              "end": 10.22,
+              "probability": 0.997361958026886
+            },
+            {
+              "word": "from",
+              "start": 10.22,
+              "end": 10.5,
+              "probability": 0.9959797859191895
+            },
+            {
+              "word": "the",
+              "start": 10.5,
+              "end": 10.68,
+              "probability": 0.9990730285644531
+            },
+            {
+              "word": "first",
+              "start": 10.68,
+              "end": 10.9,
+              "probability": 0.9980657696723938
+            },
+            {
+              "word": "week.",
+              "start": 10.9,
+              "end": 11.18,
+              "probability": 0.999096155166626
+            }
+          ]
+        },
+        "prosody": {
+          "speaking_rate_syll_per_sec": 5.684489911075351,
+          "pitch_mean_hz": 94.0474748067447,
+          "pitch_std_hz": 11.990543481781962,
+          "voiced_fraction": 0.6176470588235294,
+          "energy_rms_mean": 0.0821540355682373,
+          "energy_rms_std": 0.04985484853386879,
+          "zero_crossing_rate_mean": 0.13169754762700533,
+          "duration_seconds": 11.962375
+        },
+        "speaker_embedding": {
+          "model": "speechbrain/spkrec-ecapa-voxceleb",
+          "dimension": 192,
+          "vector": [
+            14.47414493560791,
+            15.668120384216309,
+            -25.174875259399414,
+            -10.04278564453125,
+            7.836326599121094,
+            -21.418962478637695,
+            -21.673259735107422,
+            15.6901273727417,
+            13.225838661193848,
+            -18.729312896728516,
+            31.202791213989258,
+            -52.34203338623047,
+            76.12659454345703,
+            12.854878425598145,
+            55.630287170410156,
+            -15.976656913757324,
+            -16.42133903503418,
+            -28.127538681030273,
+            -2.8815972805023193,
+            23.389850616455078,
+            -49.47261047363281,
+            -8.032125473022461,
+            15.053359031677246,
+            19.860301971435547,
+            37.911781311035156,
+            21.001359939575195,
+            34.782474517822266,
+            20.698423385620117,
+            16.708187103271484,
+            20.311519622802734,
+            1.7165577411651611,
+            20.728137969970703,
+            -8.801177978515625,
+            19.80695915222168,
+            0.8148219585418701,
+            -27.131383895874023,
+            25.11941909790039,
+            -21.23626708984375,
+            14.557196617126465,
+            -35.13222122192383,
+            30.30047035217285,
+            8.017422676086426,
+            -19.942302703857422,
+            -30.739641189575195,
+            9.599831581115723,
+            -31.328556060791016,
+            -35.9360466003418,
+            -17.698774337768555,
+            4.997660160064697,
+            21.25767707824707,
+            -10.40609359741211,
+            -6.781874179840088,
+            38.364078521728516,
+            8.798443794250488,
+            -19.483057022094727,
+            13.470260620117188,
+            19.767608642578125,
+            -2.6372439861297607,
+            1.879370093345642,
+            0.2602531313896179,
+            -32.443275451660156,
+            -22.791725158691406,
+            -4.5612335205078125,
+            18.96891212463379,
+            -24.495628356933594,
+            -35.68587875366211,
+            -22.52370834350586,
+            -22.01955223083496,
+            4.313605785369873,
+            -19.06699562072754,
+            7.751538276672363,
+            -9.272880554199219,
+            17.262039184570312,
+            43.8259162902832,
+            -36.20353317260742,
+            -8.434186935424805,
+            16.481983184814453,
+            -18.402938842773438,
+            32.54771041870117,
+            -13.741659164428711,
+            28.079505920410156,
+            -8.604742050170898,
+            18.687646865844727,
+            0.7987144589424133,
+            -6.351794719696045,
+            10.652043342590332,
+            -10.787060737609863,
+            -5.399181842803955,
+            15.594449043273926,
+            15.364542007446289,
+            4.17997932434082,
+            -4.689740180969238,
+            77.60379028320312,
+            -16.456533432006836,
+            15.230769157409668,
+            -13.309764862060547,
+            -7.492029666900635,
+            12.563336372375488,
+            -33.818321228027344,
+            19.148784637451172,
+            3.4962027072906494,
+            4.893784999847412,
+            -0.3718014061450958,
+            -15.006438255310059,
+            37.74497985839844,
+            -6.071903705596924,
+            8.790240287780762,
+            9.2437162399292,
+            15.702324867248535,
+            13.28333568572998,
+            -0.27177146077156067,
+            -19.448129653930664,
+            21.79209327697754,
+            -12.3167724609375,
+            -27.294647216796875,
+            26.543758392333984,
+            18.26685905456543,
+            -0.2762328088283539,
+            -0.052168454974889755,
+            10.533952713012695,
+            9.36096477508545,
+            -5.547556400299072,
+            15.81047534942627,
+            2.33424711227417,
+            36.106529235839844,
+            -5.685181140899658,
+            -10.545618057250977,
+            -3.178926706314087,
+            -36.81184768676758,
+            -7.921962738037109,
+            22.419666290283203,
+            -21.693723678588867,
+            -4.958467483520508,
+            8.682482719421387,
+            0.8756303191184998,
+            -42.76716232299805,
+            -15.319419860839844,
+            -26.29497718811035,
+            -53.87825012207031,
+            -25.100820541381836,
+            -6.145536422729492,
+            -31.112178802490234,
+            -54.893619537353516,
+            -8.129207611083984,
+            3.7166008949279785,
+            18.054603576660156,
+            6.868721961975098,
+            15.473677635192871,
+            -8.724967002868652,
+            7.94046688079834,
+            13.410234451293945,
+            -22.782682418823242,
+            14.011293411254883,
+            9.524795532226562,
+            -19.144922256469727,
+            14.068822860717773,
+            0.5258927345275879,
+            -9.290156364440918,
+            7.228304386138916,
+            -22.32642936706543,
+            -18.081880569458008,
+            -20.429039001464844,
+            40.25558090209961,
+            -1.592857837677002,
+            -3.0022828578948975,
+            -21.412376403808594,
+            -15.052888870239258,
+            10.960644721984863,
+            -36.818599700927734,
+            29.05080795288086,
+            27.966093063354492,
+            -50.59607696533203,
+            4.1850481033325195,
+            7.970998287200928,
+            9.865254402160645,
+            -19.62757682800293,
+            -19.401247024536133,
+            -30.24203872680664,
+            35.685794830322266,
+            -13.406851768493652,
+            -53.818946838378906,
+            -22.165430068969727,
+            11.92994213104248,
+            10.669013977050781,
+            -1.685288667678833,
+            12.735462188720703,
+            3.2955820560455322,
+            -7.411693572998047,
+            9.071017265319824,
+            6.357929706573486,
+            0.00388509314507246,
+            -5.800649166107178
+          ]
+        },
+        "fillers": {
+          "total_count": 0,
+          "per_minute": 0.0,
+          "counts_by_filler": {},
+          "instances": []
+        },
+        "pauses": {
+          "total_count": 2,
+          "per_minute": 10.031,
+          "longest_seconds": 0.93,
+          "mean_seconds": 0.68,
+          "total_silent_seconds": 1.36,
+          "silent_fraction_0to1": 0.1137,
+          "time_to_first_word_seconds": 0.0,
+          "counts_by_kind": {
+            "natural": 2
+          },
+          "instances": [
+            {
+              "start": 2.49,
+              "end": 3.42,
+              "duration": 0.93,
+              "kind": "natural"
+            },
+            {
+              "start": 7.22,
+              "end": 7.65,
+              "duration": 0.43,
+              "kind": "natural"
+            }
+          ]
+        },
+        "processing": {
+          "device": "cuda",
+          "latency_seconds": {
+            "audio_load": 0.006,
+            "transcription": 6.995,
+            "prosody": 0.518,
+            "speaker_embedding": 0.227,
+            "filler_detection": 0.0,
+            "pause_detection": 0.008,
+            "total": 7.753
+          },
+          "warnings": []
+        }
+      },
+      "content": {
+        "model": "mistral:latest",
+        "scores": {
+          "relevance_1to5": 2,
+          "depth_1to5": 4,
+          "clarity_1to5": 4,
+          "structure_1to5": 4
+        },
+        "overall_content_0to100": 62.5,
+        "strengths": [
+          "The candidate provides a specific example of their experience in designing and building data pipelines",
+          "The answer is clear and focused on the question",
+          "The candidate mentions their experience in Python, which is a requirement for the job"
+        ],
+        "improvements": [
+          "The candidate could provide more details about the specific challenges they faced and how they overcame them",
+          "The candidate could mention any specific tools or techniques they used to design and build the data pipeline"
+        ],
+        "evidence_quotes": [
+          "I have three years of experience building data pipelines in Python",
+          "I am confident I can contribute to your team from the first week"
+        ],
+        "disputed_claims": [],
+        "schema_valid": true,
+        "repair_attempts": 0,
+        "latency_seconds": 22.152
+      },
+      "facial": {
+        "model": "",
+        "frames_sampled": 0,
+        "frames_with_face": 0,
+        "face_detection_rate_0to1": 0.0,
+        "dominant_expression": "unavailable",
+        "expression_mean_probabilities": {},
+        "gaze_centre_stability_0to1": 0.0,
+        "sample_rate_fps": 2.0,
+        "reliable": false,
+        "latency_seconds": 0.0
+      },
+      "fused": {
+        "dimension_scores": [
+          {
+            "name": "speaking_rate",
+            "raw_value": 5.684,
+            "normalised_0to100": 92.6,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "filler_rate",
+            "raw_value": 0.0,
+            "normalised_0to100": 100.0,
+            "weight_applied": 0.4,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "pitch_variation",
+            "raw_value": 11.991,
+            "normalised_0to100": 35.0,
+            "weight_applied": 0.2,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "delivery",
+            "raw_value": 84.04,
+            "normalised_0to100": 84.0,
+            "weight_applied": 0.5294,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "content",
+            "raw_value": 62.5,
+            "normalised_0to100": 62.5,
+            "weight_applied": 0.4706,
+            "included": true,
+            "exclusion_reason": ""
+          },
+          {
+            "name": "facial",
+            "raw_value": 0.0,
+            "normalised_0to100": 0.0,
+            "weight_applied": 0.0,
+            "included": false,
+            "exclusion_reason": "too few frames contained a detectable face"
+          }
+        ],
+        "overall_score_0to100": 40.0,
+        "uncapped_score_0to100": 73.9,
+        "ceiling_applied": 40.0,
+        "weights_applied": {
+          "delivery": 0.5294,
+          "content": 0.4706
+        },
+        "weights_renormalised": true,
+        "cross_modal_flags": [
+          {
+            "kind": "question_not_answered",
+            "detail": "This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there.",
+            "severity": "warn",
+            "domains": [
+              "text"
+            ]
+          }
+        ],
+        "feedback_text": "There is a good deal to work on in that answer. Overall score 40 out of 100. The weakest part of your delivery was pitch variation. On content: The candidate could provide more details about the specific challenges they faced and how they overcame them This answer did not give the interviewer what the question asked for, so the score is held down regardless of how it was delivered. Everything else here still stands, and is worth having once the answer itself is there."
+      },
+      "observations": [
+        {
+          "kind": "answer_short",
+          "severity": "notable",
+          "headline": "The answer was too short",
+          "detail": "There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready.",
+          "measurement": "12 seconds",
+          "domain": "audio"
+        },
+        {
+          "kind": "pace_fast",
+          "severity": "minor",
+          "headline": "You were speaking a little quickly",
+          "detail": "Slightly faster than a comfortable conversational pace. Not a problem in itself, but it is the first thing that slips further when nerves rise.",
+          "measurement": "5.7 syllables per second",
+          "domain": "audio"
+        },
+        {
+          "kind": "no_thinking_pause",
+          "severity": "minor",
+          "headline": "You started answering instantly",
+          "detail": "You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence.",
+          "measurement": "0.00s before the first word",
+          "domain": "audio"
+        },
+        {
+          "kind": "fillers_low",
+          "severity": "strength",
+          "headline": "Your speech was clean of filler",
+          "detail": "Almost no \"um\"s or \"uh\"s. That is unusual under pressure and it makes you sound prepared.",
+          "measurement": "0 filler words, 0.0 per minute",
+          "domain": "audio"
+        }
+      ],
+      "debrief": {
+        "looking_for": "A strong answer should provide a specific example of designing and building a data pipeline, detailing the challenges encountered and how they were addressed. This demonstrates your practical experience and problem-solving ability, which are crucial for this role.",
+        "what_you_gave": "You provided a statement of your confidence and experience, but did not give a specific example of a project where you designed and built a data pipeline, and how you handled any challenges that arose during the process.",
+        "worked": [],
+        "change": [
+          {
+            "quote": "",
+            "problem": "The question asked for a specific example, but no example was provided.",
+            "try_instead": "We built a data pipeline to ingest, transform, and load data from multiple sources into our analytics warehouse. One challenge was dealing with inconsistent data formats. To solve this, we implemented a data validation step that checked for missing or incorrect data before loading it into the warehouse.",
+            "why": "This answer provides a specific example of a project where you designed and built a data pipeline, and how you handled a challenge that arose during the process. This demonstrates your practical experience and problem-solving ability, which are crucial for this role."
+          }
+        ],
+        "delivery": "The answer was too short. There was not room here for a situation, what you actually did, and how it turned out. Interviewers read very short answers as not having an example ready. You were speaking a little quickly. Slightly faster than a comfortable conversational pace. Not a problem in itself, but it is the first thing that slips further when nerves rise. You started answering instantly. You began before the question had finished landing. A two-second pause before you start does not read as being unprepared; it reads as considering the question, and it buys you a better first sentence. Worth keeping, though: almost no \"um\"s or \"uh\"s. That is unusual under pressure and it makes you sound prepared.",
+        "one_thing": "If you change only one thing about this answer, focus on providing a specific example of a project where you designed and built a data pipeline, and how you handled any challenges that arose during the process. This will demonstrate your practical experience and problem-solving ability, which are crucial for this role.",
+        "source": "model",
+        "quotes_dropped": 0,
+        "latency_seconds": 58.56
+      },
+      "warnings": [
+        "The answer did not do what the question asked for, so its relevance score was reduced from 5 to 2."
+      ],
+      "latency_seconds": {
+        "content_evaluation": 22.152,
+        "facial_analysis": 0.0,
+        "fusion": 0.0,
+        "coach_narrative": 58.56
+      }
+    }
+  ],
+  "debrief": {
+    "opening": "Thank you for taking the time to practise for the Graduate Data Engineer role. Let's debrief your answers and discuss how we can improve for the actual interview.",
+    "verdict": "Based on the practice session, your answers would not yet get through a screening for this role. The job description requires evidence of designing and building data pipelines using Python and SQL, but your answers did not provide specific examples or details.",
+    "coverage": [
+      {
+        "requirement": "Design and build scalable data pipelines to ingest, transform and load data using Python and SQL",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No specific example or details were provided"
+      },
+      {
+        "requirement": "Work with PostgreSQL and cloud infrastructure (AWS or Azure) to store and serve data reliably",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No mention of PostgreSQL or cloud infrastructure was made"
+      },
+      {
+        "requirement": "Write automated tests and validation checks to catch data quality issues before they reach production",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No mention of testing or validation checks was made"
+      },
+      {
+        "requirement": "Monitor pipeline performance and troubleshoot failures, including under time pressure when a production job breaks",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No mention of monitoring or troubleshooting was made"
+      },
+      {
+        "requirement": "Communicate technical trade-offs and data issues clearly to non-technical stakeholders, including product and business teams",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No mention of communication with non-technical stakeholders was made"
+      },
+      {
+        "requirement": "Collaborate with data scientists and analysts to understand their data needs and translate them into pipeline requirements",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No mention of collaboration with data scientists or analysts was made"
+      },
+      {
+        "requirement": "Eagerness to learn: this is an entry-level role and structured mentorship is provided, but you should be comfortable picking up new tools quickly",
+        "evidenced": false,
+        "where": "",
+        "quote": "",
+        "note": "No mention of eagerness to learn was made"
+      }
+    ],
+    "strongest_moment": "Your answers did not provide specific examples or details as required by the job description.",
+    "patterns": [
+      "you were speaking quickly in 2 of your 2 answers",
+      "2 of your 2 answers were too short to carry a full example",
+      "you started answering instantly in 2 of your 2 answers",
+      "your speech stayed clean of filler throughout"
+    ],
+    "priorities": [
+      "For your next practice session, focus on providing specific examples and details when answering questions about designing and building data pipelines. Also, make sure to address the requirements related to PostgreSQL, cloud infrastructure, testing, troubleshooting, communication with non-technical stakeholders, collaboration with data scientists and analysts, and eagerness to learn."
+    ],
+    "closing": "Remember, practice makes perfect. Keep working on your answers and I'm confident you'll be well-prepared for the actual interview.",
+    "source": "model",
+    "latency_seconds": 79.94
+  },
+  "warnings": [],
+  "latency_seconds": {
+    "phase1_speech": 33.874,
+    "gpu_handoff": 0.353,
+    "phase2_content": 75.446,
+    "session_debrief": 79.94,
+    "phase3_narrative": 179.164,
+    "total": 288.837
+  }
+}

@@ -1,0 +1,2476 @@
+<!-- app.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Callback</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Ccircle cx=%2713%27 cy=%2713%27 r=%2711.5%27 fill=%27none%27 stroke=%27%23FF7A3D%27 stroke-width=%272.2%27/%3E%3Cg fill=%27%23FF7A3D%27%3E%3Ccircle cx=%2713%27 cy=%277%27 r=%272.6%27/%3E%3Ccircle cx=%2713%27 cy=%2719%27 r=%272.6%27/%3E%3Ccircle cx=%277%27 cy=%2713%27 r=%272.6%27/%3E%3Ccircle cx=%2719%27 cy=%2713%27 r=%272.6%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0907; --side:#120C09; --panel:#16100C; --raise:#1E1511; --raise-2:#271C16; --line:#2B1F19; --line-2:#3B2A21;
+  --text:#F7ECE4; --muted:#BCA293; --faint:#8A7061;
+  --ember:#FF7A3D; --ember-ink:#1E0A00; --gold:#FFC857; --rose:#FF6B85; --mint:#7EE8C7;
+  --hl-gold:rgba(255,200,87,.24); --hl-mint:rgba(126,232,199,.20); --hl-ember:rgba(255,122,61,.16);
+  /* The eyes' pen: where the camera saw you look.
+     A cool colour, so it never looks like one of the coaching pens. */
+  --iris:#A9B8FF; --hl-iris:rgba(169,184,255,.16);
+  --ui:"Onest",system-ui,"Segoe UI",sans-serif; --display:"Bricolage Grotesque",var(--ui);
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font:15px/1.5 var(--ui);-webkit-font-smoothing:antialiased;overflow:hidden}
+::selection{background:rgba(255,122,61,.35);color:var(--text)}
+button,input,textarea,select{font:inherit;color:inherit}
+button{border:0;background:none;cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.5}
+:focus-visible{outline:2px solid var(--ember);outline-offset:2px;border-radius:6px}
+[tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:none}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:6px;border:3px solid var(--panel)}
+::-webkit-scrollbar-track{background:transparent}
+[hidden]{display:none!important}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+kbd{font:600 11px var(--mono);padding:3px 7px;border-radius:6px;background:var(--raise-2);border:1px solid var(--line-2);color:var(--muted)}
+
+
+.shell{position:relative;z-index:1;display:grid;grid-template-columns:244px minmax(0,1fr);height:100vh}
+
+/* Sidebar */
+.side{background:rgba(18,12,9,.86);backdrop-filter:blur(8px);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 14px 14px;min-height:0}
+.brand{display:flex;align-items:center;gap:10px;padding:2px 8px 18px;cursor:pointer;user-select:none;text-decoration:none;color:var(--text)}
+.brand .reel{width:26px;height:26px;color:var(--ember);animation:turn 12s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.brand .name{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.01em;display:flex}
+.brand .name span{transition:color .35s var(--ease)}
+.brand .tally{width:7px;height:7px;border-radius:50%;background:var(--rose);margin-left:4px;align-self:flex-start;margin-top:4px;animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.35}}
+.brand:hover .reel{animation-duration:.7s}
+.brand:hover .name span{color:var(--ember)}
+.new{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border-radius:12px;background:var(--ember);color:var(--ember-ink);font-weight:700;margin-bottom:16px;
+  box-shadow:0 8px 20px -12px var(--ember);transition:transform .2s var(--ease),filter .2s}
+.new:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.new kbd{margin-left:auto;background:rgba(0,0,0,.15);border-color:transparent;color:var(--ember-ink)}
+.nav button{width:100%;display:flex;align-items:center;gap:10px;height:36px;padding:0 10px;border-radius:9px;color:var(--muted);font-weight:500;transition:background .15s,color .15s;text-align:left}
+.nav button:hover{background:var(--raise);color:var(--text)}
+.nav button.on{background:var(--raise-2);color:var(--text)}
+.nav button.on svg{color:var(--ember)}
+.nav .count{margin-left:auto;font:500 12.5px var(--mono);color:var(--faint)}
+.group{margin:22px 10px 6px;font-size:12.5px;font-weight:600;color:var(--faint)}
+.recent{overflow:auto;min-height:0}
+.sess{width:100%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 10px;padding:8px 10px;border-radius:9px;text-align:left;transition:background .15s}
+.sess:hover{background:var(--raise)}
+.sess b{font-weight:600;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sess small{grid-column:1;color:var(--faint);font-size:12.5px}
+.sess .sc{grid-row:1/3;grid-column:2;font:600 12.5px var(--mono);padding:3px 7px;border-radius:6px;background:var(--raise-2);color:var(--muted)}
+.sess .sc.hi{color:var(--mint)} .sess .sc.mid{color:var(--gold)} .sess .sc.lo{color:var(--rose)}
+
+/* Main */
+.main{display:grid;grid-template-rows:56px minmax(0,1fr) auto;min-width:0;min-height:0;background:rgba(22,16,12,.42)}
+.bar{display:flex;align-items:center;gap:16px;padding:0 20px;border-bottom:1px solid var(--line);background:rgba(22,16,12,.8);backdrop-filter:blur(8px)}
+.crumb{font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.crumb b{color:var(--text);font-weight:600}
+.steps{display:flex;align-items:center;gap:4px;margin:0 auto;overflow:auto}
+.step{display:flex;align-items:center;gap:7px;height:30px;padding:0 11px;border-radius:9px;font:500 12.5px var(--mono);color:var(--faint);white-space:nowrap;transition:background .15s,color .15s}
+button.step:hover{background:var(--raise);color:var(--muted)}
+.step .d{width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor}
+.step.past{color:var(--muted)} .step.past .d{background:var(--muted);border-color:var(--muted)}
+.step.now{background:var(--raise-2);color:var(--text)}
+.step.now .d{border-color:var(--ember);background:var(--ember);box-shadow:0 0 0 4px rgba(255,122,61,.18);animation:breathe 1.6s ease-in-out infinite}
+.step .sc{font:600 12.5px var(--mono);color:var(--text)}
+.step.cap .sc{color:var(--gold)} .step.best .sc{color:var(--mint)} .step.na .sc{color:var(--rose)}
+.acts{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 13px;border-radius:9px;border:1px solid var(--line-2);color:var(--muted);font-size:13.5px;font-weight:500;transition:color .15s,border-color .15s;background:var(--raise);white-space:nowrap;text-decoration:none}
+.btn:hover:not(:disabled){color:var(--text);border-color:var(--faint)}
+.btn kbd{padding:1px 5px}
+
+.view{display:none;min-height:0;height:100%}
+.view.on{display:grid;animation:viewin .5s var(--ease)}
+@keyframes viewin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.work{grid-template-columns:minmax(0,1fr) 340px}
+.pane{padding:28px 40px 28px;overflow:auto;position:relative;min-height:0}
+.insp{border-left:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:16px;overflow:auto;background:rgba(18,12,9,.8);backdrop-filter:blur(6px);min-height:0}
+/* The contents keep their size and the panel scrolls, so the self view is never squashed. */
+.insp>*{flex-shrink:0}
+.ph{font-size:13.5px;font-weight:700;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ph span{font-weight:500;color:var(--faint);font-size:12.5px}
+.lede{color:var(--muted);max-width:64ch}
+.who{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:8px}
+.who .av{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:800;flex:0 0 auto}
+.who.int .av{background:rgba(255,200,87,.16);color:var(--gold)}
+.who.you .av{background:rgba(255,122,61,.18);color:var(--ember)}
+.who .meta{font-weight:500;color:var(--faint)}
+.tag{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:6px;font-size:12.5px;font-weight:600;background:var(--raise);white-space:nowrap}
+.tag i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag.mint{color:var(--mint)} .tag.gold{color:var(--gold)} .tag.rose{color:var(--rose)} .tag.ember{color:var(--ember)} .tag.muted{color:var(--muted)} .tag.iris{color:var(--iris)}
+.primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:42px;padding:0 18px;border-radius:11px;background:var(--ember);color:var(--ember-ink);font-weight:700;font-size:15px;
+  box-shadow:0 10px 24px -14px var(--ember);transition:transform .2s var(--ease),filter .2s;white-space:nowrap}
+.primary:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.06)}
+.primary kbd{background:rgba(0,0,0,.16);border-color:transparent;color:var(--ember-ink)}
+.card{padding:14px;border-radius:12px;background:var(--raise)}
+.empty{color:var(--faint);font-size:13.5px}
+
+/* Setup */
+.editor{border:1px solid var(--line-2);border-radius:12px;background:rgba(14,9,7,.8);max-width:820px;transition:border-color .2s}
+.editor:focus-within{border-color:var(--ember)}
+.editor .tb{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line)}
+.editor .tb button{height:28px;padding:0 10px;border-radius:6px;font-size:13.5px;color:var(--muted)}
+.editor .tb button:hover{background:var(--raise);color:var(--text)}
+.editor .tb span{margin-left:auto;font:500 12.5px var(--mono);color:var(--faint)}
+.editor textarea{display:block;width:100%;min-height:260px;height:calc(100vh - 420px);max-height:520px;resize:vertical;border:0;outline:0;background:transparent;padding:16px 18px;
+  font-size:16.5px;line-height:1.75;color:var(--text);caret-color:var(--ember)}
+.editor textarea::placeholder{color:var(--faint)}
+.h1{font-family:var(--display);font-size:30px;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;max-width:30ch}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label,.field .lab{font-size:12.5px;font-weight:600;color:var(--muted)}
+.field .fhint{font-size:12.5px;color:var(--faint)}
+.input{height:40px;padding:0 12px;border-radius:9px;background:var(--raise);border:1px solid var(--line-2);font-size:15px;outline:0;transition:border-color .2s}
+.input:focus{border-color:var(--ember)}
+.seg{display:flex;padding:3px;border-radius:12px;background:var(--raise);border:1px solid var(--line-2)}
+.seg button{flex:1;height:32px;border-radius:6px;color:var(--muted);font-weight:500;font-size:13.5px}
+.seg button.on{background:var(--raise-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line-2)}
+.toggle{display:flex;align-items:center;gap:12px;font-size:13.5px;cursor:pointer}
+.toggle input{position:absolute;opacity:0;width:1px;height:1px}
+.toggle i{width:36px;height:21px;border-radius:11px;background:var(--line-2);position:relative;transition:background .2s;flex:0 0 auto}
+.toggle i:after{content:"";position:absolute;left:3px;top:3px;width:15px;height:15px;border-radius:50%;background:var(--muted);transition:transform .25s var(--ease),background .2s}
+.toggle input:checked + i{background:var(--mint)}
+.toggle input:checked + i:after{transform:translateX(15px);background:var(--bg)}
+.toggle input:focus-visible + i{outline:2px solid var(--ember);outline-offset:2px}
+.toggle small{display:block;color:var(--faint);font-size:12.5px}
+.exgroup{display:flex;align-items:center;gap:6px}
+.exgroup[hidden]{display:none}
+.lvl{position:relative;display:flex;min-width:252px;padding:3px;border-radius:11px;background:var(--raise);border:1px solid var(--line-2)}
+.lvl .thumb{position:absolute;top:3px;bottom:3px;left:3px;width:calc((100% - 6px) / 3);border-radius:9px;background:var(--raise-2);box-shadow:inset 0 0 0 1px var(--line-2);transform:translateX(calc(var(--i) * 100%));transition:transform .38s var(--ease)}
+.lvl button{position:relative;z-index:1;flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:26px;padding:0 8px;border-radius:9px;font-size:12.5px;font-weight:500;color:var(--faint);transition:color .2s}
+.lvl button:hover{color:var(--muted)}
+.lvl button.on{color:var(--text)}
+.bars{display:inline-flex;align-items:flex-end;gap:2px;height:10px}
+.bars b{width:3px;border-radius:2px;background:var(--line-2);transition:background .2s}
+.bars b:nth-child(1){height:4px}.bars b:nth-child(2){height:7px}.bars b:nth-child(3){height:10px}
+[data-level="easy"] .bars b:nth-child(1),[data-level="medium"] .bars b:nth-child(-n+2),[data-level="hard"] .bars b{background:currentColor}
+/* Wide enough for either label, so the control never jumps when it changes. */
+.exbtn{min-width:182px;justify-content:center}
+.exbtn .i{transition:transform .6s var(--ease)}
+.exbtn.turn .i{transform:rotate(-360deg)}
+.editor .tb .dlevel{display:inline-flex;align-items:center;gap:6px;font:500 12.5px var(--mono);color:var(--muted);cursor:help}
+.editor .tb .dlevel[hidden]{display:none}
+.editor .tb .dlevel:not([hidden]) + span{margin-left:14px}
+.cvline.example{border-style:solid;border-color:var(--line-2);background:var(--raise)}
+.cvline{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;border:1px dashed var(--line-2);font-size:13.5px;color:var(--muted)}
+.cvline b{color:var(--text);font-weight:600}
+dialog.cvdlg{width:min(720px,92vw);max-height:84vh;border:1px solid var(--line-2);border-radius:18px;background:var(--panel);color:var(--text);padding:0}
+dialog.cvdlg::backdrop{background:rgba(8,5,4,.72)}
+.cvdlg header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.cvdlg pre{white-space:pre-wrap;font:15px/1.6 var(--ui);padding:14px 18px 20px;margin:0;overflow:auto;max-height:66vh}
+.cvline #cvstate{min-width:0;display:flex;flex-direction:column;gap:1px}
+.cvline #cvstate small{font-size:12.5px;color:var(--faint)}
+.cvline button{margin-left:auto;color:var(--faint);font-size:12.5px;white-space:nowrap}
+.cvline button:hover{color:var(--text)}
+.cvline #cvview:not([hidden])~#cvedit{margin-left:0}
+.notready{list-style:none;padding:12px 14px;border-radius:12px;background:rgba(255,107,133,.08);color:var(--rose);font-size:13.5px;display:flex;flex-direction:column;gap:6px;margin-top:14px;max-width:820px}
+.advice{display:grid;grid-template-columns:20px 1fr;gap:8px;padding:10px 11px;border-radius:12px;background:var(--raise);font-size:13.5px;line-height:1.45}
+.advice svg{color:var(--gold);margin-top:1px}
+
+/* Live */
+.veil{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:14px;padding:24px;overflow:hidden;background:rgba(22,16,12,.94)}
+.veil h2{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em}
+.veil p{color:var(--muted);max-width:52ch}
+/* On a narrow screen the question panel is short, so it grows while the loader is on it. */
+.pane:has(> .veil:not([hidden])){min-height:min(600px,86vh)}
+/* Nothing behind the loader shows through it: the loader says what is happening. */
+.pane:has(> .veil:not([hidden])) > :not(.veil){visibility:hidden}
+.past-q{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;max-width:760px}
+.pq{padding:10px 14px;border-radius:12px;background:rgba(30,21,17,.8)}
+.pq .qq{font-size:13.5px;color:var(--faint);display:flex;gap:8px}
+.pq .qq em{font:600 12.5px var(--mono);font-style:normal;color:var(--muted)}
+.pq p{font-size:15px;color:var(--muted);margin-top:4px;line-height:1.55}
+.question{font-family:var(--display);font-size:clamp(24px,2.3vw,32px);line-height:1.3;font-weight:700;letter-spacing:-.018em;max-width:32ch;margin-bottom:18px}
+.question.settle{animation:settle .7s var(--ease)}
+@keyframes settle{from{opacity:0;filter:blur(6px);transform:translateY(6px)}to{opacity:1;filter:none;transform:none}}
+.speaking{display:inline-flex;gap:2px;align-items:flex-end;height:11px;color:var(--gold)}
+.speaking b{width:2px;border-radius:2px;background:currentColor;animation:hop .9s ease-in-out infinite}
+.speaking b:nth-child(2){animation-delay:-.3s}.speaking b:nth-child(3){animation-delay:-.6s}
+@keyframes hop{0%,100%{height:3px}50%{height:11px}}
+.livestatus{color:var(--muted);font-size:15px;max-width:56ch;display:flex;align-items:center;gap:10px}
+.heard{margin-top:24px;max-width:760px}
+.heard p{font-size:17px;line-height:1.7;color:var(--text)}
+.heard .w{opacity:0;animation:surface .5s var(--ease) forwards}
+.heard.live p{color:var(--muted)}
+.heard.live p .w{color:var(--text)}
+.heard.live p:after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:1px;vertical-align:-3px;border-radius:2px;background:var(--ember);animation:caret 1s steps(2) infinite}
+@keyframes caret{50%{opacity:0}}
+@keyframes surface{from{opacity:0;filter:blur(5px)}to{opacity:1;filter:none}}
+.cam{position:relative;aspect-ratio:16/11;max-width:480px;width:100%;border-radius:12px;overflow:hidden;background:radial-gradient(110% 90% at 50% 20%,#2A1D17,#0F0A08 75%);border:1px solid var(--line)}
+.cam img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);opacity:0;transition:opacity .4s}
+.cam img.live{opacity:1}
+.cam .waiting{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--faint);font-size:13.5px}
+.cam .tagpos{position:absolute;left:10px;top:10px;z-index:2}
+.cam .br{position:absolute;width:20px;height:20px;border:2px solid var(--mint);opacity:0;transition:opacity .4s,inset .4s var(--ease);z-index:2}
+.cam.seen .br{opacity:.85}
+.cam .br.a{left:32%;top:16%;border-right:0;border-bottom:0}.cam .br.b{right:32%;top:16%;border-left:0;border-bottom:0}
+.cam .br.c{left:32%;top:62%;border-right:0;border-top:0}.cam .br.d{right:32%;top:62%;border-left:0;border-top:0}
+.face{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:6px;font-size:12.5px;font-weight:600;background:rgba(0,0,0,.5);color:var(--muted)}
+.face i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.face.seen{color:var(--mint)} .face.unseen{color:var(--rose)}
+.tip{font-size:12.5px;color:var(--faint);margin-top:-8px}
+/* The brackets close around the face the coach is measuring, once it has found one: mint when the framing is right, ember when it is not. */
+.cam.tracked .br{transition:opacity .4s,left .35s var(--ease),top .35s var(--ease),right .35s var(--ease)}
+.cam.tracked .br.a,.cam.tracked .br.c{left:var(--fl)} .cam.tracked .br.b,.cam.tracked .br.d{left:calc(var(--fr) - 20px);right:auto}
+.cam.tracked .br.a,.cam.tracked .br.b{top:var(--ft)} .cam.tracked .br.c,.cam.tracked .br.d{top:calc(var(--fb) - 20px)}
+.cam.offframe .br{border-color:var(--ember)}
+/* Calibrating: a ring at the top edge, where the lens is, to look into. */
+.cam .lens{position:absolute;left:50%;top:8px;width:30px;height:30px;margin-left:-15px;border-radius:50%;border:2px solid var(--iris);opacity:0;z-index:3;pointer-events:none}
+.cam.calibrating .lens{opacity:1;animation:lens 1s ease-in-out infinite}
+.cam.calibrating img{filter:brightness(.55)}
+@keyframes lens{50%{transform:scale(1.35);border-color:rgba(169,184,255,.4)}}
+.eyelight{position:absolute;right:10px;top:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:6px;font-size:12.5px;font-weight:600;background:rgba(0,0,0,.55);color:var(--iris);transition:color .25s}
+.eyelight .i{width:14px;height:14px}
+.eyelight.away{color:var(--rose)}
+.camcheck{display:grid;gap:2px;padding:12px 12px 10px;border-radius:12px;background:var(--raise);font-size:13px}
+.camcheck .row{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:8px;min-height:30px}
+.camcheck .row span{color:var(--faint);font-size:12px}
+.camcheck .row b{font-weight:600;color:var(--muted)}
+.camcheck .row b.ok{color:var(--mint)} .camcheck .row b.off{color:var(--ember)}
+.camcheck .row b.eyes.ok{color:var(--iris)}
+.camcheck .btn{height:28px;padding:0 10px;font-size:12.5px}
+.camcheck .msg{font-size:12.5px;line-height:1.45;color:var(--muted);margin:4px 0 2px}
+.camcheck .msg.bad{color:var(--rose)}
+.camcheck .msg:empty{display:none}
+.camcheck label{display:flex;align-items:center;gap:8px;margin-top:6px;padding-top:9px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);cursor:pointer}
+.camcheck input{accent-color:var(--iris);width:15px;height:15px}
+.promise{font-size:12.5px;color:var(--faint);line-height:1.5}
+
+/* Report */
+.working{display:flex;flex-direction:column;align-items:center;gap:12px;padding:36px 20px 20px;max-width:640px;margin:0 auto 26px;text-align:center}
+.working p{color:var(--muted);font-size:13.5px}
+/* The loading animation: a particle sphere drawn on a canvas (see holo below). */
+.holo{width:min(340px,46vh);height:min(340px,46vh);margin-bottom:6px}
+/* One loader, moved between the question wait (the veil) and the report wait. */
+.loadcore{display:flex;flex-direction:column;align-items:center;gap:12px}
+/* The spark layer: sparks from the sphere to a cursor that comes too close. */
+.zap{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:9999}
+.loadcore p{color:var(--muted);font-size:13.5px}
+.loadword{font:700 13px var(--mono);letter-spacing:.5em;padding-left:.5em;color:var(--gold)}
+.loadpct{font:700 46px/1 var(--display);color:var(--text);font-variant-numeric:tabular-nums}
+.writing{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted);margin-bottom:20px;flex-wrap:wrap}
+.verdict{font-family:var(--display);font-size:26px;line-height:1.36;font-weight:700;letter-spacing:-.015em;max-width:40ch;margin-bottom:10px}
+.verdict.long{font-family:var(--ui);font-size:17px;line-height:1.6;font-weight:500;letter-spacing:0;max-width:68ch;color:var(--text)}
+.jobline{font-size:13.5px;color:var(--faint);margin-bottom:14px}
+.retakeline{padding:12px 14px;border-radius:12px;background:var(--hl-ember);color:var(--text);margin-bottom:16px;max-width:680px}
+.answerhead{display:flex;align-items:flex-start;gap:14px;margin:26px 0 14px;max-width:880px}
+.answerhead .q{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.35;letter-spacing:-.01em}
+.answerhead .qwhy{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px;max-width:68ch}
+.answerhead .sc{margin-left:auto;font:700 30px var(--mono);letter-spacing:-.03em;line-height:1}
+.answerhead .sc small{display:block;font:500 11px var(--ui);color:var(--faint);letter-spacing:0;text-align:right;margin-top:4px}
+.naflag{padding:12px 14px;border-radius:12px;background:rgba(255,107,133,.1);color:var(--rose);max-width:680px;margin-bottom:14px}
+.doc{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;max-width:1000px}
+.said{font-size:17px;line-height:1.9;color:var(--text);position:relative}
+.said .plain{color:var(--text)}
+.mark{position:relative;cursor:pointer;border-radius:3px;transition:background-color .2s,box-shadow .2s}
+.mark.worked.highlight{background:linear-gradient(var(--hl-mint),var(--hl-mint)) no-repeat 0 70%/0% 72%;animation:hl .9s var(--ease) var(--d,.2s) forwards;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.mark.worked.circle{display:inline-block;padding:0 4px}
+.mark.worked.circle svg{position:absolute;left:-8px;top:-4px;width:calc(100% + 16px);height:calc(100% + 8px);overflow:visible;pointer-events:none}
+.mark.worked.circle svg path{fill:none;stroke:var(--mint);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:pen .9s var(--ease) var(--d,.2s) forwards}
+.mark.change{background:linear-gradient(var(--ember),var(--ember)) no-repeat 0 100%/0% 2px;animation:ul .8s var(--ease) var(--d,.2s) forwards;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-bottom:1px}
+.mark.claim{text-decoration:underline wavy transparent 1.6px;text-underline-offset:5px;animation:wavy .6s ease-out var(--d,.2s) forwards}
+.mark.filler{color:var(--muted);text-decoration:underline dashed transparent 1.6px;text-underline-offset:5px;animation:dashin .5s ease-out var(--d,.2s) forwards}
+.said .gap{display:inline-flex;align-items:center;height:18px;padding:0 6px;margin:0 3px;border-radius:6px;background:rgba(255,107,133,.16);color:var(--rose);font:600 11px var(--mono);vertical-align:2px;cursor:pointer}
+.said .proves{display:inline-block;height:19px;line-height:19px;padding:0 7px;margin:0 2px 0 4px;border-radius:6px;background:var(--hl-gold);color:var(--gold);font-size:11px;font-weight:600;vertical-align:middle;cursor:pointer;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;opacity:0;animation:notein .5s var(--ease) var(--d,.4s) forwards}
+.mark.focus,.said .gap.focus,.said .proves.focus{box-shadow:0 0 0 2px rgba(255,122,61,.45)}
+/* Eyes away: a light wash behind the words said while looking away, with an eye at the start.
+   A wash rather than a line, so it never hides an underline or highlight. */
+.said .look{cursor:pointer;border-radius:3px;padding:1px 0;-webkit-box-decoration-break:clone;box-decoration-break:clone;background-color:transparent;transition:background-color .2s;animation:lookin .8s var(--ease) var(--d,.3s) forwards}
+.said .look.focus{background-color:rgba(169,184,255,.30)!important;animation:none}
+.said .look .lookeye{width:13px;height:13px;color:var(--iris);vertical-align:-1px;margin:0 3px 0 2px;stroke-width:2}
+@keyframes lookin{to{background-color:var(--hl-iris)}}
+@keyframes hl{to{background-size:100% 72%}}
+@keyframes ul{to{background-size:100% 2px}}
+@keyframes pen{to{stroke-dashoffset:0}}
+@keyframes wavy{to{text-decoration-color:var(--rose)}}
+@keyframes dashin{to{text-decoration-color:var(--rose)}}
+.notes{position:relative;min-height:100%}
+.note{position:absolute;left:0;right:0;padding:10px 12px 11px;border-radius:12px;background:rgba(30,21,17,.92);border:1px solid var(--line);font-size:13.5px;line-height:1.45;cursor:pointer;
+  transition:top .35s var(--ease),border-color .2s,transform .2s;opacity:0;animation:notein .5s var(--ease) var(--d,.3s) forwards}
+.note:hover,.note.focus{border-color:var(--ember);transform:translateX(-3px)}
+.note .k{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;margin-bottom:4px}
+.note .k i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.note .k .t{margin-left:auto;font:500 11px var(--mono);color:var(--faint)}
+.note.worked .k{color:var(--mint)} .note.change .k{color:var(--ember)} .note.claim .k{color:var(--rose)}
+.note.filler .k,.note.gap .k{color:var(--rose)} .note.proves .k{color:var(--gold)} .note.gaze .k{color:var(--iris)}
+.note.gaze:hover,.note.gaze.focus{border-color:var(--iris)}
+.note .try{margin-top:8px;padding:8px 10px;border-radius:9px;background:var(--hl-ember);color:var(--text)}
+.note .try b{display:block;font-size:11px;color:var(--ember);margin-bottom:2px}
+@keyframes notein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.coach{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1000px;margin-top:26px}
+.coach .card h4{font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.coach .card p{font-size:13.5px;line-height:1.55}
+.coach .one{grid-column:1/-1;background:var(--hl-ember)}
+.coach .proofcard{grid-column:1/-1}
+.coach .proofcard p{font-size:14.5px}
+.coach .proofcard .judges{margin-top:8px;font-size:12px;color:var(--faint)}
+.askgave{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+.askgave div{padding:9px 11px;border-radius:9px;background:var(--raise-2)}
+.askgave dt{font-size:11.5px;color:var(--faint);margin-bottom:2px}
+.askgave dd{margin:0;font-size:13.5px;line-height:1.45}
+@media (max-width:640px){.askgave{grid-template-columns:1fr}}
+/* Advice with no words to sit on: what the answer left out. */
+.coach .loose h4{display:flex;align-items:center;gap:7px}
+.coach .loose h4 i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.coach .loose.change h4{color:var(--ember)} .coach .loose.worked h4{color:var(--mint)}
+.coach .loose .why{margin-top:6px;color:var(--muted)}
+.coach .try{margin-top:8px;padding:8px 10px;border-radius:9px;background:var(--hl-ember);color:var(--text);font-size:13.5px;line-height:1.5}
+.coach .try b{display:block;font-size:11px;color:var(--ember);margin-bottom:2px}
+.coach .scoring{grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:10px 14px}
+.coach .presence{grid-column:1/-1}
+.presence .lead{font-size:15px;line-height:1.5;max-width:640px}
+.presence .lead b{color:var(--iris);font-variant-numeric:tabular-nums}
+.eyestrip{position:relative;display:flex;gap:1px;height:14px;margin:12px 0 6px;border-radius:3px;overflow:hidden;cursor:pointer}
+.eyestrip i{flex:1 1 0;min-width:1px;background:var(--line-2)}
+.eyestrip i.c{background:var(--iris)} .eyestrip i.a{background:rgba(255,107,133,.55)} .eyestrip i.n{background:repeating-linear-gradient(45deg,var(--line-2) 0 3px,transparent 3px 6px)}
+.eyekey{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--faint);margin-bottom:12px}
+.eyekey span{display:inline-flex;align-items:center;gap:6px}
+.eyekey span::before{content:"";width:10px;height:6px;border-radius:2px;background:var(--iris)}
+.eyekey .a::before{background:rgba(255,107,133,.55)} .eyekey .n::before{background:repeating-linear-gradient(45deg,var(--line-2) 0 2px,transparent 2px 4px);outline:1px solid var(--line-2)}
+.presfacts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0}
+.presfacts div{min-width:0}
+.presfacts dt{font-size:11.5px;color:var(--faint)}
+.presfacts dd{margin:2px 0 0;font-size:13.5px;font-weight:600}
+.presfacts dd small{font-weight:500;color:var(--faint)}
+.presence .fine{margin-top:10px;font-size:12px;color:var(--faint)}
+.coach .scoring summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);list-style:none;display:flex;align-items:center;gap:8px}
+.coach .scoring summary::-webkit-details-marker{display:none}
+.coach .scoring summary:before{content:"+";font:600 13.5px var(--mono);color:var(--faint)}
+.coach .scoring[open] summary:before{content:"\2212"}
+.coach .scoring summary span{color:var(--faint);font-weight:500}
+.coach .scoring ul{margin:8px 0 2px 20px;display:grid;gap:4px;font-size:13.5px;color:var(--muted)}
+.coach .one h4{color:var(--ember)}
+.sessionnotes{max-width:1000px;margin-top:30px;display:flex;flex-direction:column;gap:14px}
+.sessionnotes h3{font-family:var(--display);font-size:17px;font-weight:700}
+.sessionnotes p,.sessionnotes li{font-size:15px;line-height:1.6;color:var(--muted)}
+.sessionnotes ul{padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.overall{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;align-items:end;padding:14px;border-radius:12px;background:var(--raise)}
+.overall .n{font:700 44px var(--mono);letter-spacing:-.04em;line-height:.9}
+.overall .n small{display:block;font:500 12.5px var(--ui);color:var(--faint);letter-spacing:0;margin-top:6px;white-space:nowrap}
+.sky{display:flex;align-items:flex-end;gap:6px;height:64px;min-width:0}
+.sky button{flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}
+.sky .well{width:100%;flex:1;display:flex;align-items:flex-end;justify-content:center}
+.sky .b{width:66%;max-width:14px;border-radius:3px 3px 2px 2px;background:var(--ember);transform-origin:bottom;transform:scaleY(0);animation:grow 1s var(--ease) forwards;transition:filter .15s}
+.sky button:hover .b{filter:brightness(1.3)}
+.sky .b.cap{background:var(--gold)} .sky .b.best{background:var(--mint)} .sky .b.na{background:var(--rose)}
+.sky small{font:500 11px var(--mono);color:var(--faint)}
+.sky button.sel small{color:var(--text)}
+@keyframes grow{to{transform:scaleY(1)}}
+.dims{display:flex;flex-direction:column;gap:8px}
+.dim{display:grid;grid-template-columns:78px 1fr 28px;gap:10px;align-items:center;font-size:13.5px;color:var(--muted)}
+.dim .t{height:5px;border-radius:3px;background:var(--raise-2);overflow:hidden}
+.dim .t i{display:block;height:100%;border-radius:3px;background:var(--ember);transform-origin:left;transform:scaleX(0);animation:growx 1.1s var(--ease) forwards}
+@keyframes growx{to{transform:scaleX(1)}}
+.dim b{font:600 12.5px var(--mono);color:var(--text);text-align:right}
+.checks{display:flex;flex-direction:column;gap:6px;font-size:13.5px;list-style:none;padding:0}
+.checks li{display:flex;align-items:flex-start;gap:9px;opacity:0;animation:notein .5s var(--ease) forwards}
+.checks svg{width:16px;height:16px;margin-top:2px}
+.checks .y svg{color:var(--mint)} .checks .n{color:var(--muted)} .checks .n svg{color:var(--gold)}
+.prio{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.prio li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.prio b{height:22px;border-radius:6px;background:rgba(255,122,61,.18);color:var(--ember);font-size:12.5px;display:grid;place-items:center}
+.focusbox{padding:14px;border-radius:12px;background:var(--hl-ember);display:flex;flex-direction:column;gap:8px}
+.focusbox h4{font-size:13.5px;font-weight:700}
+.focusbox p{font-size:13.5px;color:var(--muted)}
+.focusbox small{font-size:12.5px;color:var(--faint)}
+.warns{list-style:none;padding:0;font-size:12.5px;color:var(--faint);display:flex;flex-direction:column;gap:4px}
+
+/* Library, progress, CV and dismissed screens */
+.lib{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;max-width:900px}
+.lib li{display:grid;grid-template-columns:150px 1fr auto auto;gap:16px;align-items:center;padding:12px 16px;border-radius:12px;background:rgba(30,21,17,.85);transition:background .15s}
+.lib li:hover{background:var(--raise-2)}
+.lib .when{font:500 12.5px var(--mono);color:var(--faint)}
+.lib .role{font-weight:600}
+.lib .unnamed{color:var(--faint);font-weight:500}
+.lib .count{font-size:13.5px;color:var(--muted)}
+.lib .unscored{font-size:12.5px;color:var(--faint)}
+.lib .right{display:flex;gap:8px;align-items:center;justify-content:flex-end}
+.trend{max-width:760px;padding:18px;border-radius:12px;background:rgba(30,21,17,.85)}
+.trend svg{width:100%;height:auto}
+.trend .grid{stroke:var(--line-2);stroke-width:1}
+.trend .axis{fill:var(--faint);font:500 11px var(--mono)}
+.trend .line{fill:none;stroke:var(--ember);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:2000;stroke-dashoffset:2000;animation:draw 1.6s var(--ease) forwards}
+.trend .dot{fill:var(--panel);stroke:var(--ember);stroke-width:2}
+.trend .dot.last{fill:var(--ember)}
+.trend .line.eyes{stroke:var(--iris);stroke-width:2;stroke-dasharray:6 5;stroke-dashoffset:0;animation:fadein .8s ease .6s both}
+.trend .dot.eyes{stroke:var(--iris)}
+.trend .dot.eyes.last{fill:var(--iris)}
+.trendkey{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-size:12px;color:var(--faint)}
+.trendkey span{display:inline-flex;align-items:center;gap:7px}
+.trendkey span::before{content:"";width:16px;height:0;border-top:2.5px solid var(--ember)}
+.trendkey .eyes::before{border-top:2px dashed var(--iris)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.changes{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;max-width:760px;margin-top:16px}
+.changes li{display:flex;justify-content:space-between;padding:10px 14px;border-radius:12px;background:rgba(30,21,17,.85);font-size:13.5px}
+.changes .move{font:600 13.5px var(--mono);color:var(--muted)}
+.changes .move.up{color:var(--mint)} .changes .move.down{color:var(--rose)}
+/* Calendar */
+.calwrap{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;margin-top:18px}
+.cal{flex:1 1 520px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px}
+.calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.calhead b{font:700 18px var(--display)}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calgrid .dow{font-size:12px;color:var(--faint);text-align:center;padding-bottom:4px}
+.day{min-height:clamp(64px,11vh,104px);border-radius:9px;background:var(--raise);border:1px solid transparent;padding:6px 7px;text-align:left;display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.day:hover{border-color:var(--line-2)}
+.day b{font:600 13px var(--mono);color:var(--muted)}
+.day.today b{color:var(--ember)}
+.day.pick{border-color:var(--ember)}
+.day i{font-style:normal;font-size:11px;line-height:1.25;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.calform{flex:0 0 320px;max-width:100%;display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px}
+.callist{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.callist:empty{display:none}
+.callist li{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:10px;border-radius:9px;background:var(--raise);font-size:13.5px}
+.callist li div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.callist small,.callist span{color:var(--muted)}
+.calform .msg{color:var(--rose);font-size:13px;min-height:1em}
+/* Departure-board countdown */
+.board{margin-top:26px;display:inline-flex;flex-direction:column;gap:10px;padding:16px 18px;border-radius:18px;background:linear-gradient(#17100c,#0f0a08);border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.03),0 18px 40px rgba(0,0,0,.35);max-width:100%}
+.bhead{display:flex;justify-content:space-between;gap:18px;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.brow{display:flex;flex-wrap:wrap;gap:3px}
+.brole{font-size:13px;color:var(--muted)}
+.bclock{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
+.unit{display:flex;flex-direction:column;align-items:center;gap:6px}
+.unit small{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.digits{display:flex;gap:3px}
+/* A split flap tile, like a departure board: the old top half flips down to show the new character. */
+.flap{--d:.44s;position:relative;display:inline-block;width:22px;height:32px;border-radius:6px;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 2px 3px rgba(0,0,0,.4);perspective:200px;font:700 17px/1 var(--mono)}
+.flap>i{position:absolute;left:0;right:0;height:50%;overflow:hidden;font-style:normal;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flap>.t,.flap>.lt{top:0;border-radius:inherit;border-bottom-left-radius:0;border-bottom-right-radius:0;background:#241915}
+.flap>.b,.flap>.lb{bottom:0;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0;background:#1b130f}
+.flap b{position:absolute;left:0;right:0;height:200%;display:grid;place-items:center;background:linear-gradient(var(--gold),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+.flap>.t b,.flap>.lt b{top:0}
+.flap>.b b,.flap>.lb b{bottom:0}
+.flap>.lt{transform-origin:50% 100%;z-index:2}
+.flap>.lb{transform-origin:50% 0;transform:rotateX(90deg);z-index:2}
+.flap.go>.lt{animation:flaptop calc(var(--d) / 2) ease-in forwards}
+.flap.go>.lb{animation:flapbot calc(var(--d) / 2) ease-out calc(var(--d) / 2) forwards}
+@keyframes flaptop{to{transform:rotateX(90deg);filter:brightness(.5)}}
+@keyframes flapbot{from{transform:rotateX(90deg);filter:brightness(1.4)}to{transform:rotateX(0)}}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;margin-top:-.5px;background:rgba(0,0,0,.8);z-index:3}
+.flap.sm{width:18px;height:26px;font-size:13px}
+.flap.big{width:40px;height:58px;border-radius:9px;font-size:34px}
+/* In the setup panel, compact, at the bottom. */
+.insp .board{margin-top:auto;display:flex;padding:12px;gap:8px;border-radius:12px;box-shadow:none}
+.insp .bhead{letter-spacing:.06em;font-size:11px}
+.insp .brow,.insp .digits{gap:2px}
+.insp .brole{font-size:12.5px}
+.insp .bclock{gap:6px;justify-content:space-between;margin-top:2px}
+.insp .unit{gap:4px}.insp .unit small{font-size:11px;letter-spacing:0}
+.insp .flap{width:13px;height:19px;border-radius:3px;font-size:11px}
+.insp .flap.sm{width:12px;height:18px;font-size:11px}
+.insp .flap.big{width:22px;height:32px;border-radius:6px;font-size:17px}
+.cvbox textarea{width:100%;min-height:360px;resize:vertical;border:1px solid var(--line-2);border-radius:12px;background:rgba(14,9,7,.8);padding:16px 18px;font-size:15px;line-height:1.7;outline:0;max-width:820px;display:block}
+.cvbox textarea:focus{border-color:var(--ember)}
+.center{display:flex;flex-direction:column;justify-content:center;gap:16px;padding:60px;max-width:760px}
+.center h1{font-family:var(--display);font-size:34px;line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.center .why{font-size:17px;color:var(--text)}
+.center .kept{color:var(--muted)}
+
+/* The tape */
+.tape{border-top:1px solid var(--line);background:rgba(18,12,9,.9);backdrop-filter:blur(10px);position:relative}
+.tape:before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--ember),var(--rose),transparent);opacity:.7;animation:heat 5s ease-in-out infinite}
+@keyframes heat{50%{opacity:.25}}
+.deck{display:none}
+.deck.on{display:block;animation:viewin .45s var(--ease)}
+.transport{display:flex;align-items:center;gap:18px;padding:12px 20px;min-height:66px;flex-wrap:wrap}
+.rec{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--raise-2);border:1px solid var(--line-2);transition:transform .2s var(--ease),background .2s;flex:0 0 auto}
+.rec:hover:not(:disabled){transform:scale(1.06)}
+.rec .dot{width:16px;height:16px;border-radius:50%;background:var(--rose);transition:border-radius .25s var(--ease)}
+.rec.on{background:#2A1512}
+.rec.on .dot{border-radius:3px}
+.rec.on:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--rose);animation:ring 1.6s ease-out infinite}
+@keyframes ring{from{transform:scale(.85);opacity:.7}to{transform:scale(1.25);opacity:0}}
+.rec.play{background:var(--ember);border-color:var(--ember)}
+.rec.play svg{color:var(--ember-ink);width:16px;height:16px}
+.tc{font:700 26px var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tc small{font-size:15px;color:var(--faint);font-weight:500}
+.target{display:flex;flex-direction:column;gap:5px;width:270px}
+.target .rail{position:relative;height:6px;border-radius:3px;background:var(--raise-2)}
+.target .zone{position:absolute;left:33.3%;width:33.3%;top:0;bottom:0;border-radius:3px;background:rgba(126,232,199,.22)}
+.target .pos{position:absolute;top:-4px;left:0;width:3px;height:14px;border-radius:2px;background:var(--ember);transition:left .25s linear}
+.target small{font-size:12.5px;color:var(--faint)}
+.level{display:flex;align-items:center;gap:2px;height:26px}
+.level b{width:4px;height:26px;border-radius:2px;background:var(--line-2);transform:scaleY(.12);transform-origin:50% 50%;transition:transform .09s linear}
+.level.on b{background:var(--mint)}
+.livehint{margin-top:10px;font-size:13.5px;color:var(--rose);display:flex;align-items:center;gap:8px}
+.livehint[hidden]{display:none}
+.keys{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--faint);flex-wrap:wrap}
+.keys kbd{margin-right:5px}
+.readylist{display:flex;gap:8px;flex-wrap:wrap}
+.timeline{position:relative;height:150px;margin:0 20px 10px;cursor:pointer;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.timeline.scrub{cursor:grabbing}
+.timeline canvas{position:absolute;left:0;top:0;width:100%;height:96px}
+.bands{position:absolute;left:0;right:0;top:0;height:96px;pointer-events:none}
+.bands i{position:absolute;top:0;bottom:0;border-radius:6px;opacity:0;animation:fadein .6s ease forwards}
+.bands i.worked{background:rgba(126,232,199,.12);box-shadow:inset 0 -3px 0 var(--mint)}
+.bands i.change{background:rgba(255,122,61,.12);box-shadow:inset 0 -3px 0 var(--ember)}
+.bands i.claim,.bands i.filler,.bands i.gap{background:rgba(255,107,133,.12);box-shadow:inset 0 -3px 0 var(--rose)}
+.bands i.proves{top:-7px;bottom:auto;height:3px;border-radius:2px;background:var(--gold);box-shadow:none;opacity:0}
+/* Every look-away, spoken over or not, as a strip under the waveform. */
+.bands i.gaze{top:auto;bottom:-7px;height:4px;border-radius:2px;background:var(--iris);box-shadow:none}
+@keyframes fadein{to{opacity:1}}
+.tlwords{position:absolute;left:0;right:0;top:104px;height:26px}
+.tlwords span{position:absolute;top:0;font-size:11px;color:var(--faint);white-space:nowrap;padding:3px 6px;border-radius:6px;background:var(--raise);border:1px solid var(--line);transition:color .15s,border-color .15s;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+.tlwords span:hover,.tlwords span.on{color:var(--text);border-color:var(--ember)}
+.ticks{position:absolute;left:0;right:0;bottom:0;height:14px;font:500 11px var(--mono);color:var(--faint)}
+.ticks span{position:absolute}
+.tapeempty{padding:0 20px 16px;color:var(--faint);font-size:13.5px}
+
+@media (max-width:1180px){
+  .shell{grid-template-columns:72px minmax(0,1fr)}
+  /* One column: the page scrolls as a whole, rather than two short boxes each scrolling on its own. */
+  .view.work{overflow:auto;align-content:start}
+  .view.work>.pane,.view.work>.insp{overflow:visible}
+  .side .name,.side .tally,.side .new span,.side .new kbd,.nav span,.nav .count,.group,.recent{display:none}
+  .new{justify-content:center;padding:0}
+  .work{grid-template-columns:1fr}
+  .insp{border-left:0;border-top:1px solid var(--line)}
+  .doc{grid-template-columns:1fr}
+  .notes{min-height:0}
+  .note{position:static;margin-top:10px}
+}
+@media (max-width:900px){
+  .steps{display:none}
+  .acts{margin-left:auto}
+  .bar{gap:10px;padding:0 12px}
+  .lvl{min-width:0}
+  .lvl button{padding:0 7px}
+  #exLabel{display:none}
+  .exbtn{flex:0 0 auto;padding:0 10px}
+  .pane{padding:22px 20px}
+  .transport{gap:10px 14px;padding:10px 14px}
+}
+@media (max-width:640px){
+  .shell{grid-template-columns:56px minmax(0,1fr)}
+  .side{padding:14px 8px 10px}
+  .crumb{display:none}
+  .lvl button .bars{display:none}
+  .h1{font-size:24px}
+  .holo{width:220px;height:220px}
+}
+</style>
+<link rel="stylesheet" href="/studio/app-studio.css">
+<link rel="stylesheet" href="/studio/screens.css">
+<script type="importmap">{"imports": {"three": "/vendor/three/three.module.js", "three/addons/": "/vendor/three/addons/"}}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-reel" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="7" r="2.4" fill="currentColor"/><circle cx="13" cy="19" r="2.4" fill="currentColor"/><circle cx="7" cy="13" r="2.4" fill="currentColor"/><circle cx="19" cy="13" r="2.4" fill="currentColor"/><circle cx="13" cy="13" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-dasharray="3 3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4h4v16H7zM13 4h4v16h-4z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-again" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></symbol>
+</defs></svg>
+
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="/" title="Callback"><svg class="reel"><use href="#i-reel"/></svg><span class="name" id="name"></span><span class="tally"></span></a>
+    <button class="new" id="newBtn" title="New interview (N)" aria-label="New interview"><svg class="i"><use href="#i-plus"/></svg><span>New interview</span><kbd>N</kbd></button>
+    <nav class="nav">
+      <button id="navInterview" class="on" data-go="setup" title="Interview" aria-label="Interview"><svg class="i"><use href="#i-mic"/></svg><span>Interview</span></button>
+      <button id="navSessions" data-go="sessions" title="Sessions" aria-label="Sessions"><svg class="i"><use href="#i-list"/></svg><span>Sessions</span><em class="count" id="sessCount"></em></button>
+      <button id="navProgress" data-go="progress" title="Progress" aria-label="Progress"><svg class="i"><use href="#i-trend"/></svg><span>Progress</span></button>
+      <button id="navCv" data-go="cvpage" title="Your CV" aria-label="Your CV"><svg class="i"><use href="#i-doc"/></svg><span>Your CV</span></button>
+      <button id="navCal" data-go="calpage" title="Calendar" aria-label="Calendar"><svg class="i"><use href="#i-cal"/></svg><span>Calendar</span></button>
+    </nav>
+    <div class="group">Recent</div>
+    <div class="recent" id="recent"></div>
+  </aside>
+
+  <main class="main">
+    <header class="bar">
+      <span class="crumb" id="crumb"><b>New interview</b></span>
+      <div class="steps" id="steps"></div>
+      <div class="acts" id="acts">
+        <div class="exgroup" id="exgroup">
+          <div class="lvl" role="radiogroup" aria-label="Example difficulty" id="lvlSeg" style="--i:1"><i class="thumb" aria-hidden="true"></i><button type="button" role="radio" aria-checked="false" data-level="easy" data-i="0" title="An entry-level job, 3 questions"><span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>Easy</button><button type="button" role="radio" aria-checked="true" class="on" data-level="medium" data-i="1" title="A graduate or junior role, 5 questions"><span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>Medium</button><button type="button" role="radio" aria-checked="false" data-level="hard" data-i="2" title="A senior technical role, 8 questions"><span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>Hard</button></div>
+          <button class="btn exbtn" id="example" type="button" title="Fill with an example" aria-label="Fill with an example"><svg class="i"><use href="#i-again"/></svg><span id="exLabel">Fill with an example</span></button>
+        </div>
+        <button class="btn" id="cvPeek" type="button" hidden>Example CV</button>
+        <button class="btn" id="end" hidden>End session <kbd>Esc</kbd></button>
+        <a class="btn" id="legacyPdf" hidden target="_blank" rel="noopener">Open the old PDF</a>
+      </div>
+    </header>
+
+    <div class="views">
+      <!-- ================= SETUP ================= -->
+      <section class="view work" id="setup">
+        <div class="pane">
+          <h1 class="h1">Practise for a real job advert</h1>
+          <p class="lede" style="margin-bottom:22px">Paste the advert. The questions are written from it and asked aloud; afterwards every answer comes back marked up, like a checked essay.</p>
+          <div class="editor">
+            <div class="tb"><button id="paste" type="button">Paste</button><button id="clear" type="button">Clear</button><span class="dlevel" id="jdLevel" hidden></span><span id="jdCount">0 words</span></div>
+            <textarea id="jd" placeholder="Paste the job advert here" spellcheck="false"></textarea>
+          </div>
+          <ul class="notready" id="notready" hidden></ul>
+        </div>
+        <aside class="insp">
+          <div class="field"><label for="title">Role</label><input class="input" id="title" placeholder="e.g. Junior Barista" autocomplete="off"></div>
+          <div class="field"><span class="lab" id="countLabel">Questions (up to)</span>
+            <div class="seg" role="radiogroup" aria-labelledby="countLabel" id="countSeg"><button type="button" data-n="3">3</button><button type="button" data-n="5" class="on">5</button><button type="button" data-n="8">8</button></div>
+            <span class="fhint">The interviewer may ask fewer, and will stop if answers are not attempts.</span></div>
+          <label class="toggle"><input type="checkbox" id="cam" checked><i></i><span>Camera<small>Measured live. No video is ever saved.</small></span></label>
+          <div class="field"><span class="lab">Your CV</span>
+            <div class="cvline" id="cvline"><svg class="i" style="color:var(--faint)"><use href="#i-doc"/></svg><span id="cvstate">No CV yet</span><button id="cvview" type="button" hidden>View</button><button id="cvedit" type="button">Add</button></div>
+            <span class="fhint" id="cvhint">Kept on this computer. The debrief checks what it claims against what you said.</span></div>
+          <div class="board" id="board" aria-live="off" aria-label="Countdown to your next interview"></div>
+        </aside>
+      </section>
+
+      <!-- ================= LIVE ================= -->
+      <section class="view work" id="live">
+        <div class="pane" id="stagecard">
+          <div class="veil" id="veil" hidden><div class="veilcore" id="veilCore"></div>
+            <p id="veilSub">This runs on your own machine, so give it a moment, and use the time to get yourself framed.</p></div>
+          <div class="past-q" id="pastq"></div>
+          <div class="who int"><span class="av">IN</span><span>Interviewer</span><span class="meta" id="pill"></span><span class="speaking" id="speaking"><b></b><b></b><b></b></span></div>
+          <p class="question" id="question" tabindex="-1">Writing your questions…</p>
+          <p class="livestatus" id="status"></p>
+          <p class="livehint" id="quiet" role="status" hidden>I can barely hear you. Move closer to the microphone, or check it is not muted.</p>
+          <div class="heard" id="heard" hidden><div class="who you"><span class="av">YO</span><span>You</span><span class="meta" id="heardMeta"></span></div><p id="heardText"></p></div>
+        </div>
+        <aside class="insp">
+          <div class="cam" id="selfview"><div class="waiting" id="camoff">The camera is off for this session.</div>
+            <span class="tagpos"><span class="face" id="facepill" role="status" aria-live="polite"><i></i><span>Camera warming</span></span></span>
+            <span class="eyelight" id="eyelight" hidden><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg><span>Eyes on camera</span></span>
+            <i class="lens" aria-hidden="true"></i>
+            <i class="br a"></i><i class="br b"></i><i class="br c"></i><i class="br d"></i></div>
+          <p class="tip" id="tip">Light in front of you, not behind</p>
+          <div class="camcheck" id="camcheck" hidden>
+            <div class="row"><span>Framing</span><b id="ccFrame">Looking for you</b></div>
+            <div class="row"><span>Light</span><b id="ccLight">Checking</b></div>
+            <div class="row"><span>Eyes</span><b class="eyes" id="ccEyes">Not calibrated</b><button class="btn" id="calBtn" type="button">Calibrate</button></div>
+            <p class="msg" id="ccMsg" role="status" aria-live="polite"></p>
+            <label><input type="checkbox" id="eyeLightOpt"> Show an eye-contact light while I answer</label>
+          </div>
+          <div class="ph">How this works</div>
+          <div class="advice"><svg class="i"><use href="#i-pen"/></svg><div>Answer the way you would on the day. The coach marks your answers after the last question, not while you speak.</div></div>
+          <div class="advice"><svg class="i" style="color:var(--mint)"><use href="#i-check"/></svg><div>Strong answers here usually run one to one and a half minutes. The bar on the tape shows where you are.</div></div>
+          <p class="promise">Nothing is being filmed. The camera is watched while you answer, and no video is saved. Your audio stays on this computer.</p>
+        </aside>
+      </section>
+
+      <!-- ================= REPORT ================= -->
+      <section class="view work" id="done">
+        <div class="pane" id="reportPane">
+          <div class="working" id="working" hidden>
+            <div class="loadcore" id="loadcore"><canvas class="holo" id="holo" aria-hidden="true"></canvas>
+            <div class="loadword">LOADING</div><div class="loadpct" id="loadPct" role="status" aria-live="polite">0%</div>
+            <p id="workingWhat">Starting the debrief…</p></div>
+            <p style="color:var(--faint);font-size:13px">Scored and written on this computer. The whole report opens as soon as it is ready.</p></div>
+          <h1 class="h1" id="doneCount" hidden></h1>
+          <p class="lede" id="doneWhere" style="margin-bottom:16px"></p>
+          <div id="results" hidden>
+            <div class="writing" id="writingRow" hidden><span class="tag ember"><i></i>Being written</span><span id="writingText"></span></div>
+            <p class="verdict" id="verdict"></p>
+            <p class="jobline" id="jobline"></p>
+            <div class="retakeline" id="retakeLine" hidden></div>
+            <div class="answerhead" id="answerHead"></div>
+            <div class="naflag" id="naflag" hidden></div>
+            <div class="doc"><div class="said" id="said"></div><div class="notes" id="notes"></div></div>
+            <div class="coach" id="coach"></div>
+            <div class="sessionnotes" id="sessionNotes"></div>
+          </div>
+        </div>
+        <aside class="insp" id="reportInsp">
+          <div class="overall" id="overallBox" hidden><div class="n" id="overallN">0<small>overall</small></div><div class="sky" id="sky"></div></div>
+          <div class="dims" id="dims"></div>
+          <div id="coverwrap" hidden><div class="ph" style="margin-bottom:8px">What the advert asks for <span id="coverCount"></span></div><ul class="checks" id="coverage"></ul></div>
+          <div id="cvwrap" hidden><div class="ph" style="margin-bottom:8px">What your CV says</div><ul class="checks" id="cvclaims"></ul><p class="promise" id="cvnote" style="margin-top:8px"></p></div>
+          <div id="priowrap" hidden><div class="ph" style="margin-bottom:8px">Work on first</div><ol class="prio" id="priorities"></ol></div>
+          <div class="focusbox" id="focus" hidden><h4 id="focusHead"></h4><p id="focusAdvice"></p><button class="primary" id="startDrill">Practise this now</button><small id="focusNote"></small></div>
+          <button class="btn" id="retake" hidden><svg class="i" style="width:15px;height:15px"><use href="#i-again"/></svg>Answer this one again</button>
+          <ul class="warns" id="doneWarns"></ul>
+          <button class="btn" id="again">Start another session</button>
+        </aside>
+      </section>
+
+      <!-- ================= SESSIONS ================= -->
+      <section class="view" id="sessions"><div class="pane">
+        <h1 class="h1" style="margin-bottom:6px">Sessions</h1>
+        <p class="lede" style="margin-bottom:20px" id="librarynote">Everything recorded on this computer, newest first.</p>
+        <ul class="lib" id="library"></ul>
+      </div></section>
+
+      <!-- ================= PROGRESS ================= -->
+      <section class="view" id="progress"><div class="pane">
+        <h1 class="h1" style="margin-bottom:6px">How has it been going?</h1>
+        <p class="lede" style="margin-bottom:20px" id="pastnote">A trend needs two finished interviews to compare.</p>
+        <div class="trend" id="trendbox" hidden><div id="trend"></div></div>
+        <ul class="changes" id="changes"></ul>
+      </div></section>
+
+      <!-- ================= CV ================= -->
+      <section class="view" id="cvpage"><div class="pane cvbox">
+        <h1 class="h1" style="margin-bottom:6px">Your CV</h1>
+        <p class="lede" style="margin-bottom:18px">Paste it once. It stays on this computer, and each debrief checks what it claims against what you actually said. <span id="cvsaved"></span> <button class="btn" id="cvforget" hidden style="margin-left:6px">Remove it</button></p>
+        <textarea id="cv" placeholder="Paste your CV here" spellcheck="false"></textarea>
+      </div></section>
+
+      <!-- ================= CALENDAR ================= -->
+      <section class="view" id="calpage"><div class="pane">
+        <h1 class="h1" style="margin-bottom:6px">Your interviews</h1>
+        <p class="lede">Add the real interviews you have coming up. The practice screen counts down to the next one. Kept on this computer.</p>
+        <div class="calwrap">
+          <div class="cal">
+            <div class="calhead"><button class="btn" id="calPrev" type="button" aria-label="Previous month">&lsaquo;</button><b id="calMonth"></b><button class="btn" id="calNext" type="button" aria-label="Next month">&rsaquo;</button></div>
+            <div class="calgrid" id="calGrid"></div>
+          </div>
+          <div class="calform" id="calForm" hidden>
+            <div class="ph"><span id="calFormDate"></span><button class="btn" id="calClose" type="button">Close</button></div>
+            <ul class="callist" id="calDay"></ul>
+            <div class="field"><label for="calCompany">Company</label><input class="input" id="calCompany" maxlength="80" placeholder="e.g. Acme Ltd" autocomplete="off"></div>
+            <div class="field"><label for="calRole">Role</label><input class="input" id="calRole" maxlength="80" placeholder="e.g. Graduate Data Engineer" autocomplete="off"></div>
+            <div class="field"><label for="calTime">Time</label><input class="input" id="calTime" type="time" value="09:00"></div>
+            <div class="field"><label for="calNotes">Notes</label><input class="input" id="calNotes" maxlength="300" placeholder="Optional: address, who you are meeting" autocomplete="off"></div>
+            <p class="msg" id="calMsg"></p>
+            <button class="primary" id="calSave" type="button">Add interview</button>
+          </div>
+        </div>
+      </div></section>
+
+      <!-- ================= DISMISSED ================= -->
+      <section class="view" id="dismissed"><div class="center">
+        <span class="tag rose"><i></i>Stopped</span>
+        <h1 id="dismissLine">I don't think there's value in continuing today. Let's stop here.</h1>
+        <p class="why" id="dismissWhy"></p>
+        <p class="kept" id="dismissKept">No report was written and nothing was added to your history. Come back when you're ready to give the questions a real go.</p>
+        <div><button class="primary" id="dismissAgain">Start again</button></div>
+      </div></section>
+    </div>
+
+    <!-- ================= THE TAPE ================= -->
+    <footer class="tape" id="tape">
+      <div class="deck" id="deckSetup">
+        <div class="transport">
+          <div><div style="font-weight:700">Before you start</div><div style="font-size:12.5px;color:var(--faint)">Checked on this computer.</div></div>
+          <div class="readylist" id="readylist"></div>
+          <div class="keys"><span id="lengthNote">About 7 minutes</span></div>
+          <button class="primary" id="go">Start interview <kbd>Ctrl</kbd><kbd>Enter</kbd></button>
+        </div>
+      </div>
+      <div class="deck" id="deckLive">
+        <div class="transport">
+          <button class="rec" id="answer" title="Start answering" disabled><span class="dot"></span></button>
+          <div class="tc" id="clock">00:00</div>
+          <div class="target"><div class="rail"><span class="zone"></span><span class="pos" id="pos"></span></div><small>Strong answers land between 1:00 and 1:30</small></div>
+          <div class="level" id="level" aria-hidden="true"></div>
+          <div class="keys"><span><kbd>Space</kbd><span id="spaceWhat">start answering</span></span><span id="sofar"></span></div>
+          <button class="primary" id="answerBtn" disabled>Start answering <kbd>Space</kbd></button>
+        </div>
+      </div>
+      <div class="deck" id="deckReport">
+        <div class="transport">
+          <button class="rec play" id="play" title="Play this answer"><svg class="i"><use href="#i-play"/></svg></button>
+          <div class="tc" id="tcPlay">00:00<small> / 00:00</small></div>
+          <div class="readylist" id="tapeTags"></div>
+          <div class="keys"><span><kbd>←</kbd><kbd>→</kbd>answers</span><span>Click a word or a mark to hear it</span></div>
+        </div>
+        <div class="timeline" id="timeline"><canvas id="wave"></canvas><div class="bands" id="bands"></div><div class="tlwords" id="tlwords"></div><div class="ticks" id="ticks"></div></div>
+        <p class="tapeempty" id="tapeEmpty" hidden></p>
+        <audio id="audio" preload="none"></audio>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<dialog class="cvdlg" id="cvdlg" aria-labelledby="cvdlgTitle">
+  <header><b id="cvdlgTitle">The example CV</b><button class="btn" id="cvdlgClose" type="button">Close</button></header>
+  <p class="fhint" style="padding:12px 18px 0">Answer as this person. Questions may ask about anything on it.</p>
+  <pre id="cvdlgText"></pre>
+</dialog>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const post = (path, body) =>
+  fetch(path, {method:"POST", headers:{"Content-Type":"application/json"},
+               body: JSON.stringify(body || {})}).then(r => r.json());
+const esc = (t) => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mmss = (s) => { s = Math.max(0, Math.floor(s || 0)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
+const showcaseName = new URLSearchParams(location.search).get("showcase");
+
+// The wordmark
+[..."Callback"].forEach((c, i) => { const s = document.createElement("span"); s.textContent = c; s.style.transitionDelay = (i * 45) + "ms"; $("name").appendChild(s); });
+
+// Voice level hook.
+// The studio layer (app-studio.js) listens here for the microphone level.
+const field = {excite(){}};
+
+// Views
+const VIEWS = ["setup", "live", "done", "sessions", "progress", "cvpage", "calpage", "dismissed"];
+let current = "setup";
+function show(name){
+  // Leaving an old debrief closes it, so it cannot stay behind the next interview's loading report.
+  if (name !== "done" && source && source.kind === "past") clearReport();
+  current = name;
+  for (const v of VIEWS) $(v).classList.toggle("on", v === name);
+  const nav = {setup: "navInterview", live: "navInterview", done: "navInterview", sessions: "navSessions", progress: "navProgress", cvpage: "navCv", calpage: "navCal", dismissed: "navInterview"};
+  for (const b of document.querySelectorAll(".nav button")) b.classList.toggle("on", b.id === nav[name]);
+  $("deckSetup").classList.toggle("on", name === "setup");
+  $("deckLive").classList.toggle("on", name === "live");
+  $("deckReport").classList.toggle("on", name === "done" && !!viewData);
+  $("exgroup").hidden = name !== "setup";
+  $("end").hidden = name !== "live";
+  // During the interview the example CV stays one click away: questions ask about it.
+  $("cvPeek").hidden = !(name === "live" && $("cvline").classList.contains("example"));
+  if (name === "setup"){ $("crumb").innerHTML = "<b>New interview</b>"; drawSteps([["Set up", "now"], ["Interview", ""], ["Debrief", ""]]); }
+  if (name === "sessions"){ $("crumb").innerHTML = "<b>Sessions</b>"; drawSteps([]); }
+  if (name === "progress"){ $("crumb").innerHTML = "<b>Progress</b>"; drawSteps([]); }
+  if (name === "cvpage"){ $("crumb").innerHTML = "<b>Your CV</b>"; drawSteps([]); }
+  if (name === "calpage"){ $("crumb").innerHTML = "<b>Calendar</b>"; drawSteps([]); }
+  if (name === "dismissed"){ drawSteps([]); }
+  if (name === "done" && !viewData) $("crumb").innerHTML = `<b>${esc($("title").value.trim() || "Interview")}</b> · Debrief`;
+  if (name !== "done") $("legacyPdf").hidden = true;
+  const head = document.querySelector("#" + name + " h1, #" + name + " .question");
+  if (head){ head.setAttribute("tabindex", "-1"); head.focus({preventScroll:true}); }
+}
+// A screen you chose is kept while the report keeps updating.
+// Interview in the sidebar takes you back.
+function followingInterview(){
+  return !(["sessions", "progress", "cvpage", "calpage"].includes(current) ||
+           (current === "done" && source && source.kind === "past"));
+}
+function drawSteps(items){
+  $("steps").innerHTML = items.map(([label, cls]) => `<span class="step ${cls}"><span class="d"></span>${esc(label)}</span>`).join("");
+}
+for (const b of document.querySelectorAll(".nav button")){
+  b.onclick = () => {
+    const to = b.dataset.go;
+    // Interview goes back to whatever the interview is doing, not the form.
+    if (to === "setup" && lastState && lastState.state !== "idle") { render(lastState, true); return; }
+    show(to);
+    if (to === "sessions" || to === "progress") loadPast();
+  };
+}
+$("newBtn").onclick = async () => { await startOver(); };
+async function startOver(){
+  if (lastState && ["waiting", "recording", "thinking", "preparing"].includes(lastState.state) &&
+      !confirm("End this interview and start a new one? The answers so far are kept.")) return;
+  try { await post("/api/reset"); } catch (_) {}
+  location.href = "/practise";
+}
+$("again").onclick = startOver;
+$("dismissAgain").onclick = startOver;
+
+// Setup
+let questionCount = 5;
+for (const b of $("countSeg").children){
+  b.onclick = () => { questionCount = +b.dataset.n; for (const x of $("countSeg").children) x.classList.toggle("on", x === b); $("lengthNote").textContent = `About ${Math.round(questionCount * 1.3)} minutes`; };
+}
+function countWords(){ const n = ($("jd").value.trim().match(/\S+/g) || []).length; $("jdCount").textContent = n + (n === 1 ? " word" : " words"); }
+$("jd").addEventListener("input", countWords);
+$("clear").onclick = () => { $("jd").value = ""; countWords(); measureAdvert(true); dropExample(); $("jd").focus(); };
+$("paste").onclick = async () => {
+  try { const t = await navigator.clipboard.readText(); if (t) { $("jd").value = t; countWords(); measureAdvert(true); } } catch (_) { $("jd").focus(); }
+};
+let usingCamera = true;
+
+$("go").onclick = async () => {
+  const jd = $("jd").value.trim();
+  if (!jd) { $("jd").focus(); $("jd").closest(".editor").style.borderColor = "var(--rose)"; return; }
+  usingCamera = $("cam").checked;
+  show("live");
+  if (usingCamera) { loadGate(); watchCamera(); } else { $("camoff").hidden = false; }
+  $("facepill").hidden = !usingCamera; $("tip").hidden = !usingCamera;
+  await post("/api/start", {
+    job_description: jd,
+    job_title: $("title").value.trim(),
+    question_count: questionCount,
+    use_video: usingCamera,
+    // An example's CV goes with this session only; without one the saved CV is used.
+    cv: exampleCv ? exampleCv.text : undefined,
+  });
+};
+
+// Camera The preview is a multipart MJPEG stream held open by the server.
+// The browser never opens the camera itself: the recording worker already holds it.
+let previewTries = 0, lastFrameAt = 0, camWatch = null;
+function previewURL(){ return "/api/preview.mjpg?t=" + (++previewTries); }
+function loadGate(){
+  $("camoff").hidden = true;
+  if ($("preview")) return;
+  const wait = document.createElement("div");
+  wait.className = "waiting"; wait.id = "camwait"; wait.textContent = "Finding the camera. You will appear here in a moment.";
+  $("selfview").prepend(wait);
+  const img = document.createElement("img");
+  img.id = "preview"; img.alt = "";
+  wirePreview(img); img.src = previewURL();
+  $("selfview").prepend(img);
+}
+function wirePreview(img){
+  // `load` fires once per frame on a multipart response: a heartbeat.
+  img.onload = () => {
+    if (img.naturalWidth === 0) return;
+    lastFrameAt = Date.now(); img.classList.add("live");
+    const w = $("camwait"); if (w) w.hidden = true;
+  };
+  img.onerror = () => setTimeout(connectPreview, 1000);
+}
+function connectPreview(){ const img = $("preview"); if (!img) return; wirePreview(img); img.src = previewURL(); }
+function watchCamera(){
+  if (camWatch) return;
+  camWatch = setInterval(async () => {
+    const pill = $("facepill"); if (!pill) return;
+    let face = null, cam = {};
+    try { cam = await (await fetch("/api/camera", {cache: "no-store"})).json(); face = cam.face; } catch (_) {}
+    drawCamCheck(cam);
+    const label = pill.lastElementChild;
+    $("selfview").classList.toggle("seen", face === true);
+    if (face === true){ pill.className = "face seen"; label.textContent = "In frame"; $("tip").textContent = "Keep this framing"; }
+    else if (face === false){ pill.className = "face unseen"; label.textContent = "I cannot see your face"; $("tip").textContent = "Put the light in front of you, not behind"; }
+    else { pill.className = "face"; label.textContent = "Camera warming"; }
+    const img = $("preview");
+    const stalled = img && (img.naturalWidth === 0 || Date.now() - lastFrameAt > 4000);
+    if (document.visibilityState === "visible" && face !== null && stalled) connectPreview();
+  }, 600);
+}
+
+// Camera check While the questions are written and between answers: where the face is, whether the framing and light will do, and three seconds of calibration.
+// Every verdict here is the one the report will use, read from the worker.
+const FRAME_SAY = {good: ["Good", "ok"], "too far": ["Sit closer", "off"], "too close": ["Sit back a little", "off"], "off centre": ["Move to the middle", "off"]};
+const LIGHT_SAY = {good: ["Good", "ok"], dark: ["Too dark: light in front of you", "off"], backlit: ["Light is behind you", "off"]};
+let calibrating = false, eyeLightOn = false;
+try { eyeLightOn = localStorage.getItem("callback.eyeLight") === "1"; } catch (_) {}
+$("eyeLightOpt").checked = eyeLightOn;
+$("eyeLightOpt").onchange = () => { eyeLightOn = $("eyeLightOpt").checked; try { localStorage.setItem("callback.eyeLight", eyeLightOn ? "1" : "0"); } catch (_) {} };
+function drawCamCheck(cam){
+  const state = lastState && lastState.state;
+  const between = state === "preparing" || state === "waiting";
+  $("camcheck").hidden = !(usingCamera && cam.gaze && between);
+  const say = (el, table, verdict, unknown) => { const [text, cls] = table[verdict] || [unknown, ""]; el.textContent = text; el.className = (el.classList.contains("eyes") ? "eyes " : "") + cls; };
+  say($("ccFrame"), FRAME_SAY, cam.face ? cam.framing : null, cam.face === false ? "I cannot see you" : "Looking for you");
+  say($("ccLight"), LIGHT_SAY, cam.face ? cam.light : null, "Checking");
+  if (!calibrating){
+    const done = !!(cam.calibrated || (lastState && lastState.camera_calibrated));
+    $("ccEyes").textContent = done ? "Calibrated" : "Not calibrated";
+    $("ccEyes").classList.toggle("ok", done);
+    $("calBtn").textContent = done ? "Again" : "Calibrate";
+    $("calBtn").disabled = !cam.face;
+  }
+  placeBrackets(cam.box, cam.framing === "good");
+  // The eye-contact light: only while answering, and only if asked for.
+  const light = $("eyelight"), show = eyeLightOn && state === "recording" && cam.looking != null;
+  light.hidden = !show;
+  if (show){ light.classList.toggle("away", !cam.looking); light.lastElementChild.textContent = cam.looking ? "Eyes on camera" : "Eyes away"; }
+}
+// The worker reports the face's centre and height as shares of the camera's frame.
+// The self-view shows that frame mirrored and cropped to fill the box (object-fit: cover), so the same crop is applied here.
+function placeBrackets(box, good){
+  const view = $("selfview"), img = $("preview");
+  if (!box || !img || !img.naturalWidth){ view.classList.remove("tracked", "offframe"); return; }
+  const W = view.clientWidth, H = view.clientHeight, iw = img.naturalWidth, ih = img.naturalHeight;
+  const scale = Math.max(W / iw, H / ih), dw = iw * scale, dh = ih * scale, ox = (dw - W) / 2, oy = (dh - H) / 2;
+  const cx = (1 - box[0]) * dw - ox, cy = box[1] * dh - oy, h = box[2] * dh * 1.25, w = h * 0.82;
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  view.style.setProperty("--fl", clamp(cx - w / 2, 4, W - 44) + "px");
+  view.style.setProperty("--fr", clamp(cx + w / 2, 44, W - 4) + "px");
+  view.style.setProperty("--ft", clamp(cy - h / 2, 4, H - 44) + "px");
+  view.style.setProperty("--fb", clamp(cy + h / 2, 44, H - 4) + "px");
+  view.classList.add("tracked");
+  view.classList.toggle("offframe", !good);
+}
+$("calBtn").onclick = async () => {
+  if (calibrating) return;
+  calibrating = true;
+  const btn = $("calBtn"), msg = $("ccMsg"), view = $("selfview");
+  btn.disabled = true; msg.className = "msg"; view.classList.add("calibrating");
+  $("ccEyes").textContent = "Calibrating"; $("ccEyes").classList.remove("ok");
+  let n = 3;
+  const tick = () => { msg.textContent = `Look straight into the camera lens, above your screen, not at yourself. ${n}`; };
+  tick(); const count = setInterval(() => { n = Math.max(1, n - 1); tick(); }, 1000);
+  let out = null;
+  try { const r = await fetch("/api/camera/calibrate", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({seconds: 3})}); out = await r.json(); } catch (_) {}
+  clearInterval(count); view.classList.remove("calibrating"); calibrating = false; btn.disabled = false;
+  if (out && out.ok){
+    msg.textContent = "Done. Every answer from now on is measured against that.";
+    $("ccEyes").textContent = "Calibrated"; $("ccEyes").classList.add("ok"); btn.textContent = "Again";
+  } else {
+    msg.className = "msg bad";
+    msg.textContent = (out && out.error) || "That did not work. Try again in a moment.";
+    $("ccEyes").textContent = "Not calibrated";
+  }
+};
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && $("preview")) lastFrameAt = 0; });
+
+// Answering
+let answering = false, startedAt = 0, ticker = null, lastQuestion = "", levelTimer = null, levelStart = 0, heardSince = 0;
+const level = $("level");
+for (let i = 0; i < 14; i++) level.appendChild(document.createElement("b"));
+function levelOn(on){
+  clearTimeout(levelTimer); levelTimer = null; level.classList.toggle("on", on);
+  heardSince = 0; $("quiet").hidden = true;
+  if (on){ levelStart = performance.now(); pollLevel(); }
+  else [...level.children].forEach(b => b.style.transform = "");
+}
+// The real microphone level.
+// The recorder owns the microphone, so the page asks it: a small separate address, polled only while you are answering, never the event stream.
+// Bars scroll oldest to newest; the background rings follow your voice; a long near-silence shows a hint while it can still help.
+async function pollLevel(){
+  let got = null;
+  try { const r = await fetch("/api/level", { cache: "no-store" }); if (r.ok) got = await r.json(); } catch (_) {}
+  if (!level.classList.contains("on")) return;
+  const bars = [...level.children], vals = (got && got.levels) || [];
+  if (vals.length){
+    bars.forEach((b, i) => { const v = vals[Math.floor(i * vals.length / bars.length)] || 0; b.style.transform = `scaleY(${(0.12 + v * 0.88).toFixed(3)})`; });
+    const now = vals[vals.length - 1] || 0, peak = Math.max(...vals.slice(-4));
+    field.excite(0.3 + peak * 0.7);
+    const t = performance.now();
+    if (peak > 0.25) { heardSince = t; $("quiet").hidden = true; }
+    else if (t - levelStart > 3500 && t - Math.max(heardSince, levelStart) > 3500) $("quiet").hidden = false;
+  }
+  levelTimer = setTimeout(pollLevel, 90);
+}
+function clockOn(){
+  startedAt = Date.now(); clearInterval(ticker);
+  ticker = setInterval(() => {
+    const s = (Date.now() - startedAt) / 1000;
+    $("clock").textContent = mmss(s);
+    $("pos").style.left = Math.min(100, s / 135 * 100) + "%";
+  }, 250);
+}
+function clockOff(){ clearInterval(ticker); ticker = null; }
+function clockReset(){ clockOff(); $("clock").textContent = "00:00"; $("pos").style.left = "0%"; }
+async function toggleAnswer(){
+  const btn = $("answerBtn"); if (btn.disabled) return;
+  btn.disabled = true; $("answer").disabled = true;
+  if (!answering) await post("/api/answer/begin"); else await post("/api/answer/end");
+}
+$("answer").onclick = toggleAnswer;
+$("answerBtn").onclick = toggleAnswer;
+$("end").onclick = async () => {
+  if (answering && !confirm("You are in the middle of an answer. End the session anyway? This answer will not be kept, and the interview will not be graded.")) return;
+  if (!answering && !confirm("End the interview now? Only interviews answered to the end are graded, so this one will not be.")) return;
+  clockOff(); await post("/api/finish");
+};
+document.addEventListener("keydown", (e) => {
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName);
+  // The example CV is open: its keys are its own (Esc closes it)
+  if ($("cvdlg").open) return;
+  if (e.key === " " && current === "live" && !typing){ e.preventDefault(); toggleAnswer(); }
+  else if (e.key === "Escape" && current === "live" && !typing){ $("end").click(); }
+  else if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && current === "setup"){ $("go").click(); }
+  else if ((e.key === "n" || e.key === "N") && !typing && !e.ctrlKey && !e.metaKey && current !== "live"){ startOver(); }
+  else if (current === "done" && !typing && viewData && (e.key === "ArrowLeft" || e.key === "ArrowRight")){
+    const n = viewData.answers.length; if (!n) return;
+    selectAnswer((selected + (e.key === "ArrowRight" ? 1 : n - 1)) % n);
+  }
+});
+
+// Failure words
+function explainFailure(error){
+  const raw = String(error || ""), text = raw.toLowerCase();
+  if (text.includes("ollama") || text.includes("11434") || text.includes("connection refused") || text.includes("no questions"))
+    return "The language model did not answer. Start Ollama, then try again.";
+  if (text.includes("microphone") || text.includes("input device") || text.includes("portaudio") || text.includes("sounddevice"))
+    return "The microphone could not be opened. Close anything else using it, then try again.";
+  if (text.includes("camera") || text.includes("webcam"))
+    return "The camera could not be opened. Close anything else using it, or start again with the camera off.";
+  if (text.includes("nothing recorded") || text.includes("nothing was recorded"))
+    return "No answer was recorded, so there was nothing to score.";
+  if (text.includes("space") || text.includes("permission") || text.includes("denied"))
+    return "The session could not be written to disk. Check there is space and that Documents is writable.";
+  return raw ? "Nothing was lost that was already saved. The reason given was: " + raw : "Nothing was lost that was already saved.";
+}
+function showWarnings(warnings){
+  $("doneWarns").innerHTML = (warnings || []).map(w => `<li>${esc(w)}</li>`).join("");
+}
+
+// The report
+let viewData = null, selected = 0, source = null, retakeOf = null, drillDimension = "", lastViewKey = "";
+const ICON_Y = '<svg class="i"><use href="#i-check"/></svg>', ICON_N = '<svg class="i"><use href="#i-open"/></svg>';
+const KIND = {worked: "Worked", change: "Change this", claim: "Check this claim", proves: "Proves", filler: "Filler", gap: "Filler the transcript left out", gaze: "Eyes away"};
+
+function writingLine(writing){
+  const left = writing.total - writing.done;
+  if (writing.done === 0) return "Your scores are in. The verdict is being written now, then the notes on each answer (" + left + " pieces to go).";
+  return "Your notes are still being written (" + writing.done + " of " + writing.total + " done). The practice drill appears once the report is finished.";
+}
+
+async function loadView(where){
+  try {
+    const r = await fetch(where);
+    if (!r.ok) return null;
+    const v = await r.json();
+    return v && v.summary ? v : null;
+  } catch (_) { return null; }
+}
+
+function renderView(v, opts = {}){
+  viewData = v; source = opts.source || {kind: "live"};
+  const summary = v.summary, writing = summary.writing || null;
+  $("results").hidden = false;
+  $("doneCount").hidden = true;
+  $("writingRow").hidden = !writing;
+  if (writing) $("writingText").textContent = writingLine(writing);
+  const verdict = (v.debrief && v.debrief.verdict) || summary.verdict || (writing ? "Being written…" : "");
+  $("verdict").textContent = verdict;
+  // A one-line verdict is a headline; a paragraph is read, not shouted.
+  $("verdict").classList.toggle("long", verdict.length > 150);
+  $("jobline").textContent = summary.job_title
+    ? summary.job_title + " · " + summary.answers.length + " answers" +
+      (summary.non_answers ? " · " + summary.non_answers + " not attempted" : "") +
+      (summary.ended_early ? " · ended early after " + summary.ended_early.after + " of " + summary.ended_early.prepared : "")
+    : "";
+  $("crumb").innerHTML = `<b>${esc(summary.job_title || "Debrief")}</b> · ${opts.label ? esc(opts.label) : "Debrief"}`;
+  drawAnswerTabs(summary);
+  drawOverall(summary);
+  drawCoverage(v.debrief || {}, summary);
+  drawCv(summary.cv_claims || (v.debrief && v.debrief.cv_claims) || []);
+  drawPriorities(summary.priorities || (v.debrief && v.debrief.priorities) || []);
+  renderFocus(summary.focus, !!writing);
+  drawSessionNotes(v.debrief || {});
+  $("retake").hidden = !!opts.readOnly || !!writing;
+  selectAnswer(Math.min(selected, Math.max(0, v.answers.length - 1)), true);
+  $("deckReport").classList.toggle("on", current === "done");
+}
+
+function drawAnswerTabs(summary){
+  const best = Math.max(...summary.answers.map(a => a.non_answer ? -1 : a.score));
+  $("steps").innerHTML = summary.answers.map((a, i) => {
+    const cls = a.non_answer ? "na" : a.ceiling != null ? "cap" : a.score === best ? "best" : "";
+    return `<button class="step past ${cls}" data-i="${i}"><span class="d"></span>Q${a.index} <span class="sc">${a.non_answer ? "0" : Math.round(a.score)}</span></button>`;
+  }).join("");
+  for (const b of $("steps").children) b.onclick = () => selectAnswer(+b.dataset.i);
+}
+
+function drawOverall(summary){
+  $("overallBox").hidden = false;
+  $("overallN").innerHTML = `${Math.round(summary.overall)}<small>overall · ${summary.answers.length} answers</small>`;
+  const best = Math.max(...summary.answers.map(a => a.non_answer ? -1 : a.score));
+  $("sky").innerHTML = summary.answers.map((a, i) => {
+    const cls = a.non_answer ? "na" : a.ceiling != null ? "cap" : a.score === best ? "best" : "";
+    const h = Math.max(4, a.non_answer ? 4 : a.score);
+    return `<button data-i="${i}" title="Answer ${a.index}: ${a.non_answer ? "not an attempt" : Math.round(a.score)}"><span class="well"><span class="b ${cls}" style="height:${h}%;animation-delay:${i * .08}s"></span></span><small>${a.index}</small></button>`;
+  }).join("");
+  for (const b of $("sky").children) b.onclick = () => selectAnswer(+b.dataset.i);
+}
+
+function drawDims(a){
+  const d = a.dims || {}, names = {relevance: "Relevance", depth: "Depth", clarity: "Clarity", structure: "Structure"};
+  $("dims").innerHTML = Object.keys(names).filter(k => d[k] != null).map((k, i) =>
+    `<div class="dim">${names[k]}<div class="t"><i style="width:${d[k] / 5 * 100}%;animation-delay:${i * .1}s"></i></div><b>${Number(d[k]).toFixed(1)}</b></div>`).join("");
+}
+
+function drawCoverage(debrief, summary){
+  // The summary's list says which requirements a question asked about; one no question asked about is shown as not asked, and is not counted.
+  const items = (summary.coverage && summary.coverage.length ? summary.coverage : debrief.coverage) || [];
+  const asked = items.filter(c => c.asked !== false);
+  $("coverwrap").hidden = !items.length;
+  $("coverCount").textContent = asked.length ? `${asked.filter(c => c.evidenced).length} of ${asked.length} proven` : "";
+  $("coverage").innerHTML = items.map((c, i) => c.asked === false
+    ? `<li class="n" style="animation-delay:${i * .06}s;opacity:.55">${ICON_N}<span>${esc(c.requirement)} · not asked this time</span></li>`
+    : `<li class="${c.evidenced ? "y" : "n"}" style="animation-delay:${i * .06}s">${c.evidenced ? ICON_Y : ICON_N}<span>${esc(c.requirement)}${c.evidenced ? "" : " · still unproven"}</span></li>`).join("");
+}
+
+function drawCv(claims){
+  $("cvwrap").hidden = !claims.length;
+  const ordered = claims.slice().sort((a, b) => a.evidenced - b.evidenced);
+  $("cvclaims").innerHTML = ordered.map((c, i) =>
+    `<li class="${c.evidenced ? "y" : "n"}" style="animation-delay:${i * .06}s">${c.evidenced ? ICON_Y : ICON_N}<span>${esc(c.claim)}${c.evidenced ? "" : " · you did not mention this"}</span></li>`).join("");
+  const missing = claims.filter(c => !c.evidenced).length;
+  $("cvnote").textContent = !claims.length ? "" : missing
+    ? `${missing} of ${claims.length} things on your CV did not come up. An interviewer has the same document in front of them.`
+    : "Everything checkable on your CV came up in this session.";
+}
+
+function drawPriorities(items){
+  $("priowrap").hidden = !items.length;
+  $("priorities").innerHTML = items.map((p, i) => `<li><b>${i + 1}</b><span>${esc(p)}</span></li>`).join("");
+}
+
+function renderFocus(focus, writing){
+  const panel = $("focus");
+  if (!focus || (source && source.kind === "past")){ panel.hidden = true; return; }
+  panel.hidden = false;
+  drillDimension = focus.key;
+  $("focusHead").textContent = focus.headline || "";
+  $("focusAdvice").textContent = focus.advice || "";
+  const button = $("startDrill");
+  if (showcaseName){ button.hidden = true; $("focusNote").textContent = "In a real session this is a button, and it starts three questions on just this."; return; }
+  if (writing){ button.hidden = true; $("focusNote").textContent = "The drill is available once the report is finished."; return; }
+  button.hidden = false; button.disabled = false; button.textContent = "Practise this now";
+  $("focusNote").textContent = (focus.margin || 0) >= 0.5 ? "Three questions, about five minutes." : "Three questions. This was close to the others, so treat it as a nudge.";
+}
+
+function drawSessionNotes(d){
+  const parts = [];
+  if (d.opening) parts.push(`<p>${esc(d.opening)}</p>`);
+  if (d.strongest_moment) parts.push(`<h3>Your strongest moment</h3><p>${esc(d.strongest_moment)}</p>`);
+  if (d.patterns && d.patterns.length) parts.push(`<h3>What showed up more than once</h3><ul>${d.patterns.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`);
+  if (d.closing) parts.push(`<p>${esc(d.closing)}</p>`);
+  $("sessionNotes").innerHTML = parts.length ? `<h3>The whole session</h3>` + parts.join("") : "";
+}
+
+// The answer, marked up.
+// Range marks sit on the words; tags and filler points sit beside them.
+// Each has a note in the column, aligned with it.
+function markedHTML(text, marks, looks = []){
+  const ranges = marks.filter(m => m.style !== "tag" && m.style !== "point");
+  const besides = marks.filter(m => m.style === "tag" || m.style === "point");
+  const cuts = new Set([0, text.length]);
+  ranges.forEach(m => { cuts.add(m.start); cuts.add(m.end); });
+  // Look-aways cut the text too, so every piece is wholly inside one or not.
+  looks.forEach(l => { cuts.add(l.start); cuts.add(l.end); });
+  besides.forEach(m => cuts.add(m.style === "tag" ? m.end : m.start));
+  const pts = [...cuts].sort((a, b) => a - b);
+  let html = "", delay = 0.2;
+  for (let i = 0; i < pts.length; i++){
+    const at = pts[i];
+    for (const m of besides) if ((m.style === "point" ? m.start : m.end) === at){
+      html += m.style === "point"
+        ? `<span class="gap" data-id="${m.id}" style="--d:${delay}s">${esc(m.label || "um")}</span>`
+        : `<span class="proves" data-id="${m.id}" style="--d:${delay}s" title="${esc(m.note)}">✓ ${esc(m.label)}</span>`;
+      delay += 0.12;
+    }
+    if (i === pts.length - 1) break;
+    const a = at, b = pts[i + 1], piece = esc(text.slice(a, b));
+    const m = ranges.find(r => r.start <= a && r.end >= b);
+    let inner;
+    if (m){
+      const first = m.start === a;
+      inner = `<span class="mark ${m.kind} ${m.style}" data-id="${m.id}" style="--d:${delay}s">${piece}${first && m.style === "circle" ? '<svg class="pen" viewBox="0 0 100 40" preserveAspectRatio="none"><path pathLength="1" d="M52 4 C 20 3, 3 12, 4 22 C 5 34, 30 38, 56 37 C 84 36, 97 28, 96 18 C 95 8, 76 3, 44 6"/></svg>' : ""}</span>`;
+      if (first) delay += 0.12;
+    } else inner = `<span class="plain">${piece}</span>`;
+    const look = looks.find(l => l.start <= a && l.end >= b);
+    html += look
+      ? `<span class="look" data-id="${look.id}" style="--d:${delay + .2}s">${look.start === a ? '<svg class="i lookeye" aria-hidden="true"><use href="#i-eye"/></svg>' : ""}${inner}</span>`
+      : inner;
+  }
+  return html;
+}
+
+function noteHTML(m, i){
+  const t = m.t0 != null ? `<span class="t">${mmss(m.t0)}</span>` : "";
+  const title = m.kind === "proves" ? (m.note.startsWith("Backs") ? "Backs up your CV" : "Proves") : KIND[m.kind];
+  const body = m.kind === "proves" ? (m.note.startsWith("Backs") ? "" : "What the advert asks for: ") + esc(m.label) : esc(m.note || (m.kind === "gap" ? "A voiced \"" + (m.label || "um") + "\" between words." : "A filler word."));
+  const tryi = m.try_instead ? `<div class="try"><b>Try instead</b>${esc(m.try_instead)}</div>` : "";
+  return `<div class="note ${m.kind}" data-id="${m.id}" style="--d:${0.3 + i * 0.1}s"><div class="k"><i></i>${title}${t}</div>${body}${tryi}</div>`;
+}
+
+function selectAnswer(i, keepAudio){
+  if (!viewData || !viewData.answers.length) return;
+  selected = i;
+  const a = viewData.answers[i], s = viewData.summary.answers[i] || {};
+  for (const b of $("steps").children) b.classList.toggle("now", +b.dataset.i === i);
+  for (const b of $("sky").children) b.classList.toggle("sel", +b.dataset.i === i);
+  const score = a.non_answer ? 0 : Math.round(a.score || s.score || 0);
+  // Proof first: the score is what the answer proved, adjusted by how it came across; both are shown.
+  // Sessions scored before carry a cap instead.
+  const cap = a.proof && a.proof.score != null
+    ? `<small>proved ${Math.round(a.proof.score)}${a.proof.presentation != null ? ` · came across ${Math.round(a.proof.presentation)}` : ""}</small>`
+    : a.ceiling != null ? `<small>capped at ${a.ceiling}: this answered a different question</small>` : "<small>this answer</small>";
+  // Why this question was asked (question_planner): "Asked because the role needs weekend work..." reads as "Why this question: the role needs weekend work...".
+  const why = a.why ? `<div class="qwhy">Why this question: ${esc(a.why.replace(/^Asked because /, "").replace(/^Asked /, ""))}</div>` : "";
+  $("answerHead").innerHTML = `<div><div class="who int"><span class="av">Q${a.index}</span><span>Question ${a.index}</span></div><div class="q">${esc(a.question)}</div>${why}</div><div class="sc">${score}${cap}</div>`;
+  $("naflag").hidden = !a.non_answer;
+  if (a.non_answer) $("naflag").textContent = "Not an attempt: " + (a.non_answer.reason || "");
+  $("said").innerHTML = a.transcript ? markedHTML(a.transcript, a.marks || [], a.gaze_marks || []) : `<span class="empty">Nothing was transcribed for this answer.</span>`;
+  const notes = (a.marks || []).filter(m => m.note || m.kind === "proves" || m.kind === "gap" || m.kind === "filler");
+  // Fillers are listed once: the note on the first carries the count.
+  const shown = notes.filter((m, k) => !(m.kind === "filler" || m.kind === "gap") || m.note || !notes.slice(0, k).some(x => x.kind === "filler" || x.kind === "gap"));
+  $("notes").innerHTML = shown.concat(a.gaze_marks || []).map(noteHTML).join("");
+  requestAnimationFrame(alignNotes);
+  wireMarks();
+  drawDims(a);
+  const d = a.debrief || {}, blocks = [];
+  // What the recruiter could take from it: the judgement the score is built on.
+  if (a.proof && a.proof.basis){
+    const asked = a.proof.asked_for && a.proof.supplied
+      ? `<dl class="askgave"><div><dt>The question was after</dt><dd>${esc(a.proof.asked_for)}</dd></div><div><dt>Your answer gave</dt><dd>${esc(a.proof.supplied)}</dd></div></dl>` : "";
+    // Two judges when the second model was there; both views are shown, so the number is never a black box.
+    const judges = a.proof.second_opinion_0to100 != null
+      ? `<p class="judges">Two judges: ${Math.round(a.proof.built_0to100)} and ${Math.round(a.proof.second_opinion_0to100)}, averaged.</p>` : "";
+    blocks.push(`<div class="card proofcard"><h4>What it proved</h4><p>${esc(a.proof.basis)}</p>${asked}${judges}</div>`);
+  }
+  if (d.looking_for) blocks.push(`<div class="card"><h4>What I was listening for</h4><p>${esc(d.looking_for)}</p></div>`);
+  if (d.what_you_gave) blocks.push(`<div class="card"><h4>What you gave me</h4><p>${esc(d.what_you_gave)}</p></div>`);
+  // The coach's advice that could not be marked on the words: usually what the answer left out, which has no words to mark.
+  // Shown whole, rewrite too.
+  for (const u of a.unplaced || []){
+    const change = u.kind === "change";
+    const body = change ? (u.problem || "") : (u.why || "");
+    const why = change && u.why ? `<p class="why">${esc(u.why)}</p>` : "";
+    const tryi = change && u.try_instead ? `<div class="try"><b>Try instead</b>${esc(u.try_instead)}</div>` : "";
+    blocks.push(`<div class="card loose ${change ? "change" : "worked"}"><h4><i></i>${change ? "Change this" : "Worked"}</h4><p>${esc(body)}</p>${why}${tryi}</div>`);
+  }
+  if (d.delivery) blocks.push(`<div class="card"><h4>How it sounded</h4><p>${esc(d.delivery)}</p></div>`);
+  if (a.presence) blocks.push(presenceCard(a.presence, a.duration));
+  if (a.observations && a.observations.length) blocks.push(`<div class="card"><h4>Worth knowing</h4><p>${a.observations.map(o => esc(o.headline)).join(" · ")}</p></div>`);
+  if (d.one_thing) blocks.push(`<div class="card one"><h4>The one thing for next time</h4><p>${esc(d.one_thing)}</p></div>`);
+  // Notes on how the score was reached (a relevance cap, a quote the checker removed).
+  // The pipeline can repeat one per stage, so each is shown once, folded away: they explain the numbers, they are not feedback.
+  const notesOnScoring = [...new Set(a.warnings || [])];
+  if (notesOnScoring.length) blocks.push(`<details class="card scoring"><summary>How this answer was scored <span>${notesOnScoring.length} ${notesOnScoring.length === 1 ? "note" : "notes"}</span></summary><ul>${notesOnScoring.map(w => `<li>${esc(w)}</li>`).join("")}</ul></details>`);
+  $("coach").innerHTML = blocks.join("");
+  const strip = $("coach").querySelector(".eyestrip");
+  if (strip) strip.onclick = (e) => { const r = strip.getBoundingClientRect(); seek((e.clientX - r.left) / r.width * (+strip.dataset.dur || 0), true); };
+  $("retake").onclick = retakeThis;
+  loadTape(a);
+  // When switching answers, bring the new answer's question into view.
+  const pane = $("reportPane"), head = $("answerHead");
+  const top = head.getBoundingClientRect().top - pane.getBoundingClientRect().top + pane.scrollTop - 16;
+  if (pane.scrollTop > top) pane.scrollTo({top, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+}
+
+// What the camera saw during one answer.
+// Eye contact is told as a sentence and shown as a strip across the answer, half a second per segment, which can be clicked to hear that moment.
+// Expressiveness is shown because it was measured, and labelled as never scored.
+const FRAMING_WORDS = {good: "Well framed", "too far": "Too far away", "too close": "Too close", "off centre": "Off centre"};
+const LIGHT_WORDS = {good: "Good", dark: "Too dark", backlit: "Light behind you"};
+function presenceCard(p, duration){
+  const eye = p.eye_contact, step = p.timeline_step_s || 0.5, line = p.timeline || "";
+  const dur = duration || line.length * step;
+  const looks = p.look_aways || [];
+  const away = looks.length ? `, and away ${looks.length === 1 ? "once" : looks.length + " times"} for a second or more` : "";
+  const lead = eye == null
+    ? "Your face was not seen clearly enough to measure eye contact in this answer."
+    : `You looked at the camera for <b>${Math.round(eye * 100)}%</b> of this answer${away}.`;
+  const label = eye == null ? "not measured" : Math.round(eye * 100) + "% looking at the camera";
+  const strip = line ? `<div class="eyestrip" data-dur="${dur}" role="img" aria-label="Eye contact across the answer: ${label}">${[...line].map(ch => `<i class="${"can".includes(ch) ? ch : ""}"></i>`).join("")}</div><div class="eyekey"><span>At the camera</span><span class="a">Away</span><span class="n">Out of frame</span></div>` : "";
+  const facts = [];
+  if (p.longest) facts.push(["Longest look away", `${p.longest.toFixed(1)} s`]);
+  if (p.steadiness != null) facts.push(["Head", p.steadiness >= 0.85 ? "Steady" : p.steadiness >= 0.55 ? "Some movement" : "Restless"]);
+  if (p.framing) facts.push(["Framing", FRAMING_WORDS[p.framing] || esc(p.framing)]);
+  if (p.lighting) facts.push(["Light", LIGHT_WORDS[p.lighting] || esc(p.lighting)]);
+  if (p.expressiveness != null) facts.push(["Expressiveness", `${p.expressiveness >= 0.6 ? "Animated" : p.expressiveness >= 0.3 ? "Moderate" : "Still"} <small>shown, never scored</small>`]);
+  const dl = facts.length ? `<dl class="presfacts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` : "";
+  const fine = p.calibrated ? "Measured against your calibration at the start." : "Not calibrated, so measured against a head-on view of the camera.";
+  return `<div class="card presence"><h4>On camera</h4><p class="lead">${lead}</p>${strip}${dl}<p class="fine">${fine}</p></div>`;
+}
+
+function alignNotes(){
+  const col = $("notes"), said = $("said");
+  const first = col.firstElementChild;
+  if (!first || getComputedStyle(first).position !== "absolute") return;
+  const base = said.getBoundingClientRect().top;
+  // Ordered by where each mark sits on the page, not where its quote starts: a requirement tag is drawn after its sentence, so its note belongs there.
+  const placed = [...col.children].map(n => {
+    const target = said.querySelector(`[data-id="${n.dataset.id}"]`);
+    return {n, want: target ? target.getBoundingClientRect().top - base - 6 : 0};
+  }).sort((a, b) => a.want - b.want);
+  let floor = 0;
+  for (const {n, want} of placed){
+    col.appendChild(n);
+    const top = Math.max(want, floor);
+    n.style.top = top + "px";
+    floor = top + n.getBoundingClientRect().height + 8;
+  }
+  col.style.minHeight = floor + "px";
+}
+addEventListener("resize", () => { if (viewData) alignNotes(); });
+// Fonts arriving, a verdict landing above, a wider window: anything that moves the words moves the notes with them.
+new ResizeObserver(() => { if (viewData && current === "done") alignNotes(); }).observe($("said"));
+new ResizeObserver(() => { if (viewData && current === "done") alignNotes(); }).observe($("reportPane"));
+document.fonts && document.fonts.ready.then(() => { if (viewData) alignNotes(); });
+
+function wireMarks(){
+  const link = (id, on) => document.querySelectorAll(`[data-id="${id}"]`).forEach(el => el.classList.toggle("focus", on));
+  document.querySelectorAll("#said [data-id], #notes [data-id]").forEach(el => {
+    el.onmouseenter = () => link(el.dataset.id, true);
+    el.onmouseleave = () => link(el.dataset.id, false);
+    el.onclick = () => {
+      const a = viewData.answers[selected], m = (a.marks || []).concat(a.gaze_marks || []).find(x => x.id === el.dataset.id);
+      if (m && m.t0 != null) seek(m.t0, true);
+    };
+  });
+}
+
+// The tape (playback)
+const audio = $("audio");
+let tapeWords = [], peaks = null, tapeDur = 0, tapeFor = "";
+function answerURL(index, audioToo){
+  const base = source && source.kind === "past" ? `/api/sessions/${encodeURIComponent(source.name)}/answer/${index}` : `/api/answer/${index}`;
+  return base + (audioToo ? "/audio" : "");
+}
+async function loadTape(a){
+  if (showcaseName){ $("timeline").hidden = true; $("tapeEmpty").hidden = false; $("tapeEmpty").textContent = "This is an example session, so there is no recording to play."; $("play").disabled = true; drawTapeTags(a); return; }
+  const key = (source && source.name || "live") + ":" + a.index;
+  drawTapeTags(a);
+  if (key === tapeFor){ drawTape(a); return; }
+  tapeFor = key; tapeWords = []; peaks = null; tapeDur = a.duration || 0;
+  audio.pause(); audio.src = answerURL(a.index, true);
+  $("timeline").hidden = false; $("tapeEmpty").hidden = true; $("play").disabled = false;
+  drawTape(a);
+  try {
+    const r = await fetch(answerURL(a.index));
+    if (r.ok){ const d = await r.json(); tapeWords = d.words || []; tapeDur = d.duration || tapeDur; }
+  } catch (_) {}
+  drawTape(a);
+  // The real waveform, decoded from the recording in the browser.
+  try {
+    const buf = await (await fetch(answerURL(a.index, true))).arrayBuffer();
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const data = await ctx.decodeAudioData(buf); ctx.close();
+    const ch = data.getChannelData(0), n = 360, step = Math.floor(ch.length / n) || 1;
+    peaks = []; let max = 0;
+    for (let i = 0; i < n; i++){ let m = 0; for (let j = i * step; j < Math.min(ch.length, (i + 1) * step); j += 8) m = Math.max(m, Math.abs(ch[j])); peaks.push(m); max = Math.max(max, m); }
+    peaks = peaks.map(p => max ? p / max : 0);
+    tapeDur = data.duration || tapeDur;
+    if (tapeFor === key) drawTape(a);
+  } catch (_) {
+    if (tapeFor === key){ $("tapeEmpty").hidden = false; $("tapeEmpty").textContent = "The recording could not be read, so only the words are shown. It may have been moved since the session ran."; }
+  }
+}
+function drawTapeTags(a){
+  const marks = a.marks || [], fill = marks.filter(m => m.kind === "filler" || m.kind === "gap").length;
+  const tags = [];
+  const best = marks.find(m => m.kind === "worked" && m.t0 != null);
+  if (best) tags.push(`<button class="tag mint" data-t="${best.t0}"><i></i>Worked at ${mmss(best.t0)}</button>`);
+  const ch = marks.find(m => m.kind === "change" && m.t0 != null);
+  if (ch) tags.push(`<button class="tag ember" data-t="${ch.t0}"><i></i>Change at ${mmss(ch.t0)}</button>`);
+  if (fill) tags.push(`<span class="tag rose"><i></i>${fill} filler${fill === 1 ? "" : "s"}</span>`);
+  const looks = (a.presence && a.presence.look_aways) || [];
+  if (looks.length){
+    const longest = looks.reduce((x, y) => (y.seconds || 0) > (x.seconds || 0) ? y : x);
+    tags.push(`<button class="tag iris" data-t="${longest.t0}" title="Play the longest"><i></i>Looked away ${looks.length === 1 ? "once" : looks.length + " times"}</button>`);
+  }
+  $("tapeTags").innerHTML = tags.join("");
+  for (const b of $("tapeTags").querySelectorAll("button")) b.onclick = () => seek(+b.dataset.t, true);
+}
+// The tape has two layers.
+// Marks, words and ticks are built once per answer (drawTape); only the canvas, the time and the lit word are repainted while it plays (paintTape).
+let scrubT = null, hoverT = null, tapeRaf = 0, litWord = null, wordSpans = [];
+function paintTape(){
+  const cv = $("wave"), W = cv.clientWidth, H = cv.clientHeight, dpr = Math.min(2, devicePixelRatio || 1);
+  if (!W) return;
+  if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)){ cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+  const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+  const dur = tapeDur || 1, t = scrubT != null ? scrubT : (audio.currentTime || 0), played = Math.min(1, t / dur);
+  const bw = 3, gap = 2, n = Math.floor(W / (bw + gap)), mid = H / 2;
+  for (let i = 0; i < n; i++){
+    let v;
+    if (peaks) v = peaks[Math.floor(i / n * peaks.length)];
+    else { const tt = i / n * dur; v = tapeWords.some(w => tt >= w.start && tt <= w.end) ? .35 + .25 * Math.abs(Math.sin(i * .7)) : .04; }
+    const h = Math.max(2, v * (H - 10)), on = i / n <= played;
+    g.fillStyle = on ? (v > .75 ? "#FF6B85" : v > .42 ? "#FF7A3D" : "#FFC857") : "#3B2A21";
+    g.beginPath(); (g.roundRect ? g.roundRect(i * (bw + gap), mid - h / 2, bw, h, 1.5) : g.rect(i * (bw + gap), mid - h / 2, bw, h)); g.fill();
+  }
+  // Where a click or a release would start playing, with its time, so a drag shows the start point before you let go.
+  const label = (x, tt, strong) => {
+    const s = mmss(tt); g.font = "600 11px " + getComputedStyle(document.body).getPropertyValue("--mono");
+    const w = g.measureText(s).width + 10, lx = Math.max(0, Math.min(W - w, x - w / 2));
+    g.fillStyle = strong ? "#F7ECE4" : "rgba(247,236,228,.16)"; g.beginPath(); (g.roundRect ? g.roundRect(lx, 0, w, 16, 3) : g.rect(lx, 0, w, 16)); g.fill();
+    g.fillStyle = strong ? "#16100C" : "#F7ECE4"; g.fillText(s, lx + 5, 12);
+  };
+  if (hoverT != null && scrubT == null){ const x = hoverT / dur * W; g.fillStyle = "rgba(247,236,228,.35)"; g.fillRect(x - .5, 0, 1, H); label(x, hoverT, false); }
+  if (scrubT != null || (played > 0 && played < 1)){
+    const x = played * W; g.fillStyle = "#F7ECE4"; g.fillRect(x - 1, 0, 2, H);
+    g.beginPath(); g.arc(x, H - 4, scrubT != null ? 5 : 3.5, 0, Math.PI * 2); g.fill();
+    if (scrubT != null) label(x, t, true);
+  }
+  $("tcPlay").innerHTML = `${mmss(t)}<small> / ${mmss(dur)}</small>`;
+  // The word being said: the last one started, for as long as it is still going.
+  let on = null;
+  for (const s of wordSpans){ if (+s.dataset.t <= t + .05) on = s; else break; }
+  if (on && t - +on.dataset.t > 1.6) on = null;
+  if (on !== litWord){ if (litWord) litWord.classList.remove("on"); if (on) on.classList.add("on"); litWord = on; }
+}
+function tapeTick(){
+  tapeRaf = 0;
+  if (!viewData || current !== "done") return;
+  paintTape();
+  if (!audio.paused || scrubT != null) tapeRaf = requestAnimationFrame(tapeTick);
+}
+function tapeKick(){ if (!tapeRaf) tapeRaf = requestAnimationFrame(tapeTick); }
+function drawTape(a){
+  const W = $("wave").clientWidth;
+  if (!W) return;
+  const dur = tapeDur || 1;
+  // marks on the tape
+  $("bands").innerHTML = (a.marks || []).filter(m => m.t0 != null).map((m, i) => {
+    const l = m.t0 / dur * 100, w = Math.max(0.6, ((m.t1 || m.t0) - m.t0) / dur * 100);
+    return `<i class="${m.kind}" style="left:${l}%;width:${w}%;animation-delay:${i * .05}s"></i>`;
+  }).join("") + ((a.presence && a.presence.look_aways) || []).map((l, i) => {
+    const x = Math.min(100, l.t0 / dur * 100), w = Math.max(0.6, Math.min(100 - x, (l.t1 - l.t0) / dur * 100));
+    return `<i class="gaze" style="left:${x}%;width:${w}%;animation-delay:${.3 + i * .05}s"></i>`;
+  }).join("");
+  // words, spaced so they never cover each other
+  let html = "", right = -1;
+  for (const w of tapeWords){
+    const x = w.start / dur * W; if (x < right + 8) continue;
+    html += `<span data-t="${w.start}" style="left:${x}px">${esc(w.word)}</span>`; right = x + Math.min(150, 10 + w.word.length * 7);
+  }
+  $("tlwords").innerHTML = html;
+  wordSpans = [...$("tlwords").children]; litWord = null;
+  for (const s of wordSpans) s.onclick = (e) => { e.stopPropagation(); seek(+s.dataset.t, true); };
+  let ticks = ""; const stepT = dur > 120 ? 30 : 15;
+  for (let t = 0; t <= dur; t += stepT) ticks += `<span style="left:${t / dur * 100}%;transform:translateX(${t ? "-50%" : "0"})">${mmss(t)}</span>`;
+  $("ticks").innerHTML = ticks;
+  paintTape();
+}
+// play() rejects when a pause (switching answers, pressing again) lands before playback starts.
+// That is expected, so it is not left as an uncaught error.
+function playTape(){ const p = audio.play(); if (p && p.catch) p.catch(() => {}); }
+function seek(t, play){ try { audio.currentTime = t; if (play) playTape(); } catch (_) {} tapeKick(); }
+// Press on the tape and drag: the line and its time follow the pointer, and playing starts from where you let go.
+// A plain click is a drag of no length.
+(() => {
+  const tl = $("timeline");
+  const at = (e) => { const r = $("wave").getBoundingClientRect(); return Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * (tapeDur || 0); };
+  // The words below are their own buttons
+  const onTape = (e) => e.clientY - $("wave").getBoundingClientRect().top <= 96;
+  tl.addEventListener("pointerdown", (e) => {
+    if (e.button !== 0 || !tapeDur || !onTape(e)) return;
+    e.preventDefault(); try { tl.setPointerCapture(e.pointerId); } catch (_) {}
+    audio.pause(); scrubT = at(e); hoverT = null; tl.classList.add("scrub"); tapeKick();
+  });
+  tl.addEventListener("pointermove", (e) => {
+    if (scrubT != null) scrubT = at(e);
+    else hoverT = tapeDur && onTape(e) && e.pointerType === "mouse" ? at(e) : null;
+    tapeKick();
+  });
+  const end = (commit) => {
+    if (scrubT == null) return;
+    const t = scrubT; scrubT = null; tl.classList.remove("scrub");
+    if (commit) seek(t, true); else tapeKick();
+  };
+  tl.addEventListener("pointerup", () => end(true));
+  tl.addEventListener("pointercancel", () => end(false));
+  tl.addEventListener("pointerleave", () => { if (hoverT != null){ hoverT = null; tapeKick(); } });
+})();
+$("play").onclick = () => { if (audio.paused) playTape(); else audio.pause(); };
+audio.onplay = () => { $("play").innerHTML = '<svg class="i"><use href="#i-pause"/></svg>'; tapeKick(); };
+audio.onpause = () => { $("play").innerHTML = '<svg class="i"><use href="#i-play"/></svg>'; tapeKick(); };
+audio.ontimeupdate = () => tapeKick();
+audio.onerror = () => { if (audio.src){ $("tapeEmpty").hidden = false; $("tapeEmpty").textContent = "The recording could not be played, so only the transcript is shown."; } };
+addEventListener("resize", () => { if (viewData && current === "done") drawTape(viewData.answers[selected]); });
+
+async function retakeThis(){
+  if (!viewData) return;
+  const a = viewData.answers[selected];
+  $("retake").disabled = true;
+  retakeOf = {question: a.question, score: Math.round(a.score || 0), uncapped: a.uncapped};
+  await post("/api/answer/again", {question: a.question, use_video: usingCamera});
+}
+$("startDrill").onclick = async () => {
+  const button = $("startDrill"); if (!drillDimension) return;
+  button.disabled = true; button.textContent = "Writing your questions…";
+  try { await post("/api/drill", {dimension: drillDimension, use_video: usingCamera}); }
+  catch (_) { button.disabled = false; button.textContent = "Practise this now"; }
+};
+
+// Past sessions Takes whatever debrief is on screen off it, so the next one starts empty.
+function clearReport(){
+  viewData = null; source = null; lastViewKey = ""; selected = 0; tapeFor = "";
+  $("audio").pause();
+  $("results").hidden = true;
+  $("overallBox").hidden = true; $("dims").innerHTML = "";
+  for (const id of ["coverwrap", "cvwrap", "priowrap", "focus", "retake"]) $(id).hidden = true;
+  $("deckReport").classList.remove("on");
+}
+async function openPast(name, label){
+  const v = await loadView(`/api/sessions/${encodeURIComponent(name)}/report`);
+  if (!v) return;
+  tapeFor = "";
+  show("done");
+  $("working").hidden = true;
+  showWarnings([]);
+  renderView(v, {source: {kind: "past", name}, label, readOnly: true});
+  $("retake").hidden = true;
+  $("deckReport").classList.add("on");
+  // A past session is reached from Sessions, so that is where the sidebar says you are.
+  for (const b of document.querySelectorAll(".nav button")) b.classList.toggle("on", b.id === "navSessions");
+}
+function scoreClass(n){ return n == null ? "" : n >= 70 ? "hi" : n >= 45 ? "mid" : "lo"; }
+function drawRecent(sessions){
+  $("sessCount").textContent = sessions.length || "";
+  $("recent").innerHTML = sessions.slice(0, 6).map(s =>
+    `<button class="sess" data-name="${esc(s.name)}" data-res="${s.has_result ? 1 : 0}" title="${s.has_result ? "Open the debrief" : "Open the session list"}"><b>${esc(s.job_title || "No role recorded")}</b><small>${esc(shortStamp(s.when))}${s.kind && s.kind !== "interview" ? " · " + esc(s.kind) : ""}${s.has_report ? "" : " · not scored"}</small>${s.overall == null ? "" : `<span class="sc ${scoreClass(s.overall)}">${Math.round(s.overall)}</span>`}</button>`).join("");
+  for (const b of $("recent").children) b.onclick = () => b.dataset.res === "1" ? openPast(b.dataset.name, shortStamp(sessions.find(s => s.name === b.dataset.name).when)) : (show("sessions"), loadPast());
+}
+function shortStamp(when){ if (!when) return ""; const d = new Date(when); return isNaN(d) ? when : d.toLocaleDateString(undefined, {day: "numeric", month: "short"}); }
+function drawLibrary(sessions){
+  $("library").innerHTML = sessions.length ? "" : `<li class="empty">Nothing recorded yet.</li>`;
+  for (const s of sessions){
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="when">${esc(s.when ? s.when.replace("T", " ") : "·")}</span><span class="role">${s.job_title ? esc(s.job_title) : '<span class="unnamed">No role recorded</span>'}</span><span class="count">${s.takes} ${s.takes === 1 ? "take" : "takes"}${s.overall == null ? "" : " · " + Math.round(s.overall)}</span><span class="right"></span>`;
+    const right = li.querySelector(".right");
+    if (s.has_result){ const b = document.createElement("button"); b.className = "btn"; b.textContent = "Open the debrief"; b.onclick = () => openPast(s.name, shortStamp(s.when)); right.appendChild(b); }
+    else if (s.has_report){ const a = document.createElement("a"); a.className = "btn"; a.target = "_blank"; a.rel = "noopener"; a.href = `/api/sessions/${encodeURIComponent(s.name)}/report.pdf`; a.textContent = "Open the old PDF"; right.appendChild(a); }
+    else { right.innerHTML = '<span class="unscored">Recorded, never scored</span>'; }
+    const del = document.createElement("button"); del.className = "btn"; del.textContent = "Delete";
+    del.title = "Remove from Sessions and Progress. The recordings stay in the session's folder.";
+    del.onclick = async () => {
+      if (!confirm(`Delete the ${s.job_title || "unnamed"} session from ${shortStamp(s.when)}? It leaves Sessions and the Progress chart; the recordings stay on this computer.`)) return;
+      try { await post("/api/sessions/delete", {name: s.name}); } catch (_) {}
+      // The list, Recent and the Progress chart redraw without it
+      loadPast();
+    };
+    right.appendChild(del);
+    $("library").appendChild(li);
+  }
+  const unscored = sessions.filter(s => !s.has_report).length;
+  $("librarynote").textContent = "Everything recorded on this computer, newest first." + (unscored ? ` ${unscored} of these were recorded but never scored; the audio is still in the folder each session was saved to.` : "");
+}
+
+const SVG_NS = "http://www.w3.org/2000/svg";
+function svg(name, attrs){ const n = document.createElementNS(SVG_NS, name); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; }
+function drawTrend(points){
+  const host = $("trend"); host.innerHTML = "";
+  if (points.length < 2) return;
+  const W = 640, H = 220, L = 34, R = 10, T = 14, B = 26;
+  const frame = svg("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `Overall score across ${points.length} sessions, from ${fmtMeasure("overall", points[0].overall)} to ${fmtMeasure("overall", points[points.length - 1].overall)}`});
+  // Fixed 0-100, not scaled to the data, so a wobble does not read as progress.
+  const x = i => L + (i / (points.length - 1)) * (W - L - R), y = v => T + (1 - Math.max(0, Math.min(100, v)) / 100) * (H - T - B);
+  for (const g of [0, 25, 50, 75, 100]){ frame.appendChild(svg("line", {class: "grid", x1: L, x2: W - R, y1: y(g), y2: y(g)})); const t = svg("text", {class: "axis", x: 0, y: y(g) + 4}); t.textContent = g; frame.appendChild(t); }
+  frame.appendChild(svg("polyline", {class: "line", points: points.map((p, i) => `${x(i)},${y(p.overall)}`).join(" ")}));
+  points.forEach((p, i) => frame.appendChild(svg("circle", {class: i === points.length - 1 ? "dot last" : "dot", cx: x(i), cy: y(p.overall), r: i === points.length - 1 ? 6 : 4})));
+  // Eye contact, as a percentage on the same 0-100 axis, for the sessions the camera measured it in.
+  // Sessions from before, or with the camera off, are skipped rather than drawn as zero.
+  const eyes = points.map((p, i) => [i, p.presence && p.presence.eye_contact]).filter(([, v]) => typeof v === "number");
+  if (eyes.length >= 2){
+    frame.appendChild(svg("polyline", {class: "line eyes", points: eyes.map(([i, v]) => `${x(i)},${y(v * 100)}`).join(" ")}));
+    eyes.forEach(([i, v], k) => frame.appendChild(svg("circle", {class: k === eyes.length - 1 ? "dot eyes last" : "dot eyes", cx: x(i), cy: y(v * 100), r: 3})));
+    frame.setAttribute("aria-label", frame.getAttribute("aria-label") + `; eye contact from ${Math.round(eyes[0][1] * 100)}% to ${Math.round(eyes[eyes.length - 1][1] * 100)}%`);
+  }
+  const a = svg("text", {class: "axis", x: L, y: H - 6}); a.textContent = shortStamp(points[0].stamp); frame.appendChild(a);
+  const b = svg("text", {class: "axis", x: W - R, y: H - 6, "text-anchor": "end"}); b.textContent = shortStamp(points[points.length - 1].stamp); frame.appendChild(b);
+  host.appendChild(frame);
+  if (eyes.length >= 2){ const key = document.createElement("div"); key.className = "trendkey"; key.innerHTML = "<span>Overall score</span><span class=\"eyes\">Eye contact, %</span>"; host.appendChild(key); }
+}
+const CHANGE_ORDER = ["overall", "eye_contact", "relevance_1to5", "structure_1to5", "depth_1to5", "clarity_1to5", "fillers_per_minute", "speaking_rate_syll_per_sec"];
+// Scores out of 100 as whole numbers, everything else to one decimal: the history stores averages, and "35 → 76.96" read as noise.
+function fmtMeasure(key, v){
+  if (typeof v !== "number" || !isFinite(v)) return String(v ?? "");
+  if (key === "eye_contact") return Math.round(v * 100) + "%";
+  return key === "overall" ? String(Math.round(v)) : String(Math.round(v * 10) / 10);
+}
+function drawChanges(deltas){
+  $("changes").innerHTML = CHANGE_ORDER.filter(k => deltas[k] && deltas[k].change !== 0).map(k => { const c = deltas[k];
+    return `<li><span>${esc(c.label)}</span><span class="move ${c.better === true ? "up" : c.better === false ? "down" : ""}">${esc(fmtMeasure(k, c.from))} → ${esc(fmtMeasure(k, c.to))}</span></li>`; }).join("");
+}
+async function loadPast(){
+  let history = null, library = [];
+  try { const r = await fetch("/api/history"); if (r.ok) history = await r.json(); } catch (_) {}
+  try { const r = await fetch("/api/sessions"); if (r.ok) library = (await r.json()).sessions || []; } catch (_) {}
+  drawRecent(library); drawLibrary(library);
+  const all = (history && history.sessions) || [];
+  // A session the interviewer stopped is kept in the list but not on the trend.
+  const full = all.filter(s => (s.kind || "interview") === "interview" && !s.ended_early);
+  const stopped = all.filter(s => s.ended_early).length;
+  if (full.length >= 2){
+    $("trendbox").hidden = false; drawTrend(full); drawChanges((history && history.deltas) || {});
+    const drills = all.length - full.length - stopped;
+    $("pastnote").textContent = `${full.length} full interviews` +
+      (drills ? `, and ${drills} shorter ${drills === 1 ? "session" : "sessions"} (drills and retakes) not plotted here.` : ".") +
+      (stopped ? ` ${stopped} ${stopped === 1 ? "session was" : "sessions were"} stopped early and not plotted.` : "") +
+      " Only what was measured on this machine.";
+  } else {
+    $("trendbox").hidden = true;
+    $("pastnote").textContent = "A trend needs two finished interviews to compare. This is what has been recorded so far.";
+  }
+}
+
+// The loading animation.
+// A glowing sphere of broken circuit rings, each tilted and turning its own way, with tick rings, small floating screens, sparks off the rim and a bright core.
+// Each frame is drawn once sharp and twice blurred, so it glows without losing its edges.
+const holo = (() => {
+  const cv = $("holo"), g = cv.getContext("2d");
+  const off = document.createElement("canvas"), o = off.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // A fixed seed, so the construct is the same shape every time it appears.
+  let seed = 0x5eed;
+  const rand = () => { seed = (seed + 0x6d2b79f5) | 0; let x = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+  const rnd = (a, b) => a + rand() * (b - a), TAU = Math.PI * 2;
+  // A turn about x, then y, then z, as a row-major 3x3.
+  const rot = (ax, ay, az) => {
+    const a = Math.cos(ax), b = Math.sin(ax), c = Math.cos(ay), d = Math.sin(ay), e = Math.cos(az), f = Math.sin(az);
+    return [e * c, e * d * b - f * a, e * d * a + f * b,
+            f * c, f * d * b + e * a, f * d * a - e * b,
+            -d, c * b, c * a];
+  };
+  const mul = (A, B) => { const r = new Array(9); for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) r[i * 3 + j] = A[i * 3] * B[j] + A[i * 3 + 1] * B[3 + j] + A[i * 3 + 2] * B[6 + j]; return r; };
+
+  // Rings of circuit trace: runs of line with gaps, or short thick data blocks, or gauge ticks.
+  // Some are doubled, like a pair of tracks.
+  const rings = [];
+  const ring = (r, spin, type, M) => {
+    const segs = [], start = rnd(0, TAU), span = rand() < .3 ? TAU : rnd(1.2, 5.2);
+    if (type === "ticks"){
+      const step = rnd(.045, .08);
+      for (let a = 0, i = 0; a < span; a += step, i++) segs.push([start + a, i % 5 !== 0]);
+    } else {
+      for (let a = 0; a < span;){
+        const len = type === "blocks" ? rnd(.012, .05) : rnd(.03, .34);
+        segs.push([start + a, start + Math.min(span, a + len)]);
+        a += len + (type === "blocks" ? rnd(.02, .09) : rnd(.015, .12));
+      }
+    }
+    M = M || rot(rnd(0, TAU), rnd(0, TAU), rnd(0, TAU));
+    const wc = type === "blocks" ? 2 : rand() < .25 ? 1 : 0;
+    rings.push({r, spin, type, segs, M, wc});
+    if (type === "trace" && rand() < .3) rings.push({r: r * 1.035, spin, type, segs, M, wc: 0});
+  };
+  // Families of rings share an axis and nest inside each other, like the gimbals of a gyroscope, which is what gives the sphere its layers.
+  for (let f = 0; f < 5; f++){
+    const M = rot(rnd(0, TAU), rnd(0, TAU), rnd(0, TAU)), spin = rnd(-.45, .45);
+    for (let k = 0, n = f === 0 ? 9 : 5; k < n; k++){
+      const r = .98 - k * rnd(.06, .11);
+      if (r > .2) ring(r, spin * (k % 2 ? -1 : 1) * rnd(.6, 1.3), rand() < .22 ? "blocks" : "trace", M);
+    }
+    ring(rnd(.9, 1.02), spin * .5, "ticks", M);
+  }
+  for (let i = 0; i < 8; i++) ring(rnd(.85, 1.04), rnd(-.5, .5), "trace");
+  for (let i = 0; i < 5; i++) ring(rnd(.14, .32), rnd(-1.6, 1.6), "trace");
+
+  // Energy fragments, streaming out from the rim and fading.
+  const frags = [];
+  for (let i = 0; i < 230; i++){
+    const u = rnd(-1, 1), th = rnd(0, TAU), q = Math.sqrt(1 - u * u);
+    frags.push({x: Math.cos(th) * q, y: u, z: Math.sin(th) * q, s: rnd(.85, 1.3), v: rnd(.04, .2), len: rnd(.03, .12)});
+  }
+  // Floating screens inside the sphere, with lines of text on them.
+  const panels = [];
+  for (let i = 0; i < 9; i++){
+    const rows = []; for (let k = Math.floor(rnd(2, 6)); k > 0; k--) rows.push(rnd(.25, 1));
+    panels.push({M: rot(rnd(0, TAU), rnd(0, TAU), rnd(0, TAU)), d: rnd(.35, .75), w: rnd(.12, .28), h: rnd(.07, .18), rows});
+  }
+  // A fine dust on the shell, a few of the grains flashing.
+  const dust = [];
+  for (let i = 0, n = 900; i < n; i++){
+    const y = 1 - 2 * (i + .5) / n, q = Math.sqrt(1 - y * y), th = i * 2.399963, k = rnd(.9, 1.12);
+    dust.push([Math.cos(th) * q * k, y * k, Math.sin(th) * q * k, rand() * TAU, rand() < .06]);
+  }
+
+  // Lines are gathered into buckets by brightness and weight, so each frame is a couple of dozen strokes rather than thousands.
+  const NB = 8, WIDTHS = [.7, 1.3, 2.4];
+  const COLORS = Array.from({length: NB}, (_, b) => { const d = (b + .5) / NB;
+    return `rgba(255,${118 + 112 * d | 0},${38 + 100 * d | 0},${(.07 + .9 * d ** 1.3).toFixed(3)})`; });
+  const L = Array.from({length: NB * 3}, () => []), D = Array.from({length: NB}, () => []);
+  const bucket = (v) => Math.max(0, Math.min(NB - 1, v * NB | 0));
+
+  let raf = 0, W = 0, dpr = 1, last = 0, c = 0, R = 0, px = 0, py = 0, pz = 0, pk = 1;
+
+  // Move the mouse close and it throws sparks at the cursor, a few times a second.
+  // Mouse only, and never with reduced motion.
+  // Drawn on a layer over the whole page, since the cursor can be outside the sphere's canvas.
+  const zc = document.createElement("canvas"), zg = zc.getContext("2d");
+  zc.className = "zap"; zc.setAttribute("aria-hidden", "true"); document.body.appendChild(zc);
+  let zs = 0xb017;
+  const zr = () => { zs = (zs + 0x6d2b79f5) | 0; let x = Math.imul(zs ^ (zs >>> 15), 1 | zs);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+  let mouse = null, bolts = [], nextZap = 0, near = false, hot = 0, zW = 0, zH = 0, zOn = false;
+  addEventListener("pointermove", (e) => { mouse = e.pointerType === "mouse" ? [e.clientX, e.clientY] : null; }, {passive: true});
+  document.addEventListener("mouseout", (e) => { if (!e.relatedTarget) mouse = null; });
+  // A jagged path between two points: split every segment at a nudged middle.
+  const jag = (x0, y0, x1, y1, rough) => {
+    let pts = [[x0, y0], [x1, y1]];
+    for (let k = 0; k < 6; k++){
+      const nx = [pts[0]];
+      for (let i = 1; i < pts.length; i++){
+        const [ax, ay] = pts[i - 1], [bx, by] = pts[i], dx = bx - ax, dy = by - ay, l = Math.hypot(dx, dy) || 1;
+        const off = (zr() - .5) * rough * l;
+        nx.push([(ax + bx) / 2 - dy / l * off, (ay + by) / 2 + dx / l * off], pts[i]);
+      }
+      pts = nx;
+    }
+    return pts;
+  };
+  // One strike: a main bolt from the rim facing the cursor, and a few forks.
+  const strike = (ms, cx, cy, rs, mx, my) => {
+    const a = Math.atan2(my - cy, mx - cx) + (zr() - .5) * .7, sx = cx + Math.cos(a) * rs * .92, sy = cy + Math.sin(a) * rs * .92;
+    const paths = [jag(sx, sy, mx, my, .42)], main = paths[0];
+    for (let n = 1 + Math.floor(zr() * 3); n > 0; n--){
+      const [bx, by] = main[Math.floor(main.length * (.25 + zr() * .5))];
+      const ang = Math.atan2(my - by, mx - bx) + (zr() < .5 ? -1 : 1) * (.4 + zr() * .6), len = Math.hypot(mx - bx, my - by) * (.25 + zr() * .3);
+      paths.push(jag(bx, by, bx + Math.cos(ang) * len, by + Math.sin(ang) * len, .5));
+    }
+    bolts.push({paths, hit: [mx, my], born: ms, life: 200 + zr() * 140});
+    hot = 1;
+  };
+  function zaps(ms, live){
+    // Is the cursor near?
+    // Measured against the sphere as it sits on screen.
+    near = false;
+    if (mouse && live && !still){
+      const b = cv.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height / 2, rs = b.width * .33;
+      const box = (cv.closest(".veil, #working") || cv).getBoundingClientRect();
+      near = mouse[0] >= box.left && mouse[0] <= box.right && mouse[1] >= box.top && mouse[1] <= box.bottom;
+      if (near && ms >= nextZap){
+        strike(ms, cx, cy, rs, mouse[0], mouse[1]);
+        nextZap = ms + 260 + zr() * 560;
+      }
+      // A beat before the first strike
+      if (!near) nextZap = Math.max(nextZap, ms + 120);
+    }
+    bolts = bolts.filter((bt) => ms - bt.born < bt.life);
+    if (!bolts.length){ if (zOn){ zg.setTransform(1, 0, 0, 1, 0, 0); zg.clearRect(0, 0, zc.width, zc.height); zOn = false; } return; }
+    const w = innerWidth, h = innerHeight;
+    if (zW !== w || zH !== h || zc.width !== Math.round(w * dpr)){ zW = w; zH = h; zc.width = Math.round(w * dpr); zc.height = Math.round(h * dpr); }
+    zg.setTransform(dpr, 0, 0, dpr, 0, 0); zg.clearRect(0, 0, w, h);
+    zg.globalCompositeOperation = "lighter"; zg.lineJoin = zg.lineCap = "round";
+    for (const bt of bolts){
+      const age = (ms - bt.born) / bt.life, a = (1 - age) * (zr() < .22 ? .35 : 1);
+      // The forks crackle: redrawn from the same ends every few frames.
+      if (zr() < .35) for (let i = 1; i < bt.paths.length; i++){ const q = bt.paths[i], e = q[q.length - 1]; bt.paths[i] = jag(q[0][0], q[0][1], e[0], e[1], .5); }
+      bt.paths.forEach((q, i) => {
+        const m = i === 0 ? 1 : .55;
+        for (const [lw, col, blur] of [[9 * m, `rgba(255,120,40,${(.22 * a).toFixed(3)})`, 16], [3.2 * m, `rgba(255,190,110,${(.7 * a).toFixed(3)})`, 6], [1.3 * m, `rgba(255,250,235,${a.toFixed(3)})`, 0]]){
+          zg.shadowBlur = blur; zg.shadowColor = "rgba(255,150,60,.9)"; zg.strokeStyle = col; zg.lineWidth = lw;
+          zg.beginPath(); zg.moveTo(q[0][0], q[0][1]); for (let k = 1; k < q.length; k++) zg.lineTo(q[k][0], q[k][1]); zg.stroke();
+        }
+      });
+      // The hit: a white-hot flash where the bolt lands.
+      const [hx, hy] = bt.hit, fl = zg.createRadialGradient(hx, hy, 0, hx, hy, 22);
+      fl.addColorStop(0, `rgba(255,248,225,${(.9 * a).toFixed(3)})`); fl.addColorStop(.35, `rgba(255,170,80,${(.45 * a).toFixed(3)})`); fl.addColorStop(1, "rgba(255,120,40,0)");
+      zg.shadowBlur = 0; zg.fillStyle = fl; zg.beginPath(); zg.arc(hx, hy, 22, 0, TAU); zg.fill();
+    }
+    zOn = true;
+  }
+  // Onto the screen: a gentle perspective, and a depth from 0 (far) to 1 (near).
+  const P = (x, y, z) => { const k = 4 / (4 - z); px = c + x * R * k; py = c + y * R * k; pk = k; pz = Math.max(0, Math.min(1, (z + 1.15) / 2.3)); };
+
+  function frame(ms){
+    const size = cv.clientWidth;
+    if (!size) return;
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    if (W !== size || cv.width !== Math.round(size * dpr)){ W = size; cv.width = cv.height = off.width = off.height = Math.round(size * dpr); }
+    const t = ms / 1000, dt = still ? 0 : Math.min(.1, last ? t - last : 0); last = t;
+    c = W / 2; R = W * .33;
+    const G = rot(t * .21, t * .33, t * .13);
+    for (const a of L) a.length = 0;
+    for (const a of D) a.length = 0;
+    const line = (x0, y0, x1, y1, v, wc) => L[wc * NB + bucket(v)].push(x0, y0, x1, y1);
+
+    for (const rg of rings){
+      const C = mul(G, rg.M), sp = t * rg.spin, r = rg.r;
+      const pt = (th, rr) => { const co = Math.cos(th) * rr, si = Math.sin(th) * rr; P(C[0] * co + C[1] * si, C[3] * co + C[4] * si, C[6] * co + C[7] * si); };
+      if (rg.type === "ticks"){
+        for (const [th, short] of rg.segs){ pt(th + sp, r); const x0 = px, y0 = py, d = pz; pt(th + sp, r * (short ? 1.045 : 1.1)); line(x0, y0, px, py, d, 0); }
+        continue;
+      }
+      for (const [a0, a1] of rg.segs){
+        const n = Math.max(1, Math.ceil((a1 - a0) / .07));
+        pt(a0 + sp, r); let x0 = px, y0 = py;
+        for (let i = 1; i <= n; i++){ pt(a0 + sp + (a1 - a0) * i / n, r); line(x0, y0, px, py, pz, rg.wc); x0 = px; y0 = py; }
+      }
+    }
+    for (const f of frags){
+      f.s += f.v * dt; if (f.s > 1.26) f.s = rnd(.86, .98);
+      const fade = Math.max(0, Math.min(1, (1.26 - f.s) / .26)) * Math.min(1, Math.max(0, (f.s - .84) / .08));
+      const x = G[0] * f.x + G[1] * f.y + G[2] * f.z, y = G[3] * f.x + G[4] * f.y + G[5] * f.z, z = G[6] * f.x + G[7] * f.y + G[8] * f.z;
+      P(x * f.s, y * f.s, z * f.s); const x0 = px, y0 = py, d = pz;
+      const e = f.s + f.len; P(x * e, y * e, z * e);
+      line(x0, y0, px, py, d * fade, f.len > .09 ? 1 : 0);
+    }
+    for (const s of dust){
+      P(G[0] * s[0] + G[1] * s[1] + G[2] * s[2], G[3] * s[0] + G[4] * s[1] + G[5] * s[2], G[6] * s[0] + G[7] * s[1] + G[8] * s[2]);
+      const tw = s[4] ? (Math.sin(t * 5 + s[3]) > .6 ? 1 : .15) : .55 + .45 * Math.sin(t * 2 + s[3]);
+      D[bucket(pz * tw)].push(px, py, pk);
+    }
+
+    o.setTransform(dpr, 0, 0, dpr, 0, 0);
+    o.globalCompositeOperation = "source-over"; o.globalAlpha = 1; o.clearRect(0, 0, W, W);
+    o.globalCompositeOperation = "lighter"; o.lineCap = "butt";
+    // the glow at the heart, breathing
+    const glow = o.createRadialGradient(c, c, 0, c, c, R * .95);
+    glow.addColorStop(0, "rgba(255,238,196,.95)"); glow.addColorStop(.07, "rgba(255,204,120,.55)");
+    glow.addColorStop(.3, "rgba(255,140,50,.16)"); glow.addColorStop(1, "rgba(255,110,40,0)");
+    hot = Math.max(near ? .35 : 0, hot - dt * 3);
+    o.globalAlpha = Math.min(1, .82 + .18 * Math.sin(t * 2.1) + .3 * hot); o.fillStyle = glow; o.fillRect(0, 0, W, W); o.globalAlpha = 1;
+    for (let wc = 0; wc < 3; wc++) for (let b = 0; b < NB; b++){
+      const a = L[wc * NB + b]; if (!a.length) continue;
+      o.strokeStyle = COLORS[b]; o.lineWidth = WIDTHS[wc]; o.beginPath();
+      for (let i = 0; i < a.length; i += 4){ o.moveTo(a[i], a[i + 1]); o.lineTo(a[i + 2], a[i + 3]); }
+      o.stroke();
+    }
+    for (let b = 0; b < NB; b++){
+      const a = D[b]; if (!a.length) continue;
+      o.fillStyle = COLORS[b];
+      const base = .6 + b / NB * 1.2;
+      for (let i = 0; i < a.length; i += 3){ const sz = base * a[i + 2]; o.fillRect(a[i] - sz / 2, a[i + 1] - sz / 2, sz, sz); }
+    }
+    // the screens
+    o.lineWidth = .7;
+    for (const pn of panels){
+      const C = mul(G, pn.M);
+      const at = (u, v) => { P(C[0] * u + C[1] * v + C[2] * pn.d, C[3] * u + C[4] * v + C[5] * pn.d, C[6] * u + C[7] * v + C[8] * pn.d); return [px, py, pz]; };
+      const q = [at(-pn.w, -pn.h), at(pn.w, -pn.h), at(pn.w, pn.h), at(-pn.w, pn.h)], d = (q[0][2] + q[2][2]) / 2;
+      o.fillStyle = `rgba(255,170,70,${(.03 + .06 * d).toFixed(3)})`; o.strokeStyle = `rgba(255,200,110,${(.1 + .45 * d).toFixed(3)})`;
+      o.beginPath(); o.moveTo(q[0][0], q[0][1]); for (let i = 1; i < 4; i++) o.lineTo(q[i][0], q[i][1]); o.closePath(); o.fill(); o.stroke();
+      o.beginPath();
+      pn.rows.forEach((len, i) => { const v = -pn.h + (i + 1) * 2 * pn.h / (pn.rows.length + 1); at(-pn.w * .8, v); o.moveTo(px, py); at(-pn.w * .8 + 1.6 * pn.w * len, v); o.lineTo(px, py); });
+      o.stroke();
+    }
+    // the swirl at the core, turning faster and on its own axes
+    const S = rot(t * .7, -t * 1.1, t * .4);
+    for (const [r0, a0, span] of [[.52, 0, 4.6], [.3, Math.PI, 3.8]]){
+      let x0 = null, y0 = 0;
+      for (let i = 0; i <= 64; i++){
+        const f = i / 64, th = a0 + f * span, rr = .03 + r0 * f ** 1.2, co = Math.cos(th) * rr, si = Math.sin(th) * rr;
+        P(S[0] * co + S[1] * si, S[3] * co + S[4] * si, S[6] * co + S[7] * si);
+        if (x0 !== null){
+          o.strokeStyle = `rgba(255,${235 - 90 * f | 0},${175 - 125 * f | 0},${(.95 - .8 * f).toFixed(3)})`;
+          o.lineWidth = 3.6 * (1 - f) + .6; o.lineCap = "round";
+          o.beginPath(); o.moveTo(x0, y0); o.lineTo(px, py); o.stroke();
+        }
+        x0 = px; y0 = py;
+      }
+    }
+
+    // Composed: two soft passes for the glow, then the sharp drawing on top.
+    g.setTransform(1, 0, 0, 1, 0, 0);
+    g.globalCompositeOperation = "source-over"; g.globalAlpha = 1; g.filter = "none";
+    g.clearRect(0, 0, cv.width, cv.height);
+    g.globalCompositeOperation = "lighter";
+    g.filter = `blur(${9 * dpr}px)`; g.globalAlpha = .55; g.drawImage(off, 0, 0);
+    g.filter = `blur(${2 * dpr}px)`; g.globalAlpha = .6; g.drawImage(off, 0, 0);
+    g.filter = "none"; g.globalAlpha = 1; g.drawImage(off, 0, 0);
+  }
+  function loop(ms){
+    raf = 0;
+    if (!cv.getClientRects().length || document.hidden){ last = 0; bolts = []; zaps(ms, false); return; }
+    frame(ms);
+    zaps(ms, true);
+    if (!still) raf = requestAnimationFrame(loop);
+  }
+  return {start(){ if (!raf) raf = requestAnimationFrame(loop); }};
+})();
+
+// The loading percentage.
+// Each stage's share of the wait, measured on a real six answer session: listening back 17%, scoring 20%, the second opinion 11%, the notes 52%.
+const LOAD_STAGES = {starting: [0, 2], transcribing: [2, 17], scoring: [17, 37], checking: [37, 48], writing: [48, 99]};
+let loadTarget = 0, loadCeil = 2, loadShown = 0;
+function setLoad(p){
+  if (Q_STAGES[p.stage]){
+    if (qStage !== p.stage){ qStage = p.stage; qAt = Date.now(); }
+    $("workingWhat").textContent = {q_advert: "Reading the job advert…", q_cv: "Reading your CV…", q_writing: "Writing your questions…"}[p.stage];
+    return;
+  }
+  if (p.stage === "starting"){ loadTarget = 0; loadCeil = 2; loadShown = 0; }
+  const [a, b] = LOAD_STAGES[p.stage] || [loadTarget, loadTarget];
+  const total = Math.max(p.total || 0, 1), done = Math.min(p.done || 0, total);
+  loadTarget = Math.max(loadTarget, a + (b - a) * done / total);
+  // Between messages it creeps toward the end of the current step, never past it.
+  loadCeil = Math.max(loadTarget, a + (b - a) * Math.min(done + 1, total) / total - 0.5);
+  const words = {starting: "Getting started", transcribing: "Listening back to answer", scoring: "Scoring answer",
+                 checking: "Double-checking the scores", writing: "Writing the coach's notes"};
+  const label = words[p.stage] || p.stage;
+  $("workingWhat").textContent = ["transcribing", "scoring"].includes(p.stage)
+    ? `${label} ${Math.min(done + 1, total)} of ${total}…` : label + "…";
+}
+// The same loader shows while the questions are written.
+// The server names each step as it starts, and each owns its measured share of the wait: reading the advert about 16 s (with the model loading), the CV about 7 s, writing the questions about 5 s.
+// Within a step the bar eases toward its end, never past.
+const Q_STAGES = {q_advert: [4, 62, 16000], q_cv: [62, 84, 7000], q_writing: [84, 98, 5000]};
+let loadMode = "", qStage = "", qAt = 0;
+function mountLoader(mode){
+  if (loadMode !== mode){ loadMode = mode; loadTarget = loadShown = 0; loadCeil = mode === "report" ? 2 : 0; qStage = ""; qAt = Date.now(); $("loadPct").textContent = "0%"; }
+  const host = mode === "questions" ? $("veilCore") : $("working");
+  if ($("loadcore").parentNode !== host) host.prepend($("loadcore"));
+  holo.start();
+}
+setInterval(() => {
+  if (!$("holo").getClientRects().length) return;
+  holo.start();
+  if (loadMode === "questions"){
+    // Before the first step (the camera, the model check) it creeps slowly, and keeps creeping if no step is ever named, rather than stalling.
+    const [a, b, ms] = Q_STAGES[qStage] || [0, 60, 40000];
+    loadTarget = loadCeil = Math.max(loadTarget, a + (b - a) * (1 - Math.exp(-(Date.now() - qAt) * 2.5 / ms)));
+  }
+  if (loadShown < loadTarget) loadShown += Math.max(0.5, (loadTarget - loadShown) * 0.25);
+  else if (loadShown < loadCeil) loadShown = Math.min(loadCeil, loadShown + 0.12);
+  if (loadShown < 100) $("loadPct").textContent = Math.floor(Math.min(loadShown, 99)) + "%";
+}, 400);
+
+// The state machine
+const LIVE_STATES = ["preparing", "waiting", "recording", "thinking"];
+let lastState = null, analysisAsked = false;
+function rejoin(s){
+  if (!LIVE_STATES.includes(s.state)) return;
+  if (current !== "live") show("live");
+  if (s.use_video && !$("preview")){ usingCamera = true; loadGate(); watchCamera(); }
+  $("facepill").hidden = !s.use_video; $("tip").hidden = !s.use_video;
+}
+function drawSoFar(s){
+  const done = s.answered || 0, total = Math.max(s.total || 0, done + (s.prompt ? 1 : 0));
+  const items = [];
+  for (let i = 0; i < total; i++) items.push([`Q${i + 1}`, i < done ? "past" : (i === done && s.prompt ? "now" : "")]);
+  drawSteps(items);
+  $("sofar").textContent = total ? (done ? `${done} of ${total} answered` : `${total} to go`) : "";
+  const crumb = s.drill_of ? "Working on " + s.drill_of : s.retake_of ? "Second attempt" : ($("title").value.trim() || "Interview");
+  $("crumb").innerHTML = `<b>${esc(crumb)}</b>`;
+  $("pastq").innerHTML = (s.so_far || []).map((t, i) =>
+    `<div class="pq"><div class="qq"><em>Q${i + 1}</em>${esc(t.question)}</div>${t.heard ? `<p>${esc(t.heard)}</p>` : ""}</div>`).join("");
+}
+// Live captions: the quick transcript re-run while you speak, stitched into one running text.
+// Words already shown stay put and dim; the newest pass surfaces in full colour behind a caret.
+// A rough draft, never marked; when the answer ends it moves up into the list above as the quick transcript.
+let captionShown = "";
+function drawCaptions(text){
+  const h = $("heard"), p = $("heardText");
+  h.classList.add("live");
+  if (!text){ captionShown = ""; h.hidden = true; return; }
+  h.hidden = false; $("heardMeta").textContent = "· live captions, a rough draft";
+  const words = text.split(/\s+/), had = captionShown ? captionShown.split(/\s+/) : [];
+  let same = 0;
+  while (same < had.length && same < words.length && had[same] === words[same]) same++;
+  const from = Math.max(0, words.length - 80);
+  p.innerHTML = (from ? "… " : "") + words.slice(from).map((w, k) => {
+    const i = from + k;
+    return i < same ? esc(w) + " " : `<span class="w" style="animation-delay:${Math.min(i - same, 20) * 0.04}s">${esc(w)} </span>`;
+  }).join("");
+  captionShown = text;
+}
+function render(s, fromNav){
+  // Captions publish the recording state again every few seconds, so what starts an answer (clock, meter) runs only when it begins.
+  const was = lastState && lastState.state;
+  const follow = fromNav || followingInterview();
+  lastState = s;
+  rejoin(s);
+  if (LIVE_STATES.includes(s.state)) drawSoFar(s);
+  field.excite(s.state === "recording");
+  $("stagecard").classList.toggle("recording", s.state === "recording");
+
+  if (s.prompt && s.prompt.text && s.prompt.text !== lastQuestion){
+    lastQuestion = s.prompt.text;
+    clockReset();
+    const q = $("question");
+    q.textContent = s.prompt.text;
+    q.classList.remove("settle"); void q.offsetWidth; q.classList.add("settle");
+    // A second chance is a follow-up, so it is tested first.
+    $("pill").textContent = s.prompt.trigger === "second_chance" ? "· Second chance at " + s.prompt.question_number
+      : s.prompt.is_follow_up ? "· Following up on " + s.prompt.question_number
+      : "· Question " + s.prompt.question_number + " of " + s.prompt.total_questions;
+    $("heard").hidden = true;
+  }
+  const btn = $("answerBtn"), rec = $("answer");
+  const setBtn = (label, on, enabled) => { btn.innerHTML = `${label} <kbd>Space</kbd>`; btn.disabled = !enabled; rec.disabled = !enabled; rec.classList.toggle("on", on); $("spaceWhat").textContent = label.toLowerCase(); };
+  switch (s.state){
+    case "preparing":
+      $("veil").hidden = false; $("status").textContent = ""; $("speaking").hidden = true;
+      $("question").textContent = (cvStored || exampleCv) ? "Reading the job advert and your CV…" : "Reading the job advert…";
+      mountLoader("questions");
+      $("workingWhat").textContent = ((cvStored || exampleCv) ? "Reading the job advert and your CV" : "Reading the job advert") + ", then writing your questions…";
+      if (s.progress) setLoad(s.progress);
+      setBtn("Start answering", false, false);
+      analysisAsked = false;
+      break;
+    case "waiting": {
+      // Straight from the question loader: show it finish at 100% for a beat.
+      if (was === "preparing" && !$("veil").hidden){
+        $("loadPct").textContent = "100%"; loadShown = loadTarget = loadCeil = 100;
+        setTimeout(() => { if (lastState && lastState.state !== "preparing") $("veil").hidden = true; }, 450);
+      } else $("veil").hidden = true;
+      answering = false; clockOff(); levelOn(false);
+      $("speaking").hidden = false;
+      $("status").textContent = "Take a moment. Answer it the way you would on the day.";
+      setBtn("Start answering", false, true);
+      const last = (s.so_far || [])[(s.so_far || []).length - 1];
+      if (last && last.heard && s.prompt && s.prompt.is_follow_up){
+        $("heard").classList.remove("live"); captionShown = "";
+        $("heard").hidden = false; $("heardMeta").textContent = "· what I heard just now";
+        $("heardText").innerHTML = last.heard.split(" ").map((w, i) => `<span class="w" style="animation-delay:${i * 0.03}s">${esc(w)} </span>`).join("");
+      }
+      break;
+    }
+    case "recording":
+      $("veil").hidden = true; answering = true; $("speaking").hidden = true;
+      if (was !== "recording"){ clockOn(); levelOn(true); }
+      $("status").innerHTML = '<span class="tag rose"><i></i>Recording</span> Press Done, or Space, when you have finished.';
+      setBtn("Done answering", true, true);
+      // A follow-up's "what I heard" recap stays until your first words arrive.
+      if (s.live_words || $("heard").classList.contains("live")) drawCaptions(s.live_words || "");
+      break;
+    case "thinking":
+      $("veil").hidden = true; answering = false; clockOff(); levelOn(false);
+      $("status").textContent = "Listening back, and deciding whether to press further…";
+      if ($("heard").classList.contains("live")) drawCaptions(s.live_words || "");
+      setBtn("One moment", false, false);
+      break;
+    case "finished":
+      clockOff(); levelOn(false);
+      if (follow){
+        // A new debrief is on its way; nothing from an earlier one stays up.
+        if (viewData) clearReport();
+        show("done");
+        $("results").hidden = true; $("doneCount").hidden = false;
+        $("doneCount").textContent = (s.answered || 0) + " answers recorded";
+        $("doneWhere").textContent = s.record && s.record.session_dir ? "Saved to " + s.record.session_dir : "";
+        showWarnings(s.warnings);
+      }
+      // Recording and scoring are separate waits, so analysis is asked for here, wherever you are.
+      if (!analysisAsked && (s.answered || 0) > 0){
+        analysisAsked = true; if (follow){ $("working").hidden = false; mountLoader("report"); $("workingWhat").textContent = "Starting the debrief…"; }
+        post("/api/analyse", {job_description: $("jd").value.trim(), job_title: $("title").value.trim()});
+      }
+      break;
+    case "dismissed": {
+      // Not an attempt.
+      // Stopped mid-interview, or read back and found to be mostly non-answers.
+      // No report, no history.
+      clockOff(); answering = false; levelOn(false);
+      if (!follow) break;
+      show("dismissed");
+      const d = s.dismissed || {};
+      let why = d.reason || "";
+      if (s.ended_early) why = "Ended after " + s.ended_early.after + " of " + s.ended_early.prepared + " questions. " + why;
+      $("dismissWhy").textContent = why;
+      // Ended by you rather than by the interviewer, so the wording says so.
+      $("dismissLine").textContent = d.by_user ? "You ended the interview early, so it wasn't graded."
+        : "I don't think there's value in continuing today. Let's stop here.";
+      $("dismissKept").textContent = d.by_user ? "Only interviews answered to the end are graded. Nothing was added to your history, so you can start a new one now."
+        : "No report was written and nothing was added to your history. Come back when you're ready to give the questions a real go.";
+      $("dismissAgain").textContent = d.by_user ? "Start a new interview" : "Start again";
+      break;
+    }
+    case "analysing":
+      if (!follow) break;
+      if (viewData) clearReport();
+      show("done");
+      $("working").hidden = false; $("results").hidden = true; $("doneCount").hidden = true; $("doneWhere").textContent = "";
+      mountLoader("report");
+      if (s.progress) setLoad(s.progress);
+      break;
+    case "reported": {
+      // Away, the report is not redrawn either: it would replace an old debrief you opened.
+      // Coming back through Interview loads it fresh.
+      if (!follow) break;
+      show("done");
+      $("working").hidden = true;
+      showWarnings(s.warnings);
+      if (!s.summary){
+        // Reported with nothing in it: analysis refused, or a restart.
+        $("results").hidden = true; $("doneCount").hidden = false;
+        $("doneCount").textContent = "There is no report for this session";
+        $("doneWhere").textContent = (s.error ? explainFailure(s.error) + " " : "") + "Earlier sessions, with their debriefs, are under Sessions.";
+        break;
+      }
+      $("doneWhere").textContent = "";
+      const key = JSON.stringify([s.summary.writing || null, s.summary.answers.length, (s.summary.cv_claims || []).length]);
+      if (key !== lastViewKey || fromNav || !viewData){
+        lastViewKey = key;
+        loadView("/api/report").then(v => { if (v) { renderView(v, {source: {kind: "live"}}); afterRetake(v.summary); loadPast(); } });
+      }
+      break;
+    }
+    case "failed":
+      clockOff(); levelOn(false);
+      $("veil").hidden = true;
+      if (!follow) break;
+      show("done");
+      $("working").hidden = true; $("results").hidden = true; $("doneCount").hidden = false;
+      $("doneCount").textContent = "That session could not be finished";
+      $("doneWhere").textContent = explainFailure(s.error);
+      showWarnings([]);
+      break;
+    case "idle":
+      if (fromNav) show("setup");
+      break;
+  }
+}
+function afterRetake(summary){
+  if (!(retakeOf && summary && (summary.answers || []).length === 1)) { $("retakeLine").hidden = true; return; }
+  const again = summary.answers[0], now = Math.round(again.score), delta = now - retakeOf.score;
+  let line = `${retakeOf.score} first time, ${now} this time` + (delta === 0 ? ". No change." : delta > 0 ? `. Up ${delta}.` : `. Down ${Math.abs(delta)}.`);
+  // Both attempts can sit on the same cap while the answer underneath improved.
+  if (delta === 0 && again.ceiling != null && retakeOf.uncapped != null && again.uncapped != null){
+    const under = Math.round((again.uncapped - retakeOf.uncapped) * 10) / 10;
+    if (under > 0) line = `Both attempts are capped at ${again.ceiling}, because neither answered the question that was asked. Underneath the cap this attempt scored ${under} higher, so the delivery did improve.`;
+  }
+  $("retakeLine").hidden = false; $("retakeLine").textContent = "Second attempt: " + line;
+  retakeOf = null;
+}
+
+// Readiness, example, CV
+fetch("/api/ready").then(r => r.json()).then(state => {
+  const checks = state.checks || [];
+  $("readylist").innerHTML = checks.map(c => `<span class="tag ${c.ok ? "mint" : c.required ? "rose" : "gold"}" title="${esc(c.detail)}"><i></i>${esc(c.name)}</span>`).join("");
+  const problems = checks.filter(c => c.ok === false);
+  if (problems.length){
+    $("notready").innerHTML = problems.map(c => `<li>${esc(c.name)}: ${esc(c.detail)}</li>`).join("");
+    $("notready").hidden = false;
+  }
+  if (!state.ready) $("go").disabled = true;
+}).catch(() => {});
+
+// Examples Easy, Medium or Hard, then a job from that level's library with a CV written for it.
+// Each click deals the next job (no repeats until the level runs out), sets the question count for the level, and attaches the CV to this session only: the saved CV is never overwritten by an example.
+const LEVEL_NAME = {easy: "Easy", medium: "Medium", hard: "Hard"};
+let exampleLevel = "medium", exampleCv = null, exampleAdvert = "", cvStored = false, cvLines = 0;
+try { const saved = localStorage.getItem("callback.exampleLevel"); if (LEVEL_NAME[saved]) exampleLevel = saved; } catch (_) {}
+function drawLevel(){
+  for (const b of $("lvlSeg").querySelectorAll("button")){
+    const on = b.dataset.level === exampleLevel;
+    b.classList.toggle("on", on); b.setAttribute("aria-checked", on ? "true" : "false");
+    if (on) $("lvlSeg").style.setProperty("--i", b.dataset.i);
+  }
+}
+for (const b of $("lvlSeg").querySelectorAll("button")) b.onclick = () => {
+  if (exampleLevel === b.dataset.level) return;
+  exampleLevel = b.dataset.level; drawLevel();
+  try { localStorage.setItem("callback.exampleLevel", exampleLevel); } catch (_) {}
+  // Changing level while an untouched example is on the form swaps it for one at the new level; anything the candidate wrote themselves is left alone.
+  if (exampleAdvert && $("jd").value === exampleAdvert) dealExample();
+};
+$("lvlSeg").addEventListener("keydown", (e) => {
+  const order = ["easy", "medium", "hard"], k = order.indexOf(exampleLevel);
+  const next = e.key === "ArrowRight" ? order[Math.min(2, k + 1)] : e.key === "ArrowLeft" ? order[Math.max(0, k - 1)] : null;
+  if (next && next !== exampleLevel){ e.preventDefault(); $("lvlSeg").querySelector(`[data-level="${next}"]`).click(); $("lvlSeg").querySelector(".on").focus(); }
+});
+drawLevel();
+function setQuestionCount(n){
+  const b = $("countSeg").querySelector(`[data-n="${n}"]`); if (b) b.click();
+}
+async function dealExample(){
+  const button = $("example"); button.disabled = true;
+  button.classList.remove("turn"); void button.offsetWidth; button.classList.add("turn");
+  try {
+    const r = await fetch("/api/example?level=" + exampleLevel, {cache: "no-store"}); if (!r.ok) throw new Error("unavailable");
+    const data = await r.json(); if (!data.job_description) throw new Error("no examples");
+    $("title").value = data.job_title || ""; $("jd").value = data.job_description; countWords();
+    exampleAdvert = data.job_description;
+    setQuestionCount(data.question_count);
+    exampleCv = data.cv ? {text: data.cv, fit: data.cv_fit} : null;
+    showCvState(cvStored);
+    measureAdvert(true);
+    $("exLabel").textContent = "Another example";
+    $("jd").scrollTop = 0;
+  } catch (_) { $("exLabel").textContent = "No example available"; }
+  button.disabled = false;
+}
+$("example").onclick = dealExample;
+function dropExample(){
+  exampleCv = null; exampleAdvert = ""; $("exLabel").textContent = "Fill with an example"; showCvState(cvStored);
+}
+
+// How demanding the advert on the form reads, measured on the server from its reading level, technical vocabulary, listed requirements and length.
+// Shown for examples and for anything pasted.
+let measureTimer = null, measureSeq = 0;
+function measureAdvert(now){
+  clearTimeout(measureTimer);
+  measureTimer = setTimeout(async () => {
+    const text = $("jd").value, seq = ++measureSeq;
+    if (!text.trim()){ $("jdLevel").hidden = true; return; }
+    try {
+      const r = await fetch("/api/difficulty", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({text})});
+      if (!r.ok || seq !== measureSeq) return;
+      const m = await r.json();
+      if (!m.level){ $("jdLevel").hidden = true; return; }
+      $("jdLevel").hidden = false; $("jdLevel").dataset.level = m.level;
+      $("jdLevel").innerHTML = `<span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>${LEVEL_NAME[m.level]} · ${Math.round(m.score)}`;
+      $("jdLevel").title = `Measured from the advert: reading grade ${m.grade}, ${Math.round(m.technical_share * 100)}% technical words, ${m.requirements} listed requirements, ${m.words} words. Scored out of 100.`;
+    } catch (_) {}
+  }, now ? 0 : 500);
+}
+$("jd").addEventListener("input", () => {
+  measureAdvert(false);
+  // Pasting a different advert over an example takes the example CV away with it; editing the example keeps it.
+  // The example is gone once its first line is.
+  if (exampleAdvert && !$("jd").value.includes(exampleAdvert.split("\n")[0])) dropExample();
+});
+function showCvState(stored){
+  const lines = ($("cv").value.trim().match(/\n/g) || []).length + ($("cv").value.trim() ? 1 : 0);
+  cvStored = !!stored; cvLines = lines;
+  $("cvsaved").textContent = stored ? "Saved on this machine." : "";
+  $("cvforget").hidden = !stored;
+  $("cvline").classList.toggle("example", !!exampleCv);
+  $("cvview").hidden = !exampleCv;
+  if (exampleCv){
+    const who = (exampleCv.text.split("\n").find(l => l.trim()) || "Example").trim();
+    $("cvstate").innerHTML = `<b>${esc(who)}</b><small>Example CV · ${exampleCv.fit === "strong" ? "fits the job well" : "only partly fits"}</small>`;
+    $("cvedit").textContent = stored ? "Use mine" : "Remove";
+    $("cvhint").textContent = "For this session only. " + (stored ? "Your saved CV is untouched." : "Nothing is saved.");
+  } else {
+    $("cvstate").innerHTML = stored ? `<b>Your CV</b><small>${lines} lines, saved on this computer</small>` : "No CV yet";
+    $("cvedit").textContent = stored ? "Edit" : "Add";
+    $("cvhint").textContent = "Kept on this computer. The debrief checks what it claims against what you said.";
+  }
+}
+async function saveCv(){
+  try {
+    const r = await fetch("/api/cv", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({text: $("cv").value})});
+    if (r.ok) showCvState((await r.json()).stored);
+  } catch (_) {}
+}
+async function loadCv(){
+  try { const r = await fetch("/api/cv"); if (!r.ok) return; const d = await r.json(); $("cv").value = d.text || ""; showCvState(d.stored); } catch (_) {}
+}
+function openCv(){ if (!exampleCv) return; $("cvdlgText").textContent = exampleCv.text; $("cvdlg").showModal(); }
+$("cvview").onclick = openCv; $("cvPeek").onclick = openCv; $("cvdlgClose").onclick = () => $("cvdlg").close();
+$("cvedit").onclick = () => { if (exampleCv){ exampleCv = null; showCvState(cvStored); return; } show("cvpage"); $("cv").focus(); };
+
+// Calendar and countdown
+let calData = {interviews: [], next: null}, calView = new Date(), calPick = null, boardKey = "";
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const pad2 = (n) => String(n).padStart(2, "0");
+const ymd = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+const localDate = (key) => { const [y, m, d] = key.split("-").map(Number); return new Date(y, m - 1, d); };
+async function loadCal(){
+  try { const r = await fetch("/api/calendar"); if (r.ok) calData = await r.json(); } catch (_) {}
+  drawCal(); drawBoard();
+}
+function drawCal(){
+  const y = calView.getFullYear(), m = calView.getMonth();
+  $("calMonth").textContent = `${MONTHS[m]} ${y}`;
+  const start = (new Date(y, m, 1).getDay() + 6) % 7, days = new Date(y, m + 1, 0).getDate();
+  const today = ymd(new Date()), byDay = {};
+  for (const e of calData.interviews) (byDay[e.date] = byDay[e.date] || []).push(e);
+  let html = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(d => `<span class="dow">${d}</span>`).join("");
+  for (let i = 0; i < start; i++) html += "<span></span>";
+  for (let d = 1; d <= days; d++){
+    const key = `${y}-${pad2(m + 1)}-${pad2(d)}`, list = byDay[key] || [];
+    html += `<button type="button" class="day${key === today ? " today" : ""}${key === calPick ? " pick" : ""}" data-date="${key}"><b>${d}</b>` +
+      list.slice(0, 2).map(e => `<i>${esc(e.time)} ${esc(e.company)}</i>`).join("") + "</button>";
+  }
+  $("calGrid").innerHTML = html;
+  for (const b of $("calGrid").querySelectorAll(".day")) b.onclick = () => pickDay(b.dataset.date);
+}
+function pickDay(key){
+  calPick = key; drawCal();
+  $("calFormDate").textContent = localDate(key).toLocaleDateString(undefined, {weekday: "long", day: "numeric", month: "long", year: "numeric"});
+  $("calDay").innerHTML = calData.interviews.filter(e => e.date === key).map(e =>
+    `<li><div><b>${esc(e.time)} ${esc(e.company)}</b>${e.role ? `<span>${esc(e.role)}</span>` : ""}${e.notes ? `<small>${esc(e.notes)}</small>` : ""}</div>` +
+    `<button class="btn" type="button" data-id="${esc(e.id)}">Remove</button></li>`).join("");
+  for (const b of $("calDay").querySelectorAll("button")) b.onclick = () => saveCal({remove: b.dataset.id});
+  $("calMsg").textContent = ""; $("calForm").hidden = false;
+}
+async function saveCal(body){
+  try {
+    const r = await fetch("/api/calendar", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+    const d = await r.json();
+    if (!r.ok){ $("calMsg").textContent = d.error || "That could not be saved."; return; }
+    calData = d;
+    if (body.add) for (const id of ["calCompany", "calRole", "calNotes"]) $(id).value = "";
+    drawBoard(); if (calPick) pickDay(calPick); else drawCal();
+  } catch (_) { $("calMsg").textContent = "That could not be saved. Is Callback still running?"; }
+}
+$("calPrev").onclick = () => { calView = new Date(calView.getFullYear(), calView.getMonth() - 1, 1); drawCal(); };
+$("calNext").onclick = () => { calView = new Date(calView.getFullYear(), calView.getMonth() + 1, 1); drawCal(); };
+$("calClose").onclick = () => { calPick = null; $("calForm").hidden = true; drawCal(); };
+$("calSave").onclick = () => saveCal({add: {date: calPick, time: $("calTime").value, company: $("calCompany").value,
+                                            role: $("calRole").value, notes: $("calNotes").value}});
+
+// Months, days, hours, minutes and seconds from now to `target`, or null once it has passed.
+function until(target){
+  const now = new Date();
+  if (target <= now) return null;
+  let months = 0;
+  for (;;){ const n = new Date(now); n.setMonth(now.getMonth() + months + 1); if (n > target) break; months++; }
+  const anchor = new Date(now); anchor.setMonth(now.getMonth() + months);
+  let s = Math.floor((target - anchor) / 1000);
+  const days = Math.floor(s / 86400); s -= days * 86400;
+  const hours = Math.floor(s / 3600); s -= hours * 3600;
+  const mins = Math.floor(s / 60);
+  return [months, days, hours, mins, s - mins * 60];
+}
+// Each tile starts blank and is sent to its character.
+// The first time, it runs through the drum in order to get there, as a real board does; after that (a second ticking down) it flips once.
+const DRUM = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&-.,'/:()!?";
+// The board always turns, as a real one does
+const calmBoard = false;
+const tiles = (text, cls) => [...text].map(ch => `<span class="flap ${cls || ""}" data-to="${esc(ch)}" data-c=" "><i class="t"><b></b></i><i class="b"><b></b></i><i class="lt"><b></b></i><i class="lb"><b></b></i></span>`).join("");
+function flipOnce(el, ch, ms){
+  const old = el.dataset.c, [top, bot, leafTop, leafBot] = el.children, put = (half, c) => { half.firstChild.textContent = c; };
+  el.dataset.c = ch;
+  if (calmBoard){ for (const half of el.children) put(half, ch); return; }
+  el.style.setProperty("--d", ms + "ms");
+  put(top, ch); put(bot, old); put(leafTop, old); put(leafBot, ch);
+  el.classList.remove("go"); void el.offsetWidth; el.classList.add("go");
+  clearTimeout(el._done); el._done = setTimeout(() => put(bot, ch), ms);
+}
+function flipTo(el, to, delay){
+  clearTimeout(el._t);
+  let seq = [to];
+  if (!calmBoard && DRUM.includes(to)){
+    seq = []; let i = DRUM.indexOf(el.dataset.c);
+    while (DRUM[i] !== to){ i = (i + 1) % DRUM.length; seq.push(DRUM[i]); }
+    seq = seq.slice(-9);
+  }
+  if (!seq.length) return;
+  const step = (k) => {
+    flipOnce(el, seq[k], k === seq.length - 1 ? 320 : 120);
+    if (k + 1 < seq.length) el._t = setTimeout(() => step(k + 1), 110);
+  };
+  el._t = setTimeout(() => step(0), delay || 0);
+}
+function setFlap(el, ch, delay){
+  if (el._set && el.dataset.to === ch) return;
+  const first = !el._set; el._set = true; el.dataset.to = ch;
+  if (first) flipTo(el, ch, delay);
+  else { clearTimeout(el._t); if (el.dataset.c !== ch) flipOnce(el, ch, 440); }
+}
+function drawBoard(){
+  const next = calData.next, key = next ? `${next.id}${next.date}${next.time}` : "none";
+  if (key === boardKey) { tickBoard(); return; }
+  boardKey = key;
+  if (!next){
+    $("board").innerHTML = `<div class="brow">${tiles("NO INTERVIEW SET")}</div><div class="brow">${tiles("ADD ONE IN CALENDAR", "sm")}</div>`;
+    spinRows();
+    return;
+  }
+  const when = localDate(next.date).toLocaleDateString(undefined, {weekday: "short", day: "numeric", month: "short"}) + " " + next.time;
+  $("board").innerHTML = `<div class="bhead"><span>Next interview</span><span>${esc(when)}</span></div>` +
+    `<div class="brow">${tiles(next.company.toUpperCase().slice(0, 18))}</div>` +
+    (next.role ? `<div class="brole">${esc(next.role)}</div>` : "") +
+    `<div class="bclock">${["Months", "Days", "Hours", "Min", "Sec"].map(u => `<div class="unit"><div class="digits">${tiles("00", "big")}</div><small>${u}</small></div>`).join("")}</div>`;
+  spinRows();
+  tickBoard();
+}
+// The lettering rolls in from the left, one tile after another.
+function spinRows(){ document.querySelectorAll("#board .brow .flap").forEach((el, i) => setFlap(el, el.dataset.to, i * 45)); }
+function tickBoard(){
+  const next = calData.next;
+  if (!next) return;
+  const [hh, mm] = next.time.split(":").map(Number), day = localDate(next.date);
+  const left = until(new Date(day.getFullYear(), day.getMonth(), day.getDate(), hh, mm));
+  // It has started: count down to the one after
+  if (!left){ boardKey = ""; loadCal(); return; }
+  document.querySelectorAll("#board .digits").forEach((g, i) => {
+    const v = String(Math.min(left[i], 99)).padStart(2, "0");
+    setFlap(g.children[0], v[0], 250 + i * 90); setFlap(g.children[1], v[1], 290 + i * 90);
+  });
+}
+setInterval(() => { if (current === "setup") tickBoard(); }, 1000);
+loadCal();
+
+// Start
+if (showcaseName){
+  fetch(`/api/showcase/${encodeURIComponent(showcaseName)}`)
+    .then(r => r.ok ? r.json() : Promise.reject(new Error("unknown showcase")))
+    .then(data => {
+      show("done");
+      $("working").hidden = true;
+      renderView(data.view || {summary: data.summary, answers: [], debrief: {}}, {source: {kind: "showcase"}, label: "an example", readOnly: true});
+      showWarnings(data.warnings);
+      $("doneWhere").textContent = (data.note || "") + "  (An example, not a live session.)";
+      $("retake").hidden = true;
+    })
+    .catch(() => { $("doneWhere").textContent = "That example could not be loaded."; show("done"); });
+} else {
+  show("setup");
+  loadCv();
+  $("cv").addEventListener("change", saveCv);
+  $("cv").addEventListener("blur", saveCv);
+  $("cvforget").onclick = async () => { $("cv").value = ""; await saveCv(); $("cv").focus(); };
+  loadPast();
+  const events = new EventSource("/api/events");
+  events.onmessage = (e) => { try { render(JSON.parse(e.data)); } catch (_) {} };
+  fetch("/api/state").then(r => r.json()).then(s => render(s)).catch(() => {});
+}
+countWords();
+</script>
+<script type="module" src="/studio/app-studio.js"></script>
+<script type="module" src="/studio/screens.js"></script>
+</body>
+</html>

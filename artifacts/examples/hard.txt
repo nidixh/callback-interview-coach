@@ -1,0 +1,719 @@
+# Hard: senior and specialist technical roles. Dense adverts; detailed
+# technical CVs. Every name, company and CV is invented for practice.
+
+=== senior-data-engineer
+title: Senior Data Engineer
+--- advert
+Senior Data Engineer, Northwind Payments
+
+Northwind processes 3 million card transactions a day for independent retailers. Our data platform feeds fraud detection, settlement reconciliation and regulatory reporting, and it has to be correct, timely and auditable. We are hiring a senior data engineer to own the next generation of that platform.
+
+What you will do:
+- Design and build batch and streaming pipelines in Python and SQL, using Kafka, Spark Structured Streaming and Airflow
+- Own our Snowflake warehouse: dimensional modelling, dbt transformations, clustering and cost optimisation
+- Guarantee exactly-once semantics and idempotent reprocessing for settlement data
+- Build data quality contracts, lineage and observability with Great Expectations and OpenLineage
+- Implement CDC from PostgreSQL using Debezium
+- Define SLAs for latency and freshness and run the on-call rota for data incidents
+- Harden infrastructure as code in Terraform on AWS (MSK, EMR, S3, IAM)
+- Enforce PCI DSS and GDPR controls: tokenisation, encryption and access auditing
+- Mentor two junior engineers and review designs and pull requests
+- Partner with fraud data scientists to productionise feature pipelines
+
+What you will bring:
+- Five or more years building production data platforms
+- Deep SQL and Python, with strong software engineering practice (testing, CI/CD, code review)
+- Hands-on experience with Kafka and Spark at scale
+- Experience with dbt and a cloud warehouse (Snowflake, BigQuery or Redshift)
+- Understanding of distributed systems trade-offs: partitioning, backpressure, late-arriving data and schema evolution
+- Experience in a regulated environment is a strong advantage
+--- cv strong
+Wei Zhang
+MEng Computer Science, University of Southampton
+
+Profile
+Senior data engineer with seven years building streaming and batch platforms in payments and fintech.
+
+Experience
+Lead Data Engineer, Cobalt Pay (2021 to now)
+- Designed Kafka and Spark Structured Streaming pipelines in Python and SQL processing 2 million transactions a day, orchestrated with Airflow
+- Owned the Snowflake warehouse: dimensional modelling in dbt, clustering keys and a 38% compute cost reduction
+- Delivered exactly-once, idempotent reprocessing for settlement reconciliation; zero reconciliation breaks in 2024
+- Introduced data contracts with Great Expectations and lineage with OpenLineage
+- Built CDC from PostgreSQL with Debezium into MSK
+- Ran the data on-call rota and defined freshness and latency SLAs
+- Maintained Terraform for MSK, EMR, S3 and IAM on AWS; implemented PCI DSS tokenisation and GDPR access auditing
+- Mentored three engineers
+
+Data Engineer, Harbour Analytics (2018 to 2021). Batch ETL in Python, SQL and Airflow; CI/CD with GitHub Actions.
+
+Skills
+Python, SQL, Kafka, Spark, Airflow, dbt, Snowflake, PostgreSQL, Debezium, Terraform, AWS, data quality, PCI DSS, GDPR.
+--- cv partial
+Laura Bennett
+BSc Computer Science, University of Kent
+
+Profile
+Backend developer with four years building web APIs, moving into data engineering.
+
+Experience
+Backend Developer, ShopStack (2021 to now)
+- Built REST APIs in Python (Django) on PostgreSQL
+- Wrote nightly SQL reports for the finance team
+- Set up GitHub Actions CI and Docker images
+Junior Developer, WebCraft (2019 to 2021). PHP and MySQL websites.
+
+Skills
+Python, Django, PostgreSQL, SQL, Docker, Git, REST APIs.
+
+=== ml-engineer
+title: Machine Learning Engineer
+--- advert
+Machine Learning Engineer, Veridian Health AI
+
+Veridian builds decision-support models that help radiologists prioritise urgent chest X-rays across 30 NHS trusts. Our models are regulated as medical devices, so we need engineers who treat reproducibility, monitoring and evidence as part of the job rather than an afterthought.
+
+Responsibilities:
+- Train and fine-tune deep learning models in PyTorch for image classification and localisation
+- Build reproducible training pipelines with versioned data, experiment tracking (MLflow) and deterministic evaluation
+- Deploy models behind low-latency inference services using ONNX Runtime and Triton on Kubernetes
+- Design monitoring for data drift, calibration and subgroup performance in production
+- Optimise inference with quantisation, batching and GPU profiling
+- Write validation reports that meet UKCA and ISO 13485 requirements
+- Run statistically rigorous evaluations: confidence intervals, sensitivity and specificity at operating points, and subgroup analysis
+- Collaborate with clinicians to define labels and failure modes
+- Contribute to our MLOps platform: feature stores, CI/CD for models and automated retraining triggers
+
+Requirements:
+- Three or more years of production machine learning engineering
+- Strong Python and PyTorch; solid software engineering (typing, testing, packaging)
+- Experience deploying models on Kubernetes with GPU inference
+- Grounding in statistics and model evaluation beyond accuracy
+- Experience with model monitoring and drift detection
+- Experience in a regulated domain (healthcare, finance, aviation) is desirable
+--- cv strong
+Dr Anjali Menon
+PhD Machine Learning, University of Edinburgh
+
+Profile
+Machine learning engineer with four years shipping computer vision models in regulated healthcare.
+
+Experience
+ML Engineer, ScanSure Medical (2021 to now)
+- Trained and fine-tuned PyTorch models for chest X-ray classification and localisation
+- Built reproducible training pipelines with DVC-versioned data and MLflow experiment tracking
+- Deployed inference services with ONNX Runtime and Triton on Kubernetes GPU nodes, cutting p95 latency from 420 ms to 95 ms through quantisation and dynamic batching
+- Designed drift and calibration monitoring with subgroup performance dashboards
+- Wrote validation reports for UKCA marking under ISO 13485, including sensitivity and specificity with confidence intervals at clinical operating points
+- Worked with radiologists to define labelling protocols and failure modes
+
+Skills
+Python, PyTorch, MLflow, ONNX, Triton, Kubernetes, GPU profiling, statistics, model monitoring, ISO 13485.
+--- cv partial
+Samuel Adebayo
+MSc Data Science, University of Manchester
+
+Profile
+Data scientist with two years building predictive models for marketing.
+
+Experience
+Data Scientist, ClickWise (2023 to now)
+- Built churn and propensity models in scikit-learn and XGBoost
+- Analysed A/B tests and presented results to marketing
+- Wrote Python notebooks and SQL queries on BigQuery
+
+Skills
+Python, scikit-learn, XGBoost, SQL, BigQuery, A/B testing, Tableau.
+
+=== sre
+title: Site Reliability Engineer
+--- advert
+Site Reliability Engineer, Cirrus Travel
+
+Cirrus runs a booking platform serving 40,000 requests per second at peak across three AWS regions. Our SRE team owns reliability, performance and incident response for more than 150 microservices.
+
+What you will do:
+- Define and track SLOs and error budgets with product teams
+- Build observability with Prometheus, Grafana, OpenTelemetry and structured logging
+- Run and improve Kubernetes (EKS) clusters: autoscaling, capacity planning and upgrades
+- Automate infrastructure with Terraform and GitOps (Argo CD)
+- Lead incident response, run blameless postmortems and drive remediation
+- Design for failure: multi-region failover, chaos testing and load testing
+- Reduce toil by writing tooling in Go or Python
+- Tune performance across the stack: databases, caches (Redis), queues and network
+- Improve deployment safety with canary releases and automated rollback
+
+What we are looking for:
+- Four or more years in SRE, platform or infrastructure engineering
+- Deep Kubernetes and Linux knowledge
+- Strong scripting or programming in Go or Python
+- Experience operating distributed systems at high traffic
+- Calm, structured incident leadership
+- Solid networking fundamentals: TCP, DNS, load balancing and TLS
+--- cv strong
+Marco Rossi
+BSc Computer Engineering, Politecnico di Milano
+
+Profile
+Site reliability engineer with six years running high-traffic Kubernetes platforms.
+
+Experience
+Senior SRE, StreamLine Media (2020 to now)
+- Defined SLOs and error budgets for 80 microservices; availability rose from 99.5% to 99.95%
+- Built observability with Prometheus, Grafana and OpenTelemetry tracing
+- Operated EKS clusters across two AWS regions: autoscaling, capacity planning and zero-downtime upgrades
+- Managed infrastructure in Terraform with Argo CD GitOps
+- Led 30 incidents and ran blameless postmortems; introduced canary releases with automated rollback
+- Wrote Go tooling that removed 12 hours a week of manual toil
+- Ran chaos tests and quarterly multi-region failover drills
+
+Systems Engineer, NetCore (2017 to 2020). Linux administration, TCP and DNS troubleshooting, HAProxy load balancing.
+
+Skills
+Kubernetes, Linux, Go, Python, Terraform, Prometheus, Grafana, OpenTelemetry, AWS, incident management, networking.
+--- cv partial
+Hannah Cole
+BSc Computing, University of Plymouth
+
+Profile
+IT infrastructure engineer with on-premise experience.
+
+Experience
+Infrastructure Engineer, Coastal Council (2021 to now)
+- Manage Windows servers and VMware hosts
+- Handle backups and patching
+- Support the network team with firewall changes
+
+Skills
+Windows Server, VMware, PowerShell, backups, patching.
+
+=== security-analyst
+title: Cyber Security Analyst
+--- advert
+Cyber Security Analyst (SOC), Aegis Defence Systems
+
+Aegis builds communications equipment for defence customers. Our security operations centre protects an estate of 6,000 endpoints and classified development networks. We are looking for an analyst to detect, investigate and respond to threats.
+
+Responsibilities:
+- Monitor and triage alerts in our SIEM (Splunk) and EDR (CrowdStrike)
+- Investigate incidents: host forensics, log analysis and malware triage
+- Write and tune detection rules mapped to MITRE ATT&CK
+- Hunt proactively for threats using hypotheses and telemetry
+- Run vulnerability management with Nessus and track remediation
+- Contribute to incident response playbooks and tabletop exercises
+- Analyse phishing and email threats and improve mail filtering
+- Produce threat intelligence reports for engineering teams
+- Support compliance with Cyber Essentials Plus and ISO 27001
+
+Requirements:
+- Two or more years in a SOC or incident response role
+- Strong knowledge of Windows and Linux internals and networking (TCP/IP, DNS, HTTP)
+- Experience writing SIEM queries (SPL, KQL) and detection logic
+- Scripting in Python or PowerShell
+- Certifications such as GCIH, GCIA or OSCP are desirable
+- Eligibility for UK SC clearance
+--- cv strong
+Aaron Mitchell
+BSc Cyber Security, University of South Wales
+GCIH, CompTIA Security+
+
+Profile
+SOC analyst with three years of detection engineering and incident response.
+
+Experience
+SOC Analyst, Sentinel Managed Security (2022 to now)
+- Triage alerts in Splunk and CrowdStrike across 9,000 endpoints
+- Led investigations using host forensics and log analysis; triaged malware samples in a sandbox
+- Wrote 45 detection rules in SPL mapped to MITRE ATT&CK, cutting false positives by 30%
+- Ran hypothesis-driven threat hunts using EDR telemetry
+- Managed Nessus vulnerability scans and tracked remediation with engineering teams
+- Co-wrote incident response playbooks and ran tabletop exercises
+- Supported ISO 27001 and Cyber Essentials Plus audits
+Scripting: Python and PowerShell tooling for enrichment and triage.
+
+Skills
+Splunk (SPL), KQL, CrowdStrike, forensics, malware triage, MITRE ATT&CK, Nessus, Python, PowerShell, TCP/IP. Holds SC clearance.
+--- cv partial
+Jade Thompson
+BSc Computer Science, University of Hertfordshire
+
+Profile
+IT support analyst interested in cyber security.
+
+Experience
+IT Support Analyst, Herts Accountants (2023 to now)
+- Reset passwords and manage accounts
+- Install antivirus and apply updates
+- Completed an online ethical hacking course
+
+Skills
+Windows, Active Directory, antivirus, customer support.
+
+=== quant-analyst
+title: Quantitative Analyst
+--- advert
+Quantitative Analyst, Fixed Income Derivatives, Kestrel Capital
+
+Kestrel's rates desk trades interest rate swaps, swaptions and caps with pension funds and insurers. We are hiring a quantitative analyst to build and maintain the pricing and risk models the desk relies on.
+
+What you will do:
+- Develop and calibrate interest rate models (Hull-White, LMM and SABR) to market data
+- Implement pricing and risk libraries in C++ with Python bindings
+- Build yield curve construction with multi-curve discounting (SONIA, SOFR)
+- Compute sensitivities (delta, gamma, vega) using adjoint algorithmic differentiation
+- Run Monte Carlo and PDE methods, with attention to numerical stability and variance reduction
+- Validate models with backtesting and support independent model validation
+- Explain model behaviour and limitations to traders and risk managers
+- Optimise performance for intraday risk across large portfolios
+
+Requirements:
+- A PhD or MSc in mathematics, physics, financial engineering or a related field
+- Strong stochastic calculus and numerical methods
+- Production-quality C++ and Python
+- Knowledge of interest rate derivatives and curve building
+- Experience with Monte Carlo, finite difference methods and calibration
+- Clear communication with non-quantitative colleagues
+--- cv strong
+Dr Elena Voronova
+PhD Applied Mathematics, Imperial College London
+
+Profile
+Quantitative analyst with five years building rates pricing and risk models.
+
+Experience
+Quantitative Analyst, Rates, Albion Bank (2020 to now)
+- Calibrated Hull-White and SABR models to swaption and cap volatility surfaces; implemented an LMM for Bermudan swaptions
+- Built multi-curve construction for SONIA and SOFR discounting in C++ with Python bindings
+- Implemented adjoint algorithmic differentiation for delta, gamma and vega, cutting intraday risk runtime by 70%
+- Developed Monte Carlo with variance reduction and PDE solvers with stable finite difference schemes
+- Backtested models and supported independent model validation reviews
+- Presented model limitations to traders and the risk committee
+
+Skills
+Stochastic calculus, numerical methods, C++, Python, interest rate derivatives, calibration, Monte Carlo, finite differences.
+--- cv partial
+Thomas Grant
+MSc Finance, University of Warwick
+
+Profile
+Finance professional with experience in equity research.
+
+Experience
+Equity Research Analyst, Beacon Securities (2022 to now)
+- Built valuation models in Excel for retail companies
+- Wrote research notes for clients
+- Presented recommendations to the sales team
+
+Skills
+Excel modelling, valuation, financial statements, report writing, Python basics.
+
+=== embedded-engineer
+title: Embedded Software Engineer
+--- advert
+Embedded Software Engineer, Tidewater Medical Devices
+
+Tidewater designs wearable infusion pumps that deliver insulin to patients around the clock. Our firmware must be safe, deterministic and certifiable to IEC 62304 Class C.
+
+Responsibilities:
+- Develop firmware in C and C++ for ARM Cortex-M microcontrollers
+- Build drivers for sensors, motors and Bluetooth Low Energy radios
+- Design real-time behaviour on FreeRTOS: task scheduling, interrupts and timing analysis
+- Write safety-critical code to MISRA C with static analysis and unit testing
+- Implement power management to extend battery life
+- Debug hardware and software together with oscilloscopes, logic analysers and JTAG
+- Produce design documentation and traceability for IEC 62304 and ISO 14971
+- Support verification testing and hardware bring-up with electronics engineers
+- Implement secure firmware updates and cryptographic authentication
+
+Requirements:
+- Three or more years of embedded C development
+- Experience with ARM Cortex-M and an RTOS
+- Low-level debugging on real hardware
+- Understanding of interrupts, DMA, memory-mapped peripherals and communication protocols (SPI, I2C, UART)
+- Experience in a safety-critical industry (medical, automotive, aerospace) is desirable
+--- cv strong
+Karim Haddad
+MEng Electronic Engineering, University of Bristol
+
+Profile
+Embedded engineer with five years of safety-critical firmware for medical devices.
+
+Experience
+Embedded Software Engineer, PulseMed (2020 to now)
+- Developed firmware in C for ARM Cortex-M4 microcontrollers on FreeRTOS, including task design, interrupt handling and worst-case timing analysis
+- Wrote drivers for pressure sensors, stepper motors and Bluetooth Low Energy using SPI, I2C, UART and DMA
+- Coded to MISRA C with static analysis and 90% unit test coverage
+- Cut power use by 35% with low-power modes and tickless idle
+- Debugged with oscilloscopes, logic analysers and JTAG during hardware bring-up
+- Produced IEC 62304 Class C documentation and traceability with ISO 14971 risk files
+- Implemented signed firmware updates with secure boot
+
+Skills
+C, C++, ARM Cortex-M, FreeRTOS, MISRA C, SPI, I2C, UART, DMA, BLE, JTAG, IEC 62304.
+--- cv partial
+Rachel Green
+BSc Computer Science, University of York
+
+Profile
+Software developer who enjoys hardware projects.
+
+Experience
+Mobile Developer, AppWorks (2022 to now)
+- Build Android apps in Kotlin
+- Integrated a Bluetooth fitness tracker with an app
+Hobby: Arduino projects at home.
+
+Skills
+Kotlin, Java, Android, Bluetooth APIs, Arduino.
+
+=== backend-engineer
+title: Senior Backend Engineer
+--- advert
+Senior Backend Engineer, Ledgerline
+
+Ledgerline provides accounting infrastructure to 2,000 fintech companies through our API. Every request moves money or records it, so correctness under concurrency is non-negotiable. We are hiring a senior backend engineer for our core ledger team.
+
+What you will do:
+- Design and build services in Go that process 5,000 ledger writes per second
+- Model double-entry accounting with strong consistency in PostgreSQL
+- Design APIs (REST and gRPC) that are idempotent, versioned and well documented
+- Handle concurrency correctly: transactions, isolation levels, locking and retries
+- Build event-driven integrations with Kafka and the outbox pattern
+- Profile and optimise query plans, indexes and connection pooling
+- Write thorough tests: unit, integration, property-based and load tests
+- Lead technical design reviews and write architecture decision records
+- Improve our CI/CD, observability and on-call practices
+- Mentor engineers and raise the bar on code quality
+
+What we are looking for:
+- Six or more years of backend engineering, with at least two in Go
+- Deep PostgreSQL knowledge: transactions, MVCC, indexing and query tuning
+- Experience designing distributed systems and event-driven architectures
+- A strong testing mindset and experience with property-based testing
+- Experience with financial systems or other correctness-critical domains is a plus
+--- cv strong
+Nadia Petrova
+BSc Mathematics and Computer Science, University of Warwick
+
+Profile
+Senior backend engineer who builds correct, fast financial systems in Go.
+
+Experience
+Senior Backend Engineer, Coinflow (2020 to now)
+- Designed Go services handling 8,000 ledger writes per second with double-entry accounting in PostgreSQL
+- Built idempotent, versioned REST and gRPC APIs with clear documentation
+- Solved a double-posting race with serializable isolation and retry logic; tuned indexes and query plans to cut p99 latency by 60%
+- Built event-driven integrations with Kafka using the outbox pattern
+- Introduced property-based tests and load tests in CI/CD
+- Led design reviews and wrote architecture decision records; mentored four engineers
+Backend Engineer, PayGrid (2017 to 2020). Java and PostgreSQL payment services.
+
+Skills
+Go, PostgreSQL (MVCC, indexing, query tuning), gRPC, REST, Kafka, distributed systems, property-based testing, observability.
+--- cv partial
+Chris Evans
+BSc Software Engineering, University of Lincoln
+
+Profile
+Full-stack developer with three years of web development.
+
+Experience
+Full-Stack Developer, Brightweb (2022 to now)
+- Build React front ends and Node.js APIs
+- Use MongoDB for storage
+- Deploy to Heroku
+
+Skills
+JavaScript, TypeScript, React, Node.js, MongoDB, Git.
+
+=== biostatistician
+title: Senior Biostatistician
+--- advert
+Senior Biostatistician, Helix Clinical Research
+
+Helix runs phase II and III clinical trials for oncology and cardiovascular medicines. We are hiring a senior biostatistician to lead the statistical design and analysis of pivotal trials submitted to the MHRA, FDA and EMA.
+
+Responsibilities:
+- Design trials: sample size and power calculations, randomisation schemes and interim analyses with alpha spending
+- Write statistical analysis plans for primary and secondary endpoints
+- Analyse survival data using Kaplan-Meier, Cox proportional hazards and competing risks models
+- Handle missing data with multiple imputation and sensitivity analyses under estimand frameworks (ICH E9 R1)
+- Program analyses and CDISC ADaM datasets in SAS and R
+- Review tables, listings and figures for regulatory submissions
+- Represent statistics at data monitoring committees
+- Advise clinical teams on adaptive and Bayesian designs
+- Mentor junior statisticians and review their programming
+
+Requirements:
+- MSc or PhD in statistics or biostatistics
+- Five or more years in clinical trials within pharma or a CRO
+- Expert SAS and R programming
+- Deep knowledge of survival analysis and ICH guidelines
+- Experience of regulatory submissions and agency interactions
+--- cv strong
+Dr Fatima Ali
+PhD Biostatistics, London School of Hygiene and Tropical Medicine
+
+Profile
+Biostatistician with seven years leading oncology and cardiovascular trials.
+
+Experience
+Principal Biostatistician, Crestview CRO (2019 to now)
+- Designed phase III trials: sample size and power, stratified randomisation and group sequential interim analyses with O'Brien-Fleming alpha spending
+- Wrote statistical analysis plans and led survival analyses with Kaplan-Meier, Cox proportional hazards and competing risks models
+- Applied multiple imputation and tipping point sensitivity analyses under ICH E9 R1 estimands
+- Programmed CDISC ADaM datasets and outputs in SAS and R; reviewed TLFs for FDA and EMA submissions
+- Presented at data monitoring committees; advised on a Bayesian adaptive dose-finding design
+- Mentored three statisticians
+
+Skills
+Survival analysis, trial design, SAS, R, CDISC ADaM, ICH E9, Bayesian methods, regulatory submissions.
+--- cv partial
+Peter Walsh
+MSc Statistics, University of Glasgow
+
+Profile
+Statistician with survey and public health experience.
+
+Experience
+Statistician, Scottish Health Surveys (2022 to now)
+- Weighted survey data and produced national estimates in R
+- Wrote reports for policy teams
+- Ran regression models on health behaviours
+
+Skills
+R, survey statistics, regression, report writing.
+
+=== cloud-architect
+title: Cloud Solutions Architect
+--- advert
+Cloud Solutions Architect, Stratus Consulting
+
+Stratus moves large organisations onto the cloud safely. We are hiring an architect to lead migrations and platform designs for clients in banking, retail and government.
+
+What you will do:
+- Assess client estates and design target architectures on AWS and Azure
+- Lead migrations of legacy applications: rehost, replatform and refactor decisions
+- Design landing zones: account structure, networking (VPCs, transit gateways, private endpoints) and identity
+- Define security architecture: IAM, encryption, key management and zero trust
+- Design for resilience: multi-AZ, disaster recovery, RTO and RPO targets
+- Build infrastructure as code standards with Terraform and policy as code
+- Model and optimise cloud costs (FinOps)
+- Produce architecture decision records and present to senior stakeholders
+- Guide engineering teams through delivery and review their designs
+
+Requirements:
+- Eight or more years in infrastructure or software, including four in cloud architecture
+- AWS Solutions Architect Professional or Azure Solutions Architect Expert
+- Deep networking and security knowledge
+- Experience leading large migrations end to end
+- Confident presenting trade-offs to executives
+--- cv strong
+David Okoro
+BEng Electrical Engineering, University of Nottingham
+AWS Certified Solutions Architect Professional
+
+Profile
+Cloud architect with nine years in infrastructure and five leading AWS and Azure migrations.
+
+Experience
+Principal Cloud Architect, Nimbus Partners (2020 to now)
+- Designed target architectures on AWS and Azure for a bank and two retailers
+- Led the migration of 220 applications with rehost, replatform and refactor decisions per workload
+- Designed landing zones with VPCs, transit gateways, private endpoints and centralised identity
+- Defined IAM, encryption, KMS key management and zero trust patterns
+- Set RTO and RPO targets and designed multi-AZ and cross-region disaster recovery
+- Wrote Terraform standards with policy as code (OPA); cut client cloud spend by 28% through FinOps reviews
+- Presented architecture decision records to CIOs and steering committees
+
+Skills
+AWS, Azure, Terraform, networking, IAM, zero trust, disaster recovery, FinOps, migration strategy, stakeholder presentation.
+--- cv partial
+Sunita Rao
+BSc Information Technology, De Montfort University
+
+Profile
+Systems administrator starting to work with the cloud.
+
+Experience
+Systems Administrator, Midlands Housing (2020 to now)
+- Manage Windows and Linux servers
+- Moved file storage to SharePoint Online
+- Completed AWS Cloud Practitioner training
+
+Skills
+Windows Server, Linux, Microsoft 365, SharePoint, backups.
+
+=== mechanical-engineer
+title: Mechanical Design Engineer
+--- advert
+Mechanical Design Engineer, Aerolite Structures
+
+Aerolite designs lightweight composite structures for aircraft interiors and satellites. We are hiring a design engineer to take components from concept to certified production.
+
+Responsibilities:
+- Design components and assemblies in SolidWorks and CATIA to aerospace standards
+- Run finite element analysis (FEA) in ANSYS for static, fatigue and vibration loading
+- Specify composite layups and select materials for stiffness, weight and cost
+- Apply GD&T and tolerance stack-up analysis to drawings
+- Produce certification evidence to AS9100 and EASA CS-25 requirements
+- Run design reviews (PDR and CDR) and design for manufacture reviews
+- Support test campaigns: plan, instrument and correlate test results with analysis
+- Work with suppliers on manufacturing processes such as autoclave curing and CNC machining
+- Manage engineering changes and configuration control
+
+Requirements:
+- A degree in mechanical or aerospace engineering; chartered or working towards it
+- Four or more years of design experience in aerospace, defence or motorsport
+- Expert CAD and hands-on FEA experience
+- Knowledge of composites and fatigue
+- Clear technical writing for certification
+--- cv strong
+Isaac Brennan CEng
+MEng Aerospace Engineering, University of Sheffield
+
+Profile
+Chartered design engineer with six years of composite aerospace structures.
+
+Experience
+Design Engineer, Falcon Aerostructures (2019 to now)
+- Designed interior monuments and brackets in CATIA and SolidWorks to aerospace standards
+- Ran FEA in ANSYS for static, fatigue and random vibration loads; correlated results with strain-gauged test campaigns
+- Specified carbon fibre layups, reducing mass by 22% while meeting stiffness targets
+- Applied GD&T and tolerance stack-ups across assemblies
+- Produced certification evidence to AS9100 and CS-25; presented at PDR and CDR
+- Worked with suppliers on autoclave curing and CNC machining; managed engineering changes
+
+Skills
+CATIA, SolidWorks, ANSYS FEA, composites, fatigue, GD&T, AS9100, certification.
+--- cv partial
+Megan Hart
+BEng Mechanical Engineering, Coventry University
+
+Profile
+Mechanical engineer from the automotive aftermarket.
+
+Experience
+Product Engineer, TrackParts (2022 to now)
+- Design brackets and housings in SolidWorks
+- Produce drawings for suppliers
+- Handle customer returns
+
+Skills
+SolidWorks, technical drawings, supplier liaison.
+
+=== bioinformatician
+title: Bioinformatics Scientist
+--- advert
+Bioinformatics Scientist, Genova Therapeutics
+
+Genova develops gene therapies for rare inherited diseases. Our bioinformatics team turns sequencing data into decisions about which targets and vectors move forward.
+
+Responsibilities:
+- Build and maintain NGS pipelines for whole genome, RNA-seq and single-cell sequencing using Nextflow
+- Perform variant calling, differential expression and pathway analysis
+- Analyse single-cell data with Seurat and Scanpy: clustering, trajectory and cell type annotation
+- Develop reproducible workflows with containers (Docker, Singularity) on AWS Batch and HPC clusters
+- Apply rigorous statistics: multiple testing correction, batch effect correction and experimental design
+- Integrate public datasets (GTEx, gnomAD, ENCODE) with in-house data
+- Present results to biologists and leadership and shape experiments
+- Document analyses to GxP standards for regulatory use
+
+Requirements:
+- PhD in bioinformatics, computational biology or a related field
+- Strong Python and R, with Bash and Linux
+- Hands-on NGS analysis, including single-cell RNA-seq
+- Workflow managers (Nextflow or Snakemake) and cloud or HPC computing
+- Solid statistical grounding
+--- cv strong
+Dr Chen Liu
+PhD Computational Biology, University of Cambridge
+
+Profile
+Bioinformatics scientist with five years of NGS and single-cell analysis in biotech.
+
+Experience
+Bioinformatics Scientist, Aurora Genomics (2020 to now)
+- Built Nextflow pipelines for whole genome, RNA-seq and single-cell sequencing running on AWS Batch and an HPC cluster with Docker and Singularity
+- Performed variant calling, differential expression and pathway analysis for 14 target programmes
+- Analysed single-cell RNA-seq with Seurat and Scanpy: clustering, trajectory inference and annotation
+- Applied batch effect correction and false discovery rate control; advised on experimental design
+- Integrated GTEx, gnomAD and ENCODE data
+- Documented analyses to GxP standards for a regulatory filing
+
+Skills
+Python, R, Bash, Linux, Nextflow, NGS, single-cell RNA-seq, Seurat, Scanpy, AWS, HPC, statistics.
+--- cv partial
+Sophie Adams
+MSc Molecular Biology, University of Dundee
+
+Profile
+Laboratory scientist learning computational methods.
+
+Experience
+Research Scientist, Dundee Cell Lab (2021 to now)
+- Run PCR and cell culture experiments
+- Analyse qPCR results in Excel and GraphPad
+- Completed an introductory R course
+
+Skills
+PCR, cell culture, Excel, GraphPad, basic R.
+
+=== risk-analyst
+title: Market Risk Analyst
+--- advert
+Market Risk Analyst, Thornbury Asset Management
+
+Thornbury manages £40 billion across multi-asset and fixed income funds. Our risk team independently measures and challenges the market risk taken by portfolio managers.
+
+What you will do:
+- Calculate and explain daily VaR and expected shortfall using historical and Monte Carlo methods
+- Design stress tests and scenario analysis for rates, credit, FX and equity shocks
+- Monitor limits and escalate breaches to portfolio managers and the risk committee
+- Analyse liquidity risk and fund redemption scenarios
+- Build risk reports and dashboards in Python and SQL
+- Validate risk model inputs: time series quality, proxies and factor mappings
+- Backtest VaR models and investigate exceptions
+- Support regulatory reporting under UCITS and AIFMD
+- Improve the risk system's data pipelines and automation
+
+Requirements:
+- A degree in finance, economics, mathematics or a related field; CFA or FRM progress is a plus
+- Three or more years in market risk
+- Strong understanding of VaR, expected shortfall and stress testing
+- Python and SQL for analysis and automation
+- Knowledge of fixed income, derivatives and multi-asset portfolios
+--- cv strong
+Rahul Mehta, FRM
+MSc Financial Mathematics, University of Edinburgh
+
+Profile
+Market risk analyst with four years in asset management risk teams.
+
+Experience
+Market Risk Analyst, Caledonian Investors (2021 to now)
+- Calculate daily historical and Monte Carlo VaR and expected shortfall across 60 funds and explain moves to portfolio managers
+- Designed rates, credit, FX and equity stress tests and scenario analysis
+- Monitor limits and escalate breaches to the risk committee
+- Built liquidity and redemption scenario models
+- Automated risk reports and dashboards in Python and SQL, saving eight hours a week
+- Backtest VaR models and investigate exceptions; validated time series and factor mappings
+- Supported UCITS and AIFMD regulatory reporting
+
+Skills
+VaR, expected shortfall, stress testing, liquidity risk, Python, SQL, fixed income, derivatives, UCITS.
+--- cv partial
+Emma Clarke
+BSc Accounting, University of Stirling
+
+Profile
+Fund accountant with a strong eye for detail.
+
+Experience
+Fund Accountant, Forth Fund Services (2022 to now)
+- Calculate daily fund prices
+- Reconcile cash and positions
+- Prepare reports for fund managers
+
+Skills
+Excel, reconciliations, fund accounting, attention to detail.

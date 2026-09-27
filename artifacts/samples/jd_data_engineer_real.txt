@@ -1,0 +1,39 @@
+Graduate Data Engineer
+
+We are looking for a Graduate Data Engineer to join our data platform team. You
+will design, build and maintain data pipelines that move information reliably
+from our source systems into our analytics warehouse, working closely with data
+scientists, analysts and product managers to support data-driven decisions.
+
+Responsibilities:
+- Design and build scalable data pipelines to ingest, transform and load data
+  using Python and SQL
+- Work with PostgreSQL and cloud infrastructure (AWS or Azure) to store and
+  serve data reliably
+- Write automated tests and validation checks to catch data quality issues
+  before they reach production
+- Monitor pipeline performance and troubleshoot failures, including under
+  time pressure when a production job breaks
+- Communicate technical trade-offs and data issues clearly to non-technical
+  stakeholders, including product and business teams
+- Collaborate with data scientists and analysts to understand their data
+  needs and translate them into pipeline requirements
+
+Requirements:
+- A degree in computer science, engineering, mathematics or a related
+  technical field
+- Solid computer science fundamentals: data structures, algorithms,
+  time/space complexity
+- Working knowledge of Python and SQL
+- Familiarity with a cloud platform (AWS, Azure or GCP)
+- A testing discipline: you write tests as part of building software, not as
+  an afterthought
+- Strong analytical thinking and problem-solving ability
+- Clear written and verbal communication, including the ability to explain a
+  technical decision to someone without a technical background
+- Eagerness to learn: this is an entry-level role and structured mentorship is
+  provided, but you should be comfortable picking up new tools quickly
+
+This is an entry-level position. No prior professional data engineering
+experience is required, but any project work, internships, or coursework
+involving data pipelines, databases or cloud infrastructure is a strong plus.

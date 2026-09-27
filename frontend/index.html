@@ -1,0 +1,233 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Callback · interview practice on your own machine</title>
+<meta name="description" content="Paste the advert. Callback asks the questions out loud, listens, and marks up what you said like a checked essay. Everything runs on your own machine.">
+<meta name="theme-color" content="#0B0706">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Ccircle cx=%2713%27 cy=%2713%27 r=%2711.5%27 fill=%27none%27 stroke=%27%23FF7A3D%27 stroke-width=%272.2%27/%3E%3Cg fill=%27%23FF7A3D%27%3E%3Ccircle cx=%2713%27 cy=%277%27 r=%272.6%27/%3E%3Ccircle cx=%2713%27 cy=%2719%27 r=%272.6%27/%3E%3Ccircle cx=%277%27 cy=%2713%27 r=%272.6%27/%3E%3Ccircle cx=%2719%27 cy=%2713%27 r=%272.6%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@500;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/vendor/lenis.css">
+<link rel="stylesheet" href="/studio/home.css">
+<script type="importmap">{"imports": {"three": "/vendor/three/three.module.js", "three/addons/": "/vendor/three/addons/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+<div class="edge l" aria-hidden="true"><div class="run"></div></div>
+<div class="edge r" aria-hidden="true"><div class="run"></div></div>
+<div class="af" id="af" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="lab" id="afLab">AF-C  FACE</span><span class="read" id="afRead">1.30 M</span></div>
+<div class="vf">
+  <i class="c tl" aria-hidden="true"></i><i class="c tr" aria-hidden="true"></i><i class="c bl" aria-hidden="true"></i><i class="c br" aria-hidden="true"></i>
+  <div class="vf-t" aria-hidden="true"><span>35MM</span><span>T2.0</span><span>1/48</span><span>3200K</span><span class="bat"><i></i></span></div>
+  <div class="vf-l" aria-hidden="true"><span class="rec"><i></i>REC</span><span class="tc" id="tc">00:00:00:00</span></div>
+  <nav class="timeline" id="timeline" aria-label="Scenes"></nav>
+  <div class="vf-r" aria-hidden="true"><span id="scene">SC 01</span><b id="sceneName">INT. STUDIO - NIGHT</b></div>
+</div>
+<div class="cursor" aria-hidden="true"><i></i><b></b></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="reel" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="7" r="2.4" fill="currentColor"/><circle cx="13" cy="19" r="2.4" fill="currentColor"/><circle cx="7" cy="13" r="2.4" fill="currentColor"/><circle cx="19" cy="13" r="2.4" fill="currentColor"/><circle cx="13" cy="13" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="wave" viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<header class="island" id="island">
+  <a class="brand" href="/" aria-label="Callback, home"><svg><use href="#reel"/></svg><span class="name" id="name">Callback</span><span class="tally"></span></a>
+  <nav aria-label="Sections"><a href="#film">The session</a><a href="#how">The screens</a><a href="#who">Who it's for</a><a href="#privacy">Privacy</a></nav>
+  <a class="pill small magnet" href="/practise"><span>Start</span><i><svg><use href="#arrow"/></svg></i></a>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="copy">
+      <h1 id="headline">Nobody tells you what you actually <span class="said">sounded<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M52 4 C 20 3, 3 12, 4 22 C 5 34, 30 38, 56 37 C 84 36, 97 28, 96 18 C 95 8, 76 3, 44 6"/></svg></span> like.</h1>
+      <p class="lede">Interview practice on your own machine. Paste the advert you are going for. Callback writes the questions from it, asks them out loud, presses you when an answer is thin, and then hands your answer back marked up, like a checked essay.</p>
+      <div class="row">
+        <a class="pill magnet" href="/practise"><span>Start a session</span><i><svg><use href="#arrow"/></svg></i></a>
+        <a class="textlink" href="#film">Watch how a session runs</a>
+      </div>
+      <p class="promise">No account, no upload, and no video is ever written to disk.</p>
+    </div>
+  </div>
+  <div class="facecard" id="facecard">
+    <div class="eye" id="eyeChip"><span class="lab">Eye contact</span><b id="eyeVal">0%</b><i><em id="eyeBar"></em></i><small id="eyeHint">Look it in the eye</small></div>
+    <button class="ask" id="askMe" type="button"><svg><use href="#wave"/></svg><span>Hear a question</span></button>
+  </div>
+  <p class="caption" id="caption" aria-live="polite"></p>
+  <div class="cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+</section>
+
+<section class="film" id="film" aria-label="How a session runs">
+  <div class="film-stage">
+    <div class="beats wrap">
+      <article class="beat" data-beat="0">
+        <p class="num"><b>01</b><span>The advert</span></p>
+        <h2>Paste the advert.</h2>
+        <p class="body">Paste the advert you are going for, or deal an example at Easy, Medium or Hard. Callback writes the questions from it. Add your CV and each debrief checks what it claims against what you said.</p>
+      </article>
+      <article class="beat" data-beat="1">
+        <p class="num"><b>02</b><span>The question</span></p>
+        <h2>It asks out loud.</h2>
+        <blockquote class="asked" id="asked" data-text="Tell me about a time you explained a technical decision to someone non-technical."></blockquote>
+        <p class="body">Each question is read aloud and shown on screen. A thin answer earns a follow-up, the way a real interviewer would press.</p>
+      </article>
+      <article class="beat" data-beat="2">
+        <p class="num"><b>03</b><span>The answer</span></p>
+        <h2>You answer. It listens.</h2>
+        <p class="subs" id="subs" data-text="So I basically just told them it would be better for performance, and they went with it, which was fine because it worked out in the end. I drew the two options on a whiteboard so they could see the cost of each."></p>
+        <p class="body">Press Space and answer the way you would on the day. Your words appear as you speak, and the camera is measured while you answer rather than filmed.</p>
+      </article>
+      <article class="beat wide" data-beat="3">
+        <div>
+          <p class="num"><b>04</b><span>The marks</span></p>
+          <h2>Then it marks the tape.</h2>
+          <p class="body">Every answer comes back like a checked essay: what worked highlighted, what to change underlined, a note beside each explaining why, and a line you could say instead.</p>
+        </div>
+        <div class="demo" id="demo" aria-label="An illustration of how an answer is marked up">
+          <div class="top"><i></i><i></i><i></i><b>Graduate Software Engineer · answer 3</b><span class="sc">62</span></div>
+          <div class="body">
+            <div>
+              <p class="q">Tell me about a time you explained a technical decision to someone non-technical.</p>
+              <p class="a"><span class="dm fill">So</span> I <span class="dm fill">basically</span> just told them it would be better for performance, <span class="dm chg">and they went with it, which was fine because it worked out in the end</span>. <span class="dm ok">I drew the two options on a whiteboard</span> so they could see the cost of each.</p>
+            </div>
+            <div class="dnotes">
+              <div class="dn rose"><b>Fillers</b>Two in the opening line. A silent pause reads better.</div>
+              <div class="dn ember"><b>Change this</b>"It worked out" is the part an interviewer would ask you to prove.<div class="try">Say what changed: page load went from 4 s to 1 s.</div></div>
+              <div class="dn mint"><b>Worked</b>A concrete way you made it clear. Lead with this.</div>
+            </div>
+          </div>
+          <div class="tape"><canvas id="demoWave"></canvas></div>
+          <p class="foot">An illustration of the debrief, not a real session.</p>
+        </div>
+      </article>
+    </div>
+    <ol class="reel-index wrap" aria-hidden="true"><li><b>01</b>Advert</li><li><b>02</b>Question</li><li><b>03</b>Answer</li><li><b>04</b>Marks</li></ol>
+  </div>
+</section>
+
+<section class="sec" id="how"><div class="wrap">
+  <h2 class="reveal">It runs the interview, then it marks the tape.</h2>
+  <p class="sub reveal">Four screens, start to finish. Every picture below is the real app, with notes in the margin.</p>
+  <ol class="walk">
+    <li class="stop">
+      <figure class="hud" data-gutter="0">
+        <svg class="frame" aria-hidden="true"></svg>
+        <figcaption class="tab"><b>01</b>Set up</figcaption>
+        <button class="inktoggle" type="button" aria-pressed="true" title="Show the screen without the notes">notes on</button>
+        <div class="screen" style="aspect-ratio:1260 / 960">
+          <img src="img/how/setup.webp" width="1260" height="960" alt="The set-up screen: an Easy, Medium and Hard switch beside an Another example button, a Junior Data Analyst advert measured as Medium 35, five questions chosen, and an example CV for Aisha Rahman marked as fitting the job well." loading="lazy" decoding="async">
+          <script type="application/json" class="inkdata">[{"k":"a","pen":"ember","circle":[579,59,292,54]},{"k":"a","pen":"ember","circle":[921,418,110,42]},{"k":"a","pen":"ember","jot":[34,150],"text":"pick how hard|sets the questions too","rot":-4},{"k":"a","pen":"ember","arrow":[250,168,318,86,0.28]},{"k":"b","pen":"ember","jot":[884,118],"text":"a new job, every click","rot":-3},{"k":"b","pen":"ember","arrow":[1222,146,1190,100,-0.4]},{"k":"c","pen":"gold","under":[60,478,284,478]},{"k":"c","pen":"gold","jot":[40,520],"text":"measured, not guessed|yours gets measured too","rot":-2},{"k":"d","pen":"gold","jot":[36,808],"text":"a CV written for this job|yours stays untouched","rot":-3},{"k":"d","pen":"gold","arrow":[430,842,596,820,-0.22]}]</script>
+        </div>
+      </figure>
+      <div class="say">
+        <h3>Pick a job, or paste your own</h3>
+        <p>Paste the advert for the job you are going for. No advert to hand? Choose Easy, Medium or Hard and press <em>Another example</em>: every click deals a different job, with a CV written for it.</p>
+        <ul><li data-k="a"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--ember)"/></svg><span>The level sets the kind of job and how many questions you get: 3, 5 or 8.</span></li><li data-k="b"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 13c6-1 12-4 20-10M16 3h6v6" stroke="var(--ember)"/></svg><span>Another example never repeats a job until you have seen every one at that level.</span></li><li data-k="c"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 11c3-2 5 2 8 0s5-2 8 0 4 1 6-1" stroke="var(--gold)"/></svg><span>Every advert is measured, yours included, so you know how demanding it reads.</span></li><li data-k="d"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 13c6-1 12-4 20-10M16 3h6v6" stroke="var(--gold)"/></svg><span>An example CV is used for that session only. Your own is never touched.</span></li></ul>
+        <p class="keys"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> starts the interview.</p>
+      </div>
+    </li>
+    <li class="stop flip">
+      <figure class="hud" data-gutter="0">
+        <svg class="frame" aria-hidden="true"></svg>
+        <figcaption class="tab"><b>02</b>Interview</figcaption>
+        <button class="inktoggle" type="button" aria-pressed="true" title="Show the screen without the notes">notes on</button>
+        <div class="screen" style="aspect-ratio:1300 / 1298">
+          <img src="img/how/live.webp" width="1300" height="1298" alt="The interview screen mid-answer: the question at the top, a Recording tag, the answer appearing as live captions, and along the bottom a stop button, the time 00:19, a length bar with a green zone and a live microphone level meter." loading="lazy" decoding="async">
+          <script type="application/json" class="inkdata">[{"k":"a","pen":"mint","circle":[300,493,168,32]},{"k":"a","pen":"mint","jot":[74,736],"text":"your words, as you say them|a rough draft","rot":-3},{"k":"a","pen":"mint","arrow":[180,730,138,672,0.25]},{"k":"b","pen":"ember","circle":[65,1240,60,60]},{"k":"b","pen":"ember","jot":[40,1000],"text":"Space starts, Space stops","rot":-4},{"k":"b","pen":"ember","arrow":[92,1052,72,1168,0.2]},{"k":"c","pen":"ember","circle":[520,1221,96,24]},{"k":"c","pen":"ember","jot":[404,1098],"text":"aim for the green","rot":-2},{"k":"c","pen":"ember","arrow":[540,1142,522,1192,0.25]},{"k":"d","pen":"mint","circle":[846,1240,94,40]},{"k":"d","pen":"mint","jot":[780,960],"text":"your real mic level|too quiet? it tells you","rot":-3},{"k":"d","pen":"mint","arrow":[900,1062,862,1192,-0.2]}]</script>
+        </div>
+      </figure>
+      <div class="say">
+        <h3>Answer out loud</h3>
+        <p>Each question is read aloud and shown on screen. Press Space, answer the way you would on the day, and press Space again when you finish. A thin answer earns a follow-up, the way a real interviewer would press.</p>
+        <ul><li data-k="a"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--mint)"/></svg><span>Your words appear as you speak: a rough draft, not the transcript you are scored on.</span></li><li data-k="d"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--mint)"/></svg><span>The bars are your real microphone level. Too quiet for a few seconds and it says so.</span></li><li data-k="c"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--ember)"/></svg><span>Strong answers land in the green zone, one to one and a half minutes.</span></li><li data-k="b"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--ember)"/></svg><span>Space starts and stops an answer. Esc ends the session.</span></li></ul>
+      </div>
+    </li>
+    <li class="stop">
+      <figure class="hud" data-gutter="74">
+        <svg class="frame" aria-hidden="true"></svg>
+        <figcaption class="tab"><b>03</b>Debrief</figcaption>
+        <button class="inktoggle" type="button" aria-pressed="true" title="Show the screen without the notes">notes on</button>
+        <div class="screen" style="aspect-ratio:1400 / 1075">
+          <img src="img/how/debrief.webp" width="1400" height="1001" alt="A marked-up answer in the debrief: the question, a score of 95, the answer text with the parts that worked highlighted in green, a Proves tag, a dashed filler, and notes beside the text explaining each mark." loading="lazy" decoding="async">
+          <script type="application/json" class="inkdata">[{"k":"b","pen":"ember","circle":[1348,62,64,50]},{"k":"b","pen":"ember","jot":[880,16],"text":"every answer scored","rot":-2},{"k":"b","pen":"ember","arrow":[1158,40,1280,58,-0.25]},{"k":"a","pen":"mint","under":[722,356,832,356]},{"k":"a","pen":"mint","jot":[958,498],"text":"green = it worked|the note says why","rot":-3},{"k":"a","pen":"mint","arrow":[962,540,846,412,0.3]},{"k":"c","pen":"rose","circle":[708,966,34,26]},{"k":"c","pen":"rose","jot":[770,1012],"text":"um, so, like: dashed","rot":-2},{"k":"c","pen":"rose","arrow":[776,1030,736,992,0.2]}]</script>
+        </div>
+      </figure>
+      <div class="say">
+        <h3>Read your answer, marked up</h3>
+        <p>Every answer comes back like a checked essay: what worked highlighted, what to change underlined, a note beside each explaining why, and a line you could say instead.</p>
+        <ul><li data-k="b"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--ember)"/></svg><span>Each answer gets a score, and the session gets one overall.</span></li><li data-k="a"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 11c3-2 5 2 8 0s5-2 8 0 4 1 6-1" stroke="var(--mint)"/></svg><span>Green highlights are what worked. The note beside each says why, in your own words.</span></li><li data-k="c"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 10h5M10 10h5M18 10h6" stroke="var(--rose)"/></svg><span>Fillers get a dashed line, so you can see how many there were.</span></li></ul>
+      </div>
+    </li>
+    <li class="stop wide flip">
+      <figure class="hud" data-gutter="96">
+        <svg class="frame" aria-hidden="true"></svg>
+        <figcaption class="tab"><b>04</b>Tape</figcaption>
+        <button class="inktoggle" type="button" aria-pressed="true" title="Show the screen without the notes">notes on</button>
+        <div class="screen" style="aspect-ratio:1400 / 569">
+          <img src="img/how/tape.webp" width="1400" height="473" alt="The tape under a debrief: a play button at 00:52 of 02:24, tags for Worked at 00:08, Change at 01:20 and 4 fillers, the answer's waveform with coloured bands where each mark falls, and the words laid out underneath by time." loading="lazy" decoding="async">
+          <script type="application/json" class="inkdata">[{"k":"a","pen":"ember","circle":[943,60,142,32]},{"k":"a","pen":"ember","jot":[1110,108],"text":"tap to jump there","rot":-4},{"k":"a","pen":"ember","arrow":[1136,124,1010,90,-0.3]},{"k":"b","pen":"mint","jot":[170,500],"text":"green bands worked, orange ones need changing","rot":-2},{"k":"b","pen":"mint","arrow":[250,496,256,344,0.15]},{"k":"c","pen":"ember","jot":[830,504],"text":"click any word to hear it","rot":-3},{"k":"c","pen":"ember","arrow":[880,498,930,410,0.2]}]</script>
+        </div>
+      </figure>
+      <div class="say">
+        <h3>Hear the moment it happened</h3>
+        <p>Your recording, laid out as a tape. Every mark from the debrief sits on it at the second it happened, so you can hear exactly what a note is about.</p>
+        <ul><li data-k="a"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M13 2c6 0 11 2.4 11 6s-5 6-11 6S2 11.6 2 8c0-3 3.5-5.2 8.5-5.8" stroke="var(--ember)"/></svg><span>Tap a tag to jump straight to that moment.</span></li><li data-k="c"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 13c6-1 12-4 20-10M16 3h6v6" stroke="var(--ember)"/></svg><span>Click any word to hear it.</span></li><li data-k="b"><svg viewBox="0 0 26 16" aria-hidden="true"><path d="M2 13c6-1 12-4 20-10M16 3h6v6" stroke="var(--mint)"/></svg><span>Green bands worked, orange ones need changing, rose ticks are fillers.</span></li></ul>
+      </div>
+    </li>
+  </ol>
+</div></section>
+
+<section class="sec cast" id="who"><div class="wrap">
+  <div class="cast-copy">
+    <h2 class="reveal">Built for the interview you have <span class="lit">next week</span>, not for a course.</h2>
+    <p class="body reveal">If you have had one interview, or none, the hardest part is that you never hear yourself. You leave the room knowing it went badly without knowing which part.</p>
+    <p class="body reveal">This is the room you go to first: one question, a timer, and afterwards somebody showing you plainly what landed and what did not.</p>
+  </div>
+  <ul class="credits">
+    <li class="reveal"><em>The graduate</em><span>You are about to graduate and the questions are competency ones you have never had to answer out loud.</span></li>
+    <li class="reveal"><em>The second language</em><span>English is your second language and you want to hear how you come across before somebody else does.</span></li>
+    <li class="reveal"><em>The freeze</em><span>You freeze, or you ramble, and you would rather find that out in an empty room than in the real one.</span></li>
+    <li class="reveal"><em>The private one</em><span>You will not upload video of yourself to a company you have never heard of, in order to practise.</span></li>
+  </ul>
+</div></section>
+
+<section class="sec" id="privacy"><div class="wrap">
+  <div class="room">
+    <h2 class="reveal">The tape never leaves the room.</h2>
+    <p class="sub reveal">Every model runs on this computer: the transcription, the language model that writes and scores, and the camera analysis. There is no account, nothing is uploaded, and the camera is measured while you answer rather than filmed.</p>
+    <div class="facts">
+      <div class="fact reveal"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5H15a2 2 0 0 1 2 2v3.4l4-2.4v8M17 17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 1.2-1.8"/></svg></span><div><h3>No video</h3><p>Not stored and then deleted: never written. What the camera contributes is whether you stayed in frame and how steady you held position.</p></div></div>
+      <div class="fact reveal"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><h3>No upload</h3><p>The server binds to your own machine's loopback address. Your answers do not cross a network.</p></div></div>
+      <div class="fact reveal"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/><path d="M3 3l18 18"/></svg></span><div><h3>No account</h3><p>Nothing to sign up for, and nothing that identifies you. Close the tab and it is over.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="close" id="close"><div class="wrap">
+  <div class="clap reveal" aria-hidden="true">
+    <div class="sticks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="slate"><span>PROD.<b>Callback</b></span><span>SCENE<b>09</b></span><span>TAKE<b>01</b></span><span class="wide">DIRECTOR<b>You</b></span><span class="wide">CAMERA<b>Your own machine</b></span></div>
+  </div>
+  <h2 class="reveal">Find out now, not on the day.</h2>
+  <p class="sub reveal">One advert, a few questions out loud, and a debrief that marks the part you would rather not hear.</p>
+  <a class="pill big magnet reveal" href="/practise"><span>Start a session</span><i><svg><use href="#arrow"/></svg></i></a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Callback: an interview coach that runs on your own machine.</span>
+  <span>Nothing on this page is a claim about anyone else's results.</span>
+</div></footer>
+
+<script src="/vendor/gsap.min.js"></script>
+<script src="/vendor/ScrollTrigger.min.js"></script>
+<script src="/vendor/lenis.min.js"></script>
+<script src="/studio/ink.js"></script>
+<script type="module" src="/studio/home.js"></script>
+</body>
+</html>
